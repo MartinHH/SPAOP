@@ -4,6 +4,8 @@
 #Build directories:
 Build/
 Builds/
+Release/
+Debug/
 
 #JUCE library code:
 JuceLibraryCode/
@@ -19,3 +21,4 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
+*.user
