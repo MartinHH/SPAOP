@@ -135,8 +135,8 @@
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <VS2013 targetFolder="Builds/VisualStudio2013" vstFolder="..\..\..\..\VST3 SDK"
-            vst3Folder="..\..\..\..\VST3 SDK" externalLibraries="liblo.lib&#10;IPHLPAPI.lib">
+    <VS2013 targetFolder="Builds/VisualStudio2013" vstFolder="..\..\VST3 SDK"
+            vst3Folder="..\..\VST3 SDK" externalLibraries="liblo.lib&#10;IPHLPAPI.lib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="1" optimisation="1" targetName="SPAOP" headerPath="..\..\..\src\lowrappers&#10;..\..\..\src\wonder&#10;..\..\..\src\thread&#10;..\..\..\src\wonderlo&#10;..\..\..\src\wonderjuce&#10;..\..\..\..\liblo-0.28"
