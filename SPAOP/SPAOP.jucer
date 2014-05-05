@@ -135,15 +135,15 @@
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <VS2013 targetFolder="Builds/VisualStudio2013" vstFolder="C:\Users\Smart\Desktop\bachelor\VST3 SDK"
-            vst3Folder="C:\Users\Smart\Desktop\bachelor\VST3 SDK" externalLibraries="liblo.lib&#10;IPHLPAPI.lib">
+    <VS2013 targetFolder="Builds/VisualStudio2013" vstFolder="..\..\..\..\VST3 SDK"
+            vst3Folder="..\..\..\..\VST3 SDK" externalLibraries="liblo.lib&#10;IPHLPAPI.lib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="SPAOP" headerPath="..\..\..\lowrappers&#10;..\..\..\wonder&#10;..\..\..\thread&#10;..\..\..\wonderlo&#10;..\..\..\wonderjuce&#10;..\..\..\..\..\liblo-0.28"
+                       isDebug="1" optimisation="1" targetName="SPAOP" headerPath="..\..\..\src\lowrappers&#10;..\..\..\src\wonder&#10;..\..\..\src\thread&#10;..\..\..\src\wonderlo&#10;..\..\..\src\wonderjuce&#10;..\..\..\..\liblo-0.28"
                        libraryPath="..\..\..\..\liblo-0.28\lib\ReleaseLib&#10;..\..\..\..\liblo-0.28\lib\ReleaseDLL"
                        useRuntimeLibDLL="1" binaryPath="C:\Program Files (x86)\Common Files\VST3"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="2" targetName="SPAOP" headerPath="..\..\..\lowrappers&#10;..\..\..\wonder&#10;..\..\..\thread&#10;..\..\..\wonderlo&#10;..\..\..\wonderjuce&#10;..\..\..\..\..\liblo-0.28"
+                       isDebug="0" optimisation="2" targetName="SPAOP" headerPath="..\..\..\src\lowrappers&#10;..\..\..\src\wonder&#10;..\..\..\src\thread&#10;..\..\..\src\wonderlo&#10;..\..\..\src\wonderjuce&#10;..\..\..\..\liblo-0.28"
                        libraryPath="..\..\..\..\liblo-0.28\lib\ReleaseLib&#10;..\..\..\..\liblo-0.28\lib\ReleaseDLL"
                        useRuntimeLibDLL="1" binaryPath="C:\Program Files (x86)\Common Files\VST3"/>
       </CONFIGURATIONS>
