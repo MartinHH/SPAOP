@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['error',['error',['../_wonder_header_8h.html#a25de0ee14c369e4cadd5a44ad23bb064ad606e435413ea0944dd00d49e901e4ed',1,'WonderHeader.h']]]
+  ['error',['error',['../namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5a1fa0899093b4d0b6a3bea86c8baf221b',1,'wonder']]]
 ];

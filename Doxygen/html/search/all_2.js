@@ -10,7 +10,7 @@ var searchData=
   ['colours_2ecpp',['Colours.cpp',['../_colours_8cpp.html',1,'']]],
   ['colours_2eh',['Colours.h',['../_colours_8h.html',1,'']]],
   ['connectionlost',['connectionLost',['../classwonder_1_1_ping_control_1_1_listener.html#a1e0fe479fa721c56ceb6bd0af56e60fe',1,'wonder::PingControl::Listener::connectionLost()'],['../classwonder_1_1_source_controller_1_1_listener.html#a58253e3e2f824a11391882b33ba02f2e',1,'wonder::SourceController::Listener::connectionLost()']]],
-  ['connectionstates',['ConnectionStates',['../_wonder_header_8h.html#a25de0ee14c369e4cadd5a44ad23bb064',1,'WonderHeader.h']]],
+  ['connectionstates',['ConnectionStates',['../namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5',1,'wonder']]],
   ['connectionstatus',['connectionStatus',['../classwonder_1_1_source_controller.html#a118d0790fb3b0c8f3c7263c987dcc51c',1,'wonder::SourceController']]],
   ['connectionstatusstring',['connectionStatusString',['../classwonder_1_1_source_controller.html#a63e8a79693f3f7f5de790cfd836fbf3c',1,'wonder::SourceController']]],
   ['connectiontimer',['ConnectionTimer',['../classwonder_1_1_connection_timer.html',1,'wonder']]],
