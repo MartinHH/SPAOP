@@ -36,6 +36,9 @@
         <FILE id="eHnZr9" name="Thread.h" compile="0" resource="0" file="../src/thread/Thread.h"/>
       </GROUP>
       <GROUP id="{DDB08C9B-7708-1AA7-9CE1-723EF440E6F0}" name="wonder">
+        <FILE id="iYxa36" name="PosMsgLogger.cpp" compile="1" resource="0"
+              file="../src/wonder/PosMsgLogger.cpp"/>
+        <FILE id="jcYAjl" name="PosMsgLogger.h" compile="0" resource="0" file="../src/wonder/PosMsgLogger.h"/>
         <FILE id="Whbpk4" name="Colours.cpp" compile="1" resource="0" file="../src/wonder/Colours.cpp"/>
         <FILE id="Tr8nyC" name="Colours.h" compile="0" resource="0" file="../src/wonder/Colours.h"/>
         <FILE id="OedI3m" name="ConnectionTimer.h" compile="0" resource="0"
