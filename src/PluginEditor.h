@@ -79,7 +79,7 @@ private:
     /** Converts a ToggleButton's state to the range of [0.0 ; 1.0]. */
     static double normalizedValue(Button* button);
 
-    static Colour connectionColour(ConnectionStates cStatus);
+    static Colour connectionColour(wonder::ConnectionStates cStatus);
 
     /** Converts a wonder::Colour to a juce::Colour. */
     static juce::Colour juceColour(wonder::Colour colour);
