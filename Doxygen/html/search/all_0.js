@@ -3,7 +3,7 @@ var searchData=
   ['abs',['ABS',['../_source_controller_8h.html#a996f7be338ccb40d1a2a5abc1ad61759',1,'SourceController.h']]],
   ['acceptsmidi',['acceptsMidi',['../class_spaop_audio_processor.html#a228364d2933df2daa886b079d7401d37',1,'SpaopAudioProcessor']]],
   ['activate',['activate',['../classwonder_1_1_source_collection.html#a45cceb389a646ca8bf520487f706b2c0',1,'wonder::SourceCollection']]],
-  ['active',['active',['../_wonder_header_8h.html#a25de0ee14c369e4cadd5a44ad23bb064a5d178ae2be9d93ea4cbf1a9f0a2d9cbe',1,'WonderHeader.h']]],
+  ['active',['active',['../namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5a190c357942f6efd474980e72ad0a573e',1,'wonder']]],
   ['add',['add',['../classlowrappers_1_1_message.html#a96439595a6a96e28eb3e1cfa66ec5b01',1,'lowrappers::Message']]],
   ['addlistener',['addListener',['../classlowrappers_1_1_server_thread.html#a7e923cb015a28e49a20ce1979a5dd2e4',1,'lowrappers::ServerThread::addListener()'],['../classwonderjuce_1_1_source_panel.html#a989d0eb184ed53dc0f93e2b4a4e91ba0',1,'wonderjuce::SourcePanel::addListener()']]],
   ['addmethod',['addMethod',['../classlowrappers_1_1_server_thread.html#a6e9ef3da66426cf6bebfcd16fd764f12',1,'lowrappers::ServerThread']]],

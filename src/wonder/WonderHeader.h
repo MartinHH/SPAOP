@@ -109,6 +109,8 @@
                                         the ping is considered lost. */
 #endif
 
+namespace wonder {
+
 /** An enum describing the differents states of an incoming connection. */
 enum ConnectionStates
 {
@@ -118,6 +120,7 @@ enum ConnectionStates
                      timeout). */
 };
 
+}
 
 
 #endif  // WONDERHEADER_H_INCLUDED

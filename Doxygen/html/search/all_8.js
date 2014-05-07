@@ -1,7 +1,7 @@
 var searchData=
 [
   ['idislocked',['idIsLocked',['../classwonder_1_1_source_controller.html#a28b7c9caeb877fba9c6bd53f28f0ab3e',1,'wonder::SourceController']]],
-  ['inactive',['inactive',['../_wonder_header_8h.html#a25de0ee14c369e4cadd5a44ad23bb064a76c1253bb97844abbdf89af6dfc3c7d6',1,'WonderHeader.h']]],
+  ['inactive',['inactive',['../namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5ac9731626991b77f93223591a12aaed65',1,'wonder']]],
   ['incomingmaxnosources',['incomingMaxNoSources',['../classwonder_1_1_source_controller_1_1_listener.html#ab76ba4e52c83990360a08c5492ad0c6d',1,'wonder::SourceController::Listener']]],
   ['incomingparameterchange',['incomingParameterChange',['../classwonder_1_1_source_controller_1_1_listener.html#ad5038a8cf247df004074b51636f16f30',1,'wonder::SourceController::Listener']]],
   ['initial_5fzoom_5ffactor',['INITIAL_ZOOM_FACTOR',['../_plugin_editor_8h.html#a008d3234f08db1a49e53dba9cff68bef',1,'PluginEditor.h']]],
