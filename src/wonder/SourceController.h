@@ -241,6 +241,8 @@ public:
     void setRoom(Room& room);
 
 private:
+    SourceController(const SourceController& other);            // copying not allowed
+    SourceController &operator= (const SourceController other); // assignment not allowed
     
     std::unique_ptr<VisualStreamReceiver> server_;
     std::unique_ptr<OscSenderThread> cWonder_;      // cWONDER
