@@ -26,29 +26,40 @@
 #include <fstream>
 
 #ifndef MAX_LOGGED_MESSAGES
-#define MAX_LOGGED_MESSAGES 1000
+#define MAX_LOGGED_MESSAGES 10000       /** The maximum number of logged messages.*/
 #endif
 
 #ifndef LOG_FILE_DIR
-#define LOG_FILE_DIR "~/PosLogs/"
+#define LOG_FILE_DIR "/Logs/PosLogs/"   /**< The directory where the logfile is
+                                              stored. */
 #endif
 
 namespace wonder {
 
+/**
+ *  A class to log incoming our outgoing /WONDER/source/position(int, float, float)
+ *  messages along with a (microseconds since epoch) timestamp.
+ *  
+ *  Only the first MAX_LOGGED_MESSAGES are logged (memory for logging is pre-
+ *  allocated, hence there is a fixed value for that). The logfile is written on
+ *  destruction of the object.
+ */
 class PosMsgLogger
 {
 public:
-    PosMsgLogger(const std::string& filename);
+    PosMsgLogger(const std::string& filename, int sourceID=0);
     virtual ~PosMsgLogger();
     
     struct LogItem{
-        std::chrono::microseconds time;
+        std::chrono::time_point<std::chrono::high_resolution_clock> time;
         int sourceID;
         float x;
         float y;
     };
     
     void logPosMessage(int sourceID, float x, float y);
+    
+    void setSourceID(int sourceID);
     
 private:
     PosMsgLogger(const PosMsgLogger& other);            // copying not allowed
@@ -58,6 +69,7 @@ private:
     std::atomic_int logCount_;
     std::chrono::time_point<std::chrono::high_resolution_clock> startTime_;
     const std::string filePath_;
+    int sourceID_;
 };
 
 }

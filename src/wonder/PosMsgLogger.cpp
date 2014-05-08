@@ -20,10 +20,11 @@
 #include "PosMsgLogger.h"
 
 namespace wonder {
-PosMsgLogger::PosMsgLogger(const std::string& filename):
+PosMsgLogger::PosMsgLogger(const std::string& filename, int sourceID):
     logCount_(0),
     startTime_(std::chrono::high_resolution_clock::now()),
-    filePath_(LOG_FILE_DIR + filename)
+    filePath_(LOG_FILE_DIR + filename),
+    sourceID_(sourceID)
 {
 }
     
@@ -34,30 +35,38 @@ PosMsgLogger::~PosMsgLogger()
     
     if(nMsgs){
         // appending the sourceID of the first logged message to the filename:
-        std::ofstream logfile(filePath_ + std::to_string(log_[0].sourceID));
+        const std::string fp = filePath_ + std::to_string(sourceID_) + ".log";
+        std::ofstream logfile(fp);
         
         logfile << "Logged " << nMsgs << " of " << logCount_  << " messages." << std::endl;
         logfile << "high_resolution_clock is " << (std::chrono::high_resolution_clock::is_steady ?
             "" : "not ") << "steady." << std::endl;
         
         for(int i=0; i<nMsgs; i++){
-            logfile << log_[i].time.count() << " ; " << log_[i].sourceID << " ; "
-                << log_[i].x << " ; " << log_[i].y << std::endl;
+            std::chrono::microseconds timestamp =
+                std::chrono::duration_cast<std::chrono::microseconds>(log_[i].time.time_since_epoch());
+            
+            logfile << timestamp.count() << " , " << log_[i].sourceID << " , "
+                << log_[i].x << " , " << log_[i].y << std::endl;
         }
     }
 }
 
 void PosMsgLogger::logPosMessage(int sourceID, float x, float y)
 {
-    std::chrono::time_point<std::chrono::high_resolution_clock> now =
-        std::chrono::high_resolution_clock::now();
     int msgNo = logCount_.fetch_add(1);
     if (msgNo < MAX_LOGGED_MESSAGES) {
-        log_[msgNo].time = std::chrono::duration_cast<std::chrono::microseconds>(now - startTime_);
         log_[msgNo].sourceID = sourceID;
         log_[msgNo].x = x;
         log_[msgNo].y = y;
+        
+        log_[msgNo].time = std::chrono::high_resolution_clock::now();
     }
+}
+    
+void PosMsgLogger::setSourceID(int sourceID)
+{
+    sourceID_ = sourceID;
 }
     
 }
