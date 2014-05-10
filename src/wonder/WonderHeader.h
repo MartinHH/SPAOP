@@ -104,10 +104,11 @@
 
 
 #ifndef PING_TIMEOUT_INTERVAL
-#define PING_TIMEOUT_INTERVAL 3000  /** The maximum allowed interval between two
+#define PING_TIMEOUT_INTERVAL 3000  /**< The maximum allowed interval between two
                                         ping messages (in ms). If this is exceeded,
                                         the ping is considered lost. */
 #endif
+
 
 namespace wonder {
 
