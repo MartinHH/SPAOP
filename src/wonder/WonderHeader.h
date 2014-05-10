@@ -45,7 +45,7 @@
 #define COORD_PRECISION 0.01    /**< The coordinates resolution in degree. More precisely:
                                      the minimum difference between the last coordinate
                                      value that was sent and the current one for a
-                                     new angle message to be sent. */
+                                     new position message to be sent. */
 #endif
 
 #ifndef ANGLE_PRECISION

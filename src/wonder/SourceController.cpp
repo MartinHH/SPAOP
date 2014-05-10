@@ -43,14 +43,17 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     linkedToWonder_(false),
     isLocked_(false),
     cStatus_(inactive)
-{    
+{
+    // initialize the lastValues-array:
     for(int i=0; i<Source::totalNumParams; i++){
         lastValues_[i] = Source::denormalizeParameter(i, Source::getParameterDefaultValue(i));
     }
     
+    // set multicast parameters:
     peerGroup_->setTtl(VISUAL_MC_TTL);
     peerGroup_->setIfaceByIp(VISUAL_MC_IFACE_IP_STR);
     
+    // initialize and start communication threads:
     server_->setListener(this);
     server_->setPingHandler(this);
     server_->start();
@@ -61,11 +64,6 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     
 SourceController::~SourceController()
 {
-    mCaster_->stop();
-    cWonder_->stop();
-    server_->stop();
-    peerGroup_->stop();
-    
     // notify the rest of the system by deactivating the source
     // controlled by this instance:
     if(isLocked_){
@@ -74,6 +72,12 @@ SourceController::~SourceController()
     
     // not supported by cWONDER at the moment, but worth a try anyway:
     streamSource().sendStreamVisualDisconnect();
+    
+    // stop and join communication threads:
+    mCaster_->stop();
+    cWonder_->stop();
+    server_->stop();
+    peerGroup_->stop();
     
     mCaster_->join();
     cWonder_->join();
@@ -115,16 +119,18 @@ bool SourceController::setID(int sourceID)
 
 void SourceController::setParameterAndSendChange(int paramIndex, float normalizedValue)
 {
+    // set parameter
     sources_->setParameterNormalized(sourceID_, paramIndex, normalizedValue);
     
-    if(isLocked_ && relevantChange(paramIndex))
-    {
+    // send only if isLocked and the value's change is relevant:
+    if(isLocked_ && relevantChange(paramIndex)){
+        
         const Source& source_ = sources_->getSource(sourceID_);
         
         // store the new value as last sent value before sending:
         lastValues_[paramIndex] = source_.getDenormalizedParameter(paramIndex);
         
-        switch (paramIndex)
+        switch (paramIndex) // chose the right send-method for the parameter:
         {
             case Source::typeParam:
                 dataDest().sendSourceType(source_.getID(), source_.getType());
@@ -132,7 +138,7 @@ void SourceController::setParameterAndSendChange(int paramIndex, float normalize
             case Source::xPosParam:
             case Source::yPosParam:
             {
-                // since we send out both x and y, both msut be stored as last sent:
+                // since we send out both x and y, both must be stored as last sent:
                 lastValues_[Source::xPosParam] = source_.getXPos();
                 lastValues_[Source::yPosParam] = source_.getYPos();
                 dataDest().sendSourcePosition(source_.getID(), lastValues_[Source::xPosParam],
@@ -171,13 +177,18 @@ void SourceController::updateSourceColour(const Colour colour)
 void SourceController::setLinkedToWonder(bool linked, bool notifyPeers)
 {
     if (linked && !linkedToWonder_) {
+        // switching from "standalone" to "linked":
+        
         linkedToWonder_ = true;
         streamSource().sendStreamVisualConnect("SPAOP");
         sendOwnState();
         if(notifyPeers){
             peerGroup_->sendPluginStandalone(false);
         }
+        
     } else if(!linked && linkedToWonder_) {
+        // switching from "linked" to "standalone":
+        
         linkedToWonder_ = false;
         streamSource().sendStreamVisualConnect("SPAOP");
         sendOwnState(); // just in case the peers were not linked to cWONDER
@@ -200,7 +211,7 @@ void SourceController::setIdIsLocked(bool isLocked)
 {
     if (isLocked && !isLocked_) {
         isLocked_ = true;
-        sendOwnState();
+        sendOwnState(); // includes sendSourceActivate
         streamSource().sendStreamVisualConnect("SPAOP");
     } else if(!isLocked && isLocked_){
         dataDest().sendSourceDeactivate(sourceID_);
@@ -257,9 +268,12 @@ void SourceController::setIncomingParameter(int sourceID,
                                              float unnormalizedValue)
 {
     const float newValue = Source::normalizeParameter(index, unnormalizedValue);
+    
     if(sourceID == sourceID_){
+        // only for messages about "our" source, the listener_ gets notified:
         listener_->incomingParameterChange(index, newValue);
     }
+    
     sources_->setParameterNormalized(sourceID, index, newValue);
 }
 
@@ -441,7 +455,7 @@ int SourceController::onStreamVisualPing(int pingCount, OscSender* replyTo)
     if(isLocked_){
         cStatus_ = active;
         replyTo->sendStreamVisualPong(pingCount);
-        pingControl_.onPing(); // first Ping will start PingControl
+        pingControl_.onPing(); // on the first Ping, this will also start PingControl
     }
     return 0;
 }

@@ -143,11 +143,14 @@ public:
     bool setID(int sourceID);
     
     /** Sends the current value of the parameter indicated by paramIndex to
-     *  cWONDER. Depending on the parameter, the right message format is
+     *  cWONDER (if its value's difference from the value that was sent last
+     *  is relevant). Depending on the parameter, the right message format is
      *  chosen.
      *  
      *  @param index a parameter index value as defined in the enum 
      *      Source::AutomatedParameters.
+     *
+     *  @see COORD_PRECISION, ANGLE_PRECISION
      */
     void setParameterAndSendChange (int paramIndex, float normalizedValue);
     
@@ -272,12 +275,30 @@ private:
     void setIncomingParameter (int sourceID, Source::AutomatedParameters index,
                                float unnormalizedValue);
     
+    /** Returns true if the difference of a parameter's current value from the value
+     *  that was sent out last (stored in lastValues_) is greater than a defined
+     *  threshold.
+     *
+     *  @param index the parameter-index of the parameter to check.
+     */
     bool relevantChange(int index);
     
+    /** Returns the OscSenderThread to send the source control messages to. Depending
+     *  on the communication mode (linked or standalone), this is either cWonder_ or
+     *  peerGroup_.
+     */
     OscSenderThread& dataDest() const;
     
+    /** Returns the OscSenderThread to send the /stream/visual/connect messages to.
+     *  Depending on the communication mode (linked or standalone), this is either
+     *  mCaster_ or peerGroup_.
+     */
     OscSenderThread& streamSource() const;
     
+    /**
+     *  Sends /WONDER/source/activate and the full source info for the source
+     *  controlled by this SourceController.
+     */
     void sendOwnState();
     
     //==============================================================================
