@@ -265,6 +265,7 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             // set source:
             wonder::Source source;
             XmlFactory::updateSourceFromXml(xmlState->getChildByName("source"), &source);
+            sourceController_->setIdIsLocked(false);
             sourceController_->setSource(source);
             
             // set room:
