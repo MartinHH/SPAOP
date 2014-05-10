@@ -92,7 +92,7 @@ int SpaopAudioProcessor::getParameterNumSteps(int index)
     {
         case wonder::Source::typeParam:
             return 2;
-#ifdef JUCEWONDER_DISCRETE
+#ifdef SPAOP_DISCRETE
         case wonder::Source::xPosParam:
             return NUMSTEPS(COORD_MIN, COORD_MAX, COORD_PRECISION);
         case wonder::Source::yPosParam:
