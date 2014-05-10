@@ -189,12 +189,14 @@ public:
     bool isLinkedToWonder() const;
     
     /** Sets the ID locked status. If the sourceID is locked, it cannot be changed,
-     *  and listening to incoming messages is enable. If it is not locked, the ID
+     *  and listening to incoming messages is enabled. If it is not locked, the ID
      *  can be changed, but listenging to incoming messages is disabled.
+     *  On switching from !isLocked to isLocked, a /WONDER/source/activate message
+     *  will be sent, on switching from isLocked to !isLocked, a /WONDER/source/deactivate
+     *  message will be sent.
      *
      *  @param isLocked true if changing the ID shall be disabled and listening
      *      to incoming messages enabled.
-     *  @see startListening(), stopListening(), isListening()
      */
     void setIdIsLocked(bool isLocked);
     

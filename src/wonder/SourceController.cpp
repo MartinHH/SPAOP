@@ -67,7 +67,14 @@ SourceController::~SourceController()
     cWonder_->stop();
     server_->stop();
     peerGroup_->stop();
-
+    
+    // notify the rest of the system by deactivating the source
+    // controlled by this instance:
+    if(isLocked_){
+        dataDest().sendSourceDeactivate(sourceID_);
+    }
+    
+    // not supported by cWONDER at the moment, but worth a try anyway:
     streamSource().sendStreamVisualDisconnect();
     
     mCaster_->join();
@@ -202,8 +209,10 @@ void SourceController::setIdIsLocked(bool isLocked)
 {
     if (isLocked && !isLocked_) {
         isLocked_ = true;
+        sendOwnState();
         streamSource().sendStreamVisualConnect("SPAOP");
     } else if(!isLocked && isLocked_){
+        dataDest().sendSourceDeactivate(sourceID_);
         isLocked_ = false;
         pingControl_.stop();
         cStatus_ = inactive;
