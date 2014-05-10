@@ -177,28 +177,33 @@ void SourceController::updateSourceColour(const Colour colour)
 void SourceController::setLinkedToWonder(bool linked, bool notifyPeers)
 {
     if (linked && !linkedToWonder_) {
-        // switching from "standalone" to "linked":
         
+        // switching from "standalone" to "linked":
         linkedToWonder_ = true;
-        streamSource().sendStreamVisualConnect("SPAOP");
-        sendOwnState();
-        if(notifyPeers){
-            peerGroup_->sendPluginStandalone(false);
-        }
         
     } else if(!linked && linkedToWonder_) {
-        // switching from "linked" to "standalone":
         
+        // switching from "linked" to "standalone":
         linkedToWonder_ = false;
-        streamSource().sendStreamVisualConnect("SPAOP");
-        sendOwnState(); // just in case the peers were not linked to cWONDER
-        if(notifyPeers){
-            peerGroup_->sendPluginStandalone(true);
-        }
         
         // no ping control in standalone mode:
         pingControl_.stop();
         cStatus_ = inactive;
+    } else {
+        // nothing changed, so nothing to be done:
+        return;
+    }
+    
+    // if we end up here, the communication mode has been changed,
+    // so we need to make sure the rest of the system is up-to-date
+    // about "our" source:
+    if(isLocked_){
+        sendOwnState();
+    }
+    
+    if(notifyPeers){
+        // make the other plugins switch their mode as well:
+        peerGroup_->sendPluginStandalone(!linked);
     }
 }
     
@@ -269,7 +274,7 @@ void SourceController::setIncomingParameter(int sourceID,
 {
     const float newValue = Source::normalizeParameter(index, unnormalizedValue);
     
-    if(sourceID == sourceID_){
+    if(isLocked_ && sourceID == sourceID_){
         // only for messages about "our" source, the listener_ gets notified:
         listener_->incomingParameterChange(index, newValue);
     }
@@ -341,65 +346,55 @@ void SourceController::connectionLost(const int connectionID)
     
 int SourceController::onSourceActivate(int sourceID)
 {
-    if(isLocked_){
-        sources_->activate(sourceID);
-        // TODO: reconsider the (sourceID_ == sourceID) case
-    }
+    sources_->activate(sourceID);
     return 0;
 }
     
 int SourceController::onSourceDeactivate(int sourceID)
 {
-    if(isLocked_){
-        if (sourceID == sourceID_) {
-            // someone else has deactivated "our" source -> reactivate
-            dataDest().sendSourceActivate(sourceID_);
-        } else {
-            sources_->deactivate(sourceID);
-        }
+    if (sourceID == sourceID_ && isLocked_) {
+        // someone else has deactivated "our" source -> reactivate
+        dataDest().sendSourceActivate(sourceID_);
+    } else {
+        sources_->deactivate(sourceID);
     }
     return 0;
 }
     
 int SourceController::onSourcePosition(int sourceID, float xPos, float yPos)
 {
-    if(isLocked_){
-        setIncomingParameter(sourceID, Source::xPosParam, xPos);
-        setIncomingParameter(sourceID, Source::yPosParam, yPos);
-    }
+
+    setIncomingParameter(sourceID, Source::xPosParam, xPos);
+    setIncomingParameter(sourceID, Source::yPosParam, yPos);
+
     return 0;
 }
 
 int SourceController::onSourceAngle(int sourceID, float angle)
 {
-    if(isLocked_){
-        setIncomingParameter(sourceID, Source::angleParam, angle);
-    }
+
+    setIncomingParameter(sourceID, Source::angleParam, angle);
+
     return 0;
 }
 
 int SourceController::onSourceType(int sourceID, int type)
 {
-    if(isLocked_){
-        setIncomingParameter(sourceID, Source::typeParam, type);
-    }
+    setIncomingParameter(sourceID, Source::typeParam, type);
     return 0;
 }
     
 int SourceController::onSourceName(int sourceID, const std::string& sourceName)
 {
-    if(isLocked_){
-        sources_->setName(sourceID, sourceName);
-        // TODO: consider stack overflow...
-    }
+    sources_->setName(sourceID, sourceName);
+    // TODO: consider stack overflow - security risk?
+    // (lazy answer: this is done the same way all over WONDER, so why bother...)
     return 0;
 }
     
 int SourceController::onSourceColor(int sourceID, int r, int g, int b)
 {
-    if(isLocked_){
-        sources_->setColour(sourceID, Colour(r, g, b));
-    }
+    sources_->setColour(sourceID, Colour(r, g, b));
     return 0;
 }
     
@@ -423,9 +418,7 @@ int SourceController::onSourceScalingDirection(int sourceID, int scalDir)
     
 int SourceController::onSourceDopplerEffect(int sourceID, int doppler)
 {
-    if(isLocked_){
-        setIncomingParameter(sourceID, Source::dopplParam, doppler);
-    }
+    setIncomingParameter(sourceID, Source::dopplParam, doppler);
     return 0;
 }
     
@@ -438,25 +431,28 @@ int SourceController::onGlobalMaxNoSources(int maxSources)
 int SourceController::onGlobalRenderpolygon(Room room)
 {
     room_ = room;
-    
     return 0;
 }
     
 int SourceController::onProjectXmlDump(int err, const std::string& xmlDump)
 {
-    if(isLocked_){
-        xmlParser_->updateSourceCollectionFromCWonderProject(xmlDump, *(sources_.get()));
-    }
+    xmlParser_->updateSourceCollectionFromCWonderProject(xmlDump, *(sources_.get()));
     return 0;
 }
     
 int SourceController::onStreamVisualPing(int pingCount, OscSender* replyTo)
 {
-    if(isLocked_){
+    
+    replyTo->sendStreamVisualPong(pingCount);
+    
+    if(linkedToWonder_){
+        // connection control is only active in linked mode...
         cStatus_ = active;
-        replyTo->sendStreamVisualPong(pingCount);
-        pingControl_.onPing(); // on the first Ping, this will also start PingControl
+        
+        // on the first Ping, this will also start PingControl:
+        pingControl_.onPing();
     }
+    
     return 0;
 }
     
