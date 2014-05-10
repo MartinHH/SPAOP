@@ -88,7 +88,7 @@ void WonderOscSender::sendSourceActivate(int id)
 
 void WonderOscSender::sendSourceDeactivate(int id)
 {
-    wonderSend("/WONDER/WONDER/source/deactivate", "i", id);
+    wonderSend("/WONDER/source/deactivate", "i", id);
 }
 
 void WonderOscSender::sendSourceType(int id, int type)
