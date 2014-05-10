@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['room_5fline_5fthickness',['ROOM_LINE_THICKNESS',['../_source_panel_8h.html#ab5a4ff21d72fbe63ecc27125d07a573f',1,'SourcePanel.h']]]
+  ['ping_5ftimeout_5finterval',['PING_TIMEOUT_INTERVAL',['../_wonder_header_8h.html#a8c4582ed56a3529da22c1e8792f59099',1,'WonderHeader.h']]]
 ];

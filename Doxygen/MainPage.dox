@@ -1,6 +1,10 @@
 /*! \mainpage SPAOP
 
-This documentation is work in progress, but the [Classes](annotated.html) and [Namespaces](namespaces.html) pages are worth a look already, and the following pages are growing as well:
+This is the documentation for [SPAOP](https://github.com/MartinHH/SPAOP) (Spatial Audio Object Positioner), a VST/VST3/AU/RTAS plugin to control audio object's positions within the [WONDER system for wave field synthesis](http://sourceforge.net/projects/swonder/).
+
+It consists of a main VST/VST3/AU/RTAS plugin (built using the [JUCE](http://www.juce.com/) framework) and a helper application named the StreamMulticaster.
+
+For further information, have a look at the following pages:
 
 - \subpage requirements - what you need to get going.
 - \subpage installation - how to compile and install things.
@@ -12,7 +16,7 @@ This documentation is work in progress, but the [Classes](annotated.html) and [N
 
 /*! \page requirements Requirements
 
-To build and use the SPAOP plugin and the stream-multicaster application, you will need the following:
+To build and use the SPAOP plugin and the StreamMulticaster application, you will need the following:
 
 
 ## Operating System(s)
@@ -45,7 +49,19 @@ You will need a C++11-capable IDE for the OS your bulding for - the code was wri
 
 \tableofcontents
 
-This page provides hints for building and installing SPAOP, the stream-multicaster and the required libraries. Please note that those libraries have their own installation documentations and the information here is just a collection of hints on how to get it right.
+This page provides hints for building and installing SPAOP, the StreamMulticaster and the required libraries. Please note that those libraries have their own installation documentations and the information here is just a collection of hints on how to get it right. 
+
+\section quickguide A quick guide
+
+Before going into the details, here is a brief overview of the steps needed to get running versions of SPAOP and the StreamMulticaster:
+
+-# Clone the [SPAOP repository](https://github.com/MartinHH/SPAOP)
+-# Obtain and build \ref liblo
+-# Obtain JUCE, preferably by \ref gettingfork "cloning the JUCE-fork-submodule"
+-# Build the \ref usingjuce "Introjucer"
+-# Obtain the \ref sdks you need
+-# \ref buildspaop "Build SPAOP" from its .jucer file
+-# \ref buildmulticaster "Build the StreamMulticaster" from one of its IDE projects
 
 \section liblo Liblo
 
@@ -77,7 +93,7 @@ The JUCE library's official website is [www.juce.com](http://www.juce.com/) - th
 
 \subsubsection whyfork Reason for the fork
 
-JUCE's wrapper for VST3 plugins is relatively new and still under development. So far, there is at least one method of Steinberg's interface that is not supported correctly that is fixed in that fork ([see here for a diff](https://github.com/MartinHH/JUCE/compare/julianstorer:master...developMH#files_bucket)).
+JUCE's wrapper for VST3 plugins is relatively new and still under development. So far, there are at least two methods of Steinberg's interface that are not supported correctly - which is fixed in that fork ([see here for a diff](https://github.com/MartinHH/JUCE/compare/julianstorer:master...developMH#files_bucket)).
 
 \subsubsection aboutfork About the fork
 
@@ -85,11 +101,11 @@ The fork contains two branches. The `master` branch is meant to be an exact copy
 
 \subsubsection gettingfork Fetching the fork
 
-The recommended way to get a local copy of the fork is to fetch it as submodule of the SPAOP repository. Go to the base directory of the SPAOP repository and type `git submodule init` and `git submodule update` (see the [Submodules chapter in Pro Git](http://git-scm.com/book/en/Git-Tools-Submodules) to learn more about that).
+The recommended way to get a local copy of the fork is to fetch it as submodule of the SPAOP repository. Go to the base directory of the SPAOP repository and type `git submodule init` and `git submodule update` (see the [Submodules chapter in Pro Git](http://git-scm.com/book/en/Git-Tools-Submodules) to learn more about that). After that is done, the full JUCE repository can be found within the JUCE directory of the SPAOP repository.
 
 \subsubsection updatingfork Updating the fork
 
-That fork might not always be up to date with the offical JUCE repository. To update it yourself, do the following:
+That fork might not always be up to date with the offical JUCE repository. If you want to update it yourself, do the following:
 -# go into the JUCE directory
 -# enter `git fetch upstream` to fetch the original `master` branch.
 -# enter `git checkout master` to switch to your local `master`
@@ -97,7 +113,7 @@ That fork might not always be up to date with the offical JUCE repository. To up
 -# enter `git checkout master` to switch to the local `devlopMH` branch
 -# enter `git merge master` to merge the updates from the `master`branch into the `developMH` branch
 
-\subsection usingjuce Using JUCE
+\subsection usingjuce Using JUCE and the Introjucer
 
 JUCE is well documented so do not expect any details here - just a few words: the JUCE way to mangage a project is to use the Introjucer. The Introjucer is an application that lets you create and manage projects for different IDEs and includes a WYSIWYG GUI editor.
 
@@ -123,15 +139,29 @@ The RTAS-version of SPAOP has never been tested yet. If you want to give it a tr
 
 \section buildspaop Building SPAOP
 
-Once you have all that installed, you can open the file `./SPAOP/SPAOP.jucer` with the introjucer. From there you can launch the project in the IDE of your choice and build it. If you have placed the VST SDK or Liblo in different locations to those recommended above, you might ned to readjust these within the project's settings in the introjucer.
+Once you have all that installed, you can open the file `./SPAOP/SPAOP.jucer` with the \ref usingjuce "Introjucer". From there you can launch the project in the IDE of your choice and build it. If you have placed the VST SDK or Liblo in different locations to those recommended above, you might need to readjust these within the project's settings in the introjucer.
+
+\subsection defines Preprocessor defines
+
+Several options (most importantly: the network addresses of the WONDER system) can be changed by setting preprocessor defines.
+
+\subsubsection parameter_defines Parameter-Defines in WonderHeader.h
+
+There are a few parameters for both the plugin and the StreamMulticaster (network addresses, prameter ranges, ...) that are defined in the file WonderHeader.h - so have a look at the file's documentation page for details on those parameters.
+
+\subsubsection spaop_discrete SPAOP_DISCRETE
+
+Setting the flag `SPAOP_DISCRETE` will change the coordinates and rotation angle parameter's types from non-discrete to discrete. This is relevant for how the plug-in's host handles those parameters:
+
+Normally (witout `SPAOP_DISCRETE` set), the host can set the parameter's to any value within their range ((-COORD_MAX , COORD_MAX) for coordinates, (0.0 , 360.0) for the rotation angle). When `SPAOP_DISCRETE` is set, the host can only set them to discrete values within that range: coordinates are discretised to steps of 1 cm (meaning values can only be one of (-COORD_MAX, -COORD_MAX + 0.01, -COORD_MAX + 0.02, ..., COORD_MAX - 0.01, COORD_MAX)), the angle is discretised to steps of 0.1 degree (meaning values can only be one of (0.0, 0.1, 0.2, ..., 360.0)).
+
+So what is the use for that flag? After recording automation data, certain hosts will "reduce" the automation data and interpolate automation values they deem to be irrelevant. Some hosts have settings where this feature can be turned off (e.g. Cubase's full versions), others don't (e.g. the LE versions of Cubase). By setting the `SPAOP_DISCRETE` flag some hosts (e.g. Cubase) can be forced not to reduce any automation data (apparently, any change of discrete parameter values is considered to be relevant). The downside however is that certain options to manipulate automation data might not be available for discretised parameters (e.g. in Cubase, "drawing" a diagonal automation by setting two automation points is only possible for non-discrete values).
 
 \section buildmulticaster Building the StreamMulticaster
 
-For building the StreamMulticaster, Xcode and VS 2013 projects can be found within `./StreamMulticaster`. Once again, you might need to readjust the location of the Liblo files.
+For building the StreamMulticaster, Xcode and VS 2013 projects can be found within `./StreamMulticaster`. Once again, you might need to readjust the location of the Liblo files. For the connection settings, the same \ref parameter_defines "defines" from WonderHeader.h are applied (so change them as needed).
 
-\section defines Preprocessor defines
 
-There are a few parameters for both the plugin and the StreamMulticaster that you can control by setting preprocessor defines (most importantly, the network addresses to be used). Their default values are all defined in the file WonderHeader.h - so have a look at the file's documentation page for details on those parameters.
 
 
 */

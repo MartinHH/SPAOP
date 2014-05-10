@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sever_5fthread_5frcv_5finterval',['SEVER_THREAD_RCV_INTERVAL',['../_server_thread_8h.html#abcb4135c10119c697813df981f7efe48',1,'ServerThread.h']]]
+  ['room_5fline_5fthickness',['ROOM_LINE_THICKNESS',['../_source_panel_8h.html#ab5a4ff21d72fbe63ecc27125d07a573f',1,'SourcePanel.h']]]
 ];

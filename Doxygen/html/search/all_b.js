@@ -1,6 +1,7 @@
 var searchData=
 [
   ['mainpage_2edox',['MainPage.dox',['../_main_page_8dox.html',1,'']]],
+  ['max_5flogged_5fmessages',['MAX_LOGGED_MESSAGES',['../_pos_msg_logger_8h.html#ad5fc5c5753e20f0739f3b0a416271585',1,'PosMsgLogger.h']]],
   ['max_5fpings_5flost',['MAX_PINGS_LOST',['../_ping_control_8h.html#aca0150838bf0dc26294f56c7b48fda30',1,'PingControl.h']]],
   ['max_5fwonder_5fsources',['MAX_WONDER_SOURCES',['../_wonder_header_8h.html#a72f3cabba603fb968b79b17772bb93f1',1,'WonderHeader.h']]],
   ['message',['Message',['../classlowrappers_1_1_message.html#a09820b8d2a2892f8ed5068d76ed4464d',1,'lowrappers::Message::Message()'],['../classlowrappers_1_1_message.html#aef635188324ac17971c5351fde4186b8',1,'lowrappers::Message::Message(const Message &amp;other)']]],
