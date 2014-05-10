@@ -5,7 +5,7 @@
               buildVST="1" buildVST3="1" buildAU="1" buildRTAS="0" buildAAX="0"
               pluginName="SPAOP" pluginDesc="SPAOP" pluginManufacturer="MH"
               pluginManufacturerEmail="support@yourcompany.com" pluginManufacturerCode="MaHa"
-              pluginCode="jWON" pluginChannelConfigs="{1, 1}, {2, 2}" pluginIsSynth="0"
+              pluginCode="SPAP" pluginChannelConfigs="{1, 1}, {2, 2}" pluginIsSynth="0"
               pluginWantsMidiIn="0" pluginProducesMidiOut="1" pluginSilenceInIsSilenceOut="0"
               pluginEditorRequiresKeys="0" pluginAUExportPrefix="SPAOPAU" pluginRTASCategory=""
               aaxIdentifier="de.haw-hamburg.SPAOP" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
