@@ -29,7 +29,6 @@
 #include "OscSender.h"
 #include "PingControl.h"
 #include "XmlParser.h"
-#include "PosMsgLogger.h"
 
 #define ABS(x) ((x) > 0 ? (x) : -(x))
 
@@ -266,9 +265,6 @@ private:
     ConnectionStates cStatus_;
     float lastValues_[Source::totalNumParams];  // the last values of automated parameters
                                                 // that were sent out (denormalized!)
-    PosMsgLogger sentLogger_;
-    PosMsgLogger rcvdLogger_;
-    
     
     /** Sets an automated parameter from an unnormalized value,
         notifying the listener.
