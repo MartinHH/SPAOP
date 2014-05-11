@@ -58,8 +58,12 @@ private:
     void timerCallback();
 
     void changeListenerCallback (ChangeBroadcaster* changeBroadcaster);
+    
+    void sourcePanelDragStarted (wonderjuce::SourcePanel*);
 
     void sourcePanelValuesChanged (wonderjuce::SourcePanel* panel);
+    
+    void sourcePanelDragEnded (wonderjuce::SourcePanel*);
 
     void textEditorTextChanged (TextEditor& textEditor);
 

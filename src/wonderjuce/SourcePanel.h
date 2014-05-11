@@ -69,18 +69,18 @@ public:
         /** Destructor. */
         virtual ~Listener() {}
         
+        /** Called when the position-dot is about to be dragged.
+         This is called when a drag begins, then it's followed by multiple calls
+         to sliderValueChanged(), and then sliderDragEnded() is called after the
+         user lets go.
+         */
+        virtual void sourcePanelDragStarted (SourcePanel*) {}
+        
         /** Called when the SourcePanel's value is changed. This would be caused by dragging
             the position-dot.
             You can find out the new values using SourcePanel::getX() and SourcePanel::getY().
          */
         virtual void sourcePanelValuesChanged (SourcePanel* panel) = 0;
-        
-        /** Called when the position-dot is about to be dragged.
-            This is called when a drag begins, then it's followed by multiple calls
-            to sliderValueChanged(), and then sliderDragEnded() is called after the
-            user lets go.
-         */
-        virtual void sourcePanelDragStarted (SourcePanel*) {}
         
         /** Called after a drag operation has finished. */
         virtual void sourcePanelDragEnded (SourcePanel*) {}

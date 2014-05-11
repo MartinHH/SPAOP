@@ -462,6 +462,17 @@ void SpaopAudioProcessorEditor::changeListenerCallback(ChangeBroadcaster *change
     getSourceController()->updateSourceColour(wonderColour(colourSelector->getCurrentColour()));
 }
 
+void SpaopAudioProcessorEditor::sourcePanelDragStarted(wonderjuce::SourcePanel *panel)
+{
+    if(panel == sourceZoomPort->getSourcePanel())
+    {
+        AudioProcessor* processor = getProcessor();
+        
+        processor->beginParameterChangeGesture(wonder::Source::xPosParam);
+        processor->beginParameterChangeGesture(wonder::Source::yPosParam);
+    }
+}
+
 void SpaopAudioProcessorEditor::sourcePanelValuesChanged(wonderjuce::SourcePanel *panel)
 {
     if(panel == sourceZoomPort->getSourcePanel())
@@ -475,6 +486,18 @@ void SpaopAudioProcessorEditor::sourcePanelValuesChanged(wonderjuce::SourcePanel
                                              panel->getYPos());
     }
 }
+
+void SpaopAudioProcessorEditor::sourcePanelDragEnded(wonderjuce::SourcePanel *panel)
+{
+    if(panel == sourceZoomPort->getSourcePanel())
+    {
+        AudioProcessor* processor = getProcessor();
+        
+        processor->endParameterChangeGesture(wonder::Source::xPosParam);
+        processor->endParameterChangeGesture(wonder::Source::yPosParam);
+    }
+}
+
 
 void SpaopAudioProcessorEditor::textEditorTextChanged(juce::TextEditor &textEditor)
 {
