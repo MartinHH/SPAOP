@@ -10,7 +10,7 @@
               pluginEditorRequiresKeys="0" pluginAUExportPrefix="SPAOPAU" pluginRTASCategory=""
               aaxIdentifier="de.haw-hamburg.SPAOP" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               jucerVersion="3.1.0" companyName="MH" companyEmail="hansen.martin@posteo.de"
-              defines="">
+              defines="" pluginVSTCategory="kPlugCategSpacializer">
   <MAINGROUP id="GQq14J" name="SPAOP">
     <GROUP id="{60DD65CF-8EAE-F081-1464-4251C8EC2E06}" name="src">
       <FILE id="RdwRNI" name="PluginEditor.cpp" compile="1" resource="0"
