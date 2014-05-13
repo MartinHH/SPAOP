@@ -42,7 +42,8 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     clientName_(clientName),
     linkedToWonder_(false),
     isLocked_(false),
-    cStatus_(inactive)
+    cStatus_(inactive),
+    sentLogger_("sent_")
 {
     // initialize the lastValues-array:
     for(int i=0; i<Source::totalNumParams; i++){
@@ -101,6 +102,7 @@ bool SourceController::setSource(const wonder::Source &source)
         return false;
     } else if (sources_->setSource(source)){
         sourceID_ = source.getID();
+        sentLogger_.setSourceID(sourceID_);
         return true;
     } else {
         return false;
@@ -113,6 +115,7 @@ bool SourceController::setID(int sourceID)
         return false;
     } else {
         sourceID_ = sourceID;
+        sentLogger_.setSourceID(sourceID_);
         return true;
     }
 }
@@ -138,11 +141,14 @@ void SourceController::setParameterAndSendChange(int paramIndex, float normalize
             case Source::xPosParam:
             case Source::yPosParam:
             {
-                // since we send out both x and y, both must be stored as last sent:
+                // since we send out both x and y, both msut be stored as last sent:
                 lastValues_[Source::xPosParam] = source_.getXPos();
                 lastValues_[Source::yPosParam] = source_.getYPos();
-                dataDest().sendSourcePosition(source_.getID(), lastValues_[Source::xPosParam],
-                                              lastValues_[Source::yPosParam]);
+                const int id = source_.getID();
+                const float x = lastValues_[Source::xPosParam];
+                const float y = lastValues_[Source::yPosParam];
+                sentLogger_.logPosMessage(id, x, y);
+                dataDest().sendSourcePosition(id, x, y);
                 break;
             }
             case Source::angleParam:
