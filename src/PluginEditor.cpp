@@ -466,10 +466,13 @@ void SpaopAudioProcessorEditor::sourcePanelDragStarted(wonderjuce::SourcePanel *
 {
     if(panel == sourceZoomPort->getSourcePanel())
     {
-        AudioProcessor* processor = getProcessor();
+//        AudioProcessor* processor = getProcessor();
+//        
+//        processor->beginParameterChangeGesture(wonder::Source::xPosParam);
+//        processor->beginParameterChangeGesture(wonder::Source::yPosParam);
         
-        processor->beginParameterChangeGesture(wonder::Source::xPosParam);
-        processor->beginParameterChangeGesture(wonder::Source::yPosParam);
+        // ^^That is how it should be done, but it is deactivated because of this bug:
+        // http://www.juce.com/forum/topic/vst3-parameterchangegesture-problem-cubase-75
     }
 }
 
@@ -491,10 +494,13 @@ void SpaopAudioProcessorEditor::sourcePanelDragEnded(wonderjuce::SourcePanel *pa
 {
     if(panel == sourceZoomPort->getSourcePanel())
     {
-        AudioProcessor* processor = getProcessor();
+//        AudioProcessor* processor = getProcessor();
+//        
+//        processor->endParameterChangeGesture(wonder::Source::xPosParam);
+//        processor->endParameterChangeGesture(wonder::Source::yPosParam);
         
-        processor->endParameterChangeGesture(wonder::Source::xPosParam);
-        processor->endParameterChangeGesture(wonder::Source::yPosParam);
+        // ^^That is how it should be done, but it is deactivated because of this bug:
+        // http://www.juce.com/forum/topic/vst3-parameterchangegesture-problem-cubase-75
     }
 }
 
