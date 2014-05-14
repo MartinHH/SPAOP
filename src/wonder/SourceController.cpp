@@ -201,6 +201,9 @@ void SourceController::setLinkedToWonder(bool linked, bool notifyPeers)
         sendOwnState();
     }
     
+    // make sure we are updated about the system's current state:
+    streamSource().sendStreamVisualConnect("SPAOP");
+    
     if(notifyPeers){
         // make the other plugins switch their mode as well:
         peerGroup_->sendPluginStandalone(!linked);
