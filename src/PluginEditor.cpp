@@ -480,13 +480,9 @@ void SpaopAudioProcessorEditor::sourcePanelValuesChanged(wonderjuce::SourcePanel
 {
     if(panel == sourceZoomPort->getSourcePanel())
     {
-        AudioProcessor* processor = getProcessor();
+        SpaopAudioProcessor* processor = getProcessor();
 
-        processor->setParameterNotifyingHost(wonder::Source::xPosParam,
-                                             panel->getXPos());
-
-        processor->setParameterNotifyingHost(wonder::Source::yPosParam,
-                                             panel->getYPos());
+        processor->setCoordinatesNotifyingHost(panel->getXPos(), panel->getYPos());
     }
 }
 

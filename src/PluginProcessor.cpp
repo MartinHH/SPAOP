@@ -299,6 +299,18 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 //==============================================================================
 // vvvvv Non-JUCE-AudioProcessor methods:
 
+void SpaopAudioProcessor::setCoordinates(float normalizedX, float normalizedY)
+{
+    sourceController_->setCoordinatesAndSendChange(normalizedX, normalizedY);
+}
+
+void SpaopAudioProcessor::setCoordinatesNotifyingHost(float normalizedX, float normalizedY)
+{
+    setCoordinates(normalizedX, normalizedY);
+    sendParamChangeMessageToListeners (wonder::Source::xPosParam, normalizedX);
+    sendParamChangeMessageToListeners (wonder::Source::yPosParam, normalizedY);
+}
+
 wonder::SourceController* SpaopAudioProcessor::getSourceController() const
 {
     return sourceController_;

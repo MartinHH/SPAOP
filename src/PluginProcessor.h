@@ -100,6 +100,33 @@ public:
     //==============================================================================
     // vvvvv Non-juce::AudioProcessor methods:
     
+    /** Sets the coordinates, sending the corresponding OSC-message.
+     *  For coordinate changes, this is to be prefered since it will result in
+     *  only one OSC message (while two separate calls to setParameterNotifyingHost
+     *  might result in two messages).
+     *
+     *  @param normalizedX The new value for the x-coordinate, normalized within
+     *      [0.0 , 1.0].
+     *  @param normalizedY The new value for the y-coordinate, normalized within
+     *      [0.0 , 1.0].
+     *
+     *  @see setParameter
+     */
+    void setCoordinates(float normalizedX, float normalizedY);
+    
+    /** Sets the coordinates, notifying both the host and the OSC-messaging.
+     *  For coordinate changes, this is to be prefered since it will result in
+     *  only one OSC message (while two separate calls to setParameterNotifyingHost
+     *  might result in two messages).
+     *
+     *  @param normalizedX The new value for the x-coordinate, normalized within
+     *      [0.0 , 1.0].
+     *  @param normalizedY The new value for the y-coordinate, normalized within
+     *      [0.0 , 1.0].
+     *
+     *  @see juce::AudioProcessor::setParameterNotifyingHost
+     */
+    void setCoordinatesNotifyingHost(float normalizedX, float normalizedY);
     
     /** Callback from the timer. If the timer runs out, we did not receive a ping
         message for the incoming "visual" stream which means: the connections is
