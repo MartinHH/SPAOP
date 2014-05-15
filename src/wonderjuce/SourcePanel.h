@@ -78,7 +78,7 @@ public:
         
         /** Called when the SourcePanel's value is changed. This would be caused by dragging
             the position-dot.
-            You can find out the new values using SourcePanel::getX() and SourcePanel::getY().
+            You can get the new values using SourcePanel::getX() and SourcePanel::getY().
          */
         virtual void sourcePanelValuesChanged (SourcePanel* panel) = 0;
         
