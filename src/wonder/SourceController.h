@@ -142,17 +142,33 @@ public:
      */
     bool setID(int sourceID);
     
-    /** Sends the current value of the parameter indicated by paramIndex to
-     *  cWONDER (if its value's difference from the value that was sent last
-     *  is relevant). Depending on the parameter, the right message format is
-     *  chosen.
+    /** Sets the value of the parameter indicated by paramIndex and sends it to
+     *  cWONDER (if its value's difference from the value that was sent last is 
+     *  relevant). Depending on the parameter, the right message format is chosen.
      *  
-     *  @param index a parameter index value as defined in the enum 
+     *  @param index A parameter index value as defined in the enum
      *      Source::AutomatedParameters.
+     *  @param normalizedValue The new value for that parameter, normalized within
+     *      [0.0 , 1.0].
      *
      *  @see COORD_PRECISION, ANGLE_PRECISION
      */
     void setParameterAndSendChange (int paramIndex, float normalizedValue);
+    
+    /** Sets the coordinates and sends them to cWONDER (if the values' difference
+     *  from the values that were sent last is relevant).
+     *  For coordinate changes, this is to be prefered since it will only send
+     *  one OSC message while two separate calls to setParameterAndSendChange
+     *  might result in two messages.
+     *
+     *  @param normalizedX The new value for the x-coordinate, normalized within
+     *      [0.0 , 1.0].
+     *  @param normalizedY The new value for the y-coordinate, normalized within
+     *      [0.0 , 1.0].
+     *
+     *  @see COORD_PRECISION
+     */
+    void setCoordinatesAndSendChange (float normalizedX, float normalizedY);
     
     /** Updates the source's name and sends out the corresponding OSC message
      *  (if sending is enabled).

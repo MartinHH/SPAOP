@@ -158,6 +158,24 @@ void SourceController::setParameterAndSendChange(int paramIndex, float normalize
     }
 }
     
+void SourceController::setCoordinatesAndSendChange(float normalizedX, float normalizedY)
+{
+    // set parameters
+    sources_->setParameterNormalized(sourceID_, Source::xPosParam, normalizedX);
+    sources_->setParameterNormalized(sourceID_, Source::yPosParam, normalizedY);
+    
+    // send only if isLocked and the value's change is relevant:
+    if(isLocked_ && (relevantChange(Source::xPosParam) || relevantChange(Source::yPosParam))){
+        
+        const Source& source_ = sources_->getSource(sourceID_);
+        
+        lastValues_[Source::xPosParam] = source_.getXPos();
+        lastValues_[Source::yPosParam] = source_.getYPos();
+        dataDest().sendSourcePosition(source_.getID(), lastValues_[Source::xPosParam],
+                                      lastValues_[Source::yPosParam]);
+    }
+}
+    
 void SourceController::updateSourceName(const std::string& newSourceName)
 {
     sources_->setName(sourceID_, newSourceName);
