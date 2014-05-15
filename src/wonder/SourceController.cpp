@@ -194,20 +194,26 @@ void SourceController::setLinkedToWonder(bool linked, bool notifyPeers)
         return;
     }
     
-    // if we end up here, the communication mode has been changed,
-    // so we need to make sure the rest of the system is up-to-date
-    // about "our" source:
-    if(isLocked_){
-        sendOwnState();
-    }
-    
-    // make sure we are updated about the system's current state:
-    streamSource().sendStreamVisualConnect("SPAOP");
+    // If we end up here, the communication mode has been changed.
     
     if(notifyPeers){
         // make the other plugins switch their mode as well:
         peerGroup_->sendPluginStandalone(!linked);
     }
+    
+    
+    // make sure the rest of the system is up-to-date about "our" source:
+    if(isLocked_){
+        sendOwnState();
+    }
+    
+    if(notifyPeers && linked){
+        // this plugin initiated a switch from standalone to "linked"
+        // -> send a connect message to the multicaster so it connects
+        // to the "visual stream" of cWONDER:
+        mCaster_->sendStreamVisualConnect("SPAOP");
+    }
+
 }
     
 bool SourceController::isLinkedToWonder() const
