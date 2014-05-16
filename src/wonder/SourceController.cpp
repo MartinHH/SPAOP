@@ -214,15 +214,14 @@ void SourceController::setLinkedToWonder(bool linked, bool notifyPeers)
     
     // If we end up here, the communication mode has been changed.
     
-    if(notifyPeers){
-        // make the other plugins switch their mode as well:
-        peerGroup_->sendPluginStandalone(!linked);
-    }
-    
-    
     // make sure the rest of the system is up-to-date about "our" source:
     if(isLocked_){
         sendOwnState();
+    }
+    
+    if(notifyPeers){
+        // make the other plugins switch their mode as well:
+        peerGroup_->sendPluginStandalone(!linked);
     }
     
     if(notifyPeers && linked){
