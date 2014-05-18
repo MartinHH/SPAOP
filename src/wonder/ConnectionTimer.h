@@ -56,8 +56,8 @@ public:
      *  listener's timeout() method after every timer interval. (A cyclic timer,
      *  not a one-shot timer.)
      *  In case a timer was stopped and restarted, the timer must act as if it was
-     *  restarted (meaning the first call to timeout() wil happen after a full
-     *  timer interval has passed.
+     *  restarted (meaning the first call to timeout() will happen after a full
+     *  timer interval has passed).
      */
     virtual void start() = 0;
     
@@ -72,6 +72,7 @@ public:
     class Factory
     {
     public:
+        
         /** Destructor. */
         virtual ~Factory(){}
         

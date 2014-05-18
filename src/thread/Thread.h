@@ -25,7 +25,7 @@
 #include <mutex>
 
 /**
- *  A namespace for C++ wrappers of basic multithreading objects. Since c++11,
+ *  A namespace for C++ wrappers of basic multithreading objects. Since C++11,
  *  most of that is already available in std, so look there before you look
  *  here.
  */
@@ -62,7 +62,6 @@ public:
     
 protected:
 
-
     /** This is the method that will be executed by the thread. In case
      *  this is implemented with a loop, isStopped() should be checked
      *  reguarly (and the loop shall be exited if isStopped() returns
@@ -71,13 +70,14 @@ protected:
     virtual void run()=0;
 
     /** Returns true if the thread was stopped. Must be checked regularly
-     *  from within execute().
+     *  from within run().
      */
     bool isStopped() const;
     
 private:
+    
     /** The function that is passed to the std::thread thread_. Calls
-     *  thisThread->execute().
+     *  thisThread->run().
      *
      *  @param thisThread Must be this Thread object.
      */

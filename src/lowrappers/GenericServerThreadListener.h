@@ -26,7 +26,9 @@
 namespace lowrappers {
     
 /**
-    A generic functor class for the ServerThread::Listener interface.
+ *  A generic functor class for the ServerThread::Listener interface.
+ *
+ *  @see lowrappers::ListenerMaker for a convenient way to use it.
  */
 template<class T>
 class GenericServerThreadListener   :   public ServerThread::Listener
@@ -35,50 +37,54 @@ public:
     typedef int (T::*fpType)(const char *path, const char *types,
                              lo_arg **argv, int argc, lo_message msg);
     
+    /** Constructor. */
     GenericServerThreadListener(T& object, fpType fp) :
         object_(object), fp_(fp)
     {}
 
+    /** Destructor. */
     virtual ~GenericServerThreadListener(){}
     
     virtual int callback(const char *path, const char *types,
-                       lo_arg **argv, int argc, lo_message msg) {
+                       lo_arg **argv, int argc, lo_message msg)
+    {
         return (object_.*fp_)(path, types, argv, argc, msg);
     }
+    
 private:
     T& object_;
     fpType fp_;
 };
 
 /** A function that conveniently wraps up a GenericServerThreadListener.
- 
-    For example, let's say you have this class:
-    \code{.cpp}
-    class Foo
-    {
-        // ...
-        int bar (const char *path, const char *types,lo_arg **argv, int argc, lo_message msg);
-        // ...
-    };
-    \endcode
-    You can now create a ServerThread::Listener whose callback method calls a Foo
-    instance's bar method like this:
-    \code{.cpp}
-    Foo* foo = new Foo();
-    ServerThread::Listener* listener = ListenerMaker(foo, &Foo::bar);
-    \endcode
- 
-    Keep in mind that this creates a (tiny) object that must be deleted when its
-    not needed anymore!
- 
-    @param object The object whose method shall be called as a callback
-        from a ServerThread.
-    @param fp A function pointer pointing to the method of object that
-        shall be called from a ServerThread. Must match the signature
-        of ServerThread::Listener::callback, i.e. return int and accept
-        parameters (const char*, const char*, lo_arg**, int, lo_message).
-    @return A ServerThread::Listener whose callback method will call
-        object's fp method.
+ *
+ *  For example, let's say you have this class:
+ *  \code{.cpp}
+ *  class Foo
+ *  {
+ *      // ...
+ *      int bar (const char *path, const char *types,lo_arg **argv, int argc, lo_message msg);
+ *      // ...
+ *  };
+ *  \endcode
+ *  You can now create a ServerThread::Listener whose callback method calls a Foo
+ *  instance's bar method like this:
+ *  \code{.cpp}
+ *  Foo* foo = new Foo();
+ *  ServerThread::Listener* listener = ListenerMaker(foo, &Foo::bar);
+ *  \endcode
+ *
+ *  Keep in mind that this creates a (tiny) object that must be deleted when its
+ *  not needed anymore!
+ *
+ *  @param object The object whose method shall be called as a callback
+ *      from a ServerThread.
+ *  @param fp A function pointer pointing to the method of object that
+ *      shall be called from a ServerThread. Must match the signature
+ *      of ServerThread::Listener::callback, i.e. return int and accept
+ *      parameters (const char*, const char*, lo_arg**, int, lo_message).
+ *  @return A ServerThread::Listener whose callback method will call
+ *      object's fp method.
  */
 template<class T>
 ServerThread::Listener* ListenerMaker(T& object, int (T::*fp)(const char *path,

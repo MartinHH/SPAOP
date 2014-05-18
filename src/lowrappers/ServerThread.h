@@ -49,7 +49,7 @@ namespace lowrappers {
  */
 class ServerThread  :   public thread::Thread
 {
-    friend class Address; // for access to the lo_server
+    friend class Address; // for access to the internal lo_server
 public:
     
     /**
@@ -73,9 +73,9 @@ public:
          *      types will match the types string.
          * @param argc The length of the argv array.
          * @param msg The full message as lo_message.
-         * @return 0 if the message has been handled, non-null otherwise.
-         *      (Read about the return value of lo_method_handler in the
-         *      liblo documentation for more details).
+         * @return 0 if the message has been handled and shall not be passed
+         *      to other callback methods, non-zero if the server shall try
+         *      passing the message to further matching callback methods.
          */
         virtual int callback(const char *path, const char *types,
                              lo_arg **argv, int argc, lo_message msg) = 0;
@@ -94,8 +94,7 @@ public:
      * Constructor.
      *
      * @param port A decimal port number, service name or UNIX domain socket
-     *      path may be passed. Note that differently from lo_server_tread_new,
-     *      passing NULL is not allowed.
+     *      path may be passed.
      * @param err_h A function that will be called in the event of an error
      *      being raised. The function prototype is defined in lo_types.h
      */
@@ -107,8 +106,7 @@ public:
      *
      * @param group The multicast group to join.
      * @param port A decimal port number, service name or UNIX domain socket
-     *      path may be passed. Note that differently from lo_server_tread_new,
-     *      passing NULL is not allowed.
+     *      path may be passed.
      * @param err_h A function that will be called in the event of an error
      *      being raised. The function prototype is defined in lo_types.h
      */
@@ -129,12 +127,13 @@ public:
     ServerThread(const std::string& group, const std::string &port,
                  const std::string& ifaceIp, lo_err_handler err_h);
     
+    /** Destructor. */
     virtual ~ServerThread();
     
     /**
      * Checks if initialization was successfull.
      *
-     * @returns True, if this is a valid Server-Thread.
+     * @returns true, if this is a valid ServerThread.
      */
     bool isValid() const;
     
@@ -148,7 +147,7 @@ public:
     /**
      * The port number that the server thread has bound to.
      *
-     * @returns The port number that the server thread has bound to.
+     * @return The port number that the server thread has bound to.
      */
     int port() const;
     
@@ -205,10 +204,6 @@ public:
      */
     void delMethod(const char *path, const char *typespec);
     
-protected:
-    
-    void run();
-    
 private:
     ServerThread(const ServerThread& other);              // copying not allowed
     ServerThread &operator= (const ServerThread other);   // assignment not allowed
@@ -219,6 +214,8 @@ private:
      */
     static int genericCallback(const char *path, const char *types, lo_arg **argv,
                              int argc, lo_message msg, void *user_data);
+    
+    void run(); // inherited from thread::Thread
     
     lo_server server;
 };

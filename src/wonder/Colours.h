@@ -31,7 +31,7 @@ struct Colour
     uint8_t g;  /**< The green value. */
     uint8_t b;  /**< The blue value. */
     
-    /** Contructor. */
+    /** Constructor. */
     Colour(uint8_t red, uint8_t green, uint8_t blue):
     r(red), g(green), b(blue) {}
 };

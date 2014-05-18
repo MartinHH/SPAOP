@@ -34,6 +34,7 @@ class Message
 {
     friend class Address;
 public:
+    
     /** Constructor. */
     Message();
     
@@ -41,14 +42,16 @@ public:
     virtual ~Message();
     
     /** Copy constructor. Creates a copy of this message. (Internally, 
-     *  lo_message_clone is called.
+     *  lo_message_clone is called.)
+     *
+     *  @param other The message to be copied.
      */
     Message(const Message& other);
 
     /** Adds content to the message. Number and types of arguments must match
      *  the types string, e.g. add("iff", 1, 2.0, 3.0) or add(s, "some string").
      *
-     *  @param types A liblo-style typestring
+     *  @param types A liblo-style typestring.
      *  @param ... The content to be added to the message. Number
      *      and types of arguments must match the types string.
      */

@@ -30,7 +30,7 @@
 namespace lowrappers {
 
 /**
-    A wrapper for liblo's lo_address.
+ *  A wrapper for liblo's lo_address.
  */
 class Address
 {
@@ -45,8 +45,7 @@ public:
      *  @param port A valid port number or service name (see the liblo documentation for
      *      what exactly is supported).
      *  @param proto The protocol to use (LO_UDP, LO_TCP or LO_UNIX). See the liblo
-     *      documentation for details - LO_UDP should be used for communication with
-     *      the current version of WONDER.
+     *      documentation for details.
      */
     Address(const std::string &host, const std::string &port,
             int proto=LO_UDP);
@@ -75,10 +74,8 @@ public:
      */
     Address(const Address& other);
     
-    /** 
-     *  Updates the Address to send to a new destination. (Internally, a new
-     *  lo_adress is created, replacing the old one if this Address is owner
-     *  of the lo_address.)
+    /** Updates this Address to send to a new destination. (Internally, a new
+     *  lo_adress is created, replacing the old one.)
      *
      *  @param newHost A valid hostname or ip string (see the liblo documentation for
      *      what exactly is supported).
@@ -87,18 +84,16 @@ public:
      */
     void setAddress(const std::string &newHost, const std::string &newPort);
     
-    /**
-     * Returns the time-to-live value for this Address.
+    /** Returns the time-to-live value for this Address.
      *
-     * @return The time-to-live value for this Address.
+     *  @return The time-to-live value for this Address.
      */
     int getTtl() const;
 
-    /**
-     * Sets the time-to-live value for this Address. This is required for sending
-     * UDP multicast messages.
+    /** Sets the time-to-live value for this Address. This is required for sending
+     *  UDP multicast messages.
      *
-     * @param ttl The time-to-live value for this Address (between 1 and 255).
+     *  @param ttl The time-to-live value for this Address (between 1 and 255).
      */
     void setTtl(uint8_t ttl);
     
@@ -124,120 +119,110 @@ public:
      */
     std::string url() const;
     
-    /**
-     * The hostname of this adress.
+    /** The hostname of this adress.
      *
-     * @return the hostname of this adress.
+     *  @return the hostname of this adress.
      */
     std::string hostname() const;
     
-    /**
-     * The port/service name of this adress.
+    /** The port/service name of this adress.
      * 
-     * @returns the port/service name of this adress.
+     *  @returns the port/service name of this adress.
      */
     std::string port() const;
     
-    /**
-     * Sends a OSC formatted message to this address.
+    /** Sends a OSC formatted message to this address.
      *
-     * @param path The OSC path of the message.
-     * @param types The types of the data items in the message.
-     * @param ... The data values to be transmitted. The types of the arguments
-     *      passed here must agree with the types specified in the type parameter.
+     *  @param path The OSC path of the message.
+     *  @param types The types of the data items in the message.
+     *  @param ... The data values to be transmitted. The types of the arguments
+     *       passed here must agree with the types specified in the type parameter.
      *
-     * returns -1 on failure.
+     *  return -1 on failure.
      */
     int send(const std::string &path, const std::string types, ...) const;
     
-    /**
-     * Sends a OSC formatted message to this address.
+    /** Sends a OSC formatted message to this address.
      *
-     * @param path The OSC path of the message.
-     * @param msg The Message to be sent.
+     *  @param path The OSC path of the message.
+     *  @param msg The Message to be sent.
      *
-     * @return -1 on failure.
+     *  @return -1 on failure.
      */
     int send(const std::string &path, const Message& msg) const;
     
-    /**
-     * Sends a liblo lo_message to this address.
+    /** Sends a liblo lo_message to this address.
      *
-     * @param path The OSC path of the message.
-     * @param msg The Message to be sent.
+     *  @param path The OSC path of the message.
+     *  @param msg The Message to be sent.
      *
-     * @return -1 on failure.
+     *  @return -1 on failure.
      */
     int send(const std::string &path, const lo_message msg) const;
     
-    /**
-     * Sends a OSC formatted message to this address. Parameters are passed
-     * as a va_list. This allows other varargs methods to pass on their
-     * arguments.
+    /** Sends a OSC formatted message to this address. Parameters are passed
+     *  as a va_list. This allows other varargs methods to pass on their
+     *  arguments.
      *
-     * @param path The OSC path of the message.
-     * @param types The types of the data items in the message.
-     * @param args The data values to be transmitted. The types of the arguments
-     *      passed here (and their length) must agree with the types specified
-     *      in the type parameter.
+     *  @param path The OSC path of the message.
+     *  @param types The types of the data items in the message.
+     *  @param args The data values to be transmitted. The types of the arguments
+     *       passed here (and their length) must agree with the types specified
+     *       in the type parameter.
      *
-     * @return -1 on failure.
+     *  @return -1 on failure.
      */
     int sendVAList(const std::string &path, const std::string &type, va_list args) const;
 
-    /**
-     * Sends a OSC formatted message to this address, from the same socket
-     * as the specified server.
+    /** Sends a OSC formatted message to this address, from the same socket
+     *  as the specified server.
      *
-     * @param from The server to send the message from.
-     * @param path The OSC path of the message.
-     * @param types The types of the data items in the message.
-     * @param ... The data values to be transmitted. The types of the arguments
-     *      passed here must agree with the types specified in the type parameter.
+     *  @param from The server to send the message from.
+     *  @param path The OSC path of the message.
+     *  @param types The types of the data items in the message.
+     *  @param ... The data values to be transmitted. The types of the arguments
+     *       passed here must agree with the types specified in the type parameter.
      *
-     * @return -1 on failure.
+     *  @return -1 on failure.
      */
     int sendFrom(const ServerThread &from, const std::string &path,
                  const std::string types, ...) const;
     
-    /**
-     * Sends a OSC formatted message to this address, from the same socket
-     * as the specified server.
+    /** Sends a OSC formatted message to this address, from the same socket
+     *  as the specified server.
      *
-     * @param from The server to send the message from.
-     * @param path The OSC path of the message.
-     * @param msg The Message to be sent.
+     *  @param from The server to send the message from.
+     *  @param path The OSC path of the message.
+     *  @param msg The Message to be sent.
      *
-     * @return -1 on failure.
+     *  @return -1 on failure.
      */
     int sendFrom(const ServerThread &from, const std::string &path,
                  const Message& msg) const;
     
-    /**
-     * Sends a liblo lo_message to this address, from the same socket
-     * as the specified server.
+    /** Sends a liblo lo_message to this address, from the same socket
+     *  as the specified server.
      *
-     * @param from The server to send the message from.
-     * @param path The OSC path of the message.
-     * @param msg The Message to be sent.
+     *  @param from The server to send the message from.
+     *  @param path The OSC path of the message.
+     *  @param msg The Message to be sent.
      *
-     * @return -1 on failure.
+     *  @return -1 on failure.
      */
     int sendFrom(const ServerThread &from, const std::string &path,
                  const lo_message msg) const;
     
-    /**
-     * Sends a OSC formatted message to this address, from the same socket
-     * as the specified server. Parameters are passed as a va_list. This 
-     * allows other varargs methods to pass on their arguments.
+    /** Sends a OSC formatted message to this address, from the same socket
+     *  as the specified server. Parameters are passed as a va_list. This 
+     *  allows other varargs methods to pass on their arguments.
      *
-     * @param path The OSC path of the message.
-     * @param types The types of the data items in the message.
-     * @param args The data values to be transmitted. The types of the arguments
-     *      passed here (and their length) must agree with the types specified
-     *      in the type parameter.
+     *  @param path The OSC path of the message.
+     *  @param types The types of the data items in the message.
+     *  @param args The data values to be transmitted. The types of the arguments
+     *       passed here (and their length) must agree with the types specified
+     *       in the type parameter.
      *
-     * @return -1 on failure.
+     *  @return -1 on failure.
      */
     int sendVAListFrom(const ServerThread &from, const std::string &path,
                        const std::string &types, va_list args) const;

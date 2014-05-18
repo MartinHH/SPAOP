@@ -34,7 +34,7 @@ namespace wonder {
  *  and enables the developer to switch from one OSC implementation to another
  *  without touching the code within namespace wonder.
  *
- *  @see wonderlo::WonderOscSender and wonderlo::WonderOscServerSender for
+ *  @see wonderlo::WonderOscSender (and further classesderived from it) for
  *      liblo-based implementations of this interface.
  *
  *  @see VisualStreamReceiver::createSender for an implementation-independent
@@ -43,6 +43,8 @@ namespace wonder {
 class OscSender
 {
 public:
+    
+    /** Destructor. */
     virtual ~OscSender(){}
     
     /** Sets the destination address where this OscSender will send to.
