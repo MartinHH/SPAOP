@@ -62,7 +62,7 @@
 
 // cWONDER_
 #ifndef CWONDER_DEFAULT_IP_STR
-#define CWONDER_DEFAULT_IP_STR "192.168.3.1" /**< cWONDER's ip. */
+#define CWONDER_DEFAULT_IP_STR "192.168.3.1" /**< cWONDER's IP. */
 #endif
 
 #ifndef CWONDER_DEFAULT_PORT_STR
@@ -71,7 +71,7 @@
 
 // Multicast group:
 #ifndef VISUAL_MC_GROUP_STR
-#define VISUAL_MC_GROUP_STR "239.0.111.111" /**< The multicast group's ip. */
+#define VISUAL_MC_GROUP_STR "239.0.111.111" /**< The multicast group's IP. */
 
 #endif
 

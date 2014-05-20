@@ -44,6 +44,8 @@ public:
     class Listener
     {
     public:
+        
+        /** Destructor. */
         virtual ~Listener(){}
         
         /** Called when more than maxLost pings did not arrive
@@ -91,9 +93,10 @@ public:
      */
     void stop();
     
-    /** Called when an incoming ping is received. Depending on where this class is
-     *  used, the incoming ping could also be a "pong".
-     *  If this PingControl is not started yet, it will also start PingControl.
+    /** Called when an incoming ping is received. (Depending on how this class is
+     *  used, the incoming ping could also be a "pong".)
+     *  If this PingControl is not started yet, a call to this method will also
+     *  start PingControl.
      */
     void onPing();
     

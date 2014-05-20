@@ -35,6 +35,7 @@ namespace wonder {
 class Room
 {
 public:
+    
     /** A struct describing a vertex with its three coordinates. */
     struct Vertex
     {
@@ -60,16 +61,32 @@ public:
     /** Destructor.*/
     virtual ~Room();
     
-    /** The name of the room as provided by WONDER (where it is read from a config
-     *  file).
+    /** The name of the room as provided by cWONDER. (cWONDER reads it
+     *  from a config file.)
      */
     const std::string& getName() const;
     
     /** Returns the number of vertices of the room. */
     int getNumberOfVertices() const;
     
+    /** Returns a Vertex of the Room.
+     *
+     *  @param vertexNo An index within [0, numberOfVerices-1].
+     *
+     *  @return The vertex indicated by vertexNo. If vertexNo is < 0,
+     *      vertex number 0 will be returned. If vertexNo is >=
+     *      numberOfVerices, vertex number numberOfVertices-1 will be
+     *      returned.
+     */
     const Vertex& getVertex(int vertexNo) const;
     
+    /** Updates a vertex of the room.
+     *
+     *  @param vertexNo An index within [0, numberOfVerices-1]. If vertexNo
+     *      is not within that interval, nothing will be changed.
+     *  @param vertex A Vertex with the new coordinates of vertex number
+     *      vertexNo.
+     */
     void setVertex(int vertexNo, const Vertex vertex);
     
 private:
