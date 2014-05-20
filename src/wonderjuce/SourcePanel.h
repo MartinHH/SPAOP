@@ -49,19 +49,44 @@ public:
     void mouseDrag(const MouseEvent &event) override;
     void mouseUp(const MouseEvent &event) override;
 
+    /** Returns the x coordinate of the source controlled by this SourcePanel,
+     *  normalized within [0.0 ; 1.0].
+     *
+     *  @return The x coordinate of the source controlled by this SourcePanel,
+     *      normalized within [0.0 ; 1.0].
+     */
     float getXPos();
+    
+    /** Returns the y coordinate of the source controlled by this SourcePanel,
+     *  normalized within [0.0 ; 1.0].
+     *
+     *  @return The y coordinate of the source controlled by this SourcePanel,
+     *      normalized within [0.0 ; 1.0].
+     */
     float getYPos();
     
+    /** Sets the size of the dot indicating the source's position. Various other
+     *  sizes are determined by this (i.e. the size of the arrow indciating a
+     *  plane wave source and the text size of the source names).
+     *
+     *  @param diameter The dot's diameter in pixels.
+     */
     void setPositionDotSize(int diameter);
-    int getPositionDotSize();
+    
+    /** Returns the size of the dot indicating the source's position (diameter in
+     *  pixels).
+     *
+     *  @return The size of the dot indicating the source's position (diameter in
+     *      pixels).
+     */
+    int getPositionDotSize() const;
 
 
-    //==============================================================================
-    /** A class for receiving callbacks from an SourcePanel.
-        To be told when a SourcePanel's value changes, you can register an
-        SourcePanel::Listener object using SourcePanel::addListener().
-     
-        @see SourcePanel::addListener, SourcePanel::removeListener
+    /** A class for receiving callbacks from a SourcePanel.
+     *  To be told when a SourcePanel's value changes, you can register an
+     *  SourcePanel::Listener object using SourcePanel::addListener().
+     *
+     *  @see SourcePanel::addListener, SourcePanel::removeListener
      */
     class Listener
     {
@@ -70,19 +95,29 @@ public:
         virtual ~Listener() {}
         
         /** Called when the position-dot is about to be dragged.
-         This is called when a drag begins, then it's followed by multiple calls
-         to sliderValueChanged(), and then sliderDragEnded() is called after the
-         user lets go.
+         *  This is called when a drag begins, then it's followed by multiple calls
+         *  to sliderValueChanged(), and then sliderDragEnded() is called after the
+         *  user lets go.
+         *
+         *  @param panel A pointer to the SourcePanel that initiated the call to this
+         *      method.
          */
-        virtual void sourcePanelDragStarted (SourcePanel*) {}
+        virtual void sourcePanelDragStarted (SourcePanel* panel) {}
         
         /** Called when the SourcePanel's value is changed. This would be caused by dragging
-            the position-dot.
-            You can get the new values using SourcePanel::getX() and SourcePanel::getY().
+         *  the position-dot.
+         *  You can get the new values using SourcePanel::getX() and SourcePanel::getY().
+         *
+         *  @param panel A pointer to the SourcePanel that initiated the call to this
+         *      method.
          */
         virtual void sourcePanelValuesChanged (SourcePanel* panel) = 0;
         
-        /** Called after a drag operation has finished. */
+        /** Called after a drag operation has finished.
+         *
+         *  @param panel A pointer to the SourcePanel that initiated the call to this
+         *      method.
+         */
         virtual void sourcePanelDragEnded (SourcePanel*) {}
     };
     
@@ -101,13 +136,47 @@ public:
      */
     bool setSources(std::shared_ptr<const wonder::SourceCollection> sources);
     
+    /** Sets the ID of the source to be shown as the main source that can be
+     *  controlled using this SourcePanel.
+     *
+     *  @param sourceID The ID of the source to be shown as the main source.
+     *  @return true on success, false on failure (= if the sourceID was out
+     *      of range).
+     */
     bool setSource(int sourceID);
     
     bool setRoom(const wonder::Room* room);
     
+    /** Sets whether the other sources (not controlled by this panel) shall be
+     *  shown.
+     *
+     *  @param showOthers true if the other sources (not controlled by this
+     *      panel) shall be shown.
+     */
     void setShowOtherSources(bool showOthers);
     
-    bool showsOtherSources();
+    /** Returns the current showOtherSources setting. If this is true, the
+     *  other sources (not controlled by this panel) are shown.
+     *
+     *  @return The current showOtherSources setting. If this is true, the
+     *      other sources (not controlled by this panel) are shown.
+     */
+    bool showsOtherSources() const;
+    
+    /** Sets whether the names of the sources shall be shown next to them.
+     *
+     *  @param showNames true if the names of the sources shall be shown
+     *      next to them.
+     */
+    void setShowNames(bool showNames);
+    
+    /** Returns the current showNames setting. If this is true, the names
+     *  of the sources are shown.
+     *
+     *  @return The current showNames setting. If this is true, the names
+     *      of the sources are shown.
+     */
+    bool showsNames() const;
 
 protected:
     void paintSource(Graphics& g, const wonder::Source& source, uint8_t alpha);
@@ -117,6 +186,7 @@ private:
     std::shared_ptr<const wonder::SourceCollection> sources_;
     const wonder::Room* room_;
     bool showOthers_;
+    bool showNames_;
     int sourceID_;
     int dotSize_;
     bool dotIsHit_;

@@ -30,6 +30,7 @@ SourcePanel::SourcePanel(const String& componentName):
     sources_(nullptr),
     room_(nullptr),
     showOthers_(true),
+    showNames_(false),
     sourceID_(0),
     dotSize_(10),
     dotIsHit_(false)
@@ -169,7 +170,7 @@ void SourcePanel::setPositionDotSize(int diameter)
     }
 }
 
-int SourcePanel::getPositionDotSize()
+int SourcePanel::getPositionDotSize() const
 {
     return dotSize_;
 }
@@ -222,11 +223,21 @@ void SourcePanel::setShowOtherSources(bool showOthers)
     showOthers_ = showOthers;
 }
 
-bool SourcePanel::showsOtherSources()
+bool SourcePanel::showsOtherSources() const
 {
     return showOthers_;
 }
     
+void SourcePanel::setShowNames(bool showNames)
+{
+    showNames_ = showNames;
+}
+    
+bool SourcePanel::showsNames() const
+{
+    return showNames_;
+}
+
 void SourcePanel::paintSource(Graphics& g, const wonder::Source& source, uint8_t alpha)
 {
     
@@ -281,6 +292,12 @@ void SourcePanel::paintSource(Graphics& g, const wonder::Source& source, uint8_t
         g.drawLine(leftSideStartX, leftSideStartY, leftSideEndX, leftSideEndY, sideThickness);
         g.drawLine(rightSideStartX, rightSideStartY, rightSideEndX, rightSideEndY, sideThickness);
     }
+    
+    if(showNames_){
+        const float fontSize = g.getCurrentFont().getHeight();
+        g.drawSingleLineText(source.getName(), x + 1.5 * dotSize_, y + fontSize/2 - 1);
+    }
+
 }
 
 }
