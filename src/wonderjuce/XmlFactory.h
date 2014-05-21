@@ -25,6 +25,7 @@
 #include "SourceCollection.h"
 #include "Room.h"
 #include "XmlParser.h"
+#include "PluginProcessor.h"
 #include "JuceHeader.h"
 
 namespace wonderjuce {
@@ -127,15 +128,15 @@ public:
      */
     static XmlElement* createConnectionXml(const wonder::SourceController* controller);
     
-    /** Creates an XmlElement that holds the parameters of a SourceZoomPort that
-     *  need to be restored.
+    /** Creates an XmlElement that holds the parameters of a SPAOP gui that need to
+     *  be stored.
      *
-     *  @param zoomFactor The zoom-factor.
-     *  @param showOthers The SourcePanel's "show other sources" setting.
-     *  @return an XmlElement containing the corrsponding info. The element is
-     *      named "gui", its attributes are named "zoom" and "show".
+     *  @param processor The SpaopAudioProcessor of the plugin whose gui settings
+     *      shall be stored.
+     *  @return an XmlElement containing the corresponding info. The element is
+     *      named "gui", its attributes are named "zoom" and "show" and "names".
      */
-    static XmlElement* createGuiXml(const float zoomFactor, const bool showOthers);
+    static XmlElement* createGuiXml(float zoomFactor, bool showOthers, bool showNames);
     
 private:
     /**

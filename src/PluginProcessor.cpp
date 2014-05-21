@@ -238,7 +238,7 @@ void SpaopAudioProcessor::getStateInformation (MemoryBlock& destData)
     xml.addChildElement(XmlFactory::createConnectionXml(sourceController_));
     
     // add gui settings:
-    xml.addChildElement(XmlFactory::createGuiXml(zoomFactor_, showOtherSources_));
+    xml.addChildElement(XmlFactory::createGuiXml(zoomFactor_, showOtherSources_, showNames_));
     
     // then use this helper function to stuff it into the binary blob and return it..
     copyXmlToBinary (xml, destData);
@@ -280,8 +280,9 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             // set gui:
             XmlElement* guiElement = xmlState->getChildByName("gui");
             if (guiElement != nullptr) {
-                showOtherSources_ = guiElement->getBoolAttribute("show", showOtherSources_);
                 zoomFactor_ = guiElement->getDoubleAttribute("zoom", zoomFactor_);
+                showOtherSources_ = guiElement->getBoolAttribute("show", showOtherSources_);
+                showNames_ = guiElement->getBoolAttribute("names", showNames_);
             }
         }
     }
@@ -340,4 +341,14 @@ bool SpaopAudioProcessor::showOtherSources() const
 void SpaopAudioProcessor::setShowOtherSources(bool showOtherSources)
 {
     showOtherSources_ = showOtherSources;
+}
+
+bool SpaopAudioProcessor::showNames() const
+{
+    return showNames_;
+}
+
+void SpaopAudioProcessor::setShowNames(bool showNames)
+{
+    showNames_ = showNames;
 }

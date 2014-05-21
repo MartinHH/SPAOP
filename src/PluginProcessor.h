@@ -172,6 +172,22 @@ public:
      *  @param showOtherSources true if the GUI shall show all active sources.
      */
     void setShowOtherSources(bool showOtherSources);
+    
+    /** Returns true if the GUI shall the sources' names. (As this parameters
+     *  shall be restorable via getStateInformation and setStateInformation, it needs
+     *  to be stored within this class.)
+     *
+     *  @return true if the GUI shall show the sources' names.
+     */
+    bool showNames() const;
+    
+    /** Set the GUI's showNames parameter (As this parameters shall be
+     *  restorable via getStateInformation and setStateInformation, it needs to be
+     *  stored within this class.)
+     *
+     *  @param showOtherSources true if the GUI shall show the sources' names.
+     */
+    void setShowNames(bool showNames);
 
 private:
     //==============================================================================
@@ -180,6 +196,7 @@ private:
     // GUI parameters that need to be stored:
     float zoomFactor_;
     bool showOtherSources_;
+    bool showNames_;
     
     //==============================================================================
     //vvvvv  Implementing SourceControl::Listener

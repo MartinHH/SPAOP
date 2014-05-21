@@ -205,11 +205,12 @@ XmlElement* XmlFactory::createConnectionXml(const wonder::SourceController *cont
     return controllerXml;
 }
     
-XmlElement* XmlFactory::createGuiXml(const float zoomFactor, const bool showOthers)
+XmlElement* XmlFactory::createGuiXml(float zoomFactor, bool showOthers, bool showNames)
 {
     XmlElement* guiXml = new XmlElement("gui");
     guiXml->setAttribute("zoom", zoomFactor);
     guiXml->setAttribute("show", showOthers);
+    guiXml->setAttribute("names", showNames);
     return guiXml;
 }
     
