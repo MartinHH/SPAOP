@@ -187,6 +187,10 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
     angleSlider->setColour (Slider::rotarySliderOutlineColourId, Colours::black);
     angleSlider->addListener (this);
 
+    addAndMakeVisible (showNamesButton = new ToggleButton ("show names button"));
+    showNamesButton->setButtonText (TRANS("Show source names"));
+    showNamesButton->addListener (this);
+
 
     //[UserPreSize]
     wonderjuce::SourcePanel* sourcePanel = sourceZoomPort->getSourcePanel();
@@ -249,6 +253,7 @@ SpaopAudioProcessorEditor::~SpaopAudioProcessorEditor()
     showOthersButton = nullptr;
     sourceZoomPort = nullptr;
     angleSlider = nullptr;
+    showNamesButton = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -269,32 +274,33 @@ void SpaopAudioProcessorEditor::paint (Graphics& g)
 
 void SpaopAudioProcessorEditor::resized()
 {
-    displayGroup->setBounds (464, 392, 240, 88);
-    parametersGroup->setBounds (464, 80, 240, 168);
+    displayGroup->setBounds (464, 384, 240, 96);
+    parametersGroup->setBounds (464, 88, 240, 168);
     sourceGroup->setBounds (464, 8, 240, 64);
-    connectionGroup->setBounds (464, 256, 240, 128);
+    connectionGroup->setBounds (464, 272, 240, 96);
     xSlider->setBounds (112, 408, 100, 71);
     ySlider->setBounds (280, 408, 100, 71);
     idSlider->setBounds (520, 32, 96, 24);
     idLabel->setBounds (480, 32, 32, 24);
-    angleLabel->setBounds (624, 136, 56, 24);
-    dopplerButton->setBounds (480, 136, 112, 24);
+    angleLabel->setBounds (624, 144, 56, 24);
+    dopplerButton->setBounds (480, 144, 112, 24);
     lockIDButton->setBounds (632, 32, 56, 24);
-    linkWonderButton->setBounds (480, 280, 208, 24);
+    linkWonderButton->setBounds (480, 288, 208, 24);
     zoomSlider->setBounds (552, 448, 136, 24);
     yPosLabel->setBounds (256, 456, 48, 24);
     xPosLabel->setBounds (88, 456, 48, 24);
     zoomLabel->setBounds (480, 448, 48, 24);
     addrLabel->setBounds (480, 312, 64, 24);
     urlLabel->setBounds (552, 312, 136, 24);
-    cStatusLabel->setBounds (480, 344, 200, 24);
-    nameEditor->setBounds (552, 104, 136, 24);
-    nameLabel->setBounds (480, 104, 56, 24);
-    typeButton->setBounds (480, 168, 112, 24);
-    colourButton->setBounds (480, 208, 104, 24);
-    showOthersButton->setBounds (480, 416, 208, 24);
+    cStatusLabel->setBounds (480, 336, 200, 24);
+    nameEditor->setBounds (552, 112, 136, 24);
+    nameLabel->setBounds (480, 112, 56, 24);
+    typeButton->setBounds (480, 176, 112, 24);
+    colourButton->setBounds (480, 216, 104, 24);
+    showOthersButton->setBounds (480, 400, 208, 24);
     sourceZoomPort->setBounds (24, 16, 432, 432);
-    angleSlider->setBounds (624, 168, 56, 72);
+    angleSlider->setBounds (624, 176, 56, 72);
+    showNamesButton->setBounds (480, 424, 208, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -385,6 +391,12 @@ void SpaopAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
         getProcessor()->setShowOtherSources(showOthersButton->getToggleState());
         //[/UserButtonCode_showOthersButton]
     }
+    else if (buttonThatWasClicked == showNamesButton)
+    {
+        //[UserButtonCode_showNamesButton] -- add your button handler code here..
+        getProcessor()->setShowNames(showNamesButton->getToggleState());
+        //[/UserButtonCode_showNamesButton]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -433,6 +445,7 @@ void SpaopAudioProcessorEditor::timerCallback()
                                  dontSendNotification);
     showOthersButton->setToggleState(getProcessor()->showOtherSources(),
                                      dontSendNotification);
+    showNamesButton->setToggleState(getProcessor()->showNames(), dontSendNotification);
 
     const bool isPlaneSource = source.getType() == wonder::Source::plane;
     angleLabel->setEnabled(isPlaneSource);
@@ -448,6 +461,7 @@ void SpaopAudioProcessorEditor::timerCallback()
     wonderjuce::SourcePanel* sourcePanel = sourceZoomPort->getSourcePanel();
     sourcePanel->setSource(source.getID());
     sourcePanel->setShowOtherSources(getProcessor()->showOtherSources());
+    sourcePanel->setShowNames(getProcessor()->showNames());
 
     urlLabel->setText(controller->getDataDestHostAndPort(), dontSendNotification);
 
@@ -467,10 +481,10 @@ void SpaopAudioProcessorEditor::sourcePanelDragStarted(wonderjuce::SourcePanel *
     if(panel == sourceZoomPort->getSourcePanel())
     {
 //        AudioProcessor* processor = getProcessor();
-//        
+//
 //        processor->beginParameterChangeGesture(wonder::Source::xPosParam);
 //        processor->beginParameterChangeGesture(wonder::Source::yPosParam);
-        
+
         // ^^That is how it should be done, but it is deactivated because of this bug:
         // http://www.juce.com/forum/topic/vst3-parameterchangegesture-problem-cubase-75
     }
@@ -491,10 +505,10 @@ void SpaopAudioProcessorEditor::sourcePanelDragEnded(wonderjuce::SourcePanel *pa
     if(panel == sourceZoomPort->getSourcePanel())
     {
 //        AudioProcessor* processor = getProcessor();
-//        
+//
 //        processor->endParameterChangeGesture(wonder::Source::xPosParam);
 //        processor->endParameterChangeGesture(wonder::Source::yPosParam);
-        
+
         // ^^That is how it should be done, but it is deactivated because of this bug:
         // http://www.juce.com/forum/topic/vst3-parameterchangegesture-problem-cubase-75
     }
@@ -585,13 +599,13 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="720" initialHeight="490">
   <BACKGROUND backgroundColour="ff787878"/>
   <GROUPCOMPONENT name="display group" id="e866147c42bab00a" memberName="displayGroup"
-                  virtualName="" explicitFocusOrder="0" pos="464 392 240 88" title="Display"/>
+                  virtualName="" explicitFocusOrder="0" pos="464 384 240 96" title="Display"/>
   <GROUPCOMPONENT name="parameters group" id="c7f1afc9060fd53a" memberName="parametersGroup"
-                  virtualName="" explicitFocusOrder="0" pos="464 80 240 168" title="Source parameters"/>
+                  virtualName="" explicitFocusOrder="0" pos="464 88 240 168" title="Source parameters"/>
   <GROUPCOMPONENT name="source group" id="3afb455592111222" memberName="sourceGroup"
                   virtualName="" explicitFocusOrder="0" pos="464 8 240 64" title="Source selection"/>
   <GROUPCOMPONENT name="connection group" id="75c4d4aef7a76922" memberName="connectionGroup"
-                  virtualName="" explicitFocusOrder="0" pos="464 256 240 128" title="Connection"/>
+                  virtualName="" explicitFocusOrder="0" pos="464 272 240 96" title="Connection"/>
   <SLIDER name="xCoord" id="a58b89fa9741293f" memberName="xSlider" virtualName=""
           explicitFocusOrder="0" pos="112 408 100 71" min="-100" max="100"
           int="0.010000000000000000208" style="LinearHorizontal" textBoxPos="TextBoxBelow"
@@ -610,18 +624,18 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <LABEL name="angle label" id="8a9f126e40ff7f4a" memberName="angleLabel"
-         virtualName="" explicitFocusOrder="0" pos="624 136 56 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="624 144 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Angle:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TOGGLEBUTTON name="dopler button" id="9e0fbaca7f4346bc" memberName="dopplerButton"
-                virtualName="" explicitFocusOrder="0" pos="480 136 112 24" buttonText="Doppler effect"
+                virtualName="" explicitFocusOrder="0" pos="480 144 112 24" buttonText="Doppler effect"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="lock id button" id="535f93f6213af54c" memberName="lockIDButton"
                 virtualName="" explicitFocusOrder="0" pos="632 32 56 24" buttonText="Lock"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="link wonder button" id="a50c2401bf941894" memberName="linkWonderButton"
-                virtualName="" explicitFocusOrder="0" pos="480 280 208 24" buttonText="Link to WONDER"
+                virtualName="" explicitFocusOrder="0" pos="480 288 208 24" buttonText="Link to WONDER"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <SLIDER name="zoom slider" id="2e49c59dd84b651a" memberName="zoomSlider"
           virtualName="" explicitFocusOrder="0" pos="552 448 136 24" min="1"
@@ -654,27 +668,27 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="c-status label" id="5f890d1c193d8cb5" memberName="cStatusLabel"
-         virtualName="" explicitFocusOrder="0" pos="480 344 200 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="480 336 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Connection status" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="name editor" id="6e4508e19b9ddb85" memberName="nameEditor"
-              virtualName="" explicitFocusOrder="0" pos="552 104 136 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="552 112 136 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <LABEL name="name label" id="33500429033ecfa7" memberName="nameLabel"
-         virtualName="" explicitFocusOrder="0" pos="480 104 56 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="480 112 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Name:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TOGGLEBUTTON name="type button" id="b02d6765cac6f73e" memberName="typeButton"
-                virtualName="" explicitFocusOrder="0" pos="480 168 112 24" buttonText="Type is point"
+                virtualName="" explicitFocusOrder="0" pos="480 176 112 24" buttonText="Type is point"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
   <TEXTBUTTON name="colour button" id="9494ad3896b90b69" memberName="colourButton"
-              virtualName="" explicitFocusOrder="0" pos="480 208 104 24" bgColOff="ffff0000"
+              virtualName="" explicitFocusOrder="0" pos="480 216 104 24" bgColOff="ffff0000"
               buttonText="Colour" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TOGGLEBUTTON name="show others button" id="33f3e82300ebf110" memberName="showOthersButton"
-                virtualName="" explicitFocusOrder="0" pos="480 416 208 24" buttonText="Show other sources"
+                virtualName="" explicitFocusOrder="0" pos="480 400 208 24" buttonText="Show other sources"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
   <VIEWPORT name="source zoomport" id="addc41de081c2973" memberName="sourceZoomPort"
             virtualName="wonderjuce::SourceZoomPort" explicitFocusOrder="0"
@@ -682,11 +696,14 @@ BEGIN_JUCER_METADATA
             contentType="0" jucerFile="" contentClass="wonderjuce::SourcePanel"
             constructorParams=""/>
   <SLIDER name="angle slider" id="611360eafe6fd8e7" memberName="angleSlider"
-          virtualName="" explicitFocusOrder="0" pos="624 168 56 72" bkgcol="0"
+          virtualName="" explicitFocusOrder="0" pos="624 176 56 72" bkgcol="0"
           thumbcol="bbbbff" trackcol="ffffff" rotarysliderfill="ffffff"
           rotaryslideroutline="ff000000" min="0" max="360" int="0.10000000000000000555"
           style="Rotary" textBoxPos="TextBoxAbove" textBoxEditable="1"
           textBoxWidth="60" textBoxHeight="20" skewFactor="1"/>
+  <TOGGLEBUTTON name="show names button" id="77a4541a43d0f171" memberName="showNamesButton"
+                virtualName="" explicitFocusOrder="0" pos="480 424 208 24" buttonText="Show source names"
+                connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
