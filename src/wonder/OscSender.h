@@ -52,7 +52,7 @@ public:
      *  @param newHost A valid hostname or ip string (what exactly is supported
      *      (IPv6?) may depend on what OSC library is used to implement this
      *      interface).
-     *  @param newPort A validport number or service name (what exactly is supported
+     *  @param newPort A valid port number or service name (what exactly is supported
      *      may depend on what OSC library is used to implement this interface).
      */
     virtual void setAddress(const std::string &newHost, const std::string &newPort) = 0;
