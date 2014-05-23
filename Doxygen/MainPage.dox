@@ -6,9 +6,9 @@ It consists of a main VST/VST3/AU/RTAS plugin (built using the [JUCE](http://www
 
 For further information, have a look at the following pages:
 
-- \subpage requirements - what you need to get going.
-- \subpage installation - how to compile and install things.
-- \subpage coding - some recommendations for those who want to change the code or reuse it for other projects.
+- \ref requirements - what you need to get going.
+- \ref installation - how to compile and install things.
+- \ref coding - some recommendations for those who want to change the code or reuse it for other projects.
 
 */
 
@@ -56,12 +56,16 @@ This page provides hints for building and installing SPAOP, the StreamMulticaste
 Before going into the details, here is a brief overview of the steps needed to get running versions of SPAOP and the StreamMulticaster:
 
 -# Clone the [SPAOP repository](https://github.com/MartinHH/SPAOP)
+-# Fetch the \ref submodules "submodules"
 -# Obtain and build \ref liblo
--# Obtain JUCE, preferably by \ref gettingfork "cloning the JUCE-fork-submodule"
 -# Build the \ref usingjuce "Introjucer"
 -# Obtain the \ref sdks you need
 -# \ref buildspaop "Build SPAOP" from its .jucer file
 -# \ref buildmulticaster "Build the StreamMulticaster" from one of its IDE projects
+
+\section submodules Submodules
+
+The SPAOP repository contains two submodules: one for a [fork of the JUCE library](https://github.com/MartinHH/JUCE), one for [the Gihub pages containing this documentation](https://martinhh.github.io/SPAOP). To pull them in, go to the base directory of the SPAOP repository and type `git submodule init` and `git submodule update` (see the [Submodules chapter in Pro Git](http://git-scm.com/book/en/Git-Tools-Submodules) to learn more about that).
 
 \section liblo Liblo
 
@@ -71,7 +75,7 @@ The Liblo library can be downloaded from [http://liblo.sourceforge.net/](http://
 
 For OSX, the process to build and install is straightforward and well-documented. Just keep in mind that if you want to build for both 32 and 64 bit architectures, you'll need to build the uninversal binary version of Liblo.
 
-The most convenient way is to use [Homebrew](http://brew.sh/): if you have Homebrew installed, just type in `brew install liblo --universal`. The library and header include paths in the project files within the SPAOP repository all point to the paths where Homebrew will put them, so doing it the Homewbrew way should be the easiest way by far.
+The most convenient way is to use [Homebrew](http://brew.sh/): if you have Homebrew installed, just type in `brew install liblo --universal`. The library and header include paths in the project files within the SPAOP repository all point to the paths where Homebrew will put them, so doing it the Homebrew way should be the easiest way by far.
 
 \subsection windows Windows
 
@@ -81,7 +85,9 @@ Follow the [building Liblo for other platforms](http://liblo.sourceforge.net/REA
 
 One more thing: at this moment, there is still something you need to fix in the Liblo-headers: in lo_osc_types.h, change line 25 (`#ifdef _MSC_VER`) to:
 
-`#if defined(_MSC_VER) && _MSC_VER < 1600`
+\code{.cpp}
+#if defined(_MSC_VER) && _MSC_VER < 1600
+\endcode
 
 (If this still hasn't been fixed when you're reading this, you're invited to back support my [change request on the Liblo mailing list](http://sourceforge.net/p/liblo/mailman/message/32182802/).)
 
@@ -101,7 +107,7 @@ The fork contains two branches. The `master` branch is meant to be an exact copy
 
 \subsubsection gettingfork Fetching the fork
 
-The recommended way to get a local copy of the fork is to fetch it as submodule of the SPAOP repository. Go to the base directory of the SPAOP repository and type `git submodule init` and `git submodule update` (see the [Submodules chapter in Pro Git](http://git-scm.com/book/en/Git-Tools-Submodules) to learn more about that). After that is done, the full JUCE repository can be found within the JUCE directory of the SPAOP repository.
+The recommended way to get a local copy of the fork is to fetch it as submodule of the SPAOP repository. Go to the base directory of the SPAOP repository and enter `git submodule init` and `git submodule update` (see the [Submodules chapter in Pro Git](http://git-scm.com/book/en/Git-Tools-Submodules) to learn more about that). After that is done, the full JUCE repository can be found within the JUCE directory of the SPAOP repository.
 
 \subsubsection updatingfork Updating the fork
 
@@ -119,7 +125,7 @@ JUCE is well documented so do not expect any details here - just a few words: th
 
 It stores its projects in `.jucer` files. So for example, if you want to open the SPAOP project, you would open the SPAOP.jucer file in the Introjucer and launch your IDE from there.
 
-To use the Introjucer, you will need to build it yourself. You can find ready-made projects for various IDEs under `JUCE/extras/Introjucer/Builds/`.
+To use the Introjucer, you will need to build it yourself. You can find ready-made projects for various IDEs under `./JUCE/extras/Introjucer/Builds/`.
 
 \section sdks Plugin SDKs
 
