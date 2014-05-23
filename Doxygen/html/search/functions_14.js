@@ -11,7 +11,6 @@ var searchData=
   ['_7eoscsender',['~OscSender',['../classwonder_1_1_osc_sender.html#a75fa0bc9f51ad38341fe398d93260aef',1,'wonder::OscSender']]],
   ['_7epingcontrol',['~PingControl',['../classwonder_1_1_ping_control.html#a763fa743fe467083121d56b6b9bb15d4',1,'wonder::PingControl']]],
   ['_7epinghandler',['~PingHandler',['../classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html#a7f4cadfd1bb806f54b8a55959cf7ec4f',1,'wonder::VisualStreamReceiver::PingHandler']]],
-  ['_7eposmsglogger',['~PosMsgLogger',['../classwonder_1_1_pos_msg_logger.html#ae26aead2f356e82d4976a5cf215ad766',1,'wonder::PosMsgLogger']]],
   ['_7eroom',['~Room',['../classwonder_1_1_room.html#a159280bfbe07b971b857afae6820da8a',1,'wonder::Room']]],
   ['_7eserverthread',['~ServerThread',['../classlowrappers_1_1_server_thread.html#ab22b0aa87f4abb44f96cea204571c3f5',1,'lowrappers::ServerThread']]],
   ['_7esource',['~Source',['../classwonder_1_1_source.html#a00d5a30128a3824d6407abba1173c116',1,'wonder::Source']]],

@@ -5,7 +5,7 @@ var searchData=
   ['incomingmaxnosources',['incomingMaxNoSources',['../classwonder_1_1_source_controller_1_1_listener.html#ab76ba4e52c83990360a08c5492ad0c6d',1,'wonder::SourceController::Listener']]],
   ['incomingparameterchange',['incomingParameterChange',['../classwonder_1_1_source_controller_1_1_listener.html#ad5038a8cf247df004074b51636f16f30',1,'wonder::SourceController::Listener']]],
   ['initial_5fzoom_5ffactor',['INITIAL_ZOOM_FACTOR',['../_plugin_editor_8h.html#a008d3234f08db1a49e53dba9cff68bef',1,'PluginEditor.h']]],
-  ['installation',['Installation',['../installation.html',1,'index']]],
+  ['installation',['Installation',['../installation.html',1,'']]],
   ['isactive',['isActive',['../classwonder_1_1_source.html#aefebe9219f24c9947fcac1285b91f6fd',1,'wonder::Source']]],
   ['isinputchannelstereopair',['isInputChannelStereoPair',['../class_spaop_audio_processor.html#ade0cfecab43391101be9f7ca00f285a3',1,'SpaopAudioProcessor']]],
   ['islinkedtowonder',['isLinkedToWonder',['../classwonder_1_1_source_controller.html#aece55d9d388d1f750cd13db3c7f8b5fd',1,'wonder::SourceController']]],

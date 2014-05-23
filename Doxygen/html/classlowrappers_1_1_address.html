@@ -123,7 +123,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0757f84eddb6b608a20db839e88a447a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a0757f84eddb6b608a20db839e88a447a">More...</a><br/></td></tr>
 <tr class="separator:a0757f84eddb6b608a20db839e88a447a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fb96b7084e0f857f91d005769c0c672"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_address.html#a7fb96b7084e0f857f91d005769c0c672">setAddress</a> (const std::string &amp;newHost, const std::string &amp;newPort)</td></tr>
-<tr class="memdesc:a7fb96b7084e0f857f91d005769c0c672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the <a class="el" href="classlowrappers_1_1_address.html" title="A wrapper for liblo&#39;s lo_address. ">Address</a> to send to a new destination.  <a href="#a7fb96b7084e0f857f91d005769c0c672">More...</a><br/></td></tr>
+<tr class="memdesc:a7fb96b7084e0f857f91d005769c0c672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates this <a class="el" href="classlowrappers_1_1_address.html" title="A wrapper for liblo&#39;s lo_address. ">Address</a> to send to a new destination.  <a href="#a7fb96b7084e0f857f91d005769c0c672">More...</a><br/></td></tr>
 <tr class="separator:a7fb96b7084e0f857f91d005769c0c672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbdb9fbbf85cda00e394a2bc0be738d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_address.html#afbdb9fbbf85cda00e394a2bc0be738d8">getTtl</a> () const </td></tr>
 <tr class="memdesc:afbdb9fbbf85cda00e394a2bc0be738d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the time-to-live value for this <a class="el" href="classlowrappers_1_1_address.html" title="A wrapper for liblo&#39;s lo_address. ">Address</a>.  <a href="#afbdb9fbbf85cda00e394a2bc0be738d8">More...</a><br/></td></tr>
@@ -214,7 +214,7 @@ Friends</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">host</td><td>A valid hostname or ip string (see the liblo documentation for what exactly is supported). </td></tr>
     <tr><td class="paramname">port</td><td>A valid port number or service name (see the liblo documentation for what exactly is supported). </td></tr>
-    <tr><td class="paramname">proto</td><td>The protocol to use (LO_UDP, LO_TCP or LO_UNIX). See the liblo documentation for details - LO_UDP should be used for communication with the current version of WONDER. </td></tr>
+    <tr><td class="paramname">proto</td><td>The protocol to use (LO_UDP, LO_TCP or LO_UNIX). See the liblo documentation for details. </td></tr>
   </table>
   </dd>
 </dl>
@@ -420,7 +420,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>returns -1 on failure. </p>
+<p>return -1 on failure. </p>
 
 </div>
 </div>
@@ -750,8 +750,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Updates the <a class="el" href="classlowrappers_1_1_address.html" title="A wrapper for liblo&#39;s lo_address. ">Address</a> to send to a new destination. </p>
-<p>(Internally, a new lo_adress is created, replacing the old one if this <a class="el" href="classlowrappers_1_1_address.html" title="A wrapper for liblo&#39;s lo_address. ">Address</a> is owner of the lo_address.)</p>
+<p>Updates this <a class="el" href="classlowrappers_1_1_address.html" title="A wrapper for liblo&#39;s lo_address. ">Address</a> to send to a new destination. </p>
+<p>(Internally, a new lo_adress is created, replacing the old one.)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newHost</td><td>A valid hostname or ip string (see the liblo documentation for what exactly is supported). </td></tr>
@@ -853,7 +853,7 @@ Friends</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 10 2014 10:07:31 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['other_5fsources_5falpha',['OTHER_SOURCES_ALPHA',['../_source_panel_8h.html#a887e364f1bcc6cfff5a723ade9260204',1,'SourcePanel.h']]]
+  ['ping_5ftimeout_5finterval',['PING_TIMEOUT_INTERVAL',['../_wonder_header_8h.html#a8c4582ed56a3529da22c1e8792f59099',1,'WonderHeader.h']]]
 ];

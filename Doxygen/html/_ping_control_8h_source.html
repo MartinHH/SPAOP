@@ -128,45 +128,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classwonder_1_1_ping_control_1_1_listener.html">   44</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classwonder_1_1_ping_control_1_1_listener.html">Listener</a></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classwonder_1_1_ping_control_1_1_listener.html#a04dccb6a6aeea2943633b8ca4963df25">   47</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classwonder_1_1_ping_control_1_1_listener.html#a04dccb6a6aeea2943633b8ca4963df25">~Listener</a>(){}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_ping_control_1_1_listener.html#a1e0fe479fa721c56ceb6bd0af56e60fe">connectionLost</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> connectionID) = 0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    };</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>(<a class="code" href="classwonder_1_1_connection_timer_1_1_factory.html">ConnectionTimer::Factory</a>* timerFactory,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                Listener* listener, <span class="keyword">const</span> <span class="keywordtype">int</span> connectionID,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> maxLost=<a class="code" href="_ping_control_8h.html#aca0150838bf0dc26294f56c7b48fda30">MAX_PINGS_LOST</a>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classwonder_1_1_ping_control.html#a763fa743fe467083121d56b6b9bb15d4">~PingControl</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_ping_control.html#a1ee05e31341b4609a39b8b891ea85a10">start</a>();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_ping_control.html#a5b365e67d4c112f31db704c7b29d5f53">stop</a>();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_ping_control.html#a356b2d6208eb324a55066ccec0e01a62">onPing</a>();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>(<span class="keyword">const</span> <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>&amp; other);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a> &amp;operator= (<span class="keyword">const</span> <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>&amp; other);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    std::unique_ptr&lt;ConnectionTimer&gt; timer_;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    Listener* listener_;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> connectionID_;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> maxLost_;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">int</span> lostCount_;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">//vvvvv  Implementing ConnectionTimer::Listener</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classwonder_1_1_ping_control_1_1_listener.html#a04dccb6a6aeea2943633b8ca4963df25">   49</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classwonder_1_1_ping_control_1_1_listener.html#a04dccb6a6aeea2943633b8ca4963df25">~Listener</a>(){}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_ping_control_1_1_listener.html#a1e0fe479fa721c56ceb6bd0af56e60fe">connectionLost</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> connectionID) = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>(<a class="code" href="classwonder_1_1_connection_timer_1_1_factory.html">ConnectionTimer::Factory</a>* timerFactory,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                Listener* listener, <span class="keyword">const</span> <span class="keywordtype">int</span> connectionID,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> maxLost=<a class="code" href="_ping_control_8h.html#aca0150838bf0dc26294f56c7b48fda30">MAX_PINGS_LOST</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classwonder_1_1_ping_control.html#a763fa743fe467083121d56b6b9bb15d4">~PingControl</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_ping_control.html#a1ee05e31341b4609a39b8b891ea85a10">start</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_ping_control.html#a5b365e67d4c112f31db704c7b29d5f53">stop</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_ping_control.html#a356b2d6208eb324a55066ccec0e01a62">onPing</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>(<span class="keyword">const</span> <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>&amp; other);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a> &amp;operator= (<span class="keyword">const</span> <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a>&amp; other);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    std::unique_ptr&lt;ConnectionTimer&gt; timer_;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    Listener* listener_;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> connectionID_;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> maxLost_;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">int</span> lostCount_;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> onTimeout();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif  // PINGCONTROL_H_INCLUDED</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">//vvvvv  Implementing ConnectionTimer::Listener</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> onTimeout();</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif  // PINGCONTROL_H_INCLUDED</span></div>
 <div class="ttc" id="classwonder_1_1_ping_control_html"><div class="ttname"><a href="classwonder_1_1_ping_control.html">wonder::PingControl</a></div><div class="ttdoc">A class for connection timeout control. </div><div class="ttdef"><b>Definition:</b> PingControl.h:36</div></div>
 <div class="ttc" id="classwonder_1_1_ping_control_html_a5b365e67d4c112f31db704c7b29d5f53"><div class="ttname"><a href="classwonder_1_1_ping_control.html#a5b365e67d4c112f31db704c7b29d5f53">wonder::PingControl::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Stops the ping control. </div><div class="ttdef"><b>Definition:</b> PingControl.cpp:47</div></div>
 <div class="ttc" id="_ping_control_8h_html_aca0150838bf0dc26294f56c7b48fda30"><div class="ttname"><a href="_ping_control_8h.html#aca0150838bf0dc26294f56c7b48fda30">MAX_PINGS_LOST</a></div><div class="ttdeci">#define MAX_PINGS_LOST</div><div class="ttdef"><b>Definition:</b> PingControl.h:29</div></div>
@@ -176,7 +177,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classwonder_1_1_connection_timer_1_1_listener_html"><div class="ttname"><a href="classwonder_1_1_connection_timer_1_1_listener.html">wonder::ConnectionTimer::Listener</a></div><div class="ttdoc">A listener that must be notified by the timer on timeout. </div><div class="ttdef"><b>Definition:</b> ConnectionTimer.h:37</div></div>
 <div class="ttc" id="_wonder_header_8h_html"><div class="ttname"><a href="_wonder_header_8h.html">WonderHeader.h</a></div></div>
 <div class="ttc" id="classwonder_1_1_ping_control_html_a1ee05e31341b4609a39b8b891ea85a10"><div class="ttname"><a href="classwonder_1_1_ping_control.html#a1ee05e31341b4609a39b8b891ea85a10">wonder::PingControl::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Starts the ping control, resetting the lost pings count. </div><div class="ttdef"><b>Definition:</b> PingControl.cpp:41</div></div>
-<div class="ttc" id="classwonder_1_1_ping_control_1_1_listener_html_a04dccb6a6aeea2943633b8ca4963df25"><div class="ttname"><a href="classwonder_1_1_ping_control_1_1_listener.html#a04dccb6a6aeea2943633b8ca4963df25">wonder::PingControl::Listener::~Listener</a></div><div class="ttdeci">virtual ~Listener()</div><div class="ttdef"><b>Definition:</b> PingControl.h:47</div></div>
+<div class="ttc" id="classwonder_1_1_ping_control_1_1_listener_html_a04dccb6a6aeea2943633b8ca4963df25"><div class="ttname"><a href="classwonder_1_1_ping_control_1_1_listener.html#a04dccb6a6aeea2943633b8ca4963df25">wonder::PingControl::Listener::~Listener</a></div><div class="ttdeci">virtual ~Listener()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> PingControl.h:49</div></div>
 <div class="ttc" id="classwonder_1_1_ping_control_html_a356b2d6208eb324a55066ccec0e01a62"><div class="ttname"><a href="classwonder_1_1_ping_control.html#a356b2d6208eb324a55066ccec0e01a62">wonder::PingControl::onPing</a></div><div class="ttdeci">void onPing()</div><div class="ttdoc">Called when an incoming ping is received. </div><div class="ttdef"><b>Definition:</b> PingControl.cpp:53</div></div>
 <div class="ttc" id="classwonder_1_1_ping_control_1_1_listener_html_a1e0fe479fa721c56ceb6bd0af56e60fe"><div class="ttname"><a href="classwonder_1_1_ping_control_1_1_listener.html#a1e0fe479fa721c56ceb6bd0af56e60fe">wonder::PingControl::Listener::connectionLost</a></div><div class="ttdeci">virtual void connectionLost(const int connectionID)=0</div><div class="ttdoc">Called when more than maxLost pings did not arrive as expected. </div></div>
 <div class="ttc" id="classwonder_1_1_ping_control_1_1_listener_html"><div class="ttname"><a href="classwonder_1_1_ping_control_1_1_listener.html">wonder::PingControl::Listener</a></div><div class="ttdoc">A listener class for callbacks in case lost connection is detected. </div><div class="ttdef"><b>Definition:</b> PingControl.h:44</div></div>
@@ -184,7 +185,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 10 2014 10:07:31 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 23 2014 10:17:23 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -176,6 +176,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aca52eaaef6400a69d527cdf8b9c0d5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4a90e5b8b12aa9b1b1f5a441bcb71ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#ad4a90e5b8b12aa9b1b1f5a441bcb71ff">setStateInformation</a> (const void *data, int sizeInBytes)</td></tr>
 <tr class="separator:ad4a90e5b8b12aa9b1b1f5a441bcb71ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ddcc005de6d362b92cd37228800b7c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a9ddcc005de6d362b92cd37228800b7c1">setCoordinates</a> (float normalizedX, float normalizedY)</td></tr>
+<tr class="memdesc:a9ddcc005de6d362b92cd37228800b7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the coordinates, sending the corresponding OSC-message.  <a href="#a9ddcc005de6d362b92cd37228800b7c1">More...</a><br/></td></tr>
+<tr class="separator:a9ddcc005de6d362b92cd37228800b7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac955977981643749f74ec733bdd7734e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#ac955977981643749f74ec733bdd7734e">setCoordinatesNotifyingHost</a> (float normalizedX, float normalizedY)</td></tr>
+<tr class="memdesc:ac955977981643749f74ec733bdd7734e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the coordinates, notifying both the host and the OSC-messaging.  <a href="#ac955977981643749f74ec733bdd7734e">More...</a><br/></td></tr>
+<tr class="separator:ac955977981643749f74ec733bdd7734e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0fa5caab398dfa4a3924ebc5a4ce0eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#aa0fa5caab398dfa4a3924ebc5a4ce0eb">timerCallback</a> ()</td></tr>
 <tr class="memdesc:aa0fa5caab398dfa4a3924ebc5a4ce0eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback from the timer.  <a href="#aa0fa5caab398dfa4a3924ebc5a4ce0eb">More...</a><br/></td></tr>
 <tr class="separator:aa0fa5caab398dfa4a3924ebc5a4ce0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,6 +200,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a04e4f6d8496c81bfb65aba6402ccc2b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a04e4f6d8496c81bfb65aba6402ccc2b1">setShowOtherSources</a> (bool <a class="el" href="class_spaop_audio_processor.html#aa6f07993121e0c75da3f3945ac1a221d">showOtherSources</a>)</td></tr>
 <tr class="memdesc:a04e4f6d8496c81bfb65aba6402ccc2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the GUI's showOtherSources parameter (As this parameters shall be restorable via getStateInformation and setStateInformation, it needs to be stored within this class.)  <a href="#a04e4f6d8496c81bfb65aba6402ccc2b1">More...</a><br/></td></tr>
 <tr class="separator:a04e4f6d8496c81bfb65aba6402ccc2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9503ca1aee3622e2fc460d4994aab57d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a9503ca1aee3622e2fc460d4994aab57d">showNames</a> () const </td></tr>
+<tr class="memdesc:a9503ca1aee3622e2fc460d4994aab57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the GUI shall the sources' names.  <a href="#a9503ca1aee3622e2fc460d4994aab57d">More...</a><br/></td></tr>
+<tr class="separator:a9503ca1aee3622e2fc460d4994aab57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30754ae45d4c099be346f50f5622cd4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a30754ae45d4c099be346f50f5622cd4d">setShowNames</a> (bool <a class="el" href="class_spaop_audio_processor.html#a9503ca1aee3622e2fc460d4994aab57d">showNames</a>)</td></tr>
+<tr class="memdesc:a30754ae45d4c099be346f50f5622cd4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the GUI's showNames parameter (As this parameters shall be restorable via getStateInformation and setStateInformation, it needs to be stored within this class.)  <a href="#a30754ae45d4c099be346f50f5622cd4d">More...</a><br/></td></tr>
+<tr class="separator:a30754ae45d4c099be346f50f5622cd4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The SPAOP-plugin's processor class. </p>
@@ -723,6 +735,80 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9ddcc005de6d362b92cd37228800b7c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpaopAudioProcessor::setCoordinates </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the coordinates, sending the corresponding OSC-message. </p>
+<p>For coordinate changes, this is to be prefered since it will result in only one OSC message (while two separate calls to setParameterNotifyingHost might result in two messages).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalizedX</td><td>The new value for the x-coordinate, normalized within [0.0 , 1.0]. </td></tr>
+    <tr><td class="paramname">normalizedY</td><td>The new value for the y-coordinate, normalized within [0.0 , 1.0].</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_spaop_audio_processor.html#a317258d2e0a14bafda6625501e664d55">setParameter</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac955977981643749f74ec733bdd7734e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpaopAudioProcessor::setCoordinatesNotifyingHost </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the coordinates, notifying both the host and the OSC-messaging. </p>
+<p>For coordinate changes, this is to be prefered since it will result in only one OSC message (while two separate calls to setParameterNotifyingHost might result in two messages).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalizedX</td><td>The new value for the x-coordinate, normalized within [0.0 , 1.0]. </td></tr>
+    <tr><td class="paramname">normalizedY</td><td>The new value for the y-coordinate, normalized within [0.0 , 1.0].</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd>juce::AudioProcessor::setParameterNotifyingHost </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="adf9dc20ea38463016e49de16e470695a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -762,6 +848,30 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a30754ae45d4c099be346f50f5622cd4d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpaopAudioProcessor::setShowNames </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>showNames</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the GUI's showNames parameter (As this parameters shall be restorable via getStateInformation and setStateInformation, it needs to be stored within this class.) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">showOtherSources</td><td>true if the GUI shall show the sources' names. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -840,6 +950,25 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9503ca1aee3622e2fc460d4994aab57d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SpaopAudioProcessor::showNames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if the GUI shall the sources' names. </p>
+<p>(As this parameters shall be restorable via getStateInformation and setStateInformation, it needs to be stored within this class.)</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the GUI shall show the sources' names. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aa6f07993121e0c75da3f3945ac1a221d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -895,7 +1024,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 10 2014 10:07:31 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

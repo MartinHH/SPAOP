@@ -130,9 +130,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a54a508b919f0778520e42eab6e7bc55d"><td class="memItemLeft" align="right" valign="top">static XmlElement *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderjuce_1_1_xml_factory.html#a54a508b919f0778520e42eab6e7bc55d">createConnectionXml</a> (const <a class="el" href="classwonder_1_1_source_controller.html">wonder::SourceController</a> *controller)</td></tr>
 <tr class="memdesc:a54a508b919f0778520e42eab6e7bc55d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an XmlElement representing a <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">wonder::SourceController</a>'s connection state.  <a href="#a54a508b919f0778520e42eab6e7bc55d">More...</a><br/></td></tr>
 <tr class="separator:a54a508b919f0778520e42eab6e7bc55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76c5397c25415b84b2e5c325d04069de"><td class="memItemLeft" align="right" valign="top">static XmlElement *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderjuce_1_1_xml_factory.html#a76c5397c25415b84b2e5c325d04069de">createGuiXml</a> (const float zoomFactor, const bool showOthers)</td></tr>
-<tr class="memdesc:a76c5397c25415b84b2e5c325d04069de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an XmlElement that holds the parameters of a <a class="el" href="classwonderjuce_1_1_source_zoom_port.html" title="A GUI component that wraps an SourcePanel, adding the ability to zoom in and out and to scroll...">SourceZoomPort</a> that need to be restored.  <a href="#a76c5397c25415b84b2e5c325d04069de">More...</a><br/></td></tr>
-<tr class="separator:a76c5397c25415b84b2e5c325d04069de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2658c9e8ec7fd073ad93ed971a92a151"><td class="memItemLeft" align="right" valign="top">static XmlElement *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderjuce_1_1_xml_factory.html#a2658c9e8ec7fd073ad93ed971a92a151">createGuiXml</a> (float zoomFactor, bool showOthers, bool showNames)</td></tr>
+<tr class="memdesc:a2658c9e8ec7fd073ad93ed971a92a151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an XmlElement that holds the parameters of a SPAOP gui that need to be stored.  <a href="#a2658c9e8ec7fd073ad93ed971a92a151">More...</a><br/></td></tr>
+<tr class="separator:a2658c9e8ec7fd073ad93ed971a92a151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class with static functions to create XmlElements from Objects, create Objects from XmlElements and set existing Objects to the values given in an XmlElement. </p>
@@ -171,7 +171,7 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a76c5397c25415b84b2e5c325d04069de"></a>
+<a class="anchor" id="a2658c9e8ec7fd073ad93ed971a92a151"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -181,14 +181,20 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">XmlElement * wonderjuce::XmlFactory::createGuiXml </td>
           <td>(</td>
-          <td class="paramtype">const float&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>zoomFactor</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>showOthers</em>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>showOthers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>showNames</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -203,15 +209,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates an XmlElement that holds the parameters of a <a class="el" href="classwonderjuce_1_1_source_zoom_port.html" title="A GUI component that wraps an SourcePanel, adding the ability to zoom in and out and to scroll...">SourceZoomPort</a> that need to be restored. </p>
+<p>Creates an XmlElement that holds the parameters of a SPAOP gui that need to be stored. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">zoomFactor</td><td>The zoom-factor. </td></tr>
-    <tr><td class="paramname">showOthers</td><td>The <a class="el" href="classwonderjuce_1_1_source_panel.html" title="A GUI component that displays a two-dimensional view of a source&#39;s position and allows the re-positio...">SourcePanel</a>'s "show other sources" setting. </td></tr>
+    <tr><td class="paramname">processor</td><td>The <a class="el" href="class_spaop_audio_processor.html" title="The SPAOP-plugin&#39;s processor class. ">SpaopAudioProcessor</a> of the plugin whose gui settings shall be stored. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>an XmlElement containing the corrsponding info. The element is named "gui", its attributes are named "zoom" and "show". </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>an XmlElement containing the corresponding info. The element is named "gui", its attributes are named "zoom" and "show" and "names". </dd></dl>
 
 </div>
 </div>
@@ -517,7 +522,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 10 2014 10:07:32 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

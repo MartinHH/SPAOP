@@ -34,7 +34,7 @@ var searchData=
   ['getparametertext',['getParameterText',['../class_spaop_audio_processor.html#a71192bb4d3a5b219ad7ebddad49e60be',1,'SpaopAudioProcessor::getParameterText()'],['../classwonder_1_1_source.html#a8e55a28db7ae3233cf231845cd3a5e46',1,'wonder::Source::getParameterText()']]],
   ['getparametertextbyvalue',['getParameterTextByValue',['../class_spaop_audio_processor.html#afa4953d4cddb0c34ad2d8d56468fa7ab',1,'SpaopAudioProcessor::getParameterTextByValue()'],['../classwonder_1_1_source.html#a05fe2f91dba371504ac852b44dd1f412',1,'wonder::Source::getParameterTextByValue()']]],
   ['getparser',['getParser',['../classwonderjuce_1_1_xml_factory.html#a7f1157da8439236268fe1bbb2494ac89',1,'wonderjuce::XmlFactory']]],
-  ['getpositiondotsize',['getPositionDotSize',['../classwonderjuce_1_1_source_panel.html#a8420235e81469b7ba5b4f435be62304d',1,'wonderjuce::SourcePanel']]],
+  ['getpositiondotsize',['getPositionDotSize',['../classwonderjuce_1_1_source_panel.html#a79918c82650f626fd7aacb1889882605',1,'wonderjuce::SourcePanel']]],
   ['getprogramname',['getProgramName',['../class_spaop_audio_processor.html#a475b092603c1a1c41e447fea055e40c6',1,'SpaopAudioProcessor']]],
   ['getred',['getRed',['../classwonder_1_1_source.html#a99e0e10fec217c773d5b09a0ede6823e',1,'wonder::Source']]],
   ['getroom',['getRoom',['../classwonder_1_1_source_controller.html#a12601c3d973a6ccb5d74d002db36000e',1,'wonder::SourceController']]],

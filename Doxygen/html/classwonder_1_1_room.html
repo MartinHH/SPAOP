@@ -116,14 +116,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a159280bfbe07b971b857afae6820da8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a159280bfbe07b971b857afae6820da8a">More...</a><br/></td></tr>
 <tr class="separator:a159280bfbe07b971b857afae6820da8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54afac0f0d19b678d8b407ee09cbf3d1"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_room.html#a54afac0f0d19b678d8b407ee09cbf3d1">getName</a> () const </td></tr>
-<tr class="memdesc:a54afac0f0d19b678d8b407ee09cbf3d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the room as provided by WONDER (where it is read from a config file).  <a href="#a54afac0f0d19b678d8b407ee09cbf3d1">More...</a><br/></td></tr>
+<tr class="memdesc:a54afac0f0d19b678d8b407ee09cbf3d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the room as provided by cWONDER.  <a href="#a54afac0f0d19b678d8b407ee09cbf3d1">More...</a><br/></td></tr>
 <tr class="separator:a54afac0f0d19b678d8b407ee09cbf3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e7c8ca1cdcb8305029e76655d65088e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_room.html#a8e7c8ca1cdcb8305029e76655d65088e">getNumberOfVertices</a> () const </td></tr>
 <tr class="memdesc:a8e7c8ca1cdcb8305029e76655d65088e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of vertices of the room.  <a href="#a8e7c8ca1cdcb8305029e76655d65088e">More...</a><br/></td></tr>
 <tr class="separator:a8e7c8ca1cdcb8305029e76655d65088e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9e08a42e1cae5041b8a029a1109ad13"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structwonder_1_1_room_1_1_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_room.html#af9e08a42e1cae5041b8a029a1109ad13">getVertex</a> (int vertexNo) const </td></tr>
+<tr class="memdesc:af9e08a42e1cae5041b8a029a1109ad13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structwonder_1_1_room_1_1_vertex.html" title="A struct describing a vertex with its three coordinates. ">Vertex</a> of the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a>.  <a href="#af9e08a42e1cae5041b8a029a1109ad13">More...</a><br/></td></tr>
 <tr class="separator:af9e08a42e1cae5041b8a029a1109ad13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e36843599da8ddd417ce570adee4f0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_room.html#a4e36843599da8ddd417ce570adee4f0d">setVertex</a> (int vertexNo, const <a class="el" href="structwonder_1_1_room_1_1_vertex.html">Vertex</a> vertex)</td></tr>
+<tr class="memdesc:a4e36843599da8ddd417ce570adee4f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a vertex of the room.  <a href="#a4e36843599da8ddd417ce570adee4f0d">More...</a><br/></td></tr>
 <tr class="separator:a4e36843599da8ddd417ce570adee4f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -204,7 +206,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The name of the room as provided by WONDER (where it is read from a config file). </p>
+<p>The name of the room as provided by cWONDER. </p>
+<p>(cWONDER reads it from a config file.) </p>
 
 </div>
 </div>
@@ -239,6 +242,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a <a class="el" href="structwonder_1_1_room_1_1_vertex.html" title="A struct describing a vertex with its three coordinates. ">Vertex</a> of the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertexNo</td><td>An index within [0, numberOfVerices-1].</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The vertex indicated by vertexNo. If vertexNo is &lt; 0, vertex number 0 will be returned. If vertexNo is &gt;= numberOfVerices, vertex number numberOfVertices-1 will be returned. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a4e36843599da8ddd417ce570adee4f0d"></a>
@@ -265,12 +277,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Updates a vertex of the room. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertexNo</td><td>An index within [0, numberOfVerices-1]. If vertexNo is not within that interval, nothing will be changed. </td></tr>
+    <tr><td class="paramname">vertex</td><td>A <a class="el" href="structwonder_1_1_room_1_1_vertex.html" title="A struct describing a vertex with its three coordinates. ">Vertex</a> with the new coordinates of vertex number vertexNo. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 10 2014 10:07:31 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

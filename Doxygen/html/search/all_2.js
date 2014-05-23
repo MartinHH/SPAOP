@@ -2,7 +2,7 @@ var searchData=
 [
   ['callback',['callback',['../classlowrappers_1_1_generic_server_thread_listener.html#aded673956e369eb17ca3a1326bd00ae5',1,'lowrappers::GenericServerThreadListener::callback()'],['../classlowrappers_1_1_server_thread_1_1_listener.html#a091bb57d54a6bc46faa4c6da33566c5e',1,'lowrappers::ServerThread::Listener::callback()']]],
   ['changeprogramname',['changeProgramName',['../class_spaop_audio_processor.html#a10ea2b49eacdce7d32283828d8f6b066',1,'SpaopAudioProcessor']]],
-  ['coding_20recommendations',['Coding recommendations',['../coding.html',1,'index']]],
+  ['coding_20recommendations',['Coding recommendations',['../coding.html',1,'']]],
   ['colour',['Colour',['../structwonder_1_1_colour.html#a83885ee682bf18fb3a131795d7a79614',1,'wonder::Colour']]],
   ['colour',['Colour',['../structwonder_1_1_colour.html',1,'wonder']]],
   ['colour_5fselector_5fsize',['COLOUR_SELECTOR_SIZE',['../_plugin_editor_8h.html#af04a10723a185ce67b125ee3911cb9df',1,'PluginEditor.h']]],
@@ -23,7 +23,7 @@ var searchData=
   ['createconnectiontimer',['createConnectionTimer',['../classwonder_1_1_connection_timer_1_1_factory.html#aead82ce336d67812f2f0e20cee7fd2db',1,'wonder::ConnectionTimer::Factory']]],
   ['createconnectionxml',['createConnectionXml',['../classwonderjuce_1_1_xml_factory.html#a54a508b919f0778520e42eab6e7bc55d',1,'wonderjuce::XmlFactory']]],
   ['createeditor',['createEditor',['../class_spaop_audio_processor.html#aa7e1aec5d87b118b9f81a2f09531e545',1,'SpaopAudioProcessor']]],
-  ['createguixml',['createGuiXml',['../classwonderjuce_1_1_xml_factory.html#a76c5397c25415b84b2e5c325d04069de',1,'wonderjuce::XmlFactory']]],
+  ['createguixml',['createGuiXml',['../classwonderjuce_1_1_xml_factory.html#a2658c9e8ec7fd073ad93ed971a92a151',1,'wonderjuce::XmlFactory']]],
   ['createpluginfilter',['createPluginFilter',['../_plugin_processor_8cpp.html#a803761ea8219833514254308e552a8d3',1,'PluginProcessor.cpp']]],
   ['createroomfromxml',['createRoomFromXml',['../classwonderjuce_1_1_xml_factory.html#a4a80bfabf2b97d8e1f75740292e7e898',1,'wonderjuce::XmlFactory']]],
   ['createroomxml',['createRoomXml',['../classwonderjuce_1_1_xml_factory.html#a52b6d46288e5a57c411508026be3de0f',1,'wonderjuce::XmlFactory']]],

@@ -143,8 +143,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a26dde385e4eecf71f852a479196eae1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the source's ID.  <a href="#a26dde385e4eecf71f852a479196eae1f">More...</a><br/></td></tr>
 <tr class="separator:a26dde385e4eecf71f852a479196eae1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85186467ebe276620c1923751d39b6f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a85186467ebe276620c1923751d39b6f4">setParameterAndSendChange</a> (int paramIndex, float normalizedValue)</td></tr>
-<tr class="memdesc:a85186467ebe276620c1923751d39b6f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the current value of the parameter indicated by paramIndex to cWONDER.  <a href="#a85186467ebe276620c1923751d39b6f4">More...</a><br/></td></tr>
+<tr class="memdesc:a85186467ebe276620c1923751d39b6f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the parameter indicated by paramIndex and sends it to cWONDER (if its value's difference from the value that was sent last is relevant).  <a href="#a85186467ebe276620c1923751d39b6f4">More...</a><br/></td></tr>
 <tr class="separator:a85186467ebe276620c1923751d39b6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3b55c73ae3dceda67f17d1c9b1065ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#ac3b55c73ae3dceda67f17d1c9b1065ab">setCoordinatesAndSendChange</a> (float normalizedX, float normalizedY)</td></tr>
+<tr class="memdesc:ac3b55c73ae3dceda67f17d1c9b1065ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the coordinates and sends them to cWONDER (if the values' difference from the values that were sent last is relevant).  <a href="#ac3b55c73ae3dceda67f17d1c9b1065ab">More...</a><br/></td></tr>
+<tr class="separator:ac3b55c73ae3dceda67f17d1c9b1065ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf2f8e283c156e766e3bc67d6a23fa63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#acf2f8e283c156e766e3bc67d6a23fa63">updateSourceName</a> (const std::string &amp;newSourceName)</td></tr>
 <tr class="memdesc:acf2f8e283c156e766e3bc67d6a23fa63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the source's name and sends out the corresponding OSC message (if sending is enabled).  <a href="#acf2f8e283c156e766e3bc67d6a23fa63">More...</a><br/></td></tr>
 <tr class="separator:acf2f8e283c156e766e3bc67d6a23fa63"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -439,6 +442,43 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac3b55c73ae3dceda67f17d1c9b1065ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wonder::SourceController::setCoordinatesAndSendChange </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>normalizedY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the coordinates and sends them to cWONDER (if the values' difference from the values that were sent last is relevant). </p>
+<p>For coordinate changes, this is to be prefered since it will only send one OSC message while two separate calls to setParameterAndSendChange might result in two messages.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalizedX</td><td>The new value for the x-coordinate, normalized within [0.0 , 1.0]. </td></tr>
+    <tr><td class="paramname">normalizedY</td><td>The new value for the y-coordinate, normalized within [0.0 , 1.0].</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="_wonder_header_8h.html#a561d8296cd600450f6ff777cee58ffa9" title="The coordinates resolution in degree. ">COORD_PRECISION</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a26dde385e4eecf71f852a479196eae1f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -480,14 +520,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the ID locked status. </p>
-<p>If the sourceID is locked, it cannot be changed, and listening to incoming messages is enable. If it is not locked, the ID can be changed, but listenging to incoming messages is disabled.</p>
+<p>If the sourceID is locked, it cannot be changed, and listening to incoming messages is enabled. If it is not locked, the ID can be changed, but listenging to incoming messages is disabled. On switching from !isLocked to isLocked, a /WONDER/source/activate message will be sent, on switching from isLocked to !isLocked, a /WONDER/source/deactivate message will be sent.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">isLocked</td><td>true if changing the ID shall be disabled and listening to incoming messages enabled. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See Also</dt><dd>startListening(), stopListening(), isListening() </dd></dl>
 
 </div>
 </div>
@@ -551,14 +590,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends the current value of the parameter indicated by paramIndex to cWONDER. </p>
+<p>Sets the value of the parameter indicated by paramIndex and sends it to cWONDER (if its value's difference from the value that was sent last is relevant). </p>
 <p>Depending on the parameter, the right message format is chosen.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>a parameter index value as defined in the enum <a class="el" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eb" title="Parameters that can be automated by the host must be accessed using this enum. ">Source::AutomatedParameters</a>. </td></tr>
+    <tr><td class="paramname">index</td><td>A parameter index value as defined in the enum <a class="el" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eb" title="Parameters that can be automated by the host must be accessed using this enum. ">Source::AutomatedParameters</a>. </td></tr>
+    <tr><td class="paramname">normalizedValue</td><td>The new value for that parameter, normalized within [0.0 , 1.0].</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="_wonder_header_8h.html#a561d8296cd600450f6ff777cee58ffa9" title="The coordinates resolution in degree. ">COORD_PRECISION</a>, <a class="el" href="_wonder_header_8h.html#acab917d18f4da8ab339a9d10b6f2576c" title="The angle resolution in degree. ">ANGLE_PRECISION</a> </dd></dl>
 
 </div>
 </div>
@@ -658,7 +699,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 10 2014 10:07:32 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

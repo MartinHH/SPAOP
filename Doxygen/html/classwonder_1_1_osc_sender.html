@@ -110,6 +110,7 @@ Inheritance diagram for wonder::OscSender:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a75fa0bc9f51ad38341fe398d93260aef"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a75fa0bc9f51ad38341fe398d93260aef">~OscSender</a> ()</td></tr>
+<tr class="memdesc:a75fa0bc9f51ad38341fe398d93260aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a75fa0bc9f51ad38341fe398d93260aef">More...</a><br/></td></tr>
 <tr class="separator:a75fa0bc9f51ad38341fe398d93260aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a046403f50e5829b56cf099f3d9bbcc7e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a046403f50e5829b56cf099f3d9bbcc7e">setAddress</a> (const std::string &amp;newHost, const std::string &amp;newPort)=0</td></tr>
 <tr class="memdesc:a046403f50e5829b56cf099f3d9bbcc7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the destination address where this <a class="el" href="classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER-specific OSC-message...">OscSender</a> will send to.  <a href="#a046403f50e5829b56cf099f3d9bbcc7e">More...</a><br/></td></tr>
@@ -212,7 +213,7 @@ spot" for hearing sources that are positioned within the speaker array.  <a href
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract class describing the interface for a class that sends out the WONDER-specific OSC-messages. </p>
 <p>This seperates the actual OSC implementation from the WONDER-specific code and enables the developer to switch from one OSC implementation to another without touching the code within namespace wonder.</p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classwonderlo_1_1_wonder_osc_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface. ">wonderlo::WonderOscSender</a> and <a class="el" href="classwonderlo_1_1_wonder_osc_server_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface, sending its messages from a speci...">wonderlo::WonderOscServerSender</a> for liblo-based implementations of this interface.</dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classwonderlo_1_1_wonder_osc_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface. ">wonderlo::WonderOscSender</a> (and further classesderived from it) for liblo-based implementations of this interface.</dd>
 <dd>
 <a class="el" href="classwonder_1_1_visual_stream_receiver.html#ab713b1062422e7e1c11b81e95cc8afe4" title="Returns a OscSender that sends from the port of this server thread to the specified destination...">VisualStreamReceiver::createSender</a> for an implementation-independent way to create instances of this interface. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -236,6 +237,8 @@ spot" for hearing sources that are positioned within the speaker array.  <a href
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -1447,7 +1450,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newHost</td><td>A valid hostname or ip string (what exactly is supported (IPv6?) may depend on what OSC library is used to implement this interface). </td></tr>
-    <tr><td class="paramname">newPort</td><td>A validport number or service name (what exactly is supported may depend on what OSC library is used to implement this interface). </td></tr>
+    <tr><td class="paramname">newPort</td><td>A valid port number or service name (what exactly is supported may depend on what OSC library is used to implement this interface). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1556,7 +1559,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 10 2014 10:07:31 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
