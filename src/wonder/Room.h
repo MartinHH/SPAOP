@@ -71,7 +71,7 @@ public:
     
     /** Returns a Vertex of the Room.
      *
-     *  @param vertexNo An index within [0, numberOfVerices-1].
+     *  @param vertexNo An index within [0, numberOfVertices-1].
      *
      *  @return The vertex indicated by vertexNo. If vertexNo is < 0,
      *      vertex number 0 will be returned. If vertexNo is >=
@@ -82,7 +82,7 @@ public:
     
     /** Updates a vertex of the room.
      *
-     *  @param vertexNo An index within [0, numberOfVerices-1]. If vertexNo
+     *  @param vertexNo An index within [0, numberOfVertices-1]. If vertexNo
      *      is not within that interval, nothing will be changed.
      *  @param vertex A Vertex with the new coordinates of vertex number
      *      vertexNo.
