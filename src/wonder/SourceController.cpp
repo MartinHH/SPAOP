@@ -424,24 +424,6 @@ int SourceController::onSourceColor(int sourceID, int r, int g, int b)
     return 0;
 }
     
-int SourceController::onSourceGroupId(int sourceID, int groupID)
-{
-    /*TODO*/
-    return 0;
-}
-    
-int SourceController::onSourceRotatingDirection(int sourceID, int rotDir)
-{
-    // not supported (yet?)
-    return 0;
-}
-    
-int SourceController::onSourceScalingDirection(int sourceID, int scalDir)
-{
-    // not supported (yet?)
-    return 0;
-}
-    
 int SourceController::onSourceDopplerEffect(int sourceID, int doppler)
 {
     setIncomingParameter(sourceID, Source::dopplParam, doppler);

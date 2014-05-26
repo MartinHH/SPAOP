@@ -161,6 +161,18 @@ public:
          */
         virtual int onSourceDopplerEffect(int sourceID, int on) = 0;
         
+        
+        /** Called when the /WONDER/listener/position message is received.
+         *
+         *  @param listenerID The ID of the listener.
+         *  @param x The x-coordinate of the listener's position.
+         *  @param y The x-coordinate of the listener's position.
+         *
+         *  @warning So far, this command is only supported by a version of WONDER
+         *      developed at HAW Hamburg.
+         */
+        virtual int onListenerPosition(int listenerID, float x, float y) = 0;
+        
         /** Called when the /WONDER/global/maxNoSources message is recieved.
          *
          *  @param maxSources The maximum number of sources the current WONDER

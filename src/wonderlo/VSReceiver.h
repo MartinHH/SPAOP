@@ -190,6 +190,9 @@ private:
     int onSourceDopplerEffectIi(const char *path, const char *types,lo_arg **argv,
                                         int argc, lo_message msg);
     
+    int onListenerPositionIff(const char *path, const char *types,lo_arg **argv,
+                                int argc, lo_message msg);
+    
     int onGlobalMaxNoSourcesI(const char *path, const char *types,lo_arg **argv,
                                       int argc, lo_message msg);
     

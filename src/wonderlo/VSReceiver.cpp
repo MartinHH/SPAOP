@@ -143,6 +143,8 @@ void VSReceiver::addMethods()
                  lowrappers::ListenerMaker(*this, &VSReceiver::onSourceScalingDirectionIi));
     addListenerAndStoreFunctor("/WONDER/source/dopplerEffect", "ii",
                  lowrappers::ListenerMaker(*this, &VSReceiver::onSourceDopplerEffectIi));
+    addListenerAndStoreFunctor("/WONDER/listener/position", "iff",
+                               lowrappers::ListenerMaker(*this, &VSReceiver::onListenerPositionIff));
     addListenerAndStoreFunctor("/WONDER/global/maxNoSources", "i",
                  lowrappers::ListenerMaker(*this, &VSReceiver::onGlobalMaxNoSourcesI));
     addListenerAndStoreFunctor("/WONDER/global/renderPolygon", NULL,
@@ -286,7 +288,16 @@ int VSReceiver::onSourceDopplerEffectIi(const char *path, const char *types,lo_a
         return listener_->onSourceDopplerEffect(argv[0]->i, argv[1]->i);
     }
 }
-
+    
+int VSReceiver::onListenerPositionIff(const char *path, const char *types, lo_arg **argv, int argc, lo_message msg)
+{
+    if(listener_ == nullptr){
+        return 0;
+    } else {
+        return listener_->onListenerPosition(argv[0]->i, argv[1]->f, argv[2]->f);
+    }
+}
+    
 int VSReceiver::onGlobalMaxNoSourcesI(const char *path, const char *types,lo_arg **argv,
                                       int argc, lo_message msg)
 {

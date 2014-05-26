@@ -344,13 +344,19 @@ private:
     
     int onSourceColor(int wondID, int r, int g, int b);
     
-    int onSourceGroupId(int wondID, int groupID);
+    int onSourceGroupId(int wondID, int groupID)
+    { return 0; /** Not supported (yet?). */}
     
-    int onSourceRotatingDirection(int wondID, int rotDir);
+    int onSourceRotatingDirection(int wondID, int rotDir)
+    { return 0; /** Not supported (yet?). */}
     
-    int onSourceScalingDirection(int wondID, int scalDir);
+    int onSourceScalingDirection(int wondID, int scalDir)
+    { return 0; /** Not supported (yet?). */}
     
     int onSourceDopplerEffect(int wondID, int doppler);
+    
+    int onListenerPosition(int listenerID, float x, float y)
+    { return 0; /** Not supported (yet?). */}
     
     int onGlobalMaxNoSources(int maxSources);
     
