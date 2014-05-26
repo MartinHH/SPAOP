@@ -287,13 +287,14 @@ public:
      *  spot" for hearing sources that are positioned within the speaker
      *  array.
      *
+     *  @param listenerID The ID of the listener.
      *  @param x The x-coordinate of the listener's position.
      *  @param y The x-coordinate of the listener's position.
      *
      *  @warning So far, this command is only supported by a version of WONDER
      *      developed at HAW Hamburg.
      */
-    virtual void sendListenerPosition(float x, float y) = 0;
+    virtual void sendListenerPosition(int listenerID, float x, float y) = 0;
     
     /** Sends the /WONDER/global/renderpolygon message. The message contains
      *  information about the positioning of the WFS speaker array of the

@@ -141,9 +141,9 @@ void WonderOscSender::sendSourceDopplerEffect(int id, int on)
     wonderSend("/WONDER/source/dopplerEffect", "ii", id, on);
 }
     
-void WonderOscSender::sendListenerPosition(float x, float y)
+void WonderOscSender::sendListenerPosition(int listenerID, float x, float y)
 {
-    wonderSend("/WONDER/listener/position", "ff", x, y);
+    wonderSend("/WONDER/listener/position", "iff", listenerID, x, y);
 }
 
 void WonderOscSender::sendGlobalRenderpolygon(const std::string& roomName,

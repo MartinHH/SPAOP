@@ -112,7 +112,7 @@ public:
     
     void sendSourceDopplerEffect(int id, int on);
     
-    void sendListenerPosition(float x, float y);
+    void sendListenerPosition(int listenerID, float x, float y);
     
     void sendGlobalRenderpolygon(const std::string& roomName,
                                  int noOfVertices,
