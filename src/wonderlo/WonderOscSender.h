@@ -134,6 +134,16 @@ public:
     void sendReply(const std::string& replyToMessage, int state,
                    const std::string& message);
     
+    void sendProjectCreateWithScore(const std::string& projectName);
+    
+    void sendProjectCreate(const std::string& projectName);
+    
+    void sendProjectLoad(const std::string& projectName);
+    
+    void sendProjectSave();
+    
+    void sendProjectSave(const std::string& projectName);
+    
     void sendPluginStandalone(const bool standAlone);
     
 protected:

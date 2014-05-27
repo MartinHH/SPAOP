@@ -382,6 +382,39 @@ public:
     virtual void sendReply(const std::string& replyToMessage, int state,
                            const std::string& message) = 0;
     
+    /** Sends the /WONDER/project/createWithScore message. This tells cWONDER
+     *  to create a new project that includes a score from the ScorePlayer.
+     *
+     *  @param projectName The name of the new project.
+     */
+    virtual void sendProjectCreateWithScore(const std::string& projectName) = 0;
+    
+    /** Sends the /WONDER/project/create message. This tells cWONDER to create a
+     *  new project (which does not include a score from the ScorePlayer).
+     *
+     *  @param projectName The name of the new project.
+     */
+    virtual void sendProjectCreate(const std::string& projectName) = 0;
+    
+    /** Sends the /WONDER/project/load message. This tells cWONDER to restore
+     *  an existing project.
+     *
+     *  @param projectName The name of the project to be loaded.
+     */
+    virtual void sendProjectLoad(const std::string& projectName) = 0;
+
+    /** Sends the /WONDER/project/save message without a parameter. This tells
+     *  cWONDER to store the current project under its current name.
+     */
+    virtual void sendProjectSave() = 0;
+    
+    /** Sends the /WONDER/project/save message with a projectName parameter.
+     *  This tells cWONDER to store the current project under the given name.
+     *
+     *  @param projectName The name under which the project shall be stored.
+     */
+    virtual void sendProjectSave(const std::string& projectName) = 0;
+    
     /** Sends the /WONDER/plugin/standalone message. This is used by the
      *  changes the communication mode of the SourceController class:
      *  In "standalone" mode, the SourceController sends the source controlling

@@ -198,6 +198,32 @@ void WonderOscSender::sendReply(const std::string &replyToMessage, int state,
                state, message.c_str());
 }
     
+void WonderOscSender::sendProjectCreateWithScore(const std::string& projectName)
+{
+    wonderSend("/WONDER/project/createWithScore", "s", projectName.c_str());
+}
+
+void WonderOscSender::sendProjectCreate(const std::string& projectName)
+{
+    wonderSend("/WONDER/project/create", "s", projectName.c_str());
+}
+
+void WonderOscSender::sendProjectLoad(const std::string& projectName)
+{
+    wonderSend("/WONDER/project/load", "s", projectName.c_str());
+}
+
+void WonderOscSender::sendProjectSave()
+{
+    wonderSend("/WONDER/project/save", "");
+}
+
+void WonderOscSender::sendProjectSave(const std::string& projectName)
+{
+    wonderSend("/WONDER/project/save", "s", projectName.c_str());
+    
+}
+    
 void WonderOscSender::sendPluginStandalone(const bool standAlone)
 {
     wonderSend("/WONDER/plugin/standalone", "i", standAlone);
