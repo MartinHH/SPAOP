@@ -385,6 +385,10 @@ public:
     /** Sends the /WONDER/project/createWithScore message. This tells cWONDER
      *  to create a new project that includes a score from the ScorePlayer.
      *
+     *  Check the corresponding /WONDER/reply message for possible error codes.
+     *  (Codes may be: 0 for success, 1 for empty project name, 2 for "project
+     *  already exists, 3 for any other error (including file i/o)).
+     *
      *  @param projectName The name of the new project.
      */
     virtual void sendProjectCreateWithScore(const std::string& projectName) = 0;
@@ -392,12 +396,20 @@ public:
     /** Sends the /WONDER/project/create message. This tells cWONDER to create a
      *  new project (which does not include a score from the ScorePlayer).
      *
+     *  Check the corresponding /WONDER/reply message for possible error codes.
+     *  (Codes may be: 0 for success, 1 for empty project name, 2 for "project
+     *  already exists, 3 for any other error (including file i/o)).
+     *
      *  @param projectName The name of the new project.
      */
     virtual void sendProjectCreate(const std::string& projectName) = 0;
     
     /** Sends the /WONDER/project/load message. This tells cWONDER to restore
      *  an existing project.
+     *
+     *  Check the corresponding /WONDER/reply message for possible error codes.
+     *  (Codes may be: 0 for success, 1 for "file not found", 2 or 3 for various
+     *  project loading errors (see the message's string for details)).
      *
      *  @param projectName The name of the project to be loaded.
      */
