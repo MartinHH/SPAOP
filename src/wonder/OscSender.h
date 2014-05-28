@@ -81,18 +81,16 @@ public:
      */
     virtual std::string port() const = 0;
     
-    /**
-     * Returns the time-to-live value for messages sent by this sender.
+    /** Returns the time-to-live value for messages sent by this sender.
      *
-     * @return The time-to-live value for messages sent by this sender.
+     *  @return The time-to-live value for messages sent by this sender.
      */
     virtual int getTtl() const = 0;
     
-    /**
-     * Sets the time-to-live value for messages sent by this sender.
-     * This is required for sending UDP multicast messages.
+    /** Sets the time-to-live value for messages sent by this sender.
+     *  This is required for sending UDP multicast messages.
      *
-     * @param ttl The time-to-live value for messages sent by this sender.
+     *  @param ttl The time-to-live value for messages sent by this sender.
      */
     virtual void setTtl(uint8_t ttl) = 0;
     
@@ -104,7 +102,7 @@ public:
      */
     virtual std::string getIface() const = 0;
     
-    /** Sets the network interface to use for sending to this address.
+    /** Sets the network interface to use for sending to this address by its IP.
      *
      *  @param ip The IP of the local interface where the messages shall be sent
      *      from.
@@ -188,10 +186,19 @@ public:
      *  @param duration How long it will take for the source to arrive
      *      at the specified position (in seconds).
      *  @param timestamp The moment when the source will start to move (in
-     *      seconds from "now").
+     *      seconds from "now" - "now" being the moment when this message
+     *      is received by cWONDER).
+     *
+     *  @warning For this command to work, an instance of the time base helper
+     *      application jfWONDER must be running and connected to cWONDER.
+     *      Generally, the WONDER system can be run without jfWONDER running - 
+     *      in that case, there is no time base and this command will never be
+     *      executed. Since there are no warnings issued by cWONDER about
+     *      jfWONDER not running, make sure that jfWONDER is running when using
+     *      this command.
      */
     virtual void sendSourcePosition(int sourceID, float x, float y,
-                                         float duration, float timestamp) = 0;
+                                    float duration, float timestamp) = 0;
     
     /** Sends the /WONDER/source/angle message. This sets a planewave
      *  source's direction.
@@ -202,8 +209,8 @@ public:
      *      installation.
      *  @param angle The direction of the planewave source as an angle
      *      (in degrees). The zero degrees position is "to the right"
-     *      (in positive x-axis direction), an increase in angle rotates
-     *      the direction clockwise.
+     *      (aka eastward aka 3 o'clock direction), an increase in angle
+     *      rotates the direction clockwise.
      */
     virtual void sendSourceAngle(int sourceID, float angle) = 0;
     
@@ -215,8 +222,7 @@ public:
      *      changed. May range from 0 to N-1 where N is the total
      *      number of sources supported by the current WONDER
      *      installation.
-     *  @param name The new name of the source. TODO: find out maximum supported
-     *      length.
+     *  @param name The new name of the source.
      */
     virtual void sendSourceName(int sourceID, const std::string& name) = 0;
     
@@ -227,9 +233,9 @@ public:
      *      changed. May range from 0 to N-1 where N is the total
      *      number of sources supported by the current WONDER
      *      installation.
-     *  @param r The red value of the new colour, ranging from 0 to 255
-     *  @param g The green value of the new colour, ranging from 0 to 255
-     *  @param b The blue value of the new colour, ranging from 0 to 255
+     *  @param r The red value of the new colour.
+     *  @param g The green value of the new colour.
+     *  @param b The blue value of the new colour.
      */
     virtual void sendSourceColor(int sourceID, uint8_t r, uint8_t g, uint8_t b) = 0;
     
@@ -283,13 +289,13 @@ public:
      */
     virtual void sendSourceDopplerEffect(int sourceID, int on) = 0;
     
-    /** Sends the /WONDER/listener/position message, changing the "sweet
-     *  spot" for hearing sources that are positioned within the speaker
-     *  array.
+    /** Sends the /WONDER/listener/position message, changing the position of
+     *  the listener wich is used to determine which speakers are used for focused
+     *  sources.
      *
      *  @param listenerID The ID of the listener.
      *  @param x The x-coordinate of the listener's position.
-     *  @param y The x-coordinate of the listener's position.
+     *  @param y The y-coordinate of the listener's position.
      *
      *  @warning So far, this command is only supported by a version of WONDER
      *      developed at HAW Hamburg.
@@ -314,28 +320,28 @@ public:
                                          Room::Vertex* vertices) = 0;
     
     /** Sends the /WONDER/stream/visual/connect message. Once this is sent
-     *  (to cWONDER), cWONDER will start sending the "Visual Stream" to
+     *  (to cWONDER), cWONDER will start sending the "visual stream" to
      *  the IP & port where this message was sent from.
      */
     virtual void sendStreamVisualConnect() = 0;
     
     /** Sends the /WONDER/stream/visual/connect message. Once this is sent
-     *  (to cWONDER), cWONDER will start sending the "Visual Stream" to
+     *  (to cWONDER), cWONDER will start sending the "visual stream" to
      *  the IP & port where this message was sent from.
      *
      *  @param name A name that identifies the sender. cWONDER keeps a list
-     *      of connected stream clients along. This list will contain the
-     *      client's IP & port and this name.
+     *      of connected stream clients. This list will contain the client's
+     *      IP & port along with this name.
      */
     virtual void sendStreamVisualConnect(const std::string& name) = 0;
     
     /** Sends the /WONDER/stream/visual/connect message. Once this is sent
-     *  (to cWONDER), cWONDER will start sending the "Visual Stream" to
+     *  (to cWONDER), cWONDER will start sending the "visual stream" to
      *  the specified address
      *
      *  @param host A valid hostname. (Since cWONDER uses the liblo library
-     *      for sending OSC, you should see the liblo documentation for details
-     *      on what exactly is supported (IPv6?).)
+     *      for sending OSC, what exactly is supported (IPv6?) depends on the
+     *      liblo version being used for the WONDER system in use.)
      *  @param port A valid port. (Since cWONDER uses the liblo library
      *      for sending OSC, you should see the liblo documentation for details
      *      on what exactly is supported.)
@@ -344,26 +350,25 @@ public:
                                          const std::string& port) = 0;
     
     /** Sends the /WONDER/stream/visual/disconnect message. Once this is sent
-     *  (to cWONDER), cWONDER is expected to stop sending the "Visual Stream"
+     *  (to cWONDER), cWONDER is expected to stop sending the "visual stream"
      *  to the IP & port where this message was sent from.
      *
-     *  @warning Might not be supported by cWONDER.
-     *      Although /WONDER/stream/visual/disconnect is listed in WONDER's
+     *  @warning Currently not supported by cWONDER. Although
+     *      /WONDER/stream/visual/disconnect is listed in WONDER's
      *      OSC_and_Commandline_Overview.ods spreadsheet the command isn't
-     *      actually supported (at least not by the cWONDER instance installed
-     *      at HAW Hamburg).
+     *      actually supported (at least not by WONDER version 3.1.0).
      */
     virtual void sendStreamVisualDisconnect() = 0;
     
     /** Sends the /WONDER/stream/visual/ping message. This is sent by instances
-     *  who send out a "Visual Stream" (like cWONDER or VisualHub).
+     *  who send out a "visual stream" (like cWONDER or VisualHub).
      *
      *  @param count An integer value chosen by the sender.
      */
     virtual void sendStreamVisualPing(int count) = 0;
     
     /** Sends the /WONDER/stream/visual/pong message. This is sent by clients
-     *  who receive a "Visual Stream" as reply to /WONDER/stream/visual/ping.
+     *  who receive a "visual stream" as reply to /WONDER/stream/visual/ping.
      *
      *  @param count The integer value that was received with the incoming
      *      /WONDER/stream/visual/ping message.
@@ -371,13 +376,14 @@ public:
     virtual void sendStreamVisualPong(int count) = 0;
     
     /** Sends the /WONDER/reply message. This is can be used for any replies
-     *  to incoming messages.
+     *  to incoming messages, confirming successfull execution or
+     *  transmitting an error message.
      *
      *  @param replyToMessage The OSC path of the message that triggered this
      *      reply.
-     *  @param state 0 for confirmations of successfull operations, 1 for error
+     *  @param state 0 for confirmations of successfull operations, != 0 for error
      *      messages.
-     *  @param message The actual reply.
+     *  @param message The actual reply text.
      */
     virtual void sendReply(const std::string& replyToMessage, int state,
                            const std::string& message) = 0;
@@ -439,7 +445,8 @@ public:
      */
     virtual void sendPluginStandalone(const bool standAlone) = 0;
     
-    /** Sends out all source-related information for one Source object.
+    /** Sends out all source-related information for one Source object (type,
+     *  position, angle, colour, doppler effect setting and name).
      *
      *  @param src The Source whose parameters shall be sent.
      */

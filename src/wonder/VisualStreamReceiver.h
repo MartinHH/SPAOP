@@ -29,7 +29,7 @@ namespace wonder {
 
 /**
  *  An interface defining an OSC server thread that receives and handles the
- *  messages sent via WONDER's "Visual Stream".
+ *  messages sent via WONDER's "visual stream".
  *  
  *  @see wonderlo::VSReceiver for a liblo-based implementation.
  */
@@ -201,7 +201,7 @@ public:
         
         virtual int onStreamVisualPong(int pingCount) = 0;
         
-        /** Called when any type of /WONDER/stream/hub/connect message is recieved.
+        /** Called when any /WONDER/stream/visual/connect message is recieved.
          *  The parameters of the message are ignored, but the Address to reply to
          *  is passed as parameter.
          *
@@ -218,6 +218,17 @@ public:
         virtual int onStreamVisualDisconnect()
             { return 0; }
         
+        /** Called when the /WONDER/project/xmlDump message is recieved. This message
+         *  is sent as reply to another message, confirming successfull execution or
+         *  transmitting an error message.
+         *
+         *  @param replyToMessage The OSC path of the message that triggered this
+         *      reply.
+         *  @param state 0 for confirmations of successfull operations, != 0 for error
+         *      messages.
+         *  @param message The actual reply text.
+         *
+         */
         virtual int onReply(std::string replyToMsg, int state, std::string msg) = 0;
         
         virtual int onPluginStandalone(bool standAloneOn) = 0;
@@ -225,7 +236,7 @@ public:
     
     /**
      *  Another listener interface especially for incoming ping messages. This is
-     *  seperated from the general Listener as one might want to seperate the
+     *  seperated from the general Listener as one might want to separate the
      *  connection control seperately from the connection's communication content.
      */
     class PingHandler
@@ -237,11 +248,19 @@ public:
          *  VisualStreamReceiver must call this method. The VisualStreamReceiver
          *  may delete the OscSender replyTo after calling this method, so the
          *  PingHandler may not store it for further use.
-         *  For each incoming ping message, a pong message must be sent as reply
+         *  For each incoming ping message, a pong message must be sent as reply.
          *
          *  @param pingCount A value that must be sent back with the pong reply.
          *  @param replyTo An OscSender that sends to the Address where the ping
          *      message was recieved from.
+         *
+         *  @warning For this cWONDER to send these messages, an instance of the
+         *      time base helper application jfWONDER must be running and connected
+         *      to cWONDER. Generally, the WONDER system can be run without jfWONDER
+         *      running - in that case, there is no time base and no ping messages
+         *      will be sent.
+         *      Hence, not reaceiving any ping messages is not euqivalent to not
+         *      receiving the corresponding stream at all.
          */
         virtual int onStreamVisualPing(int pingCount, OscSender* replyTo) = 0;
     };
@@ -255,11 +274,17 @@ public:
     /** Joins this server thread. */
     virtual void join() = 0;
     
-    /** Sets the Listener to be called on incoming OSC messages. */
+    /** Sets the Listener to be called on incoming OSC messages.
+     *
+     *  @param listener The Listener to be called on incoming OSC messages.
+     */
     virtual void setListener(Listener* listener) = 0;
     
     /** Sets the PingHandler to be called on incoming /WONDER/stream/visual/ping
-        messages.
+     *  messages.
+     *
+     *  @param pingHandler The PingHandler to be called on incoming
+     *      /WONDER/stream/visual/ping messages.
      */
     virtual void setPingHandler(PingHandler* pingHandler) = 0;
     
