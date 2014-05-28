@@ -23,57 +23,19 @@
 namespace wonderjuce {
 
 SourceZoomPort::SourceZoomPort(const String& componentName):
-    Viewport(componentName),
-    sourcePanel_(),
-    zoom_(1.0)
+    ZoomPort(componentName),
+    sourcePanel_()
 {
-    addAndMakeVisible(&sourcePanel_);
-    setViewedComponent(&sourcePanel_);
+    setWrappedComponent(&sourcePanel_);
 }
 
 SourceZoomPort::~SourceZoomPort()
 {
 }
 
-void SourceZoomPort::paint (Graphics& g)
-{
-    Viewport::paint(g);
-    sourcePanel_.paint(g);
-}
-
-void SourceZoomPort::resized()
-{
-    setSourcePanelSize();
-}
-
-void SourceZoomPort::setZoomFactor(float zoomFactor)
-{
-    if(zoomFactor != zoom_ && zoomFactor >= 1.0){
-        zoom_ = zoomFactor;
-        setSourcePanelSize();
-        // set Focus on position-dot:
-        setViewPositionProportionately(sourcePanel_.getXPos(), sourcePanel_.getYPos());
-        if (zoom_ == 1.0){
-            setViewPosition(0, 0); // makes sure the scrollbars disappear
-        }
-        repaint();
-    }
-}
-
-float SourceZoomPort::getZoomFactor()
-{
-    return zoom_;
-}
-
 SourcePanel* SourceZoomPort::getSourcePanel()
 {
     return &sourcePanel_;
-}
-
-void SourceZoomPort::setSourcePanelSize()
-{
-    sourcePanel_.setSize((int) getWidth() * zoom_,
-                         (int) getHeight() * zoom_);
 }
 
 }

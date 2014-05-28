@@ -27,6 +27,7 @@
 
 #include "Room.h"
 #include "SourceCollection.h"
+#include "ComponentWithFocusPoint.h"
 #include "JuceHeader.h"
 
 namespace wonderjuce {
@@ -36,7 +37,7 @@ namespace wonderjuce {
  *  A GUI component that displays a two-dimensional view of a source's position
  *  and allows the re-positioning by mouse actions.
  */
-class SourcePanel    : public Component
+class SourcePanel    : public ComponentWithFocusPoint
 {
 public:
     SourcePanel(const String& componentName = String::empty);
@@ -177,6 +178,12 @@ public:
      *      of the sources are shown.
      */
     bool showsNames() const;
+    
+    float getFocusPointX();
+    
+    float getFocusPointY();
+    
+    Point<float> getFocusPoint();
 
 protected:
     void paintSource(Graphics& g, const wonder::Source& source, uint8_t alpha);

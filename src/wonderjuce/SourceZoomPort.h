@@ -21,35 +21,32 @@
 #define SOURCEZOOMPORT_H_INCLUDED
 
 #include "SourcePanel.h"
+#include "ZoomPort.h"
 #include "JuceHeader.h"
 
 namespace wonderjuce {
 
 //==============================================================================
 /**
- *  A GUI component that wraps an SourcePanel, adding the ability to zoom in and
- *  out and to scroll.
+ *  A ZoomPort that contains a SourcePanel.
  */
-class SourceZoomPort    : public Viewport
+class SourceZoomPort    : public ZoomPort
 {
 public:
+    /** Constructor. */
     SourceZoomPort(const String& componentName = String::empty);
-    ~SourceZoomPort();
 
-    void paint (Graphics&);
-    void resized();
+    /** Destructor. */
+    ~SourceZoomPort();
     
-    void setZoomFactor(float zoomFactor);
-    float getZoomFactor();
-    
+    /** Returns a pointer to the contained SourcePanel.
+     *
+     *  @return A pointer to the SourcePanel contained in this SourceZoomPort.
+     */
     SourcePanel* getSourcePanel();
 
 private:
-    void setSourcePanelSize();
-    
     SourcePanel sourcePanel_;
-    float zoom_;        // zoom-factor
-    
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SourceZoomPort)
 };

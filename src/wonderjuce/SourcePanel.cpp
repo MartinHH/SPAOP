@@ -24,7 +24,7 @@ namespace wonderjuce {
 
 //==============================================================================
 SourcePanel::SourcePanel(const String& componentName):
-    Component(componentName),
+    ComponentWithFocusPoint(componentName),
     x(0.5),
     y(0.5),
     sources_(nullptr),
@@ -238,6 +238,21 @@ bool SourcePanel::showsNames() const
     return showNames_;
 }
 
+float SourcePanel::getFocusPointX()
+{
+    return x;
+}
+    
+float SourcePanel::getFocusPointY()
+{
+    return y;
+}
+    
+Point<float> SourcePanel::getFocusPoint()
+{
+    return Point<float>(x, y);
+}
+    
 void SourcePanel::paintSource(Graphics& g, const wonder::Source& source, uint8_t alpha)
 {
     
