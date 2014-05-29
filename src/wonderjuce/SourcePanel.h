@@ -27,7 +27,7 @@
 
 #include "Room.h"
 #include "SourceCollection.h"
-#include "ComponentWithFocusPoint.h"
+#include "SourceDisplay.h"
 #include "JuceHeader.h"
 
 namespace wonderjuce {
@@ -37,7 +37,7 @@ namespace wonderjuce {
  *  A GUI component that displays a two-dimensional view of a source's position
  *  and allows the re-positioning by mouse actions.
  */
-class SourcePanel    : public ComponentWithFocusPoint
+class SourcePanel    : public SourceDisplay
 {
 public:
     SourcePanel(const String& componentName = String::empty);
@@ -65,22 +65,6 @@ public:
      *      normalized within [0.0 ; 1.0].
      */
     float getYPos();
-    
-    /** Sets the size of the dot indicating the source's position. Various other
-     *  sizes are determined by this (i.e. the size of the arrow indciating a
-     *  plane wave source and the text size of the source names).
-     *
-     *  @param diameter The dot's diameter in pixels.
-     */
-    void setPositionDotSize(int diameter);
-    
-    /** Returns the size of the dot indicating the source's position (diameter in
-     *  pixels).
-     *
-     *  @return The size of the dot indicating the source's position (diameter in
-     *      pixels).
-     */
-    int getPositionDotSize() const;
 
 
     /** A class for receiving callbacks from a SourcePanel.
@@ -146,8 +130,6 @@ public:
      */
     bool setSource(int sourceID);
     
-    bool setRoom(const wonder::Room* room);
-    
     /** Sets whether the other sources (not controlled by this panel) shall be
      *  shown.
      *
@@ -164,38 +146,17 @@ public:
      */
     bool showsOtherSources() const;
     
-    /** Sets whether the names of the sources shall be shown next to them.
-     *
-     *  @param showNames true if the names of the sources shall be shown
-     *      next to them.
-     */
-    void setShowNames(bool showNames);
-    
-    /** Returns the current showNames setting. If this is true, the names
-     *  of the sources are shown.
-     *
-     *  @return The current showNames setting. If this is true, the names
-     *      of the sources are shown.
-     */
-    bool showsNames() const;
-    
     float getFocusPointX();
     
     float getFocusPointY();
     
     Point<float> getFocusPoint();
-
-protected:
-    void paintSource(Graphics& g, const wonder::Source& source, uint8_t alpha);
     
 private:
     float x, y;
     std::shared_ptr<const wonder::SourceCollection> sources_;
-    const wonder::Room* room_;
     bool showOthers_;
-    bool showNames_;
     int sourceID_;
-    int dotSize_;
     bool dotIsHit_;
     ListenerList <Listener> listeners;
 

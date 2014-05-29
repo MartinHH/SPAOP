@@ -63,6 +63,9 @@
         <FILE id="qbv3cZ" name="XmlParser.h" compile="0" resource="0" file="../src/wonder/XmlParser.h"/>
       </GROUP>
       <GROUP id="{5897BAEB-7896-6ED7-ADCF-614A00E382EE}" name="wonderjuce">
+        <FILE id="JXGcbl" name="SourceDisplay.cpp" compile="1" resource="0"
+              file="../src/wonderjuce/SourceDisplay.cpp"/>
+        <FILE id="fOcQxt" name="SourceDisplay.h" compile="0" resource="0" file="../src/wonderjuce/SourceDisplay.h"/>
         <FILE id="BoNvMt" name="ComponentWithFocusPoint.h" compile="0" resource="0"
               file="../src/wonderjuce/ComponentWithFocusPoint.h"/>
         <FILE id="Asgx8l" name="ZoomPort.cpp" compile="1" resource="0" file="../src/wonderjuce/ZoomPort.cpp"/>
