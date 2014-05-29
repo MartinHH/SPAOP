@@ -20,7 +20,6 @@
 #ifndef SOURCEPANEL_H_INCLUDED
 #define SOURCEPANEL_H_INCLUDED
 
-#define ROOM_LINE_THICKNESS 2
 #define OTHER_SOURCES_ALPHA 80
 
 #include <memory>
