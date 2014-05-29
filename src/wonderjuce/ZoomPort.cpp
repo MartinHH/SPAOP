@@ -23,6 +23,7 @@ namespace wonderjuce {
     
 ZoomPort::ZoomPort(const String& componentName):
     Viewport(componentName),
+    wrappedComponent_(nullptr),
     zoom_(1.0)
 {
 }
@@ -47,9 +48,6 @@ bool ZoomPort::setWrappedComponent(ComponentWithFocusPoint *wrappedComponent)
 void ZoomPort::paint (Graphics& g)
 {
     Viewport::paint(g);
-    if(wrappedComponent_ != nullptr){
-        wrappedComponent_->paint(g);
-    }
 }
     
 void ZoomPort::resized()
@@ -81,8 +79,10 @@ float ZoomPort::getZoomFactor()
     
 void ZoomPort::setWrappedComponentsSize()
 {
-    wrappedComponent_->setSize((int) getWidth() * zoom_,
-                               (int) getHeight() * zoom_);
+    if(wrappedComponent_ != nullptr){
+        wrappedComponent_->setSize((int) getWidth() * zoom_,
+                                   (int) getHeight() * zoom_);
+    }
 }
     
 }
