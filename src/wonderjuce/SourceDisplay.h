@@ -1,12 +1,21 @@
 /*
-  ==============================================================================
-
-    SourceDisplay.h
-    Created: 29 May 2014 7:22:50pm
-    Author:  Smart
-
-  ==============================================================================
-*/
+ * Copyright 2014 Martin Hansen
+ *
+ * This file is part of SPAOP (Spatial Audio Object Positioner).
+ *
+ * SPAOP is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * SPAOP is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with SPAOP.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #ifndef SOURCEDISPLAY_H_INCLUDED
 #define SOURCEDISPLAY_H_INCLUDED
@@ -23,8 +32,10 @@ namespace wonderjuce {
 /**
  *  An abstract class for a GUI component that displays a two-dimensional view of
  *  WONDER sources and the speaker arrays.
- *  The methods of ComponentWithFocusPoint and desired reactions to mouse-actions
- *  must be implemented in a derived class.
+ *  The methods of ComponentWithFocusPoint, desired reactions to mouse-actions
+ *  must be implemented in a derived class. Also, this class does not actually
+ *  paint any sources, it only offers a paintSource method that must be called
+ *  from derived classes.
  */
 class SourceDisplay    : public ComponentWithFocusPoint
 {
@@ -44,9 +55,15 @@ public:
                   const Colour roomColour = Colours::yellow,
                   const Colour bgColour = Colours::black);
     
-    /** Destrcutor. */
+    /** Destructor. */
     virtual ~SourceDisplay();
     
+    /** Overriding juce::Component::paint, this will fill the display with its
+     *  background colour and draw the speaker arrays. In derived classes, this
+     *  should be the called from their paint method before drawing any sources.
+     *
+     *  @param g The graphics context to be used for drawing.
+     */
     void paint (Graphics& g);
     
     /** Sets the size of the dot indicating the source's position. Various other
@@ -83,7 +100,16 @@ public:
     bool showsNames() const;
     
 protected:
-    void paintSource(Graphics& g, const wonder::Source& source, uint8_t alpha);
+    
+    /** Paints a wonder::Source. Can be called from the paint methods of derived
+     *  classes to paint sources (at their position, with their colour etc.).
+     *
+     *  @param g The graphics context to be used for drawing.
+     *  @param source The source to be painted.
+     *  @param alpha The alpha-channel value for painting the source. This can
+     *      be used for drawing semi-transparent sources.
+     */
+    void paintSource(Graphics& g, const wonder::Source& source, uint8_t alpha = 0xFF);
     
 private:
     const wonder::Room* room_;
