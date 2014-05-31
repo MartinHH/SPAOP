@@ -218,7 +218,7 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
     zoomSlider->setValue(ownerFilter->getZoomFactor());
     sourceZoomPort->setZoomFactor(ownerFilter->getZoomFactor());
 
-    startTimer(100);
+    startTimer(GUI_REFRESH_TIME);
     //[/Constructor]
 }
 

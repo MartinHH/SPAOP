@@ -26,6 +26,10 @@
 #include "SourceZoomPort.h"
 #include "Source.h"
 
+#ifndef GUI_REFRESH_TIME
+#define GUI_REFRESH_TIME 100    /**< How often the GUI updates itself (in ms). */
+#endif
+
 #define COLOUR_SELECTOR_SIZE 200
 #define INITIAL_ZOOM_FACTOR 10.0
 //[/Headers]
