@@ -252,14 +252,14 @@ public:
      *
      *  @return a pointer to the Room object stored internally.
      */
-    const Room* getRoom() const;
+    std::shared_ptr<const Room> getRoom() const;
     
     /** Sets the interal Room object to the parameters of a given Room object.
      *
      *  @param room The Room object that shall be copied into the internal Room
      *      object.
      */
-    void setRoom(Room& room);
+    void setRoom(const Room& room);
 
 private:
     SourceController(const SourceController& other);            // copying not allowed
@@ -275,7 +275,7 @@ private:
                                                     // that might be destructed after
                                                     // this object -> shared_ptr
     int sourceID_;
-    Room room_;
+    std::shared_ptr<Room> room_;
     Listener* listener_;
     PingControl pingControl_;
     const std::string clientName_;      // the name of this client within the WONDER world

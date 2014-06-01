@@ -82,7 +82,7 @@ int SourceDisplay::getPositionDotSize() const
     return dotSize_;
 }
     
-bool SourceDisplay::setRoom(const wonder::Room *room)
+bool SourceDisplay::setRoom(std::shared_ptr <const wonder::Room> room)
 {
     if (room_ == nullptr) {
         room_ = room;

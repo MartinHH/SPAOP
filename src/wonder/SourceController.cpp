@@ -36,7 +36,7 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     xmlParser_(xmlParser),
     sources_(new SourceCollection(maxSources)),
     sourceID_(0),
-    room_(),
+    room_(new Room()),
     listener_(listener),
     pingControl_(timerFactory, this, 0),
     clientName_(clientName),
@@ -122,7 +122,7 @@ void SourceController::setParameterAndSendChange(int paramIndex, float normalize
     // set parameter
     sources_->setParameterNormalized(sourceID_, paramIndex, normalizedValue);
     
-    // send only if isLocked and the value's change is relevant:
+    // send only if isLocked_ and the value's change is relevant:
     if(isLocked_ && relevantChange(paramIndex)){
         
         const Source& source_ = sources_->getSource(sourceID_);
@@ -164,7 +164,7 @@ void SourceController::setCoordinatesAndSendChange(float normalizedX, float norm
     sources_->setParameterNormalized(sourceID_, Source::xPosParam, normalizedX);
     sources_->setParameterNormalized(sourceID_, Source::yPosParam, normalizedY);
     
-    // send only if isLocked and the value's change is relevant:
+    // send only if isLocked_ and the value's change is relevant:
     if(isLocked_ && (relevantChange(Source::xPosParam) || relevantChange(Source::yPosParam))){
         
         const Source& source_ = sources_->getSource(sourceID_);
@@ -284,14 +284,14 @@ const std::string SourceController::getDataDestHostAndPort() const
     return dataDest().hostname() + ":" + dataDest().port();
 }
     
-const Room* SourceController::getRoom() const
+std::shared_ptr<const Room> SourceController::getRoom() const
 {
-    return &room_;
+    return room_;
 }
     
-void SourceController::setRoom(wonder::Room &room)
+void SourceController::setRoom(const wonder::Room &room)
 {
-    room_ = room;
+    *room_ = room;
 }
     
 void SourceController::setIncomingParameter(int sourceID,
@@ -438,7 +438,7 @@ int SourceController::onGlobalMaxNoSources(int maxSources)
     
 int SourceController::onGlobalRenderpolygon(Room room)
 {
-    room_ = room;
+    *room_ = room;
     return 0;
 }
     

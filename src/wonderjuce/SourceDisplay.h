@@ -82,7 +82,7 @@ public:
      */
     int getPositionDotSize() const;
     
-    bool setRoom(const wonder::Room* room);
+    bool setRoom(std::shared_ptr <const wonder::Room> room);
     
     /** Sets whether the names of the sources shall be shown next to them.
      *
@@ -112,7 +112,7 @@ protected:
     void paintSource(Graphics& g, const wonder::Source& source, uint8_t alpha = 0xFF);
     
 private:
-    const wonder::Room* room_;
+    std::shared_ptr <const wonder::Room> room_;
     bool showNames_;
     int dotSize_;
     int roomLineThickness_;
