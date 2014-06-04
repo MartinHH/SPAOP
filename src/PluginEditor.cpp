@@ -522,7 +522,7 @@ void SpaopAudioProcessorEditor::textEditorTextChanged(juce::TextEditor &textEdit
 
 void SpaopAudioProcessorEditor::textEditorReturnKeyPressed(TextEditor &textEditor)
 {
-    if (&textEditor == nameEditor) {
+    if (&textEditor == nameEditor && nameIsBeingEdited_) {
         getProcessor()->getSourceController()->updateSourceName(textEditor.getText().toStdString());
         nameIsBeingEdited_ = false;
     }
@@ -530,7 +530,7 @@ void SpaopAudioProcessorEditor::textEditorReturnKeyPressed(TextEditor &textEdito
 
 void SpaopAudioProcessorEditor::textEditorFocusLost(TextEditor &textEditor)
 {
-    if (&textEditor == nameEditor) {
+    if (&textEditor == nameEditor && nameIsBeingEdited_) {
         getProcessor()->getSourceController()->updateSourceName(textEditor.getText().toStdString());
         nameIsBeingEdited_ = false;
     }
