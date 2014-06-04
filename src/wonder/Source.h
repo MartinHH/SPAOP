@@ -146,10 +146,24 @@ public:
      *  @param index A parameter index as specified by enum SourceTypes.
      *  @param value The normalized value of the specified parameter whose
      *      (unnormalized) string representaion shall be returned.
-     *  @return A string describing the current (unnormalized) value of
-     *      the parameter.
+     *  @return A string describing the (unnormalized) value corresponding
+     *      to the value that was passed as parameter.
      */
     static std::string getParameterTextByValue (int index, float value);
+    
+    /** Returns the value a parameter would have if it was set to the value
+     *  represented by the parameterText string (normalized within [0.0 , 1.0]).
+     *
+     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param parameterText A string describing a (unnormalized) value of that
+     *      parameter.
+     *  @return The normalized value corresponding to the parameterText. In case a
+     *      numeric value was passed for a numeric parameter and it exceeds the
+     *      parameter's range, the minimum/maximum value of that parameter is
+     *      returned. In case an invalid string was passed, the current value of
+     *      that parameter is returned.
+     */
+    float getParameterByText(int index, const std::string& parameterText) const;
     
     /** Returns the default (=initial) value of the parameter.
      *  

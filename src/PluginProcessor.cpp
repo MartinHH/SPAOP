@@ -62,8 +62,8 @@ void SpaopAudioProcessor::setParameter (int index, float newValue)
 float SpaopAudioProcessor::getParameterByText(int parameterIndex,
                                     const juce::String &parameterText)
 {
-    float unnormalized = parameterText.getFloatValue();
-    return wonder::Source::normalizeParameter(parameterIndex, unnormalized);
+    return sourceController_->getSource().getParameterByText(parameterIndex,
+                                                             parameterText.toStdString());
 }
 
 const String SpaopAudioProcessor::getParameterName (int index)

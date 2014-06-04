@@ -101,7 +101,41 @@ std::string Source::getParameterTextByValue (int index, float value)
     
     return "";
 }
-
+    
+float Source::getParameterByText(int index, const std::string& parameterText) const
+{
+    switch (index)
+    {
+        case typeParam:
+            if (parameterText.compare("Plane") == 0) {
+                return (float) plane;
+            } else if (parameterText.compare("Point") == 0){
+                return (float) point;
+            }
+            break;
+        case xPosParam:
+        case yPosParam:
+        case angleParam:
+            try {
+                return normalizeParameter(index, std::stof(parameterText));
+            } catch (const std::invalid_argument& ia) {
+                // nothing to do here...
+            }
+            break;
+        case dopplParam:
+            if (parameterText.compare("active") == 0) {
+                return (float) true;
+            } else if (parameterText.compare("inactive") == 0){
+                return (float) false;
+            }
+            break;
+        default:
+            break;
+    }
+    
+    return getParameter(index);
+}
+    
 float Source::getParameterDefaultValue(int index)
 {
     switch (index)
