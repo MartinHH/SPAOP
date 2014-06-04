@@ -33,6 +33,8 @@
 #define NORMALIZE(min, max, val) ((val)-(min)) / ((max)-(min))
 #define DENORMALIZE(min, max, val) ((val) * ((max)-(min))) + (min)
 
+#define SATURATE(x) ((x) < 0.0) ? 0.0 : (((x) > 1.0) ? 1.0 : (x)) 
+
 #define COORD_NORM(x)   NORMALIZE(COORD_MIN, COORD_MAX, (x))
 #define COORD_DENORM(x) DENORMALIZE(COORD_MIN, COORD_MAX, (x))
 
@@ -178,6 +180,8 @@ public:
      *  @param value The unnormalized value of the specified parameter whose
      *      normalized float representaion shall be returned.
      *  @return The normalized representation of the value that was passed.
+     *      If the unnormalized value that was passed exceeds the range of
+     *      the parameter, 0.0 or 1.0 is returned.
      */
     static float normalizeParameter (int index, float unnormalized);
     

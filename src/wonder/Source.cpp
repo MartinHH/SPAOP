@@ -153,17 +153,30 @@ float Source::getParameterDefaultValue(int index)
 
 float Source::normalizeParameter(int index, float unnormalized)
 {
+    float rv = 0.0;
+    
     switch (index)
     {
-        case typeParam:     return (unnormalized == (float)plane) ? (float)plane : (float)point;
-        case xPosParam:     return NORMALIZE(COORD_MIN, COORD_MAX, unnormalized);
-        case yPosParam:     return NORMALIZE(COORD_MIN, COORD_MAX, unnormalized);
-        case angleParam:    return NORMALIZE(ANGLE_MIN, ANGLE_MAX, unnormalized);
-        case dopplParam:    return unnormalized ? (float) true : (float) false;
-        default:            break;
+        case typeParam:
+            rv = (unnormalized == (float)plane) ? (float)plane : (float)point;
+            break;
+        case xPosParam:
+            rv = NORMALIZE(COORD_MIN, COORD_MAX, unnormalized);
+            break;
+        case yPosParam:
+            rv = NORMALIZE(COORD_MIN, COORD_MAX, unnormalized);
+            break;
+        case angleParam:
+            rv = NORMALIZE(ANGLE_MIN, ANGLE_MAX, unnormalized);
+            break;
+        case dopplParam:
+            rv = unnormalized ? (float) true : (float) false;
+            break;
+        default:
+            break;
     }
     
-    return 0.0;
+    return SATURATE(rv); // SATURATE ensures that the value will not exceed [0.0 ; 1.0]
 }
 
 float Source::denormalizeParameter(int index, float normalized)
