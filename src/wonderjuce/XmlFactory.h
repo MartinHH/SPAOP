@@ -25,7 +25,6 @@
 #include "SourceCollection.h"
 #include "Room.h"
 #include "XmlParser.h"
-#include "PluginProcessor.h"
 #include "JuceHeader.h"
 
 namespace wonderjuce {
