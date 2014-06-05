@@ -193,6 +193,6 @@ Within the main namespace [wonder](namespacewonder.html), wherever functionaliti
 - wonder::ConnectionTimer An interface defining a cyclic timer. See wonderjuce::JuceConnectionTimer for a JUCE-based implementation.
 - wonder::XmlParser An interface for parsing the "xmlDump" XML string that is sent from cWONDER. A JUCE-based implementation is contained as a private class within wonderjuce::XmlFactory and can be accessed via the singleton-getter wonderjuce::XmlFactory::getParser.
 
-These interfaces also define factory interfaces (as internal classes). If you inject these factories into your classes via the constructor and use them to create new instances, you can keep you code totally decoupled from the actual implementations of those interfaces. For an example, have a look at the constructor code of wonder::SourceController or wonder::PingCont.
+These interfaces also define factory interfaces (as internal classes). If you inject these factories into your classes via the constructor and use them to create new instances, you can keep you code tdecoupled from the actual implementations of those interfaces. For an example, have a look at the constructor code of wonder::SourceController or wonder::PingControl.
 */
   
