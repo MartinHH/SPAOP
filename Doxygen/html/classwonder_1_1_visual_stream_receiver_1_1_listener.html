@@ -144,6 +144,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a42f5dfb3bbcd038076b3bef26116a0d5"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#a42f5dfb3bbcd038076b3bef26116a0d5">onSourceDopplerEffect</a> (int sourceID, int on)=0</td></tr>
 <tr class="memdesc:a42f5dfb3bbcd038076b3bef26116a0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the /WONDER/source/dopplerEffect message is recieved.  <a href="#a42f5dfb3bbcd038076b3bef26116a0d5">More...</a><br/></td></tr>
 <tr class="separator:a42f5dfb3bbcd038076b3bef26116a0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a310176164ae4ff495ffe6629f57fa60a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#a310176164ae4ff495ffe6629f57fa60a">onListenerPosition</a> (int listenerID, float x, float y)=0</td></tr>
+<tr class="memdesc:a310176164ae4ff495ffe6629f57fa60a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the /WONDER/listener/position message is received.  <a href="#a310176164ae4ff495ffe6629f57fa60a">More...</a><br/></td></tr>
+<tr class="separator:a310176164ae4ff495ffe6629f57fa60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4911d9b4179a4ba25275fa6f5fba1d7d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#a4911d9b4179a4ba25275fa6f5fba1d7d">onGlobalMaxNoSources</a> (int maxSources)=0</td></tr>
 <tr class="memdesc:a4911d9b4179a4ba25275fa6f5fba1d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the /WONDER/global/maxNoSources message is recieved.  <a href="#a4911d9b4179a4ba25275fa6f5fba1d7d">More...</a><br/></td></tr>
 <tr class="separator:a4911d9b4179a4ba25275fa6f5fba1d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,11 +159,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a51cf3a5b67490e8796f5f8a60fdf02da"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#a51cf3a5b67490e8796f5f8a60fdf02da">onStreamVisualPong</a> (int pingCount)=0</td></tr>
 <tr class="separator:a51cf3a5b67490e8796f5f8a60fdf02da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab2cb25b8e8c3a11af8ab8da645b26be"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#aab2cb25b8e8c3a11af8ab8da645b26be">onStreamVisualConnect</a> (<a class="el" href="classwonder_1_1_osc_sender.html">OscSender</a> *replyTo)</td></tr>
-<tr class="memdesc:aab2cb25b8e8c3a11af8ab8da645b26be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when any type of /WONDER/stream/hub/connect message is recieved.  <a href="#aab2cb25b8e8c3a11af8ab8da645b26be">More...</a><br/></td></tr>
+<tr class="memdesc:aab2cb25b8e8c3a11af8ab8da645b26be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when any /WONDER/stream/visual/connect message is recieved.  <a href="#aab2cb25b8e8c3a11af8ab8da645b26be">More...</a><br/></td></tr>
 <tr class="separator:aab2cb25b8e8c3a11af8ab8da645b26be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2f56e79767a7372819bac94e5acb228"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#ab2f56e79767a7372819bac94e5acb228">onStreamVisualDisconnect</a> ()</td></tr>
 <tr class="separator:ab2f56e79767a7372819bac94e5acb228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84a400b126bc6852fdfe94ace3f2e28c"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#a84a400b126bc6852fdfe94ace3f2e28c">onReply</a> (std::string replyToMsg, int state, std::string msg)=0</td></tr>
+<tr class="memdesc:a84a400b126bc6852fdfe94ace3f2e28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the /WONDER/project/xmlDump message is recieved.  <a href="#a84a400b126bc6852fdfe94ace3f2e28c">More...</a><br/></td></tr>
 <tr class="separator:a84a400b126bc6852fdfe94ace3f2e28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceac408887c7f4cc1e5a7d8e7b22ddcd"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#aceac408887c7f4cc1e5a7d8e7b22ddcd">onPluginStandalone</a> (bool standAloneOn)=0</td></tr>
 <tr class="separator:aceac408887c7f4cc1e5a7d8e7b22ddcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -254,6 +258,57 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a310176164ae4ff495ffe6629f57fa60a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int wonder::VisualStreamReceiver::Listener::onListenerPosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>listenerID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the /WONDER/listener/position message is received. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listenerID</td><td>The ID of the listener. </td></tr>
+    <tr><td class="paramname">x</td><td>The x-coordinate of the listener's position. </td></tr>
+    <tr><td class="paramname">y</td><td>The x-coordinate of the listener's position.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>So far, this command is only supported by a version of WONDER developed at HAW Hamburg. </dd></dl>
 
 </div>
 </div>
@@ -362,6 +417,17 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called when the /WONDER/project/xmlDump message is recieved. </p>
+<p>This message is sent as reply to another message, confirming successfull execution or transmitting an error message.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">replyToMessage</td><td>The OSC path of the message that triggered this reply. </td></tr>
+    <tr><td class="paramname">state</td><td>0 for confirmations of successfull operations, != 0 for error messages. </td></tr>
+    <tr><td class="paramname">message</td><td>The actual reply text. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -859,7 +925,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Called when any type of /WONDER/stream/hub/connect message is recieved. </p>
+<p>Called when any /WONDER/stream/visual/connect message is recieved. </p>
 <p>The parameters of the message are ignored, but the Address to reply to is passed as parameter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -921,7 +987,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

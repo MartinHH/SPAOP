@@ -84,7 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li class="level1"><a href="#interfaces">Interfaces</a></li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="namespaces"></a>
+<div class="textblock"><p>Of course, you are free to modify the code as you like. However, this page is meant to explain a few desgin concepts behind the code, hoping whoever uses the code might find this useful.</p>
+<h1><a class="anchor" id="namespaces"></a>
 Namespaces and library-(in)dependency</h1>
 <p>A lot of the code was written to be independent of any third party library. This is reflected by the different namespaces (and the corresponding source code structure). Have a look at the <a href="namespaces.html">Namespaces</a> page for details.</p>
 <p>Please try to stick to this system and do not include third party libraries in namespaces that were meant not to rely on third party libraries. Also, it is recommended to make use of the <a class="el" href="coding.html#interfaces">Interfaces</a> that were provided to be able to switch third party libraries where they are needed.</p>
@@ -98,11 +99,11 @@ Interfaces</h1>
 <li><a class="el" href="classwonder_1_1_connection_timer.html" title="An interface defining a cyclic timer (to be used as a watchdog for connection timeouts) along with li...">wonder::ConnectionTimer</a> An interface defining a cyclic timer. See <a class="el" href="classwonderjuce_1_1_juce_connection_timer.html" title="An implementation of wonder::ConnectionTimer using the Timer class of JUCE. ">wonderjuce::JuceConnectionTimer</a> for a JUCE-based implementation.</li>
 <li><a class="el" href="classwonder_1_1_xml_parser.html" title="An interface defining a class that sets the parameters of one or several sources from an XML formatte...">wonder::XmlParser</a> An interface for parsing the "xmlDump" XML string that is sent from cWONDER. A JUCE-based implementation is contained as a private class within <a class="el" href="classwonderjuce_1_1_xml_factory.html" title="A class with static functions to create XmlElements from Objects, create Objects from XmlElements and...">wonderjuce::XmlFactory</a> and can be accessed via the singleton-getter <a class="el" href="classwonderjuce_1_1_xml_factory.html#a7f1157da8439236268fe1bbb2494ac89" title="Singleton-getter for a wonder::XmlParser implementation that wraps the corresponding static functions...">wonderjuce::XmlFactory::getParser</a>.</li>
 </ul>
-<p>These interfaces also define factory interfaces (as internal classes). If you inject these factories into your classes via the constructor and use them to create new instances, you can keep you code totally decoupled from the actual implementations of those interfaces. For an example, have a look at the constructor code of <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">wonder::SourceController</a> or wonder::PingCont. </p>
+<p>These interfaces also define factory interfaces (as internal classes). If you inject these factories into your classes via the constructor and use them to create new instances, you can keep you code tdecoupled from the actual implementations of those interfaces. For an example, have a look at the constructor code of <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">wonder::SourceController</a> or <a class="el" href="classwonder_1_1_ping_control.html" title="A class for connection timeout control. ">wonder::PingControl</a>. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

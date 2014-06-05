@@ -4,6 +4,7 @@ var searchData=
   ['source',['Source',['../classwonder_1_1_source.html',1,'wonder']]],
   ['sourcecollection',['SourceCollection',['../classwonder_1_1_source_collection.html',1,'wonder']]],
   ['sourcecontroller',['SourceController',['../classwonder_1_1_source_controller.html',1,'wonder']]],
+  ['sourcedisplay',['SourceDisplay',['../classwonderjuce_1_1_source_display.html',1,'wonderjuce']]],
   ['sourcepanel',['SourcePanel',['../classwonderjuce_1_1_source_panel.html',1,'wonderjuce']]],
   ['sourcezoomport',['SourceZoomPort',['../classwonderjuce_1_1_source_zoom_port.html',1,'wonderjuce']]],
   ['spaopaudioprocessor',['SpaopAudioProcessor',['../class_spaop_audio_processor.html',1,'']]],

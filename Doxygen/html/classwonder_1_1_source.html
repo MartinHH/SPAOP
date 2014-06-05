@@ -148,6 +148,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8e55a28db7ae3233cf231845cd3a5e46"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source.html#a8e55a28db7ae3233cf231845cd3a5e46">getParameterText</a> (int index) const </td></tr>
 <tr class="memdesc:a8e55a28db7ae3233cf231845cd3a5e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of the parameter's current value.  <a href="#a8e55a28db7ae3233cf231845cd3a5e46">More...</a><br/></td></tr>
 <tr class="separator:a8e55a28db7ae3233cf231845cd3a5e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76f2af0269da057d479780bbd92d77ca"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source.html#a76f2af0269da057d479780bbd92d77ca">getParameterByText</a> (int index, const std::string &amp;parameterText) const </td></tr>
+<tr class="memdesc:a76f2af0269da057d479780bbd92d77ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value a parameter would have if it was set to the value represented by the parameterText string (normalized within [0.0 , 1.0]).  <a href="#a76f2af0269da057d479780bbd92d77ca">More...</a><br/></td></tr>
+<tr class="separator:a76f2af0269da057d479780bbd92d77ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8281e029cd74315900c1ea64d79bd157"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source.html#a8281e029cd74315900c1ea64d79bd157">getDenormalizedParameter</a> (int index) const </td></tr>
 <tr class="memdesc:a8281e029cd74315900c1ea64d79bd157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the denormalized value of the parameter.  <a href="#a8281e029cd74315900c1ea64d79bd157">More...</a><br/></td></tr>
 <tr class="separator:a8281e029cd74315900c1ea64d79bd157"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -599,6 +602,42 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a76f2af0269da057d479780bbd92d77ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float wonder::Source::getParameterByText </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>parameterText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the value a parameter would have if it was set to the value represented by the parameterText string (normalized within [0.0 , 1.0]). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>A parameter index as specified by enum SourceTypes. </td></tr>
+    <tr><td class="paramname">parameterText</td><td>A string describing a (unnormalized) value of that parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The normalized value corresponding to the parameterText. In case a numeric value was passed for a numeric parameter and it exceeds the parameter's range, the minimum/maximum value of that parameter is returned. In case an invalid string was passed, the current value of that parameter is returned. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a9d42defceac5ec1620c1cb8c95d681c8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -722,7 +761,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A string describing the current (unnormalized) value of the parameter. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A string describing the (unnormalized) value corresponding to the value that was passed as parameter. </dd></dl>
 
 </div>
 </div>
@@ -853,7 +892,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The normalized representation of the value that was passed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The normalized representation of the value that was passed. If the unnormalized value that was passed exceeds the range of the parameter, 0.0 or 1.0 is returned. </dd></dl>
 
 </div>
 </div>
@@ -1090,7 +1129,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

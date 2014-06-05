@@ -8,6 +8,8 @@ var searchData=
   ['sourcecollection_2eh',['SourceCollection.h',['../_source_collection_8h.html',1,'']]],
   ['sourcecontroller_2ecpp',['SourceController.cpp',['../_source_controller_8cpp.html',1,'']]],
   ['sourcecontroller_2eh',['SourceController.h',['../_source_controller_8h.html',1,'']]],
+  ['sourcedisplay_2ecpp',['SourceDisplay.cpp',['../_source_display_8cpp.html',1,'']]],
+  ['sourcedisplay_2eh',['SourceDisplay.h',['../_source_display_8h.html',1,'']]],
   ['sourcepanel_2ecpp',['SourcePanel.cpp',['../_source_panel_8cpp.html',1,'']]],
   ['sourcepanel_2eh',['SourcePanel.h',['../_source_panel_8h.html',1,'']]],
   ['sourcezoomport_2ecpp',['SourceZoomPort.cpp',['../_source_zoom_port_8cpp.html',1,'']]],

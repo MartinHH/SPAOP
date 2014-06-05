@@ -117,7 +117,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Another listener interface especially for incoming ping messages. </p>
-<p>This is seperated from the general <a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. ">Listener</a> as one might want to seperate the connection control seperately from the connection's communication content. </p>
+<p>This is seperated from the general <a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. ">Listener</a> as one might want to separate the connection control seperately from the connection's communication content. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a7f4cadfd1bb806f54b8a55959cf7ec4f"></a>
 <div class="memitem">
@@ -176,21 +176,22 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>On receiving the /WONDER/stream/visual/ping message, the <a class="el" href="classwonder_1_1_visual_stream_receiver.html" title="An interface defining an OSC server thread that receives and handles the messages sent via WONDER&#39;s &quot;...">VisualStreamReceiver</a> must call this method. </p>
-<p>The <a class="el" href="classwonder_1_1_visual_stream_receiver.html" title="An interface defining an OSC server thread that receives and handles the messages sent via WONDER&#39;s &quot;...">VisualStreamReceiver</a> may delete the <a class="el" href="classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER-specific OSC-message...">OscSender</a> replyTo after calling this method, so the <a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. ">PingHandler</a> may not store it for further use. For each incoming ping message, a pong message must be sent as reply</p>
+<p>The <a class="el" href="classwonder_1_1_visual_stream_receiver.html" title="An interface defining an OSC server thread that receives and handles the messages sent via WONDER&#39;s &quot;...">VisualStreamReceiver</a> may delete the <a class="el" href="classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER-specific OSC-message...">OscSender</a> replyTo after calling this method, so the <a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. ">PingHandler</a> may not store it for further use. For each incoming ping message, a pong message must be sent as reply.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pingCount</td><td>A value that must be sent back with the pong reply. </td></tr>
-    <tr><td class="paramname">replyTo</td><td>An <a class="el" href="classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER-specific OSC-message...">OscSender</a> that sends to the Address where the ping message was recieved from. </td></tr>
+    <tr><td class="paramname">replyTo</td><td>An <a class="el" href="classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER-specific OSC-message...">OscSender</a> that sends to the Address where the ping message was recieved from.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section warning"><dt>Warning</dt><dd>For this cWONDER to send these messages, an instance of the time base helper application jfWONDER must be running and connected to cWONDER. Generally, the WONDER system can be run without jfWONDER running - in that case, there is no time base and no ping messages will be sent. Hence, not reaceiving any ping messages is not euqivalent to not receiving the corresponding stream at all. </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

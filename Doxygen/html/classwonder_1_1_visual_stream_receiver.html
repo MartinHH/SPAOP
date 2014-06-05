@@ -96,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>An interface defining an OSC server thread that receives and handles the messages sent via WONDER's "Visual Stream".  
+<p>An interface defining an OSC server thread that receives and handles the messages sent via WONDER's "visual stream".  
  <a href="classwonder_1_1_visual_stream_receiver.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_visual_stream_receiver_8h_source.html">VisualStreamReceiver.h</a>&gt;</code></p>
@@ -150,7 +150,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acb4aafc23f06e09560b0be1ec116a21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interface defining an OSC server thread that receives and handles the messages sent via WONDER's "Visual Stream". </p>
+<div class="textblock"><p>An interface defining an OSC server thread that receives and handles the messages sent via WONDER's "visual stream". </p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classwonderlo_1_1_v_s_receiver.html" title="An OscServer-Thread that calls the message-handling methods of a VisualStreamCallInterface object...">wonderlo::VSReceiver</a> for a liblo-based implementation. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a38d9b6f349ea9e9258b925f2feb89d14"></a>
@@ -338,6 +338,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the <a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. ">Listener</a> to be called on incoming OSC messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listener</td><td>The <a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. ">Listener</a> to be called on incoming OSC messages. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -364,6 +370,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the <a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. ">PingHandler</a> to be called on incoming /WONDER/stream/visual/ping messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pingHandler</td><td>The <a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. ">PingHandler</a> to be called on incoming /WONDER/stream/visual/ping messages. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classwonderlo_1_1_v_s_receiver.html#a5845525f2f36e5ac7db2071f92c90a70">wonderlo::VSReceiver</a>.</p>
 
@@ -426,7 +438,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

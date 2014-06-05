@@ -178,12 +178,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a894bc2eb16098c72755c9c54070fc95e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a894bc2eb16098c72755c9c54070fc95e">getDataDestHostAndPort</a> () const </td></tr>
 <tr class="memdesc:a894bc2eb16098c72755c9c54070fc95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Address where the WONDER control message are sent to.  <a href="#a894bc2eb16098c72755c9c54070fc95e">More...</a><br/></td></tr>
 <tr class="separator:a894bc2eb16098c72755c9c54070fc95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12601c3d973a6ccb5d74d002db36000e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classwonder_1_1_room.html">Room</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a12601c3d973a6ccb5d74d002db36000e">getRoom</a> () const </td></tr>
-<tr class="memdesc:a12601c3d973a6ccb5d74d002db36000e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object stored internally.  <a href="#a12601c3d973a6ccb5d74d002db36000e">More...</a><br/></td></tr>
-<tr class="separator:a12601c3d973a6ccb5d74d002db36000e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6aef8c3881f0f3987acb23396073bdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#ad6aef8c3881f0f3987acb23396073bdb">setRoom</a> (<a class="el" href="classwonder_1_1_room.html">Room</a> &amp;room)</td></tr>
-<tr class="memdesc:ad6aef8c3881f0f3987acb23396073bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the interal <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object to the parameters of a given <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object.  <a href="#ad6aef8c3881f0f3987acb23396073bdb">More...</a><br/></td></tr>
-<tr class="separator:ad6aef8c3881f0f3987acb23396073bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae30e73b7ef9dbb6ff18ad72897590a67"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; const <a class="el" href="classwonder_1_1_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#ae30e73b7ef9dbb6ff18ad72897590a67">getRoom</a> () const </td></tr>
+<tr class="memdesc:ae30e73b7ef9dbb6ff18ad72897590a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object stored internally.  <a href="#ae30e73b7ef9dbb6ff18ad72897590a67">More...</a><br/></td></tr>
+<tr class="separator:ae30e73b7ef9dbb6ff18ad72897590a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a6b013bd82a3968571b059fd1c521e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a1a6b013bd82a3968571b059fd1c521e8">setRoom</a> (const <a class="el" href="classwonder_1_1_room.html">Room</a> &amp;room)</td></tr>
+<tr class="memdesc:a1a6b013bd82a3968571b059fd1c521e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the interal <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object to the parameters of a given <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object.  <a href="#a1a6b013bd82a3968571b059fd1c521e8">More...</a><br/></td></tr>
+<tr class="separator:a1a6b013bd82a3968571b059fd1c521e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The main communication node that keeps track of all virtual sources and enables the host DAW to control one of them. </p>
@@ -333,12 +333,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a12601c3d973a6ccb5d74d002db36000e"></a>
+<a class="anchor" id="ae30e73b7ef9dbb6ff18ad72897590a67"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classwonder_1_1_room.html">Room</a> * wonder::SourceController::getRoom </td>
+          <td class="memname">std::shared_ptr&lt; const <a class="el" href="classwonder_1_1_room.html">Room</a> &gt; wonder::SourceController::getRoom </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -603,14 +603,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad6aef8c3881f0f3987acb23396073bdb"></a>
+<a class="anchor" id="a1a6b013bd82a3968571b059fd1c521e8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void wonder::SourceController::setRoom </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classwonder_1_1_room.html">wonder::Room</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classwonder_1_1_room.html">Room</a> &amp;&#160;</td>
           <td class="paramname"><em>room</em></td><td>)</td>
           <td></td>
         </tr>
@@ -699,7 +699,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -112,54 +112,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SOURCEZOOMPORT_H_INCLUDED</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_source_panel_8h.html">SourcePanel.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;JuceHeader.h&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>wonderjuce {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_zoom_port.html">   33</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classwonderjuce_1_1_source_zoom_port.html">SourceZoomPort</a>    : <span class="keyword">public</span> Viewport</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_zoom_port_8h.html">ZoomPort.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;JuceHeader.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>wonderjuce {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_zoom_port.html">   33</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classwonderjuce_1_1_source_zoom_port.html">SourceZoomPort</a>    : <span class="keyword">public</span> <a class="code" href="classwonderjuce_1_1_zoom_port.html">ZoomPort</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#a317c62d50a68f2e8624b05246f4c3e58">SourceZoomPort</a>(<span class="keyword">const</span> String&amp; componentName = String::empty);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#a24f608dcd9ebbb349ec3990873a3fe9f">~SourceZoomPort</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#a317c62d50a68f2e8624b05246f4c3e58">SourceZoomPort</a>(<span class="keyword">const</span> String&amp; componentName = String::empty);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#a9008739203fd7aad262ffae70d308f95">paint</a> (Graphics&amp;);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#aeb67c5f2ae85bd4f4f76884fe7dc57a8">resized</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#a24f608dcd9ebbb349ec3990873a3fe9f">~SourceZoomPort</a>();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#a1254b43320d5794621fb2629ed1e0f62">setZoomFactor</a>(<span class="keywordtype">float</span> zoomFactor);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#a78b39830063ab693c528c6db1a8c1e2e">getZoomFactor</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>* <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#ac51f6e4f82fa6aeb30f2f9a88ab2ae0c">getSourcePanel</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> setSourcePanelSize();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a> sourcePanel_;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">float</span> zoom_;        <span class="comment">// zoom-factor</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (<a class="code" href="classwonderjuce_1_1_source_zoom_port.html">SourceZoomPort</a>)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>* <a class="code" href="classwonderjuce_1_1_source_zoom_port.html#ac51f6e4f82fa6aeb30f2f9a88ab2ae0c">getSourcePanel</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a> sourcePanel_;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (<a class="code" href="classwonderjuce_1_1_source_zoom_port.html">SourceZoomPort</a>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif  // SOURCEZOOMPORT_H_INCLUDED</span></div>
-<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html">wonderjuce::SourceZoomPort</a></div><div class="ttdoc">A GUI component that wraps an SourcePanel, adding the ability to zoom in and out and to scroll...</div><div class="ttdef"><b>Definition:</b> SourceZoomPort.h:33</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_aeb67c5f2ae85bd4f4f76884fe7dc57a8"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#aeb67c5f2ae85bd4f4f76884fe7dc57a8">wonderjuce::SourceZoomPort::resized</a></div><div class="ttdeci">void resized()</div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:44</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_a1254b43320d5794621fb2629ed1e0f62"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#a1254b43320d5794621fb2629ed1e0f62">wonderjuce::SourceZoomPort::setZoomFactor</a></div><div class="ttdeci">void setZoomFactor(float zoomFactor)</div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:49</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_a24f608dcd9ebbb349ec3990873a3fe9f"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#a24f608dcd9ebbb349ec3990873a3fe9f">wonderjuce::SourceZoomPort::~SourceZoomPort</a></div><div class="ttdeci">~SourceZoomPort()</div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:34</div></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif  // SOURCEZOOMPORT_H_INCLUDED</span></div>
+<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html">wonderjuce::SourceZoomPort</a></div><div class="ttdoc">A ZoomPort that contains a SourcePanel. </div><div class="ttdef"><b>Definition:</b> SourceZoomPort.h:33</div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_a24f608dcd9ebbb349ec3990873a3fe9f"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#a24f608dcd9ebbb349ec3990873a3fe9f">wonderjuce::SourceZoomPort::~SourceZoomPort</a></div><div class="ttdeci">~SourceZoomPort()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:32</div></div>
+<div class="ttc" id="classwonderjuce_1_1_zoom_port_html"><div class="ttname"><a href="classwonderjuce_1_1_zoom_port.html">wonderjuce::ZoomPort</a></div><div class="ttdoc">A GUI component that wraps another ComponentWithFocusPoint, adding the ability to zoom in and out and...</div><div class="ttdef"><b>Definition:</b> ZoomPort.h:39</div></div>
 <div class="ttc" id="_source_panel_8h_html"><div class="ttname"><a href="_source_panel_8h.html">SourcePanel.h</a></div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_a78b39830063ab693c528c6db1a8c1e2e"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#a78b39830063ab693c528c6db1a8c1e2e">wonderjuce::SourceZoomPort::getZoomFactor</a></div><div class="ttdeci">float getZoomFactor()</div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:63</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html">wonderjuce::SourcePanel</a></div><div class="ttdoc">A GUI component that displays a two-dimensional view of a source&#39;s position and allows the re-positio...</div><div class="ttdef"><b>Definition:</b> SourcePanel.h:39</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_a317c62d50a68f2e8624b05246f4c3e58"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#a317c62d50a68f2e8624b05246f4c3e58">wonderjuce::SourceZoomPort::SourceZoomPort</a></div><div class="ttdeci">SourceZoomPort(const String &amp;componentName=String::empty)</div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:25</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_a9008739203fd7aad262ffae70d308f95"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#a9008739203fd7aad262ffae70d308f95">wonderjuce::SourceZoomPort::paint</a></div><div class="ttdeci">void paint(Graphics &amp;)</div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:38</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_ac51f6e4f82fa6aeb30f2f9a88ab2ae0c"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#ac51f6e4f82fa6aeb30f2f9a88ab2ae0c">wonderjuce::SourceZoomPort::getSourcePanel</a></div><div class="ttdeci">SourcePanel * getSourcePanel()</div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:68</div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_a317c62d50a68f2e8624b05246f4c3e58"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#a317c62d50a68f2e8624b05246f4c3e58">wonderjuce::SourceZoomPort::SourceZoomPort</a></div><div class="ttdeci">SourceZoomPort(const String &amp;componentName=String::empty)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:25</div></div>
+<div class="ttc" id="_zoom_port_8h_html"><div class="ttname"><a href="_zoom_port_8h.html">ZoomPort.h</a></div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_zoom_port_html_ac51f6e4f82fa6aeb30f2f9a88ab2ae0c"><div class="ttname"><a href="classwonderjuce_1_1_source_zoom_port.html#ac51f6e4f82fa6aeb30f2f9a88ab2ae0c">wonderjuce::SourceZoomPort::getSourcePanel</a></div><div class="ttdeci">SourcePanel * getSourcePanel()</div><div class="ttdoc">Returns a pointer to the contained SourcePanel. </div><div class="ttdef"><b>Definition:</b> SourceZoomPort.cpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:23 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

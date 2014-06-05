@@ -1,32 +1,4 @@
 var searchData=
 [
-  ['_7eaddress',['~Address',['../classlowrappers_1_1_address.html#aabdd5f41124713c2cf5c833910d33fd5',1,'lowrappers::Address']]],
-  ['_7econnectiontimer',['~ConnectionTimer',['../classwonder_1_1_connection_timer.html#a1a4b99d809afdb0e8770af9aa8d95e2d',1,'wonder::ConnectionTimer']]],
-  ['_7efactory',['~Factory',['../classwonder_1_1_connection_timer_1_1_factory.html#a577a68d535b78e96648541e5b5444a1b',1,'wonder::ConnectionTimer::Factory::~Factory()'],['../classwonder_1_1_visual_stream_receiver_1_1_factory.html#a52abbcb5f296bec9fed767784090fb1b',1,'wonder::VisualStreamReceiver::Factory::~Factory()']]],
-  ['_7egenericserverthreadlistener',['~GenericServerThreadListener',['../classlowrappers_1_1_generic_server_thread_listener.html#aefdd281c5f1c3c2e45317b9607787cdc',1,'lowrappers::GenericServerThreadListener']]],
-  ['_7ejuceconnectiontimer',['~JuceConnectionTimer',['../classwonderjuce_1_1_juce_connection_timer.html#a1098929c2b5870501e0f1619499e5f93',1,'wonderjuce::JuceConnectionTimer']]],
-  ['_7elistener',['~Listener',['../classlowrappers_1_1_server_thread_1_1_listener.html#ab11e7d3cec1137a1ae8d6ee9b98883eb',1,'lowrappers::ServerThread::Listener::~Listener()'],['../classwonder_1_1_connection_timer_1_1_listener.html#aefbf83788d40a233665ba59399acca66',1,'wonder::ConnectionTimer::Listener::~Listener()'],['../classwonder_1_1_ping_control_1_1_listener.html#a04dccb6a6aeea2943633b8ca4963df25',1,'wonder::PingControl::Listener::~Listener()'],['../classwonder_1_1_source_controller_1_1_listener.html#a01a5b9a9be048d51f10753aad580c6c3',1,'wonder::SourceController::Listener::~Listener()'],['../classwonder_1_1_visual_stream_receiver_1_1_listener.html#a3dd52c38b1dfe0c6e8d4e372cc17a669',1,'wonder::VisualStreamReceiver::Listener::~Listener()'],['../classwonderjuce_1_1_source_panel_1_1_listener.html#a650ecb01cfc904a7fd82e0f3db42e259',1,'wonderjuce::SourcePanel::Listener::~Listener()']]],
-  ['_7emessage',['~Message',['../classlowrappers_1_1_message.html#aa4c45a3cece6bf94db8bcd3d51b12b01',1,'lowrappers::Message']]],
-  ['_7emessagewithpath',['~MessageWithPath',['../classwonderlo_1_1_message_with_path.html#ae48695fb106ade404231a65644085bed',1,'wonderlo::MessageWithPath']]],
-  ['_7eoscsender',['~OscSender',['../classwonder_1_1_osc_sender.html#a75fa0bc9f51ad38341fe398d93260aef',1,'wonder::OscSender']]],
-  ['_7epingcontrol',['~PingControl',['../classwonder_1_1_ping_control.html#a763fa743fe467083121d56b6b9bb15d4',1,'wonder::PingControl']]],
-  ['_7epinghandler',['~PingHandler',['../classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html#a7f4cadfd1bb806f54b8a55959cf7ec4f',1,'wonder::VisualStreamReceiver::PingHandler']]],
-  ['_7eroom',['~Room',['../classwonder_1_1_room.html#a159280bfbe07b971b857afae6820da8a',1,'wonder::Room']]],
-  ['_7eserverthread',['~ServerThread',['../classlowrappers_1_1_server_thread.html#ab22b0aa87f4abb44f96cea204571c3f5',1,'lowrappers::ServerThread']]],
-  ['_7esource',['~Source',['../classwonder_1_1_source.html#a00d5a30128a3824d6407abba1173c116',1,'wonder::Source']]],
-  ['_7esourcecollection',['~SourceCollection',['../classwonder_1_1_source_collection.html#ada2d872ac0560fb5ec614aae9b1bea16',1,'wonder::SourceCollection']]],
-  ['_7esourcecontroller',['~SourceController',['../classwonder_1_1_source_controller.html#a7bdf6f0004b1ea1f9ac5dbff2a35e69b',1,'wonder::SourceController']]],
-  ['_7esourcepanel',['~SourcePanel',['../classwonderjuce_1_1_source_panel.html#a523882a001d12398531b66bf2707906c',1,'wonderjuce::SourcePanel']]],
-  ['_7esourcezoomport',['~SourceZoomPort',['../classwonderjuce_1_1_source_zoom_port.html#a24f608dcd9ebbb349ec3990873a3fe9f',1,'wonderjuce::SourceZoomPort']]],
-  ['_7espaopaudioprocessor',['~SpaopAudioProcessor',['../class_spaop_audio_processor.html#a65673f2edbe169c6f3b8de09bfcc5ae6',1,'SpaopAudioProcessor']]],
-  ['_7espaopaudioprocessoreditor',['~SpaopAudioProcessorEditor',['../class_spaop_audio_processor_editor.html#af80af4722cc0b3a6873566d6afa266b3',1,'SpaopAudioProcessorEditor']]],
-  ['_7estreammulticaster',['~StreamMulticaster',['../classwonderlo_1_1_stream_multicaster.html#aca091d7ed0a98d8325fbeab807cc54d2',1,'wonderlo::StreamMulticaster']]],
-  ['_7ethread',['~Thread',['../classthread_1_1_thread.html#a5cc06f9b6a7fe494e0f64e4476117255',1,'thread::Thread']]],
-  ['_7evisualstreamreceiver',['~VisualStreamReceiver',['../classwonder_1_1_visual_stream_receiver.html#a38d9b6f349ea9e9258b925f2feb89d14',1,'wonder::VisualStreamReceiver']]],
-  ['_7evsreceiver',['~VSReceiver',['../classwonderlo_1_1_v_s_receiver.html#a4d0560a5f3c4b6a4f8a106bdcda2f587',1,'wonderlo::VSReceiver']]],
-  ['_7ewonderoscsender',['~WonderOscSender',['../classwonderlo_1_1_wonder_osc_sender.html#a0266b490e58200f36f4ec0f3e3cdf9fc',1,'wonderlo::WonderOscSender']]],
-  ['_7ewonderoscsenderthread',['~WonderOscSenderThread',['../classwonderlo_1_1_wonder_osc_sender_thread.html#a64c042fbcce405e7550cae81325c74ce',1,'wonderlo::WonderOscSenderThread']]],
-  ['_7ewonderoscserversender',['~WonderOscServerSender',['../classwonderlo_1_1_wonder_osc_server_sender.html#a600fcdef4e087c96362b1a214a634ece',1,'wonderlo::WonderOscServerSender']]],
-  ['_7ewonderoscserversenderthread',['~WonderOscServerSenderThread',['../classwonderlo_1_1_wonder_osc_server_sender_thread.html#a19189ba0d553d2f00e67494c174c9ba8',1,'wonderlo::WonderOscServerSenderThread']]],
-  ['_7exmlparser',['~XmlParser',['../classwonder_1_1_xml_parser.html#a06a3f31b96e455115d34141ab134a80f',1,'wonder::XmlParser']]]
+  ['zoomport',['ZoomPort',['../classwonderjuce_1_1_zoom_port.html#a734408b9af273e4cad6b1c1bbb642a5a',1,'wonderjuce::ZoomPort']]]
 ];

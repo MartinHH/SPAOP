@@ -124,6 +124,8 @@ Macros</h2></td></tr>
 <tr class="separator:a58387cfcdcca316cf747296fc304c6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02d4353831684cef5909eafce1299107"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8h.html#a02d4353831684cef5909eafce1299107">DENORMALIZE</a>(min, max, val)&#160;&#160;&#160;((val) * ((max)-(min))) + (min)</td></tr>
 <tr class="separator:a02d4353831684cef5909eafce1299107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac402a88a7bdf0cbfa527bb17cc03173e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8h.html#ac402a88a7bdf0cbfa527bb17cc03173e">SATURATE</a>(x)&#160;&#160;&#160;((x) &lt; 0.0) ? 0.0 : (((x) &gt; 1.0) ? 1.0 : (x))</td></tr>
+<tr class="separator:ac402a88a7bdf0cbfa527bb17cc03173e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac64048f55a971a77ad6d5f08e7b00f1d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8h.html#ac64048f55a971a77ad6d5f08e7b00f1d">COORD_NORM</a>(x)&#160;&#160;&#160;<a class="el" href="_source_8h.html#a58387cfcdcca316cf747296fc304c6d4">NORMALIZE</a>(<a class="el" href="_wonder_header_8h.html#a2a1740fc2e0fd2eed6fabb39a63a8a97">COORD_MIN</a>, <a class="el" href="_wonder_header_8h.html#a20a507a6e9c48f01d270604cc195c419">COORD_MAX</a>, (x))</td></tr>
 <tr class="separator:ac64048f55a971a77ad6d5f08e7b00f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade474e13e1685b0c5446e0b899c45440"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8h.html#ade474e13e1685b0c5446e0b899c45440">COORD_DENORM</a>(x)&#160;&#160;&#160;<a class="el" href="_source_8h.html#a02d4353831684cef5909eafce1299107">DENORMALIZE</a>(<a class="el" href="_wonder_header_8h.html#a2a1740fc2e0fd2eed6fabb39a63a8a97">COORD_MIN</a>, <a class="el" href="_wonder_header_8h.html#a20a507a6e9c48f01d270604cc195c419">COORD_MAX</a>, (x))</td></tr>
@@ -250,10 +252,26 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac402a88a7bdf0cbfa527bb17cc03173e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SATURATE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;((x) &lt; 0.0) ? 0.0 : (((x) &gt; 1.0) ? 1.0 : (x))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

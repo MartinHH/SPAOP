@@ -134,7 +134,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a62d785eb2fd2619ee3f238dbc2e0cb88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the network interface that will be used for sending messages.  <a href="#a62d785eb2fd2619ee3f238dbc2e0cb88">More...</a><br/></td></tr>
 <tr class="separator:a62d785eb2fd2619ee3f238dbc2e0cb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a121e07b15226f59aed7dfc77544dac3d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a121e07b15226f59aed7dfc77544dac3d">setIfaceByIp</a> (const std::string &amp;ip)=0</td></tr>
-<tr class="memdesc:a121e07b15226f59aed7dfc77544dac3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the network interface to use for sending to this address.  <a href="#a121e07b15226f59aed7dfc77544dac3d">More...</a><br/></td></tr>
+<tr class="memdesc:a121e07b15226f59aed7dfc77544dac3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the network interface to use for sending to this address by its IP.  <a href="#a121e07b15226f59aed7dfc77544dac3d">More...</a><br/></td></tr>
 <tr class="separator:a121e07b15226f59aed7dfc77544dac3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1d2166273bd2f9071f23c46e585f04f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#ad1d2166273bd2f9071f23c46e585f04f">sendSourceActivate</a> (int sourceID)=0</td></tr>
 <tr class="memdesc:ad1d2166273bd2f9071f23c46e585f04f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/source/activate message.  <a href="#ad1d2166273bd2f9071f23c46e585f04f">More...</a><br/></td></tr>
@@ -175,10 +175,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a907355968472fbf105e68a159a6c9b4a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a907355968472fbf105e68a159a6c9b4a">sendSourceDopplerEffect</a> (int sourceID, int on)=0</td></tr>
 <tr class="memdesc:a907355968472fbf105e68a159a6c9b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/source/dopplerEffect message, switching the doppler effect for this source on or off.  <a href="#a907355968472fbf105e68a159a6c9b4a">More...</a><br/></td></tr>
 <tr class="separator:a907355968472fbf105e68a159a6c9b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a312f2bee5dc2a6a4ee91b53f86cb3748"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a312f2bee5dc2a6a4ee91b53f86cb3748">sendListenerPosition</a> (float x, float y)=0</td></tr>
-<tr class="memdesc:a312f2bee5dc2a6a4ee91b53f86cb3748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/listener/position message, changing the "sweet
-spot" for hearing sources that are positioned within the speaker array.  <a href="#a312f2bee5dc2a6a4ee91b53f86cb3748">More...</a><br/></td></tr>
-<tr class="separator:a312f2bee5dc2a6a4ee91b53f86cb3748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa640ebedcc43db728f29539df158fdf1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#aa640ebedcc43db728f29539df158fdf1">sendListenerPosition</a> (int listenerID, float x, float y)=0</td></tr>
+<tr class="memdesc:aa640ebedcc43db728f29539df158fdf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/listener/position message, changing the position of the listener wich is used to determine which speakers are used for focused sources.  <a href="#aa640ebedcc43db728f29539df158fdf1">More...</a><br/></td></tr>
+<tr class="separator:aa640ebedcc43db728f29539df158fdf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeac5606c719e487f7cb93f99cbaaaa52"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#aeac5606c719e487f7cb93f99cbaaaa52">sendGlobalRenderpolygon</a> (const std::string &amp;roomName, int noOfVertices, <a class="el" href="structwonder_1_1_room_1_1_vertex.html">Room::Vertex</a> *vertices)=0</td></tr>
 <tr class="memdesc:aeac5606c719e487f7cb93f99cbaaaa52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/global/renderpolygon message.  <a href="#aeac5606c719e487f7cb93f99cbaaaa52">More...</a><br/></td></tr>
 <tr class="separator:aeac5606c719e487f7cb93f99cbaaaa52"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,11 +202,26 @@ spot" for hearing sources that are positioned within the speaker array.  <a href
 <tr class="memitem:a3a9463fd53773c45306142ea6bf85d15"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a3a9463fd53773c45306142ea6bf85d15">sendReply</a> (const std::string &amp;replyToMessage, int state, const std::string &amp;message)=0</td></tr>
 <tr class="memdesc:a3a9463fd53773c45306142ea6bf85d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/reply message.  <a href="#a3a9463fd53773c45306142ea6bf85d15">More...</a><br/></td></tr>
 <tr class="separator:a3a9463fd53773c45306142ea6bf85d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a594bc21f82993514469e122b4c1ba4f1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a594bc21f82993514469e122b4c1ba4f1">sendProjectCreateWithScore</a> (const std::string &amp;projectName)=0</td></tr>
+<tr class="memdesc:a594bc21f82993514469e122b4c1ba4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/project/createWithScore message.  <a href="#a594bc21f82993514469e122b4c1ba4f1">More...</a><br/></td></tr>
+<tr class="separator:a594bc21f82993514469e122b4c1ba4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a212e055cafbc3628051640477cd25ae7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a212e055cafbc3628051640477cd25ae7">sendProjectCreate</a> (const std::string &amp;projectName)=0</td></tr>
+<tr class="memdesc:a212e055cafbc3628051640477cd25ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/project/create message.  <a href="#a212e055cafbc3628051640477cd25ae7">More...</a><br/></td></tr>
+<tr class="separator:a212e055cafbc3628051640477cd25ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26567f5db50afa12eae2381f6bc77ea8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a26567f5db50afa12eae2381f6bc77ea8">sendProjectLoad</a> (const std::string &amp;projectName)=0</td></tr>
+<tr class="memdesc:a26567f5db50afa12eae2381f6bc77ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/project/load message.  <a href="#a26567f5db50afa12eae2381f6bc77ea8">More...</a><br/></td></tr>
+<tr class="separator:a26567f5db50afa12eae2381f6bc77ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2f02e7b8ad780e9814897f5f421b797"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#ab2f02e7b8ad780e9814897f5f421b797">sendProjectSave</a> ()=0</td></tr>
+<tr class="memdesc:ab2f02e7b8ad780e9814897f5f421b797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/project/save message without a parameter.  <a href="#ab2f02e7b8ad780e9814897f5f421b797">More...</a><br/></td></tr>
+<tr class="separator:ab2f02e7b8ad780e9814897f5f421b797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ccaaa1637803455c8d4f4d10ecb01fb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a8ccaaa1637803455c8d4f4d10ecb01fb">sendProjectSave</a> (const std::string &amp;projectName)=0</td></tr>
+<tr class="memdesc:a8ccaaa1637803455c8d4f4d10ecb01fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/project/save message with a projectName parameter.  <a href="#a8ccaaa1637803455c8d4f4d10ecb01fb">More...</a><br/></td></tr>
+<tr class="separator:a8ccaaa1637803455c8d4f4d10ecb01fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad532336e65c9f3171eda1230378cb668"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#ad532336e65c9f3171eda1230378cb668">sendPluginStandalone</a> (const bool standAlone)=0</td></tr>
 <tr class="memdesc:ad532336e65c9f3171eda1230378cb668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the /WONDER/plugin/standalone message.  <a href="#ad532336e65c9f3171eda1230378cb668">More...</a><br/></td></tr>
 <tr class="separator:ad532336e65c9f3171eda1230378cb668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cf55ee899c83f437a4d906cbd53ffd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_osc_sender.html#a4cf55ee899c83f437a4d906cbd53ffd8">sendFullSourceInfo</a> (const <a class="el" href="classwonder_1_1_source.html">Source</a> &amp;src)</td></tr>
-<tr class="memdesc:a4cf55ee899c83f437a4d906cbd53ffd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends out all source-related information for one <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> object.  <a href="#a4cf55ee899c83f437a4d906cbd53ffd8">More...</a><br/></td></tr>
+<tr class="memdesc:a4cf55ee899c83f437a4d906cbd53ffd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends out all source-related information for one <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> object (type, position, angle, colour, doppler effect setting and name).  <a href="#a4cf55ee899c83f437a4d906cbd53ffd8">More...</a><br/></td></tr>
 <tr class="separator:a4cf55ee899c83f437a4d906cbd53ffd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -378,7 +392,7 @@ spot" for hearing sources that are positioned within the speaker array.  <a href
 </table>
 </div><div class="memdoc">
 
-<p>Sends out all source-related information for one <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> object. </p>
+<p>Sends out all source-related information for one <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> object (type, position, angle, colour, doppler effect setting and name). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>The <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> whose parameters shall be sent. </td></tr>
@@ -442,7 +456,7 @@ spot" for hearing sources that are positioned within the speaker array.  <a href
 
 </div>
 </div>
-<a class="anchor" id="a312f2bee5dc2a6a4ee91b53f86cb3748"></a>
+<a class="anchor" id="aa640ebedcc43db728f29539df158fdf1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -452,6 +466,12 @@ spot" for hearing sources that are positioned within the speaker array.  <a href
         <tr>
           <td class="memname">virtual void wonder::OscSender::sendListenerPosition </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>listenerID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
@@ -474,18 +494,18 @@ spot" for hearing sources that are positioned within the speaker array.  <a href
 </table>
 </div><div class="memdoc">
 
-<p>Sends the /WONDER/listener/position message, changing the "sweet
-spot" for hearing sources that are positioned within the speaker array. </p>
+<p>Sends the /WONDER/listener/position message, changing the position of the listener wich is used to determine which speakers are used for focused sources. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">listenerID</td><td>The ID of the listener. </td></tr>
     <tr><td class="paramname">x</td><td>The x-coordinate of the listener's position. </td></tr>
-    <tr><td class="paramname">y</td><td>The x-coordinate of the listener's position.</td></tr>
+    <tr><td class="paramname">y</td><td>The y-coordinate of the listener's position.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>So far, this command is only supported by a version of WONDER developed at HAW Hamburg. </dd></dl>
 
-<p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#ab795ad95d4a04e127cdbfd1af106dede">wonderlo::WonderOscSender</a>.</p>
+<p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a8e0f20b94046e2fd5e5385bda2fa9bdb">wonderlo::WonderOscSender</a>.</p>
 
 </div>
 </div>
@@ -521,6 +541,177 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </dl>
 
 <p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a1a391746a38a6a71079f681f7312c71f">wonderlo::WonderOscSender</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a212e055cafbc3628051640477cd25ae7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void wonder::OscSender::sendProjectCreate </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>projectName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the /WONDER/project/create message. </p>
+<p>This tells cWONDER to create a new project (which does not include a score from the ScorePlayer).</p>
+<p>Check the corresponding /WONDER/reply message for possible error codes. (Codes may be: 0 for success, 1 for empty project name, 2 for "project already exists, 3 for any other error (including file i/o)).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectName</td><td>The name of the new project. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a183c3e4b36adf79670cab132b8eb5dac">wonderlo::WonderOscSender</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a594bc21f82993514469e122b4c1ba4f1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void wonder::OscSender::sendProjectCreateWithScore </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>projectName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the /WONDER/project/createWithScore message. </p>
+<p>This tells cWONDER to create a new project that includes a score from the ScorePlayer.</p>
+<p>Check the corresponding /WONDER/reply message for possible error codes. (Codes may be: 0 for success, 1 for empty project name, 2 for "project already exists, 3 for any other error (including file i/o)).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectName</td><td>The name of the new project. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#ad9a5018649dcc7935d665a3ed5642900">wonderlo::WonderOscSender</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26567f5db50afa12eae2381f6bc77ea8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void wonder::OscSender::sendProjectLoad </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>projectName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the /WONDER/project/load message. </p>
+<p>This tells cWONDER to restore an existing project.</p>
+<p>Check the corresponding /WONDER/reply message for possible error codes. (Codes may be: 0 for success, 1 for "file not found", 2 or 3 for various project loading errors (see the message's string for details)).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectName</td><td>The name of the project to be loaded. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a15ceb502602f9a15855c2a75caa0a517">wonderlo::WonderOscSender</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2f02e7b8ad780e9814897f5f421b797"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void wonder::OscSender::sendProjectSave </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the /WONDER/project/save message without a parameter. </p>
+<p>This tells cWONDER to store the current project under its current name. </p>
+
+<p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a71e82a403cb49f344e8e4e00090761de">wonderlo::WonderOscSender</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8ccaaa1637803455c8d4f4d10ecb01fb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void wonder::OscSender::sendProjectSave </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>projectName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the /WONDER/project/save message with a projectName parameter. </p>
+<p>This tells cWONDER to store the current project under the given name.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectName</td><td>The name under which the project shall be stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a10e4a25b534e87c7674faaee2b69ba8a">wonderlo::WonderOscSender</a>.</p>
 
 </div>
 </div>
@@ -563,12 +754,12 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><div class="memdoc">
 
 <p>Sends the /WONDER/reply message. </p>
-<p>This is can be used for any replies to incoming messages.</p>
+<p>This is can be used for any replies to incoming messages, confirming successfull execution or transmitting an error message.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">replyToMessage</td><td>The OSC path of the message that triggered this reply. </td></tr>
-    <tr><td class="paramname">state</td><td>0 for confirmations of successfull operations, 1 for error messages. </td></tr>
-    <tr><td class="paramname">message</td><td>The actual reply. </td></tr>
+    <tr><td class="paramname">state</td><td>0 for confirmations of successfull operations, != 0 for error messages. </td></tr>
+    <tr><td class="paramname">message</td><td>The actual reply text. </td></tr>
   </table>
   </dd>
 </dl>
@@ -650,7 +841,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sourceID</td><td>The wonder-specific ID of the source to be changed. May range from 0 to N-1 where N is the total number of sources supported by the current WONDER installation. </td></tr>
-    <tr><td class="paramname">angle</td><td>The direction of the planewave source as an angle (in degrees). The zero degrees position is "to the right" (in positive x-axis direction), an increase in angle rotates the direction clockwise. </td></tr>
+    <tr><td class="paramname">angle</td><td>The direction of the planewave source as an angle (in degrees). The zero degrees position is "to the right" (aka eastward aka 3 o'clock direction), an increase in angle rotates the direction clockwise. </td></tr>
   </table>
   </dd>
 </dl>
@@ -707,9 +898,9 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sourceID</td><td>The wonder-specific ID of the source to be changed. May range from 0 to N-1 where N is the total number of sources supported by the current WONDER installation. </td></tr>
-    <tr><td class="paramname">r</td><td>The red value of the new colour, ranging from 0 to 255 </td></tr>
-    <tr><td class="paramname">g</td><td>The green value of the new colour, ranging from 0 to 255 </td></tr>
-    <tr><td class="paramname">b</td><td>The blue value of the new colour, ranging from 0 to 255 </td></tr>
+    <tr><td class="paramname">r</td><td>The red value of the new colour. </td></tr>
+    <tr><td class="paramname">g</td><td>The green value of the new colour. </td></tr>
+    <tr><td class="paramname">b</td><td>The blue value of the new colour. </td></tr>
   </table>
   </dd>
 </dl>
@@ -879,7 +1070,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sourceID</td><td>The wonder-specific ID of the source to be changed. May range from 0 to N-1 where N is the total number of sources supported by the current WONDER installation. </td></tr>
-    <tr><td class="paramname">name</td><td>The new name of the source. TODO: find out maximum supported length. </td></tr>
+    <tr><td class="paramname">name</td><td>The new name of the source. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1059,10 +1250,11 @@ spot" for hearing sources that are positioned within the speaker array. </p>
     <tr><td class="paramname">x</td><td>The x-axis coordinate (in meters). </td></tr>
     <tr><td class="paramname">y</td><td>The y-axis coordinate (in meters). </td></tr>
     <tr><td class="paramname">duration</td><td>How long it will take for the source to arrive at the specified position (in seconds). </td></tr>
-    <tr><td class="paramname">timestamp</td><td>The moment when the source will start to move (in seconds from "now"). </td></tr>
+    <tr><td class="paramname">timestamp</td><td>The moment when the source will start to move (in seconds from "now" - "now" being the moment when this message is received by cWONDER).</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section warning"><dt>Warning</dt><dd>For this command to work, an instance of the time base helper application jfWONDER must be running and connected to cWONDER. Generally, the WONDER system can be run without jfWONDER running - in that case, there is no time base and this command will never be executed. Since there are no warnings issued by cWONDER about jfWONDER not running, make sure that jfWONDER is running when using this command. </dd></dl>
 
 <p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#aef641c20a9c84ca2fc0b8963ea29a1fc">wonderlo::WonderOscSender</a>.</p>
 
@@ -1228,7 +1420,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><div class="memdoc">
 
 <p>Sends the /WONDER/stream/visual/connect message. </p>
-<p>Once this is sent (to cWONDER), cWONDER will start sending the "Visual Stream" to the IP &amp; port where this message was sent from. </p>
+<p>Once this is sent (to cWONDER), cWONDER will start sending the "visual stream" to the IP &amp; port where this message was sent from. </p>
 
 <p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a3ee8e9c99eb26d6eeb3a42f68a4f83ac">wonderlo::WonderOscSender</a>.</p>
 
@@ -1257,10 +1449,10 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><div class="memdoc">
 
 <p>Sends the /WONDER/stream/visual/connect message. </p>
-<p>Once this is sent (to cWONDER), cWONDER will start sending the "Visual Stream" to the IP &amp; port where this message was sent from.</p>
+<p>Once this is sent (to cWONDER), cWONDER will start sending the "visual stream" to the IP &amp; port where this message was sent from.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>A name that identifies the sender. cWONDER keeps a list of connected stream clients along. This list will contain the client's IP &amp; port and this name. </td></tr>
+    <tr><td class="paramname">name</td><td>A name that identifies the sender. cWONDER keeps a list of connected stream clients. This list will contain the client's IP &amp; port along with this name. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1302,10 +1494,10 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><div class="memdoc">
 
 <p>Sends the /WONDER/stream/visual/connect message. </p>
-<p>Once this is sent (to cWONDER), cWONDER will start sending the "Visual Stream" to the specified address</p>
+<p>Once this is sent (to cWONDER), cWONDER will start sending the "visual stream" to the specified address</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">host</td><td>A valid hostname. (Since cWONDER uses the liblo library for sending OSC, you should see the liblo documentation for details on what exactly is supported (IPv6?).) </td></tr>
+    <tr><td class="paramname">host</td><td>A valid hostname. (Since cWONDER uses the liblo library for sending OSC, what exactly is supported (IPv6?) depends on the liblo version being used for the WONDER system in use.) </td></tr>
     <tr><td class="paramname">port</td><td>A valid port. (Since cWONDER uses the liblo library for sending OSC, you should see the liblo documentation for details on what exactly is supported.) </td></tr>
   </table>
   </dd>
@@ -1337,8 +1529,8 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><div class="memdoc">
 
 <p>Sends the /WONDER/stream/visual/disconnect message. </p>
-<p>Once this is sent (to cWONDER), cWONDER is expected to stop sending the "Visual Stream" to the IP &amp; port where this message was sent from.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Might not be supported by cWONDER. Although /WONDER/stream/visual/disconnect is listed in WONDER's OSC_and_Commandline_Overview.ods spreadsheet the command isn't actually supported (at least not by the cWONDER instance installed at HAW Hamburg). </dd></dl>
+<p>Once this is sent (to cWONDER), cWONDER is expected to stop sending the "visual stream" to the IP &amp; port where this message was sent from.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Currently not supported by cWONDER. Although /WONDER/stream/visual/disconnect is listed in WONDER's OSC_and_Commandline_Overview.ods spreadsheet the command isn't actually supported (at least not by WONDER version 3.1.0). </dd></dl>
 
 <p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a98e20d6a5d597bfef8e98e278c0b746f">wonderlo::WonderOscSender</a>.</p>
 
@@ -1367,7 +1559,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><div class="memdoc">
 
 <p>Sends the /WONDER/stream/visual/ping message. </p>
-<p>This is sent by instances who send out a "Visual Stream" (like cWONDER or VisualHub).</p>
+<p>This is sent by instances who send out a "visual stream" (like cWONDER or VisualHub).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">count</td><td>An integer value chosen by the sender. </td></tr>
@@ -1402,7 +1594,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><div class="memdoc">
 
 <p>Sends the /WONDER/stream/visual/pong message. </p>
-<p>This is sent by clients who receive a "Visual Stream" as reply to /WONDER/stream/visual/ping.</p>
+<p>This is sent by clients who receive a "visual stream" as reply to /WONDER/stream/visual/ping.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">count</td><td>The integer value that was received with the incoming /WONDER/stream/visual/ping message. </td></tr>
@@ -1481,7 +1673,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the network interface to use for sending to this address. </p>
+<p>Sets the network interface to use for sending to this address by its IP. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ip</td><td>The IP of the local interface where the messages shall be sent from. </td></tr>
@@ -1559,7 +1751,7 @@ spot" for hearing sources that are positioned within the speaker array. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 23 2014 10:17:24 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 16:22:11 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

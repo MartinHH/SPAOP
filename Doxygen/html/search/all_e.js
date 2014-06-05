@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['paint',['paint',['../class_spaop_audio_processor_editor.html#ad261ae20d420e660f2805316d837d04b',1,'SpaopAudioProcessorEditor::paint()'],['../classwonderjuce_1_1_source_panel.html#aa80a1c8ecee0d683a3521add15fd5cbe',1,'wonderjuce::SourcePanel::paint()'],['../classwonderjuce_1_1_source_zoom_port.html#a9008739203fd7aad262ffae70d308f95',1,'wonderjuce::SourceZoomPort::paint()']]],
-  ['paintsource',['paintSource',['../classwonderjuce_1_1_source_panel.html#af47d9293024a8df2c26303df9d818afb',1,'wonderjuce::SourcePanel']]],
+  ['preprocessor_20defines',['Preprocessor defines',['../defines.html',1,'']]],
+  ['paint',['paint',['../class_spaop_audio_processor_editor.html#ad261ae20d420e660f2805316d837d04b',1,'SpaopAudioProcessorEditor::paint()'],['../classwonderjuce_1_1_source_display.html#ad781b832fdb24b3e1cbdf651c394e7f7',1,'wonderjuce::SourceDisplay::paint()'],['../classwonderjuce_1_1_source_panel.html#aa80a1c8ecee0d683a3521add15fd5cbe',1,'wonderjuce::SourcePanel::paint()'],['../classwonderjuce_1_1_zoom_port.html#aac0092dfc230c9bfcf8d3dbc758fed86',1,'wonderjuce::ZoomPort::paint()']]],
+  ['paintsource',['paintSource',['../classwonderjuce_1_1_source_display.html#ac3b0a902e2bf23e6d48f1f508a6f6c89',1,'wonderjuce::SourceDisplay']]],
   ['path',['path',['../classwonderlo_1_1_message_with_path.html#a6f42fe6eed08eea0aab66b2e780d6b87',1,'wonderlo::MessageWithPath']]],
   ['ping_5ftimeout_5finterval',['PING_TIMEOUT_INTERVAL',['../_wonder_header_8h.html#a8c4582ed56a3529da22c1e8792f59099',1,'WonderHeader.h']]],
   ['pingcontrol',['PingControl',['../classwonder_1_1_ping_control.html',1,'wonder']]],
