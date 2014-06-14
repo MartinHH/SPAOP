@@ -290,7 +290,7 @@ public:
     virtual void sendSourceDopplerEffect(int sourceID, int on) = 0;
     
     /** Sends the /WONDER/listener/position message, changing the position of
-     *  the listener wich is used to determine which speakers are used for focused
+     *  the listener which is used to determine which speakers are used for focused
      *  sources.
      *
      *  @param listenerID The ID of the listener.
