@@ -445,14 +445,13 @@ int SourceController::onProjectXmlDump(int err, const std::string& xmlDump)
     
 int SourceController::onStreamVisualPing(int pingCount, OscSender* replyTo)
 {
-    
     replyTo->sendStreamVisualPong(pingCount);
     
-    if(linkedToWonder_){
-        // connection control is only active in linked mode...
+    if(linkedToWonder_){ // connection control is only active in linked mode...
+        // update status:
         cStatus_ = active;
         
-        // on the first Ping, this will also start PingControl:
+        // notify PingControl (on the first Ping, this will also start PingControl):
         pingControl_.onPing();
     }
     
@@ -477,12 +476,14 @@ int SourceController::onStreamVisualConnect(wonder::OscSender *replyTo)
     
 int SourceController::onReply(std::string replyToMsg, int state, std::string msg)
 {
-    /*TODO*/
+    // not implemented (yet?)
     return 0;
 }
     
 int SourceController::onPluginStandalone(bool standAloneOn)
 {
+    // when this is received, the group has been notified already,
+    // so the notifyPeers parameter is set to false:
     setLinkedToWonder(!standAloneOn, false);
     return 0;
 }
