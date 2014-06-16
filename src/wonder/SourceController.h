@@ -119,7 +119,8 @@ public:
     std::shared_ptr<const SourceCollection> getSources() const;
     
     /** Copies the parameters of a given Source object to the internal
-     *  SourceCollection (overwriting the Source with the same ID).
+     *  SourceCollection (overwriting the Source with the same ID) and
+     *  sets the source's ID as the one controlled by this SourceController.
      *  This is meant to be used for restoring states from saved files
      *  (e.g. the audio-plugin's presets) and is only allowed while the
      *  SourceController is not communicating (neither sending nor listening).
@@ -208,7 +209,7 @@ public:
     
     /** Sets the ID locked status. If the sourceID is locked, it cannot be changed,
      *  and listening to incoming messages is enabled. If it is not locked, the ID
-     *  can be changed, but listenging to incoming messages is disabled.
+     *  can be changed, but listening to incoming messages is disabled.
      *  On switching from !isLocked to isLocked, a /WONDER/source/activate message
      *  will be sent, on switching from isLocked to !isLocked, a /WONDER/source/deactivate
      *  message will be sent.
@@ -294,6 +295,8 @@ private:
     /** Returns true if the difference of a parameter's current value from the value
      *  that was sent out last (stored in lastValues_) is greater than a defined
      *  threshold.
+     *
+     *  @see COORD_PRECISION, ANGLE_PRECISION
      *
      *  @param index the parameter-index of the parameter to check.
      */

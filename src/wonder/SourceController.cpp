@@ -241,10 +241,12 @@ bool SourceController::isLinkedToWonder() const
 void SourceController::setIdIsLocked(bool isLocked)
 {
     if (isLocked && !isLocked_) {
+        // id was locked -> activate source:
         isLocked_ = true;
         sendOwnState(); // includes sendSourceActivate
         streamSource().sendStreamVisualConnect("SPAOP");
     } else if(!isLocked && isLocked_){
+        // id was unlocked -> deactivate source:
         dataDest().sendSourceDeactivate(sourceID_);
         isLocked_ = false;
         pingControl_.stop();
@@ -264,7 +266,6 @@ ConnectionStates SourceController::connectionStatus() const
     
 std::string SourceController::connectionStatusString() const
 {
-
     switch (cStatus_)
     {
         case inactive:  return "Connection inactive";
@@ -295,8 +296,8 @@ void SourceController::setRoom(const wonder::Room &room)
 }
     
 void SourceController::setIncomingParameter(int sourceID,
-                                             Source::AutomatedParameters index,
-                                             float unnormalizedValue)
+                                            Source::AutomatedParameters index,
+                                            float unnormalizedValue)
 {
     const float newValue = Source::normalizeParameter(index, unnormalizedValue);
     
@@ -389,18 +390,14 @@ int SourceController::onSourceDeactivate(int sourceID)
     
 int SourceController::onSourcePosition(int sourceID, float xPos, float yPos)
 {
-
     setIncomingParameter(sourceID, Source::xPosParam, xPos);
     setIncomingParameter(sourceID, Source::yPosParam, yPos);
-
     return 0;
 }
 
 int SourceController::onSourceAngle(int sourceID, float angle)
 {
-
     setIncomingParameter(sourceID, Source::angleParam, angle);
-
     return 0;
 }
 
@@ -413,8 +410,6 @@ int SourceController::onSourceType(int sourceID, int type)
 int SourceController::onSourceName(int sourceID, const std::string& sourceName)
 {
     sources_->setName(sourceID, sourceName);
-    // TODO: consider stack overflow - security risk?
-    // (lazy answer: this is done the same way all over WONDER, so why bother...)
     return 0;
 }
     
@@ -432,7 +427,7 @@ int SourceController::onSourceDopplerEffect(int sourceID, int doppler)
     
 int SourceController::onGlobalMaxNoSources(int maxSources)
 {
-    /*TODO*/
+    // Not used
     return 0;
 }
     
