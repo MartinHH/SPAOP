@@ -363,7 +363,7 @@ private:
     
     int onGlobalMaxNoSources(int maxSources);
     
-    int onGlobalRenderpolygon(Room room);
+    int onGlobalRenderpolygon(Room& room);
     
     int onProjectXmlDump(int err, const std::string& xmlDump);
     

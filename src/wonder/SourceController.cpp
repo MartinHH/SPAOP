@@ -431,7 +431,7 @@ int SourceController::onGlobalMaxNoSources(int maxSources)
     return 0;
 }
     
-int SourceController::onGlobalRenderpolygon(Room room)
+int SourceController::onGlobalRenderpolygon(Room& room)
 {
     *room_ = room;
     return 0;

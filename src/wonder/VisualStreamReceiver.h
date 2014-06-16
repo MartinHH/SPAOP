@@ -187,7 +187,7 @@ public:
          *  @param room A Room object describing the current WONDER setup's
          *      speaker positioning.
          */
-        virtual int onGlobalRenderpolygon(Room room) = 0;
+        virtual int onGlobalRenderpolygon(Room& room) = 0;
         
         /** Called when the /WONDER/project/xmlDump message is recieved.
          *
