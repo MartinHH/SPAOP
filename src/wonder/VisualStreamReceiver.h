@@ -115,7 +115,7 @@ public:
          *
          *  @param sourceID The wonder-specific ID of the source to be
          *      whose name is transmitted.
-         *  @param name The new name of the source.
+         *  @param sourceName The new name of the source.
          */
         virtual int onSourceName(int sourceID, const std::string& sourceName) = 0;
         
@@ -222,11 +222,11 @@ public:
          *  is sent as reply to another message, confirming successfull execution or
          *  transmitting an error message.
          *
-         *  @param replyToMessage The OSC path of the message that triggered this
+         *  @param replyToMsg The OSC path of the message that triggered this
          *      reply.
          *  @param state 0 for confirmations of successfull operations, != 0 for error
          *      messages.
-         *  @param message The actual reply text.
+         *  @param msg The actual reply text.
          *
          */
         virtual int onReply(std::string replyToMsg, int state, std::string msg) = 0;

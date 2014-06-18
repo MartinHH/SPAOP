@@ -77,6 +77,9 @@ public:
     /** Constructor. In order to be able to use own derived implementations,
      *  the main components are passed via this constructor.
      *
+     *  @warning Note that various additional parameters of the SourceController
+     *      are defined within the file WonderHeader.h.
+     *
      *  @param vsFactory A VisualStreamReceiver::Factory that will be used to
      *      create the VisualStreamReceiver that this SourceController will
      *      use to receive OSC messages.
@@ -86,11 +89,10 @@ public:
      *  @param timerFactory A ConnectionTimer::Factory that will be used to
      *      create the ConnectionTimer that this SourceController will
      *      use to keep track of ping timeouts.
+     *  @param xmlParser An XmlParser that this SourceController will use to
+     *      parse incoming WONDER project XML strings.
      *  @param maxSources the maximum number of sources allowed by the
      *      system.
-     *  @param clientName The name of this stream client within the WONDER
-     *      world. This will appear in the list of connected clients that
-     *      cWONDER sends via the /WONDER/stream/connected message.
      */
     SourceController(VisualStreamReceiver::Factory* vsFactory,
                      Listener* listener,
@@ -147,7 +149,7 @@ public:
      *  cWONDER (if its value's difference from the value that was sent last is 
      *  relevant). Depending on the parameter, the right message format is chosen.
      *  
-     *  @param index A parameter index value as defined in the enum
+     *  @param paramIndex A parameter index value as defined in the enum
      *      Source::AutomatedParameters.
      *  @param normalizedValue The new value for that parameter, normalized within
      *      [0.0 , 1.0].

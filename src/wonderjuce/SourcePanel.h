@@ -102,7 +102,7 @@ public:
          *  @param panel A pointer to the SourcePanel that initiated the call to this
          *      method.
          */
-        virtual void sourcePanelDragEnded (SourcePanel*) {}
+        virtual void sourcePanelDragEnded (SourcePanel* panel) {}
     };
     
     /** Adds a listener to be called when this panel's values change. */

@@ -130,8 +130,9 @@ public:
     /** Creates an XmlElement that holds the parameters of a SPAOP gui that need to
      *  be stored.
      *
-     *  @param processor The SpaopAudioProcessor of the plugin whose gui settings
-     *      shall be stored.
+     *  @param zoomFactor The zoom factor of the gui's SourcePanel.
+     *  @param showOthers The showOthers setting of the gui's SourcePanel.
+     *  @param showNames The showNames setting of the gui's SourcePanel.
      *  @return an XmlElement containing the corresponding info. The element is
      *      named "gui", its attributes are named "zoom" and "show" and "names".
      */
