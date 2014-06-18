@@ -25,8 +25,7 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
                                    Listener* listener,
                                    ConnectionTimer::Factory* timerFactory,
                                    XmlParser* xmlParser,
-                                   int maxSources,
-                                   const std::string clientName):
+                                   int maxSources):
     server_(vsFactory->createVisualStreamMulticastReceiver(VISUAL_MC_GROUP_STR,
                                                            VISUAL_MC_PORT_STR,
                                                            VISUAL_MC_IFACE_IP_STR)),
@@ -39,7 +38,6 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     room_(new Room()),
     listener_(listener),
     pingControl_(timerFactory, this, 0),
-    clientName_(clientName),
     linkedToWonder_(false),
     isLocked_(false),
     cStatus_(inactive)

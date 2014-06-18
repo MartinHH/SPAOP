@@ -96,8 +96,7 @@ public:
                      Listener* listener,
                      ConnectionTimer::Factory* timerFactory,
                      XmlParser* xmlParser,
-                     int maxSources,
-                     const std::string clientName = "");
+                     int maxSources);
     
     /** Destructor. */
     virtual ~SourceController();
@@ -280,7 +279,6 @@ private:
     std::shared_ptr<Room> room_;
     Listener* listener_;
     PingControl pingControl_;
-    const std::string clientName_;      // the name of this client within the WONDER world
     bool linkedToWonder_;               // is sending outgoing OSC messages to WONDER
     bool isLocked_;
     ConnectionStates cStatus_;

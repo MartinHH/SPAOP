@@ -27,8 +27,7 @@ SpaopAudioProcessor::SpaopAudioProcessor():
                                       this,
                                       wonderjuce::JuceConnectionTimer::getFactory(),
                                       wonderjuce::XmlFactory::getParser(),
-                                      MAX_WONDER_SOURCES,
-                                      "SPAOP")),
+                                      MAX_WONDER_SOURCES)),
     zoomFactor_(INITIAL_ZOOM_FACTOR),
     showOtherSources_(true)
 {
