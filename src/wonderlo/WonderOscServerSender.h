@@ -82,7 +82,6 @@ protected:
      *  lowrappers::Address::sendVAListFrom, sending from the port
      *  of the server passed in the WonderOscServerSender constructor.
      *
-     *  @param path The OSC path of the message.
      *  @param msg The Message to be sent.
      *
      *  @see lowrappers::Address::sendFrom, WonderOscSender::wonderSend

@@ -77,14 +77,15 @@ public:
     /** Constructor. In order to be able to use own derived implementations,
      *  the main components are passed via this constructor.
      *
-     *  @param server The server thread listening to incoming OSC messages.
-     *  @param dataDest The destination address for outgoing WONDER data.
-     *  @param streamSource the address used to subscribe to an incoming
-     *      "Visual Stream".
+     *  @param vsFactory A VisualStreamReceiver::Factory that will be used to
+     *      create the VisualStreamReceiver that this SourceController will
+     *      use to receive OSC messages.
      *  @param listener A listener listening to incoming parameter changes
-     *      and connection timeouts.
-     *  @param timer A timer to keep track of ping timeouts. Must be set to
-     *      an appropriate interval.
+     *      and connection timeouts. This will usually be a
+     *      SpaopAudioProcessor.
+     *  @param timerFactory A ConnectionTimer::Factory that will be used to
+     *      create the ConnectionTimer that this SourceController will
+     *      use to keep track of ping timeouts.
      *  @param maxSources the maximum number of sources allowed by the
      *      system.
      *  @param clientName The name of this stream client within the WONDER

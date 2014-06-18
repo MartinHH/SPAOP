@@ -109,7 +109,6 @@ protected:
      *  an internal message queue from where the sending thread will
      *  pick them up and send them.
      *  
-     *  @param path The OSC path of the message.
      *  @param msg The Message to be sent.
      *
      *  @see lowrappers::Address::sendFrom, WonderOscSender::wonderSend

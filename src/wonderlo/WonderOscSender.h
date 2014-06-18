@@ -152,10 +152,9 @@ protected:
      *  methods inherited from wonder::OscSender.
      *  By overriding it, derived classes can change the way those
      *  messages are sent (e.g. from which port they are sent).
-     *  This implementation simply passes the parameters on to
+     *  This implementation simply passes MessageWithPath object on to
      *  lowrappers::Address::send.
      *
-     *  @param path The OSC path of the message.
      *  @param msg The Message to be sent.
      *
      *  @see lowrappers::Address::send, WonderOscServerSender::wonderSend

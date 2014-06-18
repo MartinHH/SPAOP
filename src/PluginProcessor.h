@@ -185,7 +185,7 @@ public:
      *  restorable via getStateInformation and setStateInformation, it needs to be
      *  stored within this class.)
      *
-     *  @param showOtherSources true if the GUI shall show the sources' names.
+     *  @param showNames true if the GUI shall show the sources' names.
      */
     void setShowNames(bool showNames);
 

@@ -172,7 +172,7 @@ public:
      *
      *  @return -1 on failure.
      */
-    int sendVAList(const std::string &path, const std::string &type, va_list args) const;
+    int sendVAList(const std::string &path, const std::string &types, va_list args) const;
 
     /** Sends a OSC formatted message to this address, from the same socket
      *  as the specified server.
@@ -201,7 +201,7 @@ public:
                  const Message& msg) const;
     
     /** Sends a liblo lo_message to this address, from the same socket
-     *  as the specified server.
+     *  that a specified ServerThread is listening on.
      *
      *  @param from The server to send the message from.
      *  @param path The OSC path of the message.
@@ -213,9 +213,10 @@ public:
                  const lo_message msg) const;
     
     /** Sends a OSC formatted message to this address, from the same socket
-     *  as the specified server. Parameters are passed as a va_list. This 
-     *  allows other varargs methods to pass on their arguments.
+     *  that a specified ServerThread is listening on. Parameters are passed as
+     *  a va_list. This allows other varargs methods to pass on their arguments.
      *
+     *  @param from The server to send the message from.
      *  @param path The OSC path of the message.
      *  @param types The types of the data items in the message.
      *  @param args The data values to be transmitted. The types of the arguments

@@ -137,7 +137,7 @@ public:
     /** Sets a parameter from its normalized value.
      *
      *  @param sourceID The ID of the source that shall be updated.
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param paramIndex A parameter index as specified by enum SourceTypes.
      *  @param normalizedValue the new value for that parameter, normalized
      *      within [0.0 , 1.0].
      */

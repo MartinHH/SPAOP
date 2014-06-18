@@ -177,7 +177,7 @@ public:
     /** Normalizes a parameter to the range of [0.0 ; 1.0].
      *
      *  @param index A parameter index as specified by enum SourceTypes.
-     *  @param value The unnormalized value of the specified parameter whose
+     *  @param unnormalized The unnormalized value of the specified parameter whose
      *      normalized float representaion shall be returned.
      *  @return The normalized representation of the value that was passed.
      *      If the unnormalized value that was passed exceeds the range of
@@ -189,7 +189,7 @@ public:
      *  represents to the user (for GUI, getParameterText, ...).
      *
      *  @param index A parameter index as specified by enum SourceTypes.
-     *  @param value The normalized value of the specified parameter whose
+     *  @param normalized The normalized value of the specified parameter whose
      *      unnormalized representaion shall be returned.
      *  @return The unnormalized representation of the value that was passed.
      */

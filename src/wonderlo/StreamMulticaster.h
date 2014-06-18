@@ -63,7 +63,7 @@ public:
      *      forwarded to.
      *  @param mcPort The port of the multicast group that the stream shall be
      *      forwarded to.
-     *  @param ip The IP of the local interface where the multcast messages shall
+     *  @param mcIfaceIp The IP of the local interface where the multcast messages shall
      *      be sent from.
      *  @param connectPort The port to be used for incoming
      *      /WONDER/stream/<em>streamName</em>/connect messages.
