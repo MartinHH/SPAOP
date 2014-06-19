@@ -21,7 +21,7 @@ For further information, have a look at the following pages:
 To build and use the SPAOP plugin and the StreamMulticaster application, you will need the following:
 
 
-\section Operating System(s)
+\section os Operating System(s)
 
 Generally, both OSX and Windows are supported - with the following limitations (please report if you find more):
 - OSX version should be 10.7 or higher. SPAOP relies on the multithreading capabilities of C++11 which are not officially supported by Apple for OSX versions below 10.7. If you know a workaround for that, feel free to report it.
@@ -80,7 +80,7 @@ The SPAOP repository contains two submodules: one for a [fork of the JUCE librar
 	# 3. make sure the tracked branches are properly checked out:
 	$ git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
 
-The third step is a bit "hackish", but if you do not do that, the submodules will be in "detached head" state which can be the cause of a lot of trouble if you don't know what you're doing.
+The third step is a bit "hackish" and not essential, but if you do not do that, the submodules will be in "detached head" state which can be the cause of a lot of trouble if you want to make changes to those submodules. If you only want to pull in the submodules and don't plan to commit changes to them, you can safely ommit the third step.
 
 \section liblo Liblo
 
