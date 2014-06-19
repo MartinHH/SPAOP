@@ -187,6 +187,10 @@ Of course, you are free to modify the code as you like. However, this page is me
 
 \tableofcontents
 
+\section introjucer Use the Introjucer
+
+Use the Introjucer for any changes to the project (e.g. adding new source files). That way, those changes affect both the Windows and the OSX projects. 
+
 \section namespaces Namespaces and library-(in)dependency
 
 A lot of the code was written to be independent of any third party library. This is reflected by the different namespaces (and the corresponding source code structure). Have a look at the [Namespaces](namespaces.html) page for details.
@@ -202,7 +206,7 @@ Within the main namespace [wonder](namespacewonder.html), wherever functionaliti
 - wonder::ConnectionTimer An interface defining a cyclic timer. See wonderjuce::JuceConnectionTimer for a JUCE-based implementation.
 - wonder::XmlParser An interface for parsing the "xmlDump" XML string that is sent from cWONDER. A JUCE-based implementation is contained as a private class within wonderjuce::XmlFactory and can be accessed via the singleton-getter wonderjuce::XmlFactory::getParser.
 
-These interfaces also define factory interfaces (as internal classes). If you inject these factories into your classes via the constructor and use them to create new instances, you can keep you code tdecoupled from the actual implementations of those interfaces. For an example, have a look at the constructor code of wonder::SourceController or wonder::PingControl.
+These interfaces also define factory interfaces (as internal classes). If you inject these factories into your classes via the constructor and use them to create new instances, you can keep you code decoupled from the actual implementations of those interfaces. For an example, have a look at the constructor code of wonder::SourceController or wonder::PingControl.
 */
   
 //-----------------------------------------------------------
