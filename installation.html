@@ -118,15 +118,12 @@ A quick guide</h1>
 </ol>
 <h1><a class="anchor" id="submodules"></a>
 Submodules</h1>
-<p>The SPAOP repository contains two submodules: one for a <a href="https://github.com/MartinHH/JUCE">fork of the JUCE library</a>, one for <a href="https://martinhh.github.io/SPAOP">the Github pages containing this documentation</a>. To pull them in, go to the base directory of the SPAOP repository and do the following three steps: </p>
+<p>The SPAOP repository contains two submodules: one for a <a href="https://github.com/MartinHH/JUCE">fork of the JUCE library</a>, one for <a href="https://martinhh.github.io/SPAOP">the Github pages containing this documentation</a>. To pull them in, go to the base directory of the SPAOP repository and do the following two steps: </p>
 <pre class="fragment"># 1. initialize the submodules:
 $ git submodule init
 # 2. pull in the submodules' content:
-$ git submodule update --remote
-# 3. make sure the tracked branches are properly checked out:
-$ git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
-</pre><p>The third step is a bit "hackish" and not essential, but if you do not do that, the submodules will be in "detached head" state which can be the cause of a lot of trouble if you want to make changes to those submodules. If you only want to pull in the submodules and don't plan to commit changes to them, you can safely ommit the third step.</p>
-<h1><a class="anchor" id="liblo"></a>
+$ git submodule update
+</pre><h1><a class="anchor" id="liblo"></a>
 Liblo</h1>
 <p>The Liblo library can be downloaded from <a href="http://liblo.sourceforge.net/">http://liblo.sourceforge.net/</a>.</p>
 <h2><a class="anchor" id="osx"></a>
@@ -181,7 +178,7 @@ Building the StreamMulticaster</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 20:50:35 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
