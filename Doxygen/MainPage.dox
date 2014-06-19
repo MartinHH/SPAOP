@@ -71,7 +71,16 @@ Before going into the details, here is a brief overview of the steps needed to g
 
 \section submodules Submodules
 
-The SPAOP repository contains two submodules: one for a [fork of the JUCE library](https://github.com/MartinHH/JUCE), one for [the Gihub pages containing this documentation](https://martinhh.github.io/SPAOP). To pull them in, go to the base directory of the SPAOP repository and type `git submodule init` and `git submodule update` (see the [Submodules chapter in Pro Git](http://git-scm.com/book/en/Git-Tools-Submodules) to learn more about that).
+The SPAOP repository contains two submodules: one for a [fork of the JUCE library](https://github.com/MartinHH/JUCE), one for [the Github pages containing this documentation](https://martinhh.github.io/SPAOP). To pull them in, go to the base directory of the SPAOP repository and do the following three steps:
+
+	# 1. initialize the submodules:
+	$ git submodule init
+	# 2. pull in the submodules' content:
+	$ git submodule update --remote
+	# 3. make sure the tracked branches are properly checked out:
+	$ git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
+
+The third step is a bit "hackish", but if you do not do that, the submodules will be in "detached head" state which can be the cause of a lot of trouble if you don't know what you're doing.
 
 \section liblo Liblo
 
@@ -91,9 +100,8 @@ Follow the [building Liblo for other platforms](http://liblo.sourceforge.net/REA
 
 One more thing: at this moment, there is still something you need to fix in the Liblo-headers: in lo_osc_types.h, change line 25 (`#ifdef _MSC_VER`) to:
 
-\code{.cpp}
-#if defined(_MSC_VER) && _MSC_VER < 1600
-\endcode
+	#if defined(_MSC_VER) && _MSC_VER < 1600
+
 
 (If this still hasn't been fixed when you're reading this, you're invited to support my [change request on the Liblo mailing list](http://sourceforge.net/p/liblo/mailman/message/32182802/).)
 
