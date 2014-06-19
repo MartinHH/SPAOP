@@ -125,7 +125,7 @@ $ git submodule init
 $ git submodule update --remote
 # 3. make sure the tracked branches are properly checked out:
 $ git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
-</pre><p>The third step is a bit "hackish", but if you do not do that, the submodules will be in "detached head" state which can be the cause of a lot of trouble if you don't know what you're doing.</p>
+</pre><p>The third step is a bit "hackish" and not essential, but if you do not do that, the submodules will be in "detached head" state which can be the cause of a lot of trouble if you want to make changes to those submodules. If you only want to pull in the submodules and don't plan to commit changes to them, you can safely ommit the third step.</p>
 <h1><a class="anchor" id="liblo"></a>
 Liblo</h1>
 <p>The Liblo library can be downloaded from <a href="http://liblo.sourceforge.net/">http://liblo.sourceforge.net/</a>.</p>
@@ -181,7 +181,7 @@ Building the StreamMulticaster</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 18:49:45 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 19 2014 20:50:35 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
