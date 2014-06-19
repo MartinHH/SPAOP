@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classwonderjuce_1_1_component_with_focus_point.html" title="An abstract class extending juce::Component, adding methods to query a &quot;focus point&quot;. " alt="" coords="144,5,336,43"/>
+<area shape="rect" id="node3" href="$classwonderjuce_1_1_source_display.html" title="An abstract class for a GUI component that displays a two&#45;dimensional view of WONDER sources and the ..." alt="" coords="385,11,567,37"/>
+<area shape="rect" id="node4" href="$classwonderjuce_1_1_source_panel.html" title="A GUI component that displays a two&#45;dimensional view of a source&#39;s position and allows the re&#45;positio..." alt="" coords="616,11,789,37"/>
+</map>

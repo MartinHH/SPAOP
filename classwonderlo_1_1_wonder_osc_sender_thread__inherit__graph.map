@@ -1,0 +1,8 @@
+<map id="wonderlo::WonderOscSenderThread" name="wonderlo::WonderOscSenderThread">
+<area shape="rect" id="node7" href="$classwonderlo_1_1_wonder_osc_server_sender_thread.html" title="A WonderOscSenderThread thread, sending its messages from a specified lowrappers::ServerThread&#39;s port..." alt="" coords="132,243,324,282"/>
+<area shape="rect" id="node2" href="$classthread_1_1_thread.html" title="This class wraps an std::thread into a Java&#45;style thread object. " alt="" coords="4,81,112,106"/>
+<area shape="rect" id="node3" href="$classwonder_1_1_osc_sender_thread.html" title="An interface for a thread implementing the OscSender interface. " alt="" coords="137,81,319,106"/>
+<area shape="rect" id="node4" href="$classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER&#45;specific OSC&#45;message..." alt="" coords="182,6,321,31"/>
+<area shape="rect" id="node5" href="$classwonderlo_1_1_wonder_osc_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface. " alt="" coords="343,81,539,106"/>
+<area shape="rect" id="node6" href="$classlowrappers_1_1_address.html" title="A wrapper for liblo&#39;s lo_address. " alt="" coords="370,6,512,31"/>
+</map>
