@@ -1,4 +1,0 @@
-<map id="lowrappers::ServerThread" name="lowrappers::ServerThread">
-<area shape="rect" id="node3" href="$classwonderlo_1_1_v_s_receiver.html" title="An OscServer&#45;Thread that calls the message&#45;handling methods of a VisualStreamCallInterface object..." alt="" coords="15,155,168,181"/>
-<area shape="rect" id="node2" href="$classthread_1_1_thread.html" title="This class wraps an std::thread into a Java&#45;style thread object. " alt="" coords="38,6,145,31"/>
-</map>
