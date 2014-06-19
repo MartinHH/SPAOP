@@ -1,9 +1,9 @@
-# SPAOP
+# SPAOP `gh-pages` branch
 
-This is the project repository of SPAOP (Spatial Audio Object Positioner), an audio plugin to control audio object's positions within the [WONDER system for wave field synthesis](http://sourceforge.net/projects/swonder/).
+If you are reading this README, you are on the `gh-pages` branch of the SPAOP repository. This branch is what Github takes and hosts under [https://martinhh.github.io/SPAOP](https://martinhh.github.io/SPAOP) (read more about Github Pages [here](https://pages.github.com)).
 
-It consists of a main VST/VST3/AU/RTAS plugin (built using the [JUCE](http://www.juce.com/) framework) and a helper application named the StreamMulticaster.
+To be able to auto-generate Doxygen pages right into this branch, it was included as a submodule (resulting in a recursive repository structure(!)). The path to this README should look something like this:
 
-If you just cloned this repository, do not forget to fetch its submodules by entering `git submodule init` and `git submodule update` from the SPAOP repository's base directory (the same directory where you found this README.md).
+`/SPAOP[SPAOP master branch]/Doxygen/html[SPAOP gh-pages branch]/README.md`
 
-For further information, have a look at the [Doxygen documentation](https://martinhh.github.io/SPAOP).
+Make sure only html stuff is commited into this branch. It is strongly recommended to never ever switch to or from this branch using `git checkout` - the only way to switch to this branch should be by entering the `html` directory. 
