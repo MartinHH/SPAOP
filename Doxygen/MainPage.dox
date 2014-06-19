@@ -71,16 +71,12 @@ Before going into the details, here is a brief overview of the steps needed to g
 
 \section submodules Submodules
 
-The SPAOP repository contains two submodules: one for a [fork of the JUCE library](https://github.com/MartinHH/JUCE), one for [the Github pages containing this documentation](https://martinhh.github.io/SPAOP). To pull them in, go to the base directory of the SPAOP repository and do the following three steps:
+The SPAOP repository contains two submodules: one for a [fork of the JUCE library](https://github.com/MartinHH/JUCE), one for [the Github pages containing this documentation](https://martinhh.github.io/SPAOP). To pull them in, go to the base directory of the SPAOP repository and do the following two steps:
 
 	# 1. initialize the submodules:
 	$ git submodule init
 	# 2. pull in the submodules' content:
-	$ git submodule update --remote
-	# 3. make sure the tracked branches are properly checked out:
-	$ git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'
-
-The third step is a bit "hackish" and not essential, but if you do not do that, the submodules will be in "detached head" state which can be the cause of a lot of trouble if you want to make changes to those submodules. If you only want to pull in the submodules and don't plan to commit changes to them, you can safely ommit the third step.
+	$ git submodule update
 
 \section liblo Liblo
 
