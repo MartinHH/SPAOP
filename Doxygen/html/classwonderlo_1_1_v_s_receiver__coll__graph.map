@@ -1,5 +1,0 @@
-<map id="wonderlo::VSReceiver" name="wonderlo::VSReceiver">
-<area shape="rect" id="node2" href="$classlowrappers_1_1_server_thread.html" title="A server thread with liblo&#45;style callback capabilities. " alt="" coords="4,81,179,106"/>
-<area shape="rect" id="node3" href="$classthread_1_1_thread.html" title="This class wraps an std::thread into a Java&#45;style thread object. " alt="" coords="38,6,145,31"/>
-<area shape="rect" id="node4" href="$classwonder_1_1_visual_stream_receiver.html" title="An interface defining an OSC server thread that receives and handles the messages sent via WONDER&#39;s &quot;..." alt="" coords="203,81,407,106"/>
-</map>
