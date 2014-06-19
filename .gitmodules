@@ -1,6 +1,8 @@
 [submodule "JUCE"]
 	path = JUCE
 	url = https://github.com/MartinHH/JUCE.git
+	branch = developMH
 [submodule "Doxygen/html"]
 	path = Doxygen/html
 	url = https://github.com/MartinHH/SPAOP.git
+	branch = gh-pages
