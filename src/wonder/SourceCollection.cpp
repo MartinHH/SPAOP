@@ -127,8 +127,6 @@ bool SourceCollection::idInRange(int sourceID) const
 {
     return sourceID >=0 && sourceID < maxSources_;
 }
-    
-static SourceCollection EMPTY_COLLECTION = SourceCollection(0);
 
 Colour SourceCollection::initialColours[NUM_INITIAL_COLOURS] =
 {

@@ -154,8 +154,6 @@ public:
     void setParameterUnnormalized(int sourceID, int paramIndex,
                                   float unnormalizedValue);
     
-    static SourceCollection EMPTY_COLLECTION;
-    
 private:
     bool idInRange(int sourceID) const;
     
