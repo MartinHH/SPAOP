@@ -1,5 +1,5 @@
 <map id="thread::Thread" name="thread::Thread">
-<area shape="rect" id="node2" href="$classlowrappers_1_1_server_thread.html" title="A server thread with liblo&#45;style callback capabilities. " alt="" coords="4,87,179,113"/>
+<area shape="rect" id="node2" href="$classlowrappers_1_1_server_thread.html" title="A server thread with Liblo&#45;style callback capabilities. " alt="" coords="4,87,179,113"/>
 <area shape="rect" id="node4" href="$classwonderlo_1_1_wonder_osc_sender_thread.html" title="A thread implementing the wonder::OscSenderThread interface. " alt="" coords="203,81,399,119"/>
 <area shape="rect" id="node3" href="$classwonderlo_1_1_v_s_receiver.html" title="An OscServer&#45;Thread that calls the message&#45;handling methods of a VisualStreamCallInterface object..." alt="" coords="15,175,168,201"/>
 <area shape="rect" id="node5" href="$classwonderlo_1_1_wonder_osc_server_sender_thread.html" title="A WonderOscSenderThread thread, sending its messages from a specified lowrappers::ServerThread&#39;s port..." alt="" coords="205,169,397,207"/>

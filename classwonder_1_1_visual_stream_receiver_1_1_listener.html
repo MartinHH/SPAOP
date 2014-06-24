@@ -157,16 +157,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a076ad59606b5e315b3b62d1619b84580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the /WONDER/project/xmlDump message is recieved.  <a href="#a076ad59606b5e315b3b62d1619b84580">More...</a><br/></td></tr>
 <tr class="separator:a076ad59606b5e315b3b62d1619b84580"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51cf3a5b67490e8796f5f8a60fdf02da"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#a51cf3a5b67490e8796f5f8a60fdf02da">onStreamVisualPong</a> (int pingCount)=0</td></tr>
+<tr class="memdesc:a51cf3a5b67490e8796f5f8a60fdf02da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a /WONDER/stream/visual/ping is received.  <a href="#a51cf3a5b67490e8796f5f8a60fdf02da">More...</a><br/></td></tr>
 <tr class="separator:a51cf3a5b67490e8796f5f8a60fdf02da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab2cb25b8e8c3a11af8ab8da645b26be"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#aab2cb25b8e8c3a11af8ab8da645b26be">onStreamVisualConnect</a> (<a class="el" href="classwonder_1_1_osc_sender.html">OscSender</a> *replyTo)</td></tr>
 <tr class="memdesc:aab2cb25b8e8c3a11af8ab8da645b26be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when any /WONDER/stream/visual/connect message is recieved.  <a href="#aab2cb25b8e8c3a11af8ab8da645b26be">More...</a><br/></td></tr>
 <tr class="separator:aab2cb25b8e8c3a11af8ab8da645b26be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2f56e79767a7372819bac94e5acb228"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#ab2f56e79767a7372819bac94e5acb228">onStreamVisualDisconnect</a> ()</td></tr>
+<tr class="memdesc:ab2f56e79767a7372819bac94e5acb228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when any /WONDER/stream/visual/disconnect message is recieved.  <a href="#ab2f56e79767a7372819bac94e5acb228">More...</a><br/></td></tr>
 <tr class="separator:ab2f56e79767a7372819bac94e5acb228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84a400b126bc6852fdfe94ace3f2e28c"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#a84a400b126bc6852fdfe94ace3f2e28c">onReply</a> (std::string replyToMsg, int state, std::string msg)=0</td></tr>
 <tr class="memdesc:a84a400b126bc6852fdfe94ace3f2e28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the /WONDER/project/xmlDump message is recieved.  <a href="#a84a400b126bc6852fdfe94ace3f2e28c">More...</a><br/></td></tr>
 <tr class="separator:a84a400b126bc6852fdfe94ace3f2e28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceac408887c7f4cc1e5a7d8e7b22ddcd"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html#aceac408887c7f4cc1e5a7d8e7b22ddcd">onPluginStandalone</a> (bool standAloneOn)=0</td></tr>
+<tr class="memdesc:aceac408887c7f4cc1e5a7d8e7b22ddcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the /WONDER/plugin/standalone message is recieved.  <a href="#aceac408887c7f4cc1e5a7d8e7b22ddcd">More...</a><br/></td></tr>
 <tr class="separator:aceac408887c7f4cc1e5a7d8e7b22ddcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -333,6 +336,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called when the /WONDER/plugin/standalone message is recieved. </p>
+<p>This is used to change the communication mode of the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> class: In "standalone" mode, the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> sends the source controlling messages to its peers (via multicast) only. If standalone is off ("linked to wonder" mode), the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> sends those messages to cWONDER.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">standAlone</td><td>true for "standalone" mode, false for "linked to wonder" mode. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -958,6 +970,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called when any /WONDER/stream/visual/disconnect message is recieved. </p>
+
 </div>
 </div>
 <a class="anchor" id="a51cf3a5b67490e8796f5f8a60fdf02da"></a>
@@ -982,12 +996,20 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called when a /WONDER/stream/visual/ping is received. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pingCount</td><td>An int value that should be the same as in the ping message the current pong message is replying to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -82,16 +82,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><p>Several options (most importantly: the network addresses of the WONDER system) can be changed by setting preprocessor defines.</p>
 <h1><a class="anchor" id="parameter_defines"></a>
 Parameter-Defines in WonderHeader.h</h1>
-<p>There are a few parameters for both the plugin and the StreamMulticaster (network addresses, prameter ranges, ...) that are defined in the file <a class="el" href="_wonder_header_8h.html">WonderHeader.h</a> - so have a look at the file's documentation page for details on those parameters.</p>
+<p>There are a few parameters for both the plugin and the StreamMulticaster (network addresses, parameter ranges, ...) that are defined in the file <a class="el" href="_wonder_header_8h.html">WonderHeader.h</a> - so have a look at the file's documentation page for details on those parameters.</p>
 <h1><a class="anchor" id="spaop_discrete"></a>
 SPAOP_DISCRETE</h1>
 <p>Setting the flag <code>SPAOP_DISCRETE</code> will change the coordinates and rotation angle parameter's types from non-discrete to discrete. This is relevant for how the plug-in's host handles those parameters:</p>
-<p>Normally (witout <code>SPAOP_DISCRETE</code> set), the host can set the parameter's to any value within their range ((-COORD_MAX , COORD_MAX) for coordinates, (0.0 , 360.0) for the rotation angle). When <code>SPAOP_DISCRETE</code> is set, the host can only set them to discrete values within that range: coordinates are discretised to steps of 1 cm (meaning values can only be one of (-COORD_MAX, -COORD_MAX + 0.01, -COORD_MAX + 0.02, ..., COORD_MAX - 0.01, COORD_MAX)), the angle is discretised to steps of 0.1 degree (meaning values can only be one of (0.0, 0.1, 0.2, ..., 360.0)).</p>
+<p>Normally (witout <code>SPAOP_DISCRETE</code> set), the host can set the parameters to any value within their range ([-COORD_MAX , COORD_MAX] for coordinates, [0.0 , 360.0] for the rotation angle). When <code>SPAOP_DISCRETE</code> is set, the host can only set them to discrete values within that range: coordinates are discretised to steps of 1 cm (meaning values can only be one of (-COORD_MAX, -COORD_MAX + 0.01, -COORD_MAX + 0.02, ..., COORD_MAX - 0.01, COORD_MAX)), the angle is discretised to steps of 0.1 degree (meaning values can only be one of (0.0, 0.1, 0.2, ..., 360.0)).</p>
 <p>So what is the use for that flag? After recording automation data, certain hosts will "reduce" the automation data and interpolate automation values they deem to be irrelevant. Some hosts have settings where this feature can be turned off (e.g. Cubase's full versions), others don't (e.g. the LE versions of Cubase). By setting the <code>SPAOP_DISCRETE</code> flag some hosts (e.g. Cubase) can be forced not to reduce any automation data (apparently, any change of discrete parameter values is considered to be relevant). The downside however is that certain options to manipulate automation data might not be available for discretised parameters (e.g. in Cubase, "drawing" a diagonal automation by setting two automation points is only possible for non-discrete values). </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>A listener interface for listeners to be called by the <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with liblo-style callback capabilities. ">ServerThread</a> when incoming OSC messages are received.  
+<p>A listener interface for listeners to be called by the <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with Liblo-style callback capabilities. ">ServerThread</a> when incoming OSC messages are received.  
  <a href="classlowrappers_1_1_server_thread_1_1_listener.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_server_thread_8h_source.html">ServerThread.h</a>&gt;</code></p>
@@ -112,11 +112,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab11e7d3cec1137a1ae8d6ee9b98883eb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_server_thread_1_1_listener.html#ab11e7d3cec1137a1ae8d6ee9b98883eb">~Listener</a> ()</td></tr>
 <tr class="separator:ab11e7d3cec1137a1ae8d6ee9b98883eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a091bb57d54a6bc46faa4c6da33566c5e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_server_thread_1_1_listener.html#a091bb57d54a6bc46faa4c6da33566c5e">callback</a> (const char *path, const char *types, lo_arg **argv, int argc, lo_message msg)=0</td></tr>
-<tr class="memdesc:a091bb57d54a6bc46faa4c6da33566c5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback method that will be called from the <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with liblo-style callback capabilities. ">ServerThread</a>.  <a href="#a091bb57d54a6bc46faa4c6da33566c5e">More...</a><br/></td></tr>
+<tr class="memdesc:a091bb57d54a6bc46faa4c6da33566c5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The callback method that will be called from the <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with Liblo-style callback capabilities. ">ServerThread</a>.  <a href="#a091bb57d54a6bc46faa4c6da33566c5e">More...</a><br/></td></tr>
 <tr class="separator:a091bb57d54a6bc46faa4c6da33566c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A listener interface for listeners to be called by the <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with liblo-style callback capabilities. ">ServerThread</a> when incoming OSC messages are received. </p>
+<div class="textblock"><p>A listener interface for listeners to be called by the <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with Liblo-style callback capabilities. ">ServerThread</a> when incoming OSC messages are received. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab11e7d3cec1137a1ae8d6ee9b98883eb"></a>
 <div class="memitem">
@@ -192,11 +192,11 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The callback method that will be called from the <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with liblo-style callback capabilities. ">ServerThread</a>. </p>
+<p>The callback method that will be called from the <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with Liblo-style callback capabilities. ">ServerThread</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>The OSC path of the incoming message that triggered the call. </td></tr>
-    <tr><td class="paramname">types</td><td>The liblo-style types string indicating the types of the recieved parameters (e.g. "iii" for three int parameters). </td></tr>
+    <tr><td class="paramname">types</td><td>The Liblo-style types string indicating the types of the recieved parameters (e.g. "iii" for three int parameters). </td></tr>
     <tr><td class="paramname">argv</td><td>The parameters recieved within the message (whose types will match the types string. </td></tr>
     <tr><td class="paramname">argc</td><td>The length of the argv array. </td></tr>
     <tr><td class="paramname">msg</td><td>The full message as lo_message. </td></tr>
@@ -212,7 +212,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -109,7 +109,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aca091d7ed0a98d8325fbeab807cc54d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#aca091d7ed0a98d8325fbeab807cc54d2">More...</a><br/></td></tr>
 <tr class="separator:aca091d7ed0a98d8325fbeab807cc54d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87068070da594b5a007dca1dd72de70c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderlo_1_1_stream_multicaster.html#a87068070da594b5a007dca1dd72de70c">getConnectPort</a> () const </td></tr>
-<tr class="memdesc:a87068070da594b5a007dca1dd72de70c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port where connect messages may be sent to.  <a href="#a87068070da594b5a007dca1dd72de70c">More...</a><br/></td></tr>
+<tr class="memdesc:a87068070da594b5a007dca1dd72de70c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port where incoming connect messages may be sent to.  <a href="#a87068070da594b5a007dca1dd72de70c">More...</a><br/></td></tr>
 <tr class="separator:a87068070da594b5a007dca1dd72de70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5325dd7b0b81445006079e9f079a560e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderlo_1_1_stream_multicaster.html#a5325dd7b0b81445006079e9f079a560e">getStreamInPort</a> () const </td></tr>
 <tr class="memdesc:a5325dd7b0b81445006079e9f079a560e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port where the incoming stream is recieved.  <a href="#a5325dd7b0b81445006079e9f079a560e">More...</a><br/></td></tr>
@@ -121,7 +121,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a632e8194947900a24031bf5d677f055d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port of the stream source (i.e.  <a href="#a632e8194947900a24031bf5d677f055d">More...</a><br/></td></tr>
 <tr class="separator:a632e8194947900a24031bf5d677f055d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e6f97730ed679411ea60f4756551f12"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderlo_1_1_stream_multicaster.html#a3e6f97730ed679411ea60f4756551f12">getMulticastGroup</a> () const </td></tr>
-<tr class="memdesc:a3e6f97730ed679411ea60f4756551f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ip of the multicast group.  <a href="#a3e6f97730ed679411ea60f4756551f12">More...</a><br/></td></tr>
+<tr class="memdesc:a3e6f97730ed679411ea60f4756551f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the IP of the multicast group.  <a href="#a3e6f97730ed679411ea60f4756551f12">More...</a><br/></td></tr>
 <tr class="separator:a3e6f97730ed679411ea60f4756551f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdc9c18a90552299d0867d436ad76d73"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderlo_1_1_stream_multicaster.html#acdc9c18a90552299d0867d436ad76d73">getMulticastPort</a> () const </td></tr>
 <tr class="memdesc:acdc9c18a90552299d0867d436ad76d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port of the multicast group.  <a href="#acdc9c18a90552299d0867d436ad76d73">More...</a><br/></td></tr>
@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 <p>Two threads listen on two ports:</p>
 <ul>
 <li>the StreamInPort: any messages recieved here are forwarded to the multicast group. If a /WONDER/stream/<em>streamName</em>/ping message is received on this port, it is both forwarded to the multicast group and replied to with the corresponding /WONDER/stream/<em>streamName</em>/pong message.</li>
-<li>the ConnectPort: if a /WONDER/stream/<em>streamName</em>/connect message (with any parameter constellation) is recieved here, the <a class="el" href="classwonderlo_1_1_stream_multicaster.html" title="A StreamMulticaster forwards any OSC messages that are sent to its StreamInPort to a multicast group...">StreamMulticaster</a> sends a /WONDER/stream/<em>streamName</em>/connect(String name) message to the stream source (i.e. cWONDER). This triggers cWONDER to resend any messages that are sent on the first connect message. Those are forwarded to the multicast group, so whenever a new client sends a /WONDER/stream/<em>streamName</em>/connect message to the ConnectPort, he will receive the reply he would have recieved if he had connected to cWONDER directly. <dl class="section warning"><dt>Warning</dt><dd>The behaviour that cWONDER will resend all information on repeated /WONDER/stream/<em>streamName</em>/connect messages has only been tested with the "visual" stream. </dd></dl>
+<li>the ConnectPort: if a /WONDER/stream/<em>streamName</em>/connect message (with any parameter constellation) is recieved here, the <a class="el" href="classwonderlo_1_1_stream_multicaster.html" title="A StreamMulticaster forwards any OSC messages that are sent to its StreamInPort to a multicast group...">StreamMulticaster</a> sends a /WONDER/stream/<em>streamName</em>/connect(String name) message to the stream source (i.e. cWONDER). This triggers cWONDER to resend any messages that are sent on the first connect message. Those are forwarded to the multicast group, so whenever a new client sends a /WONDER/stream/<em>streamName</em>/connect message to the ConnectPort, he will receive the reply he would have recieved if he had connected to cWONDER directly. <dl class="section warning"><dt>Warning</dt><dd>Due to a bug in cWONDER (version 3.1.0), cWONDER will resend all information on repeated /WONDER/stream/<em>streamName</em>/connect to the client that last registered for the corresponding stream (not to the client that was reconnected). If you want to use this feature, make sure you connect last or fix that bug. </dd></dl>
 </li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -209,11 +209,11 @@ Public Member Functions</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sourceHost</td><td>The hostname/ip of cWONDER. </td></tr>
+    <tr><td class="paramname">sourceHost</td><td>The hostname/IP of cWONDER. </td></tr>
     <tr><td class="paramname">sourcePort</td><td>The port of cWONDER. </td></tr>
-    <tr><td class="paramname">mcGroup</td><td>The ip of the multicast group that the stream shall be forwarded to. </td></tr>
+    <tr><td class="paramname">mcGroup</td><td>The IP of the multicast group that the stream shall be forwarded to. </td></tr>
     <tr><td class="paramname">mcPort</td><td>The port of the multicast group that the stream shall be forwarded to. </td></tr>
-    <tr><td class="paramname">mcIfaceIp</td><td>The IP of the local interface where the multcast messages shall be sent from. </td></tr>
+    <tr><td class="paramname">mcIfaceIp</td><td>The IP of the local interface where the multicast messages shall be sent from. </td></tr>
     <tr><td class="paramname">connectPort</td><td>The port to be used for incoming /WONDER/stream/<em>streamName</em>/connect messages. </td></tr>
     <tr><td class="paramname">streamInPort</td><td>The port to be used for recieving the incoming stream. </td></tr>
     <tr><td class="paramname">streamName</td><td>The name of the stream that shall be forwarded. As of WONDER version 3.1.0, this can be "visual", "timer", "render" or "score". </td></tr>
@@ -263,8 +263,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the port where connect messages may be sent to. </p>
-<dl class="section return"><dt>Returns</dt><dd>The port where connect messages may be sent to. </dd></dl>
+<p>Returns the port where incoming connect messages may be sent to. </p>
+<dl class="section return"><dt>Returns</dt><dd>The port where incoming connect messages may be sent to. </dd></dl>
 
 </div>
 </div>
@@ -281,8 +281,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the ip of the multicast group. </p>
-<dl class="section return"><dt>Returns</dt><dd>The ip of the multicast group. </dd></dl>
+<p>Returns the IP of the multicast group. </p>
+<dl class="section return"><dt>Returns</dt><dd>The IP of the multicast group. </dd></dl>
 
 </div>
 </div>
@@ -381,7 +381,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:35 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -89,22 +89,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>A namespace for C++ wrappers for the liblo library.  
+<p>A namespace for C++ wrappers for the Liblo library.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_address.html">Address</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for liblo's lo_address.  <a href="classlowrappers_1_1_address.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for Liblo's lo_address.  <a href="classlowrappers_1_1_address.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_generic_server_thread_listener.html">GenericServerThreadListener</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic functor class for the <a class="el" href="classlowrappers_1_1_server_thread_1_1_listener.html" title="A listener interface for listeners to be called by the ServerThread when incoming OSC messages are re...">ServerThread::Listener</a> interface.  <a href="classlowrappers_1_1_generic_server_thread_listener.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_message.html">Message</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper of liblo's lo_message.  <a href="classlowrappers_1_1_message.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper of Liblo's lo_message.  <a href="classlowrappers_1_1_message.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_server_thread.html">ServerThread</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A server thread with liblo-style callback capabilities.  <a href="classlowrappers_1_1_server_thread.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A server thread with Liblo-style callback capabilities.  <a href="classlowrappers_1_1_server_thread.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -115,8 +115,8 @@ Functions</h2></td></tr>
 <tr class="separator:a71467336b1f9a9c4ba6058a9a1fd02f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A namespace for C++ wrappers for the liblo library. </p>
-<p>liblo is a library for sending and receiving OSC messages. </p>
+<div class="textblock"><p>A namespace for C++ wrappers for the Liblo library. </p>
+<p>Liblo is a library for sending and receiving OSC messages. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a71467336b1f9a9c4ba6058a9a1fd02f1"></a>
 <div class="memitem">
@@ -158,8 +158,8 @@ template&lt;class T &gt; </div>
 </div><!-- fragment --><p>Keep in mind that this creates a (tiny) object that must be deleted when its not needed anymore!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">object</td><td>The object whose method shall be called as a callback from a <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with liblo-style callback capabilities. ">ServerThread</a>. </td></tr>
-    <tr><td class="paramname">fp</td><td>A function pointer pointing to the method of object that shall be called from a <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with liblo-style callback capabilities. ">ServerThread</a>. Must match the signature of <a class="el" href="classlowrappers_1_1_server_thread_1_1_listener.html#a091bb57d54a6bc46faa4c6da33566c5e" title="The callback method that will be called from the ServerThread. ">ServerThread::Listener::callback</a>, i.e. return int and accept parameters (const char*, const char*, lo_arg**, int, lo_message). </td></tr>
+    <tr><td class="paramname">object</td><td>The object whose method shall be called as a callback from a <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with Liblo-style callback capabilities. ">ServerThread</a>. </td></tr>
+    <tr><td class="paramname">fp</td><td>A function pointer pointing to the method of object that shall be called from a <a class="el" href="classlowrappers_1_1_server_thread.html" title="A server thread with Liblo-style callback capabilities. ">ServerThread</a>. Must match the signature of <a class="el" href="classlowrappers_1_1_server_thread_1_1_listener.html#a091bb57d54a6bc46faa4c6da33566c5e" title="The callback method that will be called from the ServerThread. ">ServerThread::Listener::callback</a>, i.e. return int and accept parameters (const char*, const char*, lo_arg**, int, lo_message). </td></tr>
   </table>
   </dd>
 </dl>
@@ -170,7 +170,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

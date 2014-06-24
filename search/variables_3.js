@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['r',['r',['../structwonder_1_1_colour.html#ae12ef01215132069f49d75f2355c0fe1',1,'wonder::Colour']]],
-  ['red',['RED',['../classwonder_1_1_colours.html#ac5918f2c7b3fc615b491a5a4571ef86f',1,'wonder::Colours']]]
+  ['x',['x',['../structwonder_1_1_room_1_1_vertex.html#a76fba4d40eec2d115fe100c0b7affa0d',1,'wonder::Room::Vertex']]]
 ];

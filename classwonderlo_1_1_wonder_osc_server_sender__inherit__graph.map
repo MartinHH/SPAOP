@@ -1,5 +1,5 @@
 <map id="wonderlo::WonderOscServerSender" name="wonderlo::WonderOscServerSender">
 <area shape="rect" id="node2" href="$classwonderlo_1_1_wonder_osc_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface. " alt="" coords="61,81,256,106"/>
-<area shape="rect" id="node3" href="$classlowrappers_1_1_address.html" title="A wrapper for liblo&#39;s lo_address. " alt="" coords="5,6,147,31"/>
+<area shape="rect" id="node3" href="$classlowrappers_1_1_address.html" title="A wrapper for Liblo&#39;s lo_address. " alt="" coords="5,6,147,31"/>
 <area shape="rect" id="node4" href="$classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER&#45;specific OSC&#45;message..." alt="" coords="172,6,311,31"/>
 </map>

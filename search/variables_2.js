@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['g',['g',['../structwonder_1_1_colour.html#afe2da391e2ce7e7ac00578640727e8e9',1,'wonder::Colour']]],
-  ['green',['GREEN',['../classwonder_1_1_colours.html#a591912516623b5b25915dd68d8032953',1,'wonder::Colours']]]
+  ['r',['r',['../structwonder_1_1_colour.html#ae12ef01215132069f49d75f2355c0fe1',1,'wonder::Colour']]],
+  ['red',['RED',['../classwonder_1_1_colours.html#ac5918f2c7b3fc615b491a5a4571ef86f',1,'wonder::Colours']]]
 ];

@@ -121,68 +121,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">class </span>ServerThread  :   <span class="keyword">public</span> <a class="code" href="classthread_1_1_thread.html">thread::Thread</a></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classlowrappers_1_1_server_thread.html">   52</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classlowrappers_1_1_address.html">Address</a>; <span class="comment">// for access to the internal lo_server</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classlowrappers_1_1_server_thread.html#adebe709d4e5fe83b3c51c5605f625287">   54</a></span>&#160;    </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">class </span><a class="code" href="classlowrappers_1_1_server_thread_1_1_listener.html">Listener</a></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classlowrappers_1_1_server_thread_1_1_listener.html">   61</a></span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classlowrappers_1_1_server_thread_1_1_listener.html">Listener</a>(){}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> callback(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                             lo_arg **argv, <span class="keywordtype">int</span> argc, lo_message msg) = 0;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    };</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(lo_err_handler err_h);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(<span class="keyword">const</span> std::string &amp;port, lo_err_handler err_h);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(<span class="keyword">const</span> std::string&amp; group, <span class="keyword">const</span> std::string &amp;port, lo_err_handler err_h);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(<span class="keyword">const</span> std::string&amp; group, <span class="keyword">const</span> std::string &amp;port,</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                 <span class="keyword">const</span> std::string&amp; ifaceIp, lo_err_handler err_h);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>Address;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classlowrappers_1_1_server_thread.html#adebe709d4e5fe83b3c51c5605f625287">   57</a></span>&#160;    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">class </span><a class="code" href="classlowrappers_1_1_server_thread_1_1_listener.html">Listener</a></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classlowrappers_1_1_server_thread_1_1_listener.html">   64</a></span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classlowrappers_1_1_server_thread_1_1_listener.html">Listener</a>(){}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> callback(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                             lo_arg **argv, <span class="keywordtype">int</span> argc, lo_message msg) = 0;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    };</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(lo_err_handler err_h);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(<span class="keyword">const</span> std::string &amp;port, lo_err_handler err_h);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(<span class="keyword">const</span> std::string&amp; group, <span class="keyword">const</span> std::string &amp;port, lo_err_handler err_h);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(<span class="keyword">const</span> std::string&amp; group, <span class="keyword">const</span> std::string &amp;port,</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                 <span class="keyword">const</span> std::string&amp; ifaceIp, lo_err_handler err_h);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">bool</span> isValid() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    std::string url() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">int</span> port() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">bool</span> addMethod(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *typespec,</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                   lo_method_handler h, <span class="keywordtype">void</span> *user_data);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">bool</span> addListener(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *typespec,</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                     Listener* listener);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">void</span> delMethod(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *typespec);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(<span class="keyword">const</span> <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>&amp; other);              <span class="comment">// copying not allowed</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a> &amp;operator= (<span class="keyword">const</span> <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a> other);   <span class="comment">// assignment not allowed</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> genericCallback(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types, lo_arg **argv,</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                             <span class="keywordtype">int</span> argc, lo_message msg, <span class="keywordtype">void</span> *user_data);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classthread_1_1_thread.html#a6ad03ee25dc8acd712b74ab79ecd9dd8">run</a>(); <span class="comment">// inherited from thread::Thread</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    lo_server server;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;};</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">bool</span> isValid() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    std::string url() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">int</span> port() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">bool</span> addMethod(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *typespec,</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                   lo_method_handler h, <span class="keywordtype">void</span> *user_data);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">bool</span> addListener(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *typespec,</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                     Listener* listener);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordtype">void</span> delMethod(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *typespec);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>(<span class="keyword">const</span> <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a>&amp; other);              <span class="comment">// copying not allowed</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a> &amp;operator= (<span class="keyword">const</span> <a class="code" href="classlowrappers_1_1_server_thread.html">ServerThread</a> other);   <span class="comment">// assignment not allowed</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> genericCallback(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types, lo_arg **argv,</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                             <span class="keywordtype">int</span> argc, lo_message msg, <span class="keywordtype">void</span> *user_data);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classthread_1_1_thread.html#a6ad03ee25dc8acd712b74ab79ecd9dd8">run</a>(); <span class="comment">// inherited from thread::Thread</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;}</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">#endif  // SERVERTHREAD_H_INCLUDED</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    lo_server server;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;};</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#endif  // SERVERTHREAD_H_INCLUDED</span></div>
 <div class="ttc" id="classthread_1_1_thread_html_a6ad03ee25dc8acd712b74ab79ecd9dd8"><div class="ttname"><a href="classthread_1_1_thread.html#a6ad03ee25dc8acd712b74ab79ecd9dd8">thread::Thread::run</a></div><div class="ttdeci">virtual void run()=0</div><div class="ttdoc">This is the method that will be executed by the thread. </div></div>
-<div class="ttc" id="classlowrappers_1_1_server_thread_1_1_listener_html"><div class="ttname"><a href="classlowrappers_1_1_server_thread_1_1_listener.html">lowrappers::ServerThread::Listener</a></div><div class="ttdoc">A listener interface for listeners to be called by the ServerThread when incoming OSC messages are re...</div><div class="ttdef"><b>Definition:</b> ServerThread.h:61</div></div>
+<div class="ttc" id="classlowrappers_1_1_server_thread_1_1_listener_html"><div class="ttname"><a href="classlowrappers_1_1_server_thread_1_1_listener.html">lowrappers::ServerThread::Listener</a></div><div class="ttdoc">A listener interface for listeners to be called by the ServerThread when incoming OSC messages are re...</div><div class="ttdef"><b>Definition:</b> ServerThread.h:64</div></div>
 <div class="ttc" id="_thread_8h_html"><div class="ttname"><a href="_thread_8h.html">Thread.h</a></div></div>
-<div class="ttc" id="classlowrappers_1_1_address_html"><div class="ttname"><a href="classlowrappers_1_1_address.html">lowrappers::Address</a></div><div class="ttdoc">A wrapper for liblo&#39;s lo_address. </div><div class="ttdef"><b>Definition:</b> Address.h:35</div></div>
-<div class="ttc" id="classlowrappers_1_1_server_thread_html"><div class="ttname"><a href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a></div><div class="ttdoc">A server thread with liblo-style callback capabilities. </div><div class="ttdef"><b>Definition:</b> ServerThread.h:52</div></div>
-<div class="ttc" id="classthread_1_1_thread_html"><div class="ttname"><a href="classthread_1_1_thread.html">thread::Thread</a></div><div class="ttdoc">This class wraps an std::thread into a Java-style thread object. </div><div class="ttdef"><b>Definition:</b> Thread.h:39</div></div>
+<div class="ttc" id="classlowrappers_1_1_server_thread_html"><div class="ttname"><a href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a></div><div class="ttdoc">A server thread with Liblo-style callback capabilities. </div><div class="ttdef"><b>Definition:</b> ServerThread.h:52</div></div>
+<div class="ttc" id="classthread_1_1_thread_html"><div class="ttname"><a href="classthread_1_1_thread.html">thread::Thread</a></div><div class="ttdoc">A wrapper for the std::thread wrapping it into a Java-style thread object. </div><div class="ttdef"><b>Definition:</b> Thread.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

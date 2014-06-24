@@ -96,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>A wrapper of liblo's lo_message.  
+<p>A wrapper of Liblo's lo_message.  
  <a href="classlowrappers_1_1_message.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_message_8h_source.html">Message.h</a>&gt;</code></p>
@@ -129,10 +129,11 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:adebe709d4e5fe83b3c51c5605f625287"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlowrappers_1_1_message.html#adebe709d4e5fe83b3c51c5605f625287">Address</a></td></tr>
+<tr class="memdesc:adebe709d4e5fe83b3c51c5605f625287"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classlowrappers_1_1_address.html" title="A wrapper for Liblo&#39;s lo_address. ">Address</a> is friend class so it can access the internal lo_message object for sending.  <a href="#adebe709d4e5fe83b3c51c5605f625287">More...</a><br/></td></tr>
 <tr class="separator:adebe709d4e5fe83b3c51c5605f625287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A wrapper of liblo's lo_message. </p>
+<div class="textblock"><p>A wrapper of Liblo's lo_message. </p>
 <p>These messages can be sent via <a class="el" href="classlowrappers_1_1_address.html#a2281d9ca24cd641f077863a201112c95" title="Sends a OSC formatted message to this address. ">Address::send</a> and <a class="el" href="classlowrappers_1_1_address.html#a667fd01ddbb834b805456fec45a73951" title="Sends a OSC formatted message to this address, from the same socket as the specified server...">Address::sendFrom</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a09820b8d2a2892f8ed5068d76ed4464d"></a>
@@ -231,7 +232,7 @@ Friends</h2></td></tr>
 <p>Number and types of arguments must match the types string, e.g. add("iff", 1, 2.0, 3.0) or add(s, "some string").</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">types</td><td>A liblo-style typestring. </td></tr>
+    <tr><td class="paramname">types</td><td>A Liblo-style typestring. </td></tr>
     <tr><td class="paramname">...</td><td>The content to be added to the message. Number and types of arguments must match the types string. </td></tr>
   </table>
   </dd>
@@ -267,7 +268,7 @@ Friends</h2></td></tr>
 <p>Number and types of arguments must match the types string, e.g. add("iff", 1, 2.0, 3.0) or add(s, "some string"). Parameters are passed as a va_list. This allows other varargs methods to pass on their arguments.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">types</td><td>A liblo-style typestring </td></tr>
+    <tr><td class="paramname">types</td><td>A Liblo-style typestring </td></tr>
     <tr><td class="paramname">args</td><td>The data values to be transmitted. The types of the arguments passed here (and their length) must agree with the types specified in the type parameter. </td></tr>
   </table>
   </dd>
@@ -294,12 +295,14 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><a class="el" href="classlowrappers_1_1_address.html" title="A wrapper for Liblo&#39;s lo_address. ">Address</a> is friend class so it can access the internal lo_message object for sending. </p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

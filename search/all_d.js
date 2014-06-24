@@ -27,6 +27,5 @@ var searchData=
   ['oscsender_2eh',['OscSender.h',['../_osc_sender_8h.html',1,'']]],
   ['oscsenderthread',['OscSenderThread',['../classwonder_1_1_osc_sender_thread.html',1,'wonder']]],
   ['oscsenderthread_2eh',['OscSenderThread.h',['../_osc_sender_thread_8h.html',1,'']]],
-  ['oscserver',['OscServer',['../classlowrappers_1_1_address.html#aaa1e7774f60788105b457f1e5a766678',1,'lowrappers::Address']]],
   ['other_5fsources_5falpha',['OTHER_SOURCES_ALPHA',['../_source_panel_8h.html#a887e364f1bcc6cfff5a723ade9260204',1,'SourcePanel.h']]]
 ];

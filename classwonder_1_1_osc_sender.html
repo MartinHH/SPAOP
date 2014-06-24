@@ -532,7 +532,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sends the /WONDER/plugin/standalone message. </p>
-<p>This is used by the changes the communication mode of the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> class: In "standalone" mode, the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> sends the source controlling messages to its peers (via multicast) only. If standalone is off ("linked to wonder" mode), the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> sends those messages to cWONDER.</p>
+<p>This is used to change the communication mode of the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> class: In "standalone" mode, the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> sends the source controlling messages to its peers (via multicast) only. If standalone is off ("linked to wonder" mode), the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> sends those messages to cWONDER.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">standAlone</td><td>true for "standalone" mode, false for "linked to wonder" mode. </td></tr>
@@ -1530,7 +1530,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Sends the /WONDER/stream/visual/disconnect message. </p>
 <p>Once this is sent (to cWONDER), cWONDER is expected to stop sending the "visual stream" to the IP &amp; port where this message was sent from.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Currently not supported by cWONDER. Although /WONDER/stream/visual/disconnect is listed in WONDER's OSC_and_Commandline_Overview.ods spreadsheet the command isn't actually supported (at least not by WONDER version 3.1.0). </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Currently not supported by cWONDER. Although /WONDER/stream/visual/disconnect is listed in WONDER's OSC_and_Commandline_Overview.ods spreadsheet, the command isn't actually supported (at least not by WONDER version 3.1.0). </dd></dl>
 
 <p>Implemented in <a class="el" href="classwonderlo_1_1_wonder_osc_sender.html#a98e20d6a5d597bfef8e98e278c0b746f">wonderlo::WonderOscSender</a>.</p>
 
@@ -1751,7 +1751,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

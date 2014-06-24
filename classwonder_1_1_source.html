@@ -173,7 +173,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a23edc314a3279e038dcc6252be4bc549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true, if the doppler effect is enabled.  <a href="#a23edc314a3279e038dcc6252be4bc549">More...</a><br/></td></tr>
 <tr class="separator:a23edc314a3279e038dcc6252be4bc549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42a04aa39087c60055dc21172d9431fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source.html#a42a04aa39087c60055dc21172d9431fa">getID</a> () const </td></tr>
-<tr class="memdesc:a42a04aa39087c60055dc21172d9431fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the WONDER source ID.  <a href="#a42a04aa39087c60055dc21172d9431fa">More...</a><br/></td></tr>
+<tr class="memdesc:a42a04aa39087c60055dc21172d9431fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the WONDER source ID.  <a href="#a42a04aa39087c60055dc21172d9431fa">More...</a><br/></td></tr>
 <tr class="separator:a42a04aa39087c60055dc21172d9431fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d20c107173c1ac8aa2c56bd1fb92ea7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source.html#a2d20c107173c1ac8aa2c56bd1fb92ea7">setID</a> (int id)</td></tr>
 <tr class="memdesc:a2d20c107173c1ac8aa2c56bd1fb92ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the WONDER source ID.  <a href="#a2d20c107173c1ac8aa2c56bd1fb92ea7">More...</a><br/></td></tr>
@@ -236,7 +236,7 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class for objects representing a WONDER source with all its properties. </p>
 <p>(This is just a container storing the source's parameter values, offering a range of convenient getters and setters. To actually manipulate a source by sending OSC messages to WONDER, have a look at <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>.)</p>
-<p>Parameters that are suitable for automation can be accessed via an index system and normalized float[0.0 , 1.0] values as used by most audio plugin interfaces. Alternative setters and getters for non-normalized values are avaibale as well. </p>
+<p>Parameters that are suitable for automation can be accessed via an index system as float values normalized within [0.0 , 1.0] (as used by most audio plugin interfaces). Alternative setters and getters for non-normalized values are available as well. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a26b9b6172dae8b9b930877e87ed647eb"></a>
 <div class="memitem">
@@ -540,7 +540,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the WONDER source ID. </p>
+<p>Returns the WONDER source ID. </p>
 
 </div>
 </div>
@@ -1129,7 +1129,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -105,14 +105,14 @@ Inheritance diagram for wonder::SourceController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classwonder_1_1_source_controller__inherit__graph.png" border="0" usemap="#wonder_1_1_source_controller_inherit__map" alt="Inheritance graph"/></div>
 <map name="wonder_1_1_source_controller_inherit__map" id="wonder_1_1_source_controller_inherit__map">
-<area shape="rect" id="node2" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. " alt="" coords="6,5,210,43"/><area shape="rect" id="node3" href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. " alt="" coords="6,67,210,106"/><area shape="rect" id="node4" href="classwonder_1_1_ping_control_1_1_listener.html" title="A listener class for callbacks in case lost connection is detected. " alt="" coords="37,130,179,169"/></map>
+<area shape="rect" id="node2" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. " alt="" coords="6,5,210,43"/><area shape="rect" id="node3" href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. " alt="" coords="6,67,210,106"/><area shape="rect" id="node4" href="classwonder_1_1_ping_control_1_1_listener.html" title="A listener class for callbacks in case loss of connection is detected. " alt="" coords="37,130,179,169"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for wonder::SourceController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classwonder_1_1_source_controller__coll__graph.png" border="0" usemap="#wonder_1_1_source_controller_coll__map" alt="Collaboration graph"/></div>
 <map name="wonder_1_1_source_controller_coll__map" id="wonder_1_1_source_controller_coll__map">
-<area shape="rect" id="node2" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. " alt="" coords="6,5,210,43"/><area shape="rect" id="node3" href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. " alt="" coords="6,67,210,106"/><area shape="rect" id="node4" href="classwonder_1_1_ping_control_1_1_listener.html" title="A listener class for callbacks in case lost connection is detected. " alt="" coords="37,130,179,169"/></map>
+<area shape="rect" id="node2" href="classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. " alt="" coords="6,5,210,43"/><area shape="rect" id="node3" href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. " alt="" coords="6,67,210,106"/><area shape="rect" id="node4" href="classwonder_1_1_ping_control_1_1_listener.html" title="A listener class for callbacks in case loss of connection is detected. " alt="" coords="37,130,179,169"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -134,25 +134,25 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6639ec023966c0546492d80850062e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb4827d575d509ff578518260d553c4b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; const <br class="typebreak"/>
 <a class="el" href="classwonder_1_1_source_collection.html">SourceCollection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#abb4827d575d509ff578518260d553c4b">getSources</a> () const </td></tr>
-<tr class="memdesc:abb4827d575d509ff578518260d553c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classwonder_1_1_source_collection.html" title="A container class holding multiple sources (IDs 0 to maxSources-1), accessible via their sourceIDs...">SourceCollection</a> object that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>.  <a href="#abb4827d575d509ff578518260d553c4b">More...</a><br/></td></tr>
+<tr class="memdesc:abb4827d575d509ff578518260d553c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a (reference-counting) shared pointer to the <a class="el" href="classwonder_1_1_source_collection.html" title="A container class holding multiple sources (IDs 0 to maxSources-1), accessible via their sourceIDs...">SourceCollection</a> object that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>.  <a href="#abb4827d575d509ff578518260d553c4b">More...</a><br/></td></tr>
 <tr class="separator:abb4827d575d509ff578518260d553c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69c54739f32c7b4e77c4cb80ee08baeb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a69c54739f32c7b4e77c4cb80ee08baeb">setSource</a> (const <a class="el" href="classwonder_1_1_source.html">Source</a> &amp;source)</td></tr>
 <tr class="memdesc:a69c54739f32c7b4e77c4cb80ee08baeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the parameters of a given <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> object to the internal <a class="el" href="classwonder_1_1_source_collection.html" title="A container class holding multiple sources (IDs 0 to maxSources-1), accessible via their sourceIDs...">SourceCollection</a> (overwriting the <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> with the same ID) and sets the source's ID as the one controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>.  <a href="#a69c54739f32c7b4e77c4cb80ee08baeb">More...</a><br/></td></tr>
 <tr class="separator:a69c54739f32c7b4e77c4cb80ee08baeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26dde385e4eecf71f852a479196eae1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a26dde385e4eecf71f852a479196eae1f">setID</a> (int sourceID)</td></tr>
-<tr class="memdesc:a26dde385e4eecf71f852a479196eae1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the source's ID.  <a href="#a26dde385e4eecf71f852a479196eae1f">More...</a><br/></td></tr>
+<tr class="memdesc:a26dde385e4eecf71f852a479196eae1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ID of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>.  <a href="#a26dde385e4eecf71f852a479196eae1f">More...</a><br/></td></tr>
 <tr class="separator:a26dde385e4eecf71f852a479196eae1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85186467ebe276620c1923751d39b6f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a85186467ebe276620c1923751d39b6f4">setParameterAndSendChange</a> (int paramIndex, float normalizedValue)</td></tr>
-<tr class="memdesc:a85186467ebe276620c1923751d39b6f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the parameter indicated by paramIndex and sends it to cWONDER (if its value's difference from the value that was sent last is relevant).  <a href="#a85186467ebe276620c1923751d39b6f4">More...</a><br/></td></tr>
+<tr class="memdesc:a85186467ebe276620c1923751d39b6f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a parameter of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> and sends it to cWONDER (if its value's difference from the value that was sent last is relevant).  <a href="#a85186467ebe276620c1923751d39b6f4">More...</a><br/></td></tr>
 <tr class="separator:a85186467ebe276620c1923751d39b6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3b55c73ae3dceda67f17d1c9b1065ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#ac3b55c73ae3dceda67f17d1c9b1065ab">setCoordinatesAndSendChange</a> (float normalizedX, float normalizedY)</td></tr>
-<tr class="memdesc:ac3b55c73ae3dceda67f17d1c9b1065ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the coordinates and sends them to cWONDER (if the values' difference from the values that were sent last is relevant).  <a href="#ac3b55c73ae3dceda67f17d1c9b1065ab">More...</a><br/></td></tr>
+<tr class="memdesc:ac3b55c73ae3dceda67f17d1c9b1065ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the coordinates of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> and sends them to cWONDER (if the values' difference from the values that were sent last is relevant).  <a href="#ac3b55c73ae3dceda67f17d1c9b1065ab">More...</a><br/></td></tr>
 <tr class="separator:ac3b55c73ae3dceda67f17d1c9b1065ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf2f8e283c156e766e3bc67d6a23fa63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#acf2f8e283c156e766e3bc67d6a23fa63">updateSourceName</a> (const std::string &amp;newSourceName)</td></tr>
-<tr class="memdesc:acf2f8e283c156e766e3bc67d6a23fa63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the source's name and sends out the corresponding OSC message (if sending is enabled).  <a href="#acf2f8e283c156e766e3bc67d6a23fa63">More...</a><br/></td></tr>
+<tr class="memdesc:acf2f8e283c156e766e3bc67d6a23fa63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the name of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> and sends out the corresponding OSC message (if the ID is locked).  <a href="#acf2f8e283c156e766e3bc67d6a23fa63">More...</a><br/></td></tr>
 <tr class="separator:acf2f8e283c156e766e3bc67d6a23fa63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad66b2032286795d643f2e7d57c4bd0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#aad66b2032286795d643f2e7d57c4bd0d">updateSourceColour</a> (const <a class="el" href="structwonder_1_1_colour.html">Colour</a> colour)</td></tr>
-<tr class="memdesc:aad66b2032286795d643f2e7d57c4bd0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the source's colour and sends out the corresponding OSC message (if sending is enabled).  <a href="#aad66b2032286795d643f2e7d57c4bd0d">More...</a><br/></td></tr>
+<tr class="memdesc:aad66b2032286795d643f2e7d57c4bd0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the colour of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> and sends out the corresponding OSC message (if the ID is locked).  <a href="#aad66b2032286795d643f2e7d57c4bd0d">More...</a><br/></td></tr>
 <tr class="separator:aad66b2032286795d643f2e7d57c4bd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5990ea77ce4590a0e0af1d536b583418"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a5990ea77ce4590a0e0af1d536b583418">setLinkedToWonder</a> (bool linked, bool notifyPeers=true)</td></tr>
 <tr class="memdesc:a5990ea77ce4590a0e0af1d536b583418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> shall communicate with WONDER ("linked to wonder") or not.  <a href="#a5990ea77ce4590a0e0af1d536b583418">More...</a><br/></td></tr>
@@ -173,16 +173,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a63e8a79693f3f7f5de790cfd836fbf3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the current status of the incoming "Visual Stream" connection.  <a href="#a63e8a79693f3f7f5de790cfd836fbf3c">More...</a><br/></td></tr>
 <tr class="separator:a63e8a79693f3f7f5de790cfd836fbf3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b42b28f6f9c08ea0d95c8df52af321c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a7b42b28f6f9c08ea0d95c8df52af321c">rcvPort</a> () const </td></tr>
-<tr class="memdesc:a7b42b28f6f9c08ea0d95c8df52af321c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port this instance is listening on (or would be listening on in case it isn't listening at the moment).  <a href="#a7b42b28f6f9c08ea0d95c8df52af321c">More...</a><br/></td></tr>
+<tr class="memdesc:a7b42b28f6f9c08ea0d95c8df52af321c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port this instance is listening on.  <a href="#a7b42b28f6f9c08ea0d95c8df52af321c">More...</a><br/></td></tr>
 <tr class="separator:a7b42b28f6f9c08ea0d95c8df52af321c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a894bc2eb16098c72755c9c54070fc95e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a894bc2eb16098c72755c9c54070fc95e">getDataDestHostAndPort</a> () const </td></tr>
 <tr class="memdesc:a894bc2eb16098c72755c9c54070fc95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Address where the WONDER control message are sent to.  <a href="#a894bc2eb16098c72755c9c54070fc95e">More...</a><br/></td></tr>
 <tr class="separator:a894bc2eb16098c72755c9c54070fc95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae30e73b7ef9dbb6ff18ad72897590a67"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; const <a class="el" href="classwonder_1_1_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#ae30e73b7ef9dbb6ff18ad72897590a67">getRoom</a> () const </td></tr>
-<tr class="memdesc:ae30e73b7ef9dbb6ff18ad72897590a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object stored internally.  <a href="#ae30e73b7ef9dbb6ff18ad72897590a67">More...</a><br/></td></tr>
+<tr class="memdesc:ae30e73b7ef9dbb6ff18ad72897590a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a (reference-counting) shared pointer to the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object stored internally.  <a href="#ae30e73b7ef9dbb6ff18ad72897590a67">More...</a><br/></td></tr>
 <tr class="separator:ae30e73b7ef9dbb6ff18ad72897590a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a6b013bd82a3968571b059fd1c521e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonder_1_1_source_controller.html#a1a6b013bd82a3968571b059fd1c521e8">setRoom</a> (const <a class="el" href="classwonder_1_1_room.html">Room</a> &amp;room)</td></tr>
-<tr class="memdesc:a1a6b013bd82a3968571b059fd1c521e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the interal <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object to the parameters of a given <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object.  <a href="#a1a6b013bd82a3968571b059fd1c521e8">More...</a><br/></td></tr>
+<tr class="memdesc:a1a6b013bd82a3968571b059fd1c521e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the internal <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object to the parameters of a given <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object.  <a href="#a1a6b013bd82a3968571b059fd1c521e8">More...</a><br/></td></tr>
 <tr class="separator:a1a6b013bd82a3968571b059fd1c521e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -286,6 +286,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the current status of the incoming connection. </p>
+<p>This is only significant if the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> is linked to WONDER. If it is not linked to WONDER, the returned status is always inactive.</p>
 <dl class="section return"><dt>Returns</dt><dd>the current status of the incoming connection.</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd>enum <a class="el" href="namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5" title="An enum describing the differents states of an incoming connection. ">ConnectionStates</a>. </dd></dl>
 
@@ -305,6 +306,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a string representation of the current status of the incoming "Visual Stream" connection. </p>
+<p>This is only significant if the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> is linked to WONDER.</p>
 <dl class="section return"><dt>Returns</dt><dd>A string representation of the current status of the incoming "Visual Stream" connection. </dd></dl>
 
 </div>
@@ -323,6 +325,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the Address where the WONDER control message are sent to. </p>
+<p>In standalone mode, this is the address of the multicast group, in linked to WONDER mode, this is the address of cWONDER.</p>
+<dl class="section return"><dt>Returns</dt><dd>A String containing hostname/ip and port of the Address where the WONDER control message are sent to. </dd></dl>
 
 </div>
 </div>
@@ -339,8 +343,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a pointer to the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object stored internally. </p>
-<dl class="section return"><dt>Returns</dt><dd>a pointer to the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object stored internally. </dd></dl>
+<p>Returns a (reference-counting) shared pointer to the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object stored internally. </p>
+<dl class="section return"><dt>Returns</dt><dd>a shared pointer to the <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object stored internally. </dd></dl>
 
 </div>
 </div>
@@ -375,9 +379,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the <a class="el" href="classwonder_1_1_source_collection.html" title="A container class holding multiple sources (IDs 0 to maxSources-1), accessible via their sourceIDs...">SourceCollection</a> object that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>. </p>
-<p>To ensure that the object can be held by a GUI component (which might be destructed after this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> has been destructed), the reference-counting std::shared_ptr is used.</p>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classwonder_1_1_source_collection.html" title="A container class holding multiple sources (IDs 0 to maxSources-1), accessible via their sourceIDs...">SourceCollection</a> object that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>. </dd></dl>
+<p>Returns a (reference-counting) shared pointer to the <a class="el" href="classwonder_1_1_source_collection.html" title="A container class holding multiple sources (IDs 0 to maxSources-1), accessible via their sourceIDs...">SourceCollection</a> object that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A (reference-counting) shared pointer to the <a class="el" href="classwonder_1_1_source_collection.html" title="A container class holding multiple sources (IDs 0 to maxSources-1), accessible via their sourceIDs...">SourceCollection</a> object that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>. </dd></dl>
 
 </div>
 </div>
@@ -430,8 +433,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the port this instance is listening on (or would be listening on in case it isn't listening at the moment). </p>
-<dl class="section return"><dt>Returns</dt><dd>The port this instance is listening on (or would be listening on in case isn't listening at the moment). </dd></dl>
+<p>Returns the port this instance is listening on. </p>
+<dl class="section return"><dt>Returns</dt><dd>The port this instance is listening on. </dd></dl>
 
 </div>
 </div>
@@ -459,7 +462,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the coordinates and sends them to cWONDER (if the values' difference from the values that were sent last is relevant). </p>
+<p>Sets the coordinates of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> and sends them to cWONDER (if the values' difference from the values that were sent last is relevant). </p>
 <p>For coordinate changes, this is to be prefered since it will only send one OSC message while two separate calls to setParameterAndSendChange might result in two messages.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -486,8 +489,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the source's ID. </p>
-<p>Changing the ID is only allowed while the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> is not communicating (neither sending nor listening).</p>
+<p>Sets the ID of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>. </p>
+<p>Changing the ID is only allowed while the ID is not locked.</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classwonder_1_1_source_controller.html#a0b0cd7ccab5f210c780a0dfc912bb41c" title="Sets the ID locked status. ">setIdIsLocked</a>, <a class="el" href="classwonder_1_1_source_controller.html#a28b7c9caeb877fba9c6bd53f28f0ab3e" title="Returns true if the source ID is locked. ">idIsLocked</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sourceID</td><td>The new ID of the controlled source. </td></tr>
@@ -583,7 +587,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the value of the parameter indicated by paramIndex and sends it to cWONDER (if its value's difference from the value that was sent last is relevant). </p>
+<p>Sets a parameter of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> and sends it to cWONDER (if its value's difference from the value that was sent last is relevant). </p>
 <p>Depending on the parameter, the right message format is chosen.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -610,7 +614,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the interal <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object to the parameters of a given <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object. </p>
+<p>Sets the internal <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object to the parameters of a given <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">room</td><td>The <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object that shall be copied into the internal <a class="el" href="classwonder_1_1_room.html" title="A class containing the wonder-specific information about a room (name and vertices). ">Room</a> object. </td></tr>
@@ -635,7 +639,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Copies the parameters of a given <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> object to the internal <a class="el" href="classwonder_1_1_source_collection.html" title="A container class holding multiple sources (IDs 0 to maxSources-1), accessible via their sourceIDs...">SourceCollection</a> (overwriting the <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> with the same ID) and sets the source's ID as the one controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>. </p>
-<p>This is meant to be used for restoring states from saved files (e.g. the audio-plugin's presets) and is only allowed while the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> is not communicating (neither sending nor listening).</p>
+<p>This is meant to be used for restoring states from saved files (e.g. the audio-plugin's presets) and is only allowed while the the ID is not locked.</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classwonder_1_1_source_controller.html#a0b0cd7ccab5f210c780a0dfc912bb41c" title="Sets the ID locked status. ">setIdIsLocked</a>, <a class="el" href="classwonder_1_1_source_controller.html#a28b7c9caeb877fba9c6bd53f28f0ab3e" title="Returns true if the source ID is locked. ">idIsLocked</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>true on success - false if the <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a> object's parameters could not be copied because the source's ID was out of range or beauce the <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a>'s was communicating.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Take extra care that you really want to copy all of a <a class="el" href="classwonder_1_1_source.html" title="A class for objects representing a WONDER source with all its properties. ">Source</a>'s paramters (e.g. including isActive()). </dd></dl>
 
@@ -655,7 +660,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Updates the source's colour and sends out the corresponding OSC message (if sending is enabled). </p>
+<p>Updates the colour of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> and sends out the corresponding OSC message (if the ID is locked). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">colour</td><td>The new colour of the source. </td></tr>
@@ -679,7 +684,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Updates the source's name and sends out the corresponding OSC message (if sending is enabled). </p>
+<p>Updates the name of the source that is controlled by this <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">SourceController</a> and sends out the corresponding OSC message (if the ID is locked). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newSourceName</td><td>The new name of the source. </td></tr>
@@ -692,7 +697,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 19 2014 22:00:34 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

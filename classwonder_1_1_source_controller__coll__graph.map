@@ -1,5 +1,5 @@
 <map id="wonder::SourceController" name="wonder::SourceController">
 <area shape="rect" id="node2" href="$classwonder_1_1_visual_stream_receiver_1_1_listener.html" title="A listener interface that can be registered with the VisualStreamReceiver. " alt="" coords="6,5,210,43"/>
 <area shape="rect" id="node3" href="$classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html" title="Another listener interface especially for incoming ping messages. " alt="" coords="6,67,210,106"/>
-<area shape="rect" id="node4" href="$classwonder_1_1_ping_control_1_1_listener.html" title="A listener class for callbacks in case lost connection is detected. " alt="" coords="37,130,179,169"/>
+<area shape="rect" id="node4" href="$classwonder_1_1_ping_control_1_1_listener.html" title="A listener class for callbacks in case loss of connection is detected. " alt="" coords="37,130,179,169"/>
 </map>
