@@ -109,14 +109,11 @@ public:
      */
     const Source& getSource() const;
     
-    /** Returns the SourceCollection object that is controlled by this
-     *  SourceController. To ensure that the object can be held by a GUI
-     *  component (which might be destructed after this SourceController
-     *  has been destructed), the reference-counting std::shared_ptr is
-     *  used.
+    /** Returns a (reference-counting) shared pointer to the SourceCollection
+     *  object that is controlled by this SourceController.
      *
-     *  @return The SourceCollection object that is controlled by this
-     *      SourceController.
+     *  @return A (reference-counting) shared pointer to the SourceCollection
+     *      object that is controlled by this SourceController.
      */
     std::shared_ptr<const SourceCollection> getSources() const;
     
@@ -125,7 +122,9 @@ public:
      *  sets the source's ID as the one controlled by this SourceController.
      *  This is meant to be used for restoring states from saved files
      *  (e.g. the audio-plugin's presets) and is only allowed while the
-     *  SourceController is not communicating (neither sending nor listening).
+     *  the ID is not locked.
+     *
+     *  @see setIdIsLocked, idIsLocked
      *
      *  @return true on success - false if the Source object's parameters
      *      could not be copied because the source's ID was out of range or
@@ -136,8 +135,10 @@ public:
      */
     bool setSource(const Source &source);
     
-    /** Sets the source's ID. Changing the ID is only allowed while the
-     *  SourceController is not communicating (neither sending nor listening).
+    /** Sets the ID of the source that is controlled by this SourceController.
+     *  Changing the ID is only allowed while the ID is not locked.
+     *
+     *  @see setIdIsLocked, idIsLocked
      *
      *  @param sourceID The new ID of the controlled source.
      *  @return true, if the ID was set succesfully; false, if setting the ID
@@ -145,9 +146,10 @@ public:
      */
     bool setID(int sourceID);
     
-    /** Sets the value of the parameter indicated by paramIndex and sends it to
-     *  cWONDER (if its value's difference from the value that was sent last is 
-     *  relevant). Depending on the parameter, the right message format is chosen.
+    /** Sets a parameter of the source that is controlled by this
+     *  SourceController and sends it to cWONDER (if its value's difference from
+     *  the value that was sent last is relevant). Depending on the parameter,
+     *  the right message format is chosen.
      *  
      *  @param paramIndex A parameter index value as defined in the enum
      *      Source::AutomatedParameters.
@@ -158,7 +160,8 @@ public:
      */
     void setParameterAndSendChange (int paramIndex, float normalizedValue);
     
-    /** Sets the coordinates and sends them to cWONDER (if the values' difference
+    /** Sets the coordinates of the source that is controlled by this
+     *  SourceController and sends them to cWONDER (if the values' difference
      *  from the values that were sent last is relevant).
      *  For coordinate changes, this is to be prefered since it will only send
      *  one OSC message while two separate calls to setParameterAndSendChange
@@ -173,15 +176,17 @@ public:
      */
     void setCoordinatesAndSendChange (float normalizedX, float normalizedY);
     
-    /** Updates the source's name and sends out the corresponding OSC message
-     *  (if sending is enabled).
+    /** Updates the name of the source that is controlled by this
+     *  SourceController and sends out the corresponding OSC message
+     *  (if the ID is locked).
      *
      *  @param newSourceName The new name of the source.
      */
     void updateSourceName(const std::string& newSourceName);
     
-    /** Updates the source's colour and sends out the corresponding OSC message
-     *  (if sending is enabled).
+    /** Updates the colour of the source that is controlled by this
+     *  SourceController and sends out the corresponding OSC message
+     *  (if the ID is locked).
      *
      *  @param colour The new colour of the source.
      */
@@ -224,7 +229,9 @@ public:
     /** Returns true if the source ID is locked. */
     bool idIsLocked() const;
 
-    /** Returns the current status of the incoming connection.
+    /** Returns the current status of the incoming connection. This is only
+     *  significant if the SourceController is linked to WONDER. If it is not
+     *  linked to WONDER, the returned status is always inactive.
      *
      *  @return the current status of the incoming connection.
      *
@@ -233,31 +240,37 @@ public:
     ConnectionStates connectionStatus() const;
     
     /** Returns a string representation of the current status of the incoming
-     *  "Visual Stream" connection.
+     *  "Visual Stream" connection. This is only significant if the SourceController
+     *  is linked to WONDER.
      *
      *  @return A string representation of the current status of the incoming
      *      "Visual Stream" connection.
      */
     std::string connectionStatusString() const;
     
-    /** Returns the port this instance is listening on (or would be listening on
-     *      in case it isn't listening at the moment).
+    /** Returns the port this instance is listening on.
      *
-     *  @return The port this instance is listening on (or would be listening on
-     *      in case isn't listening at the moment).
+     *  @return The port this instance is listening on.
      */
     int rcvPort() const;
     
-    /** Returns the Address where the WONDER control message are sent to. */
+    /** Returns the Address where the WONDER control message are sent to.
+     *  In standalone mode, this is the address of the multicast group,
+     *  in linked to WONDER mode, this is the address of cWONDER.
+     *
+     *  @return A String containing hostname/ip and port of the Address
+     *      where the WONDER control message are sent to.
+     */
     const std::string getDataDestHostAndPort() const;
     
-    /** Returns a pointer to the Room object stored internally.
+    /** Returns a (reference-counting) shared pointer to the Room object
+     *  stored internally.
      *
-     *  @return a pointer to the Room object stored internally.
+     *  @return a shared pointer to the Room object stored internally.
      */
     std::shared_ptr<const Room> getRoom() const;
     
-    /** Sets the interal Room object to the parameters of a given Room object.
+    /** Sets the internal Room object to the parameters of a given Room object.
      *
      *  @param room The Room object that shall be copied into the internal Room
      *      object.

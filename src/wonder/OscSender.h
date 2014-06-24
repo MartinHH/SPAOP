@@ -355,7 +355,7 @@ public:
      *
      *  @warning Currently not supported by cWONDER. Although
      *      /WONDER/stream/visual/disconnect is listed in WONDER's
-     *      OSC_and_Commandline_Overview.ods spreadsheet the command isn't
+     *      OSC_and_Commandline_Overview.ods spreadsheet, the command isn't
      *      actually supported (at least not by WONDER version 3.1.0).
      */
     virtual void sendStreamVisualDisconnect() = 0;
@@ -433,8 +433,8 @@ public:
      */
     virtual void sendProjectSave(const std::string& projectName) = 0;
     
-    /** Sends the /WONDER/plugin/standalone message. This is used by the
-     *  changes the communication mode of the SourceController class:
+    /** Sends the /WONDER/plugin/standalone message. This is used to change the
+     *  communication mode of the SourceController class:
      *  In "standalone" mode, the SourceController sends the source controlling
      *  messages to its peers (via multicast) only.
      *  If standalone is off ("linked to wonder" mode), the SourceController sends

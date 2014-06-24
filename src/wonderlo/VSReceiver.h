@@ -155,7 +155,7 @@ private:
                                     lowrappers::ServerThread::Listener* listener);
     
     //==============================================================================
-    // Wrapper-Methods for wonder::VisualStreamReceiver::Listener
+    // Wrapper-Methods for wonder::VisualStreamReceiver::Listener:
     
     int onSourceActivateI(const char *path, const char *types,lo_arg **argv,
                                   int argc, lo_message msg);

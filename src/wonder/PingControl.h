@@ -38,7 +38,7 @@ class PingControl   :   public ConnectionTimer::Listener
 public:
     
     /**
-     *  A listener class for callbacks in case lost connection is
+     *  A listener class for callbacks in case loss of connection is
      *  detected.
      */
     class Listener

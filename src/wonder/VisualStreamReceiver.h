@@ -199,6 +199,11 @@ public:
          */
         virtual int onProjectXmlDump(int err, const std::string& xmlDump) = 0;
         
+        /** Called when a /WONDER/stream/visual/ping is received.
+         *
+         *  @param pingCount An int value that should be the same as in the
+         *      ping message the current pong message is replying to.
+         */
         virtual int onStreamVisualPong(int pingCount) = 0;
         
         /** Called when any /WONDER/stream/visual/connect message is recieved.
@@ -215,6 +220,7 @@ public:
         virtual int onStreamVisualConnect(OscSender* replyTo)
             { return 0; }
         
+        /** Called when any /WONDER/stream/visual/disconnect message is recieved. */
         virtual int onStreamVisualDisconnect()
             { return 0; }
         
@@ -231,6 +237,16 @@ public:
          */
         virtual int onReply(std::string replyToMsg, int state, std::string msg) = 0;
         
+        /** Called when the /WONDER/plugin/standalone message is recieved. This is used
+         *  to change the communication mode of the SourceController class:
+         *  In "standalone" mode, the SourceController sends the source controlling
+         *  messages to its peers (via multicast) only.
+         *  If standalone is off ("linked to wonder" mode), the SourceController sends
+         *  those messages to cWONDER.
+         *
+         *  @param standAlone true for "standalone" mode, false for "linked to wonder"
+         *      mode.
+         */
         virtual int onPluginStandalone(bool standAloneOn) = 0;
     };
     

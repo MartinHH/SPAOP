@@ -48,22 +48,25 @@ namespace wonderlo {
  *        a new client sends a /WONDER/stream/<em>streamName</em>/connect message to
  *        the ConnectPort, he will receive the reply he would have recieved if he had
  *        connected to cWONDER directly.
- *        @warning The behaviour that cWONDER will resend all information on repeated
- *              /WONDER/stream/<em>streamName</em>/connect messages has only been
- *              tested with the "visual" stream.
+ *        @warning Due to a bug in cWONDER (version 3.1.0), cWONDER will resend all
+ *              information on repeated /WONDER/stream/<em>streamName</em>/connect
+ *              to the client that last registered for the corresponding stream (not
+ *              to the client that was reconnected).
+ *              If you want to use this feature, make sure you connect last or fix
+ *              that bug.
  */
 class StreamMulticaster
 {
 public:
     /** Constructor.
      *
-     *  @param sourceHost The hostname/ip of cWONDER.
+     *  @param sourceHost The hostname/IP of cWONDER.
      *  @param sourcePort The port of cWONDER.
-     *  @param mcGroup The ip of the multicast group that the stream shall be
+     *  @param mcGroup The IP of the multicast group that the stream shall be
      *      forwarded to.
      *  @param mcPort The port of the multicast group that the stream shall be
      *      forwarded to.
-     *  @param mcIfaceIp The IP of the local interface where the multcast messages shall
+     *  @param mcIfaceIp The IP of the local interface where the multicast messages shall
      *      be sent from.
      *  @param connectPort The port to be used for incoming
      *      /WONDER/stream/<em>streamName</em>/connect messages.
@@ -83,9 +86,9 @@ public:
     /** Destructor. */
     virtual ~StreamMulticaster();
     
-    /** Returns the port where connect messages may be sent to.
+    /** Returns the port where incoming connect messages may be sent to.
      *
-     *  @return The port where connect messages may be sent to.
+     *  @return The port where incoming connect messages may be sent to.
      */
     int getConnectPort() const;
 
@@ -107,9 +110,9 @@ public:
      */
     std::string getStreamSourcePort() const;
     
-    /** Returns the ip of the multicast group.
+    /** Returns the IP of the multicast group.
      *
-     *  @return The ip of the multicast group.
+     *  @return The IP of the multicast group.
      */
     std::string getMulticastGroup() const;
     

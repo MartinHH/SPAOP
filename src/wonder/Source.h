@@ -51,9 +51,9 @@ namespace wonder {
  *  by sending OSC messages to WONDER, have a look at SourceController.)
  *
  *  Parameters that are suitable for automation can be accessed via an index
- *  system and normalized float[0.0 , 1.0] values as used by most audio plugin
- *  interfaces. Alternative setters and getters for non-normalized values are
- *  avaibale as well.
+ *  system as float values normalized within [0.0 , 1.0] (as used by most audio plugin
+ *  interfaces). Alternative setters and getters for non-normalized values are
+ *  available as well.
  *
 
  */
@@ -235,7 +235,7 @@ public:
     //==============================================================================
     // Methods for other parameters:
     
-    /** Gets the WONDER source ID. */
+    /** Returns the WONDER source ID. */
     int getID() const;
     
     /** Sets the WONDER source ID. */

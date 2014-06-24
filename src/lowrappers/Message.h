@@ -27,11 +27,14 @@
 namespace lowrappers {
 
 /**
- *  A wrapper of liblo's lo_message. These messages can be sent via Address::send
+ *  A wrapper of Liblo's lo_message. These messages can be sent via Address::send
  *  and Address::sendFrom.
  */
 class Message
 {
+    /** Address is friend class so it can access the internal lo_message object
+     *  for sending.
+     */
     friend class Address;
 public:
     
@@ -51,7 +54,7 @@ public:
     /** Adds content to the message. Number and types of arguments must match
      *  the types string, e.g. add("iff", 1, 2.0, 3.0) or add(s, "some string").
      *
-     *  @param types A liblo-style typestring.
+     *  @param types A Liblo-style typestring.
      *  @param ... The content to be added to the message. Number
      *      and types of arguments must match the types string.
      */
@@ -62,7 +65,7 @@ public:
      *  Parameters are passed as a va_list. This allows other varargs methods
      *  to pass on their arguments.
 
-     *  @param types A liblo-style typestring
+     *  @param types A Liblo-style typestring
      *  @param args The data values to be transmitted. The types of the arguments
      *      passed here (and their length) must agree with the types specified
      *      in the type parameter.

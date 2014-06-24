@@ -30,15 +30,15 @@
                                         again (in ms) */
 
 /**
- * A namespace for C++ wrappers for the liblo library. liblo is a library
+ * A namespace for C++ wrappers for the Liblo library. Liblo is a library
  * for sending and receiving OSC messages.
  *
  */
 namespace lowrappers {
 
 /**
- * A server thread with liblo-style callback capabilities. This is NOT a
- * wrapper for liblo's lo_server_thread because the lo_server_thread relies
+ * A server thread with Liblo-style callback capabilities. This is NOT a
+ * wrapper for Liblo's lo_server_thread because the lo_server_thread relies
  * on the pthread library. For better compability with Windows, this class
  * uses the thread::Thread that relies on std::thread (the tradeoff for this
  * is: C++11 is now required).
@@ -49,7 +49,10 @@ namespace lowrappers {
  */
 class ServerThread  :   public thread::Thread
 {
-    friend class Address; // for access to the internal lo_server
+    /** Address is friend class so it can access the internal lo_server
+     *  for sending messages from its port.
+     */
+    friend class Address;
 public:
     
     /**
@@ -66,7 +69,7 @@ public:
          *
          * @param path The OSC path of the incoming message that triggered
          *      the call.
-         * @param types The liblo-style types string indicating the types
+         * @param types The Liblo-style types string indicating the types
          *      of the recieved parameters (e.g. "iii" for three int
          *      parameters).
          * @param argv The parameters recieved within the message (whose
@@ -152,7 +155,7 @@ public:
     int port() const;
     
     /**
-     * Adds a lo_method_handler to this server thread. See the liblo
+     * Adds a lo_method_handler to this server thread. See the Liblo
      * documentation for details about lo_method_handlers.
      * For an object-oriented alternative, see addListener.
      *

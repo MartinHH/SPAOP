@@ -1,0 +1,1 @@
+This directory contains any files that are used for rendering the Doxygen documentation (in addition to the source code). Also, it contains the html Doxygen output as a git submodule.

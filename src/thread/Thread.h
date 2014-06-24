@@ -32,7 +32,7 @@
 namespace thread {
 
 /**
- *  This class wraps an std::thread into a Java-style thread object.
+ *  A wrapper for the std::thread wrapping it into a Java-style thread object.
  *  Derived classes override the abstract run() method which will be exectued
  *  by the thread represented by this class.
  */

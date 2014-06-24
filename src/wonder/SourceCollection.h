@@ -48,13 +48,16 @@ public:
     /** Destructor. */
     virtual ~SourceCollection();
     
-    /** Returns a pointer to one of the internal Source objects
+    /** Returns a reference to one of the internal Source objects
      *  of this SourceCollection.
      *
      *  @param sourceID the ID of the Source that shall be returned.
      *
-     *  @return A pointer to the Source object with the specfied
-     *      sourceID or a nullptr if the sourceID is out of range.
+     *  @return A reference to the Source object with the specfied
+     *      sourceID.
+     *
+     *  @throws std::out_of_range If the sourceID is out of range, the vector
+     *      used internally will throw std::out_of_range.
      */
     const Source& getSource(int sourceID) const;
     

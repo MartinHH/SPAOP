@@ -30,7 +30,7 @@
 namespace lowrappers {
 
 /**
- *  A wrapper for liblo's lo_address.
+ *  A wrapper for Liblo's lo_address.
  */
 class Address
 {
@@ -38,11 +38,11 @@ public:
     
     /** Constructor.
      *
-     *  @param host A valid hostname or ip string (see the liblo documentation for
+     *  @param host A valid hostname or ip string (see the Liblo documentation for
      *      what exactly is supported).
-     *  @param port A valid port number or service name (see the liblo documentation for
+     *  @param port A valid port number or service name (see the Liblo documentation for
      *      what exactly is supported).
-     *  @param proto The protocol to use (LO_UDP, LO_TCP or LO_UNIX). See the liblo
+     *  @param proto The protocol to use (LO_UDP, LO_TCP or LO_UNIX). See the Liblo
      *      documentation for details.
      */
     Address(const std::string &host, const std::string &port,
@@ -75,9 +75,9 @@ public:
     /** Updates this Address to send to a new destination. (Internally, a new
      *  lo_adress is created, replacing the old one.)
      *
-     *  @param newHost A valid hostname or ip string (see the liblo documentation for
+     *  @param newHost A valid hostname or ip string (see the Liblo documentation for
      *      what exactly is supported).
-     *  @param newPort A valid port number or service name (see the liblo documentation for
+     *  @param newPort A valid port number or service name (see the Liblo documentation for
      *      what exactly is supported).
      */
     void setAddress(const std::string &newHost, const std::string &newPort);
@@ -149,7 +149,7 @@ public:
      */
     int send(const std::string &path, const Message& msg) const;
     
-    /** Sends a liblo lo_message to this address.
+    /** Sends a Liblo lo_message to this address.
      *
      *  @param path The OSC path of the message.
      *  @param msg The Message to be sent.
@@ -198,7 +198,7 @@ public:
     int sendFrom(const ServerThread &from, const std::string &path,
                  const Message& msg) const;
     
-    /** Sends a liblo lo_message to this address, from the same socket
+    /** Sends a Liblo lo_message to this address, from the same socket
      *  that a specified ServerThread is listening on.
      *
      *  @param from The server to send the message from.

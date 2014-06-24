@@ -69,7 +69,7 @@ public:
     /** Returns the number of vertices of the room. */
     int getNumberOfVertices() const;
     
-    /** Returns a Vertex of the Room.
+    /** Returns a reference to a Vertex of the Room.
      *
      *  @param vertexNo An index within [0, numberOfVertices-1].
      *
