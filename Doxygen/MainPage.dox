@@ -121,7 +121,7 @@ The recommended way to get a local copy of the fork is to fetch it as submodule 
 
 \subsection usingjuce Using JUCE and the Introjucer
 
-JUCE is well documented so do not expect any details here - just a few words: the JUCE way to mangage a project is to use the Introjucer. The Introjucer is an application that lets you create and manage projects for different IDEs and includes a WYSIWYG GUI editor.
+JUCE is well documented so do not expect any details here - just a few words: the JUCE way to mangage a project is to use the [Introjucer](http://www.juce.com/documentation/introjucer). The Introjucer is an application that lets you create and manage projects for different IDEs and includes a WYSIWYG GUI editor.
 
 It stores its projects in `.jucer` files. So for example, if you want to open the SPAOP project, you would open the SPAOP.jucer file in the Introjucer and launch your IDE from there.
 
