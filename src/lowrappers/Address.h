@@ -34,8 +34,6 @@ namespace lowrappers {
  */
 class Address
 {
-    friend class OscServer;
-    
 public:
     
     /** Constructor.
