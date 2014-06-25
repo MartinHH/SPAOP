@@ -22,10 +22,6 @@
 
 #include "WonderOscSenderThread.h"
 
-
-#define MSG_WAIT_INTERVAL 1 /**< How long the thread will block before
-                                checking for isStopped again (in ms) */
-
 namespace wonderlo {
     
 /**
