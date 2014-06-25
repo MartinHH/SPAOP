@@ -427,7 +427,7 @@ void SpaopAudioProcessorEditor::timerCallback()
                                                                source.getBlue()));
 
     // Sliders:
-    
+
     idSlider->setRange(0, MAX_WONDER_SOURCES, 1);
     // TODO: what happens if current value is out of range?
     idSlider->setValue(source.getID());

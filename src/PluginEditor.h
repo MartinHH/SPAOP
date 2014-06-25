@@ -37,12 +37,19 @@
 
 
 //==============================================================================
-                                                                    //[Comments]
 /**
+                                                                    //[Comments]
  
     The main GUI class for the SPAOP plugin.
  
-*/                                                                  //[/Comments]
+    This is generated using the WYSISWYG-Editor of the Introjucer app (which
+    is why this text contains those comments tags...).
+ 
+    @see [juce::AudioProcessorEditor
+        (http://www.juce.com/api/classAudioProcessorEditor.html)
+ 
+                                                                    //[/Comments]
+*/
 class SpaopAudioProcessorEditor  : public AudioProcessorEditor,
                                    public Timer,
                                    public wonderjuce::SourcePanel::Listener,
