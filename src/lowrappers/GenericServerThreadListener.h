@@ -34,6 +34,9 @@ template<class T>
 class GenericServerThreadListener   :   public ServerThread::Listener
 {
 public:
+    /** The type of function pointer that can be passed to the 
+     *  constructor.
+     */
     typedef int (T::*fpType)(const char *path, const char *types,
                              lo_arg **argv, int argc, lo_message msg);
     

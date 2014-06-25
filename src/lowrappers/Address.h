@@ -85,7 +85,7 @@ public:
      *  @return true if the address has been changed, false if it could not be changed
      *      due to a memory allocation failure.
      *
-     *  @warning This dows not validate given address parameters in any way, the return
+     *  @warning This does not validate the given address parameters in any way, the return
      *      value only signals memory allocation problems.
      */
     bool setAddress(const std::string &newHost, const std::string &newPort);
