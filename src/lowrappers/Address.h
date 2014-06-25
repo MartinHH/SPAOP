@@ -44,6 +44,8 @@ public:
      *      what exactly is supported).
      *  @param proto The protocol to use (LO_UDP, LO_TCP or LO_UNIX). See the Liblo
      *      documentation for details.
+     *
+     *  @throws std::bad_alloc in case memory allocation for the internal lo_address fails.
      */
     Address(const std::string &host, const std::string &port,
             int proto=LO_UDP);

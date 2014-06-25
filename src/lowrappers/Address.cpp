@@ -27,6 +27,9 @@ Address::Address(const std::string &host, const std::string &port,
     mutex_(),
     isOwner_(true)
 {
+    if (addr_ == NULL) {
+        throw std::bad_alloc();
+    }
 }
 
 Address::Address(lo_address addr, bool isOwner):
