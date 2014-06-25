@@ -36,9 +36,21 @@ class JuceConnectionTimer   :   public Timer,
                                 public wonder::ConnectionTimer
 {
 public:
+    /** A singleton-getter returning a wonder::ConnectionTimer::Factory
+     *  that creates instances of JuceConnectionTimer.
+     *
+     *  @return A wonder::ConnectionTimer::Factory that creates instances
+     *      of JuceConnectionTimer.
+     */
     static wonder::ConnectionTimer::Factory* getFactory();
     
+    /** Constructor.
+     *  
+     *  @param intervalMs The timer interval in ms.
+     */
     JuceConnectionTimer(int intervalMs);
+    
+    /** Destructor. */
     ~JuceConnectionTimer();
     
     void setListener(Listener* listener);
@@ -46,14 +58,14 @@ public:
     void start();
     
     void stop();
-    
-    void timerCallback();
-    
+
 private:
     class Factory   :   public wonder::ConnectionTimer::Factory
     {
         ConnectionTimer* createConnectionTimer(int intervalMs);
     };
+    
+    void timerCallback();
     
     Listener* listener_;
     const int interval_;
