@@ -271,4 +271,8 @@ Here you can toggle between \ref linked and \ref standalone modes. Also, the des
 \subsection dsiplay Display
 
 The display settings allow you to control what is being displayed in the panel on the left side. You can control whether the other sources (not controlled by the current SPAOP instance) shall be displayed and whether the names of the sources shall be shown. Also, you can use a slider to zoom in or out.
+
+\section multicaster The StreamMulticaster
+
+There's not much to explain about the StreamMulticaster. Just start it from the command line. To stop it, press enter.
 */
