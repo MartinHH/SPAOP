@@ -38,7 +38,7 @@ public:
     
     /** Constructor.
      *
-     *  @param host A valid hostname or ip string (see the Liblo documentation for
+     *  @param host A valid hostname or IP string (see the Liblo documentation for
      *      what exactly is supported).
      *  @param port A valid port number or service name (see the Liblo documentation for
      *      what exactly is supported).
@@ -77,12 +77,18 @@ public:
     /** Updates this Address to send to a new destination. (Internally, a new
      *  lo_adress is created, replacing the old one.)
      *
-     *  @param newHost A valid hostname or ip string (see the Liblo documentation for
+     *  @param newHost A valid hostname or IP string (see the Liblo documentation for
      *      what exactly is supported).
      *  @param newPort A valid port number or service name (see the Liblo documentation for
      *      what exactly is supported).
+     *
+     *  @return true if the address has been changed, false if it could not be changed
+     *      due to a memory allocation failure.
+     *
+     *  @warning This dows not validate given address parameters in any way, the return
+     *      value only signals memory allocation problems.
      */
-    void setAddress(const std::string &newHost, const std::string &newPort);
+    bool setAddress(const std::string &newHost, const std::string &newPort);
     
     /** Returns the time-to-live value for this Address.
      *

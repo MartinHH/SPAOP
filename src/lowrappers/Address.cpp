@@ -55,10 +55,14 @@ Address::Address(const Address& other):
 {
 }
     
-void Address::setAddress(const std::string &newHost, const std::string &newPort){
+bool Address::setAddress(const std::string &newHost, const std::string &newPort){
     
     const int proto = lo_address_get_protocol(addr_);
     lo_address newAddr = lo_address_new_with_proto(proto, newHost.c_str(), newPort.c_str());
+    
+    if (newAddr == NULL) {
+        return false;
+    }
     
     std::lock_guard<std::mutex> lock(mutex_);
     
@@ -69,6 +73,8 @@ void Address::setAddress(const std::string &newHost, const std::string &newPort)
     if(isOwner_ && oldAddr){
         lo_address_free(oldAddr);
     }
+    
+    return true;
 }
     
 int Address::getTtl() const
