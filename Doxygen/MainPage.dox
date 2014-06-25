@@ -2,7 +2,7 @@
 
 This is the documentation for [SPAOP](https://github.com/MartinHH/SPAOP) (Spatial Audio Object Positioner), a VST/VST3/AU/RTAS plugin to control audio object's positions within the [WONDER system for wave field synthesis](http://sourceforge.net/projects/swonder/).
 
-It consists of a main VST/VST3/AU/RTAS plugin (built using the [JUCE](http://www.juce.com/) framework) and a helper application named the StreamMulticaster.
+It consists of a main VST/VST3/AU/RTAS plugin (built using the [JUCE](http://www.juce.com/) framework) and a helper application named the StreamMulticaster. The StreamMulticaster is needed because the plugin recieves incoming OSC messages via a multicast group and WONDER currently does not support sending OSC via multicast - hence, the StreamMulticaster forwards incoming OSC messages to the multicast group.
 
 For further information, have a look at the following pages:
 

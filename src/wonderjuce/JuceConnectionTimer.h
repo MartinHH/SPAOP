@@ -26,6 +26,8 @@
 /**
  *  A namespace for (reusable) WONDER-related classes that are based on the
  *  JUCE library.
+ *
+ *  @see [JUCE Documentation](http://www.juce.com/api/)
  */
 namespace wonderjuce {
 

@@ -41,12 +41,19 @@ class SourcePanel    : public SourceDisplay
 public:
     SourcePanel(const String& componentName = String::empty);
     
+    /** Destructor. */
     virtual ~SourcePanel();
 
+    /** @see [juce::Component](http://www.juce.com/api/classComponent.html). */
     void paint (Graphics& g);
     
+    /** @see [juce::Component](http://www.juce.com/api/classComponent.html). */
     void mouseDown(const MouseEvent &event) override;
+    
+    /** @see [juce::Component](http://www.juce.com/api/classComponent.html). */
     void mouseDrag(const MouseEvent &event) override;
+    
+    /** @see [juce::Component](http://www.juce.com/api/classComponent.html). */
     void mouseUp(const MouseEvent &event) override;
 
     /** Returns the x coordinate of the source controlled by this SourcePanel,

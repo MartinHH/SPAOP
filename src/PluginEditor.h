@@ -37,11 +37,12 @@
 
 
 //==============================================================================
-/**
                                                                     //[Comments]
+/**
+ 
     The main GUI class for the SPAOP plugin.
-                                                                    //[/Comments]
-*/
+ 
+*/                                                                  //[/Comments]
 class SpaopAudioProcessorEditor  : public AudioProcessorEditor,
                                    public Timer,
                                    public wonderjuce::SourcePanel::Listener,

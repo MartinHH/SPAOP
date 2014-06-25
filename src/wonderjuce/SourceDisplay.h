@@ -63,6 +63,8 @@ public:
      *  should be the called from their paint method before drawing any sources.
      *
      *  @param g The graphics context to be used for drawing.
+     *
+     *  @see [juce::Component](http://www.juce.com/api/classComponent.html)
      */
     void paint (Graphics& g);
     
@@ -82,6 +84,12 @@ public:
      */
     int getPositionDotSize() const;
     
+    /** Sets the wonder::Room object that is used for painting the positions of
+     *  the speaker arrays.
+     *
+     *  @param room A (reference-counted) shared pointer to the wonder::Room
+     *      object used for painting the speaker arrays.
+     */
     bool setRoom(std::shared_ptr <const wonder::Room> room);
     
     /** Sets whether the names of the sources shall be shown next to them.

@@ -32,7 +32,7 @@ namespace wonderjuce {
 class ComponentWithFocusPoint   :   public Component
 {
 public:
-    /** Contructor. */
+    /** Constructor. */
     ComponentWithFocusPoint(const String& componentName = String::empty):
         Component(componentName)
     {}
