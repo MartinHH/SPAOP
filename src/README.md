@@ -1,0 +1,1 @@
+This directory contains the source code, divided into folders by namespaces (see the [namespaces page](http://martinhh.github.io/SPAOP/namespaces.html) of the documentation for details).
