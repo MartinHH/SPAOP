@@ -107,13 +107,15 @@ public:
     
     /** Returns the normalized value of the parameter.
      *  
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      */
     float getParameter (int index) const;
     
     /** Sets a parameter from its normalized value.
      *
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @param newValue the new value for that parameter, normalized within
      *      [0.0 , 1.0].
      */
@@ -121,7 +123,8 @@ public:
     
     /** Sets a parameter from its unnormalized value.
      *  
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @param newUnnormalizedValue the new value for that parameter, not
      *      normalized.
      */
@@ -129,14 +132,16 @@ public:
     
     /** Returns the name of the parameter.
      *
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @return A string describing the specified parameter.
      */
     const std::string getParameterName (int index) const;
     
     /** Returns the string representation of the parameter's current value.
      *  
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @return A string describing the current (unnormalized) value of
      *      the parameter.
      */
@@ -145,7 +150,8 @@ public:
     /** Returns the parameter's (denormalized) string representation for a
      *  given (normalized) value.
      *
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @param value The normalized value of the specified parameter whose
      *      (unnormalized) string representaion shall be returned.
      *  @return A string describing the (unnormalized) value corresponding
@@ -156,7 +162,8 @@ public:
     /** Returns the value a parameter would have if it was set to the value
      *  represented by the parameterText string (normalized within [0.0 , 1.0]).
      *
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @param parameterText A string describing a (unnormalized) value of that
      *      parameter.
      *  @return The normalized value corresponding to the parameterText. In case a
@@ -169,14 +176,18 @@ public:
     
     /** Returns the default (=initial) value of the parameter.
      *  
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @return The default (=intial) value for the specified paremeter.
      */
     static float getParameterDefaultValue (int index);
     
-    /** Normalizes a parameter to the range of [0.0 ; 1.0].
+    /** Normalizes a parameter to the range of [0.0 ; 1.0]. For the
+     *  coordinates, normalization depends on the maximum coordinates range
+     *  defined via COORD_MAX and COORD_MIN.
      *
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @param unnormalized The unnormalized value of the specified parameter whose
      *      normalized float representaion shall be returned.
      *  @return The normalized representation of the value that was passed.
@@ -186,25 +197,32 @@ public:
     static float normalizeParameter (int index, float unnormalized);
     
     /** Scales a parameter from the range of [0.0 ; 1.0] to the value it
-     *  represents to the user (for GUI, getParameterText, ...).
+     *  represents to the user (for GUI, getParameterText, ...). For the
+     *  coordinates, denormalization depends on the maximum coordinates range
+     *  defined via COORD_MAX and COORD_MIN.
      *
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @param normalized The normalized value of the specified parameter whose
      *      unnormalized representaion shall be returned.
      *  @return The unnormalized representation of the value that was passed.
      */
     static float denormalizeParameter (int index, float normalized);
     
-    /** Returns the denormalized value of the parameter.
+    /** Returns the denormalized value of the parameter. For the coordinates,
+     *  denormalization depends on the maximum coordinates range defined
+     *  via COORD_MAX and COORD_MIN.
      *
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @return The current unnormalized value of that parameter.
      */
     float getDenormalizedParameter (int index) const;
     
     /** Returns false, if the parameter's value is 0.0 (otherwise true).
      *
-     *  @param index A parameter index as specified by enum SourceTypes.
+     *  @param index A parameter index as specified by enum
+     *      Source::AutomatedParameters.
      *  @return false, if the parameter's value is 0.0 (otherwise true).
      */
     bool getBooleanizedParameter (int index) const;
@@ -278,7 +296,8 @@ public:
     void setBlue(uint8_t blue);
     
     /** Returns true, if the source is active within WONDER. (This
-     *  is just a getter for the value that was set via isActive().)
+     *  is just a getter for the value that was set via
+     *  Source::setIsActive.)
      */
     bool isActive() const;
     

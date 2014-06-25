@@ -20,7 +20,8 @@
 #ifndef SOURCEPANEL_H_INCLUDED
 #define SOURCEPANEL_H_INCLUDED
 
-#define OTHER_SOURCES_ALPHA 80
+#define OTHER_SOURCES_ALPHA 80 /**< The alpha value used to display other
+                                    sources than the main source. */
 
 #include <memory>
 
