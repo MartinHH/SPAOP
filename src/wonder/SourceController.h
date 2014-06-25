@@ -214,6 +214,14 @@ public:
      */
     bool isLinkedToWonder() const;
     
+    /** Sets the address where outgoing OSC messages will be sent in "linked to
+     *  WONDER" mode will be sent (i.e. the address of cWONDER).
+     *
+     *  @param host A valid hostname or ip string.
+     *  @param port A valid port number or service name.
+     */
+    void setCWonderAddress(const std::string &host, const std::string &port);
+    
     /** Sets the ID locked status. If the sourceID is locked, it cannot be changed,
      *  and listening to incoming messages is enabled. If it is not locked, the ID
      *  can be changed, but listening to incoming messages is disabled.

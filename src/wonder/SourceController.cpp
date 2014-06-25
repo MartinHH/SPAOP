@@ -236,6 +236,11 @@ bool SourceController::isLinkedToWonder() const
     return linkedToWonder_;
 }
     
+void SourceController::setCWonderAddress(const std::string &host, const std::string &port)
+{
+    cWonder_->setAddress(host, port);
+}
+    
 void SourceController::setIdIsLocked(bool isLocked)
 {
     if (isLocked && !isLocked_) {
