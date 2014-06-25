@@ -1,10 +1,13 @@
+<!-- HTML header for doxygen 1.8.6-->
+<!-- Only difference to the default header is the description meta tag -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SPAOP: /Users/smart/Dropbox/Studium/Bachelor/SPAOP/src/wonderjuce/SourcePanel.h Source File</title>
+<meta name="description" content="Source code documentation for SPAOP, an audio plugin to control the WONDER wave field synthesis system.">
+<title>SPAOP: SourcePanel.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -111,102 +114,102 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef SOURCEPANEL_H_INCLUDED</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SOURCEPANEL_H_INCLUDED</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="_source_panel_8h.html#a887e364f1bcc6cfff5a723ade9260204">   23</a></span>&#160;<span class="preprocessor">#define OTHER_SOURCES_ALPHA 80</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_room_8h.html">Room.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_source_collection_8h.html">SourceCollection.h</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_source_display_8h.html">SourceDisplay.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;JuceHeader.h&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>wonderjuce {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel.html">   39</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>    : <span class="keyword">public</span> <a class="code" href="classwonderjuce_1_1_source_display.html">SourceDisplay</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_panel.html#a37205238450ddb7efe86a1552e658a66">SourcePanel</a>(<span class="keyword">const</span> String&amp; componentName = String::empty);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a523882a001d12398531b66bf2707906c">~SourcePanel</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#aa80a1c8ecee0d683a3521add15fd5cbe">paint</a> (Graphics&amp; g);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a58467fbd7cd65e33ff01126a14fb6f33">mouseDown</a>(<span class="keyword">const</span> MouseEvent &amp;event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a21b96d387e9f0e7a973156d29511d4b8">mouseDrag</a>(<span class="keyword">const</span> MouseEvent &amp;event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a44892392cb7a10a68c67abf3804fa0e6">mouseUp</a>(<span class="keyword">const</span> MouseEvent &amp;event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#acf8924aae5271368b1ced2fcd62574e3">getXPos</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a6379fd2de27ddca7eb76f9bc681efab1">getYPos</a>();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel_1_1_listener.html">   75</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html">Listener</a></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a650ecb01cfc904a7fd82e0f3db42e259">   79</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a650ecb01cfc904a7fd82e0f3db42e259">~Listener</a>() {}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a2df86a467c7eca56da13a056a6f71e71">   89</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a2df86a467c7eca56da13a056a6f71e71">sourcePanelDragStarted</a> (<a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>* panel) {}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a497305542d4033b1b96cda9307867f1d">sourcePanelValuesChanged</a> (<a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>* panel) = 0;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a87cb76c798f44648a84dae9c3ff1234e">  105</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a87cb76c798f44648a84dae9c3ff1234e">sourcePanelDragEnded</a> (<a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>* panel) {}</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    };</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a989d0eb184ed53dc0f93e2b4a4e91ba0">addListener</a> (Listener* listener);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a9f97f76271a1017ba63995633b3fa01e">removeListener</a> (Listener* listener);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a4578d585d287e2db2a80cbacd5b2e351">setSources</a>(std::shared_ptr&lt;const wonder::SourceCollection&gt; sources);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#ab12ca02ce9f1484076870e9fbbc55d7a">setSource</a>(<span class="keywordtype">int</span> sourceID);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#ab2f898093f688fd6eda3a2b91083c99f">setShowOtherSources</a>(<span class="keywordtype">bool</span> showOthers);</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="_source_panel_8h.html#a887e364f1bcc6cfff5a723ade9260204">   23</a></span>&#160;<span class="preprocessor">#define OTHER_SOURCES_ALPHA 80 </span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_room_8h.html">Room.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_source_collection_8h.html">SourceCollection.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_source_display_8h.html">SourceDisplay.h</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;JuceHeader.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>wonderjuce {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span><span class="keyword">class </span>SourcePanel    : <span class="keyword">public</span> SourceDisplay</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel.html">   41</a></span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classwonderjuce_1_1_source_panel.html#a37205238450ddb7efe86a1552e658a66">SourcePanel</a>(<span class="keyword">const</span> String&amp; componentName = String::empty);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a523882a001d12398531b66bf2707906c">~SourcePanel</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#aa80a1c8ecee0d683a3521add15fd5cbe">paint</a> (Graphics&amp; g);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a58467fbd7cd65e33ff01126a14fb6f33">mouseDown</a>(<span class="keyword">const</span> MouseEvent &amp;event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a21b96d387e9f0e7a973156d29511d4b8">mouseDrag</a>(<span class="keyword">const</span> MouseEvent &amp;event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a44892392cb7a10a68c67abf3804fa0e6">mouseUp</a>(<span class="keyword">const</span> MouseEvent &amp;event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#acf8924aae5271368b1ced2fcd62574e3">getXPos</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a6379fd2de27ddca7eb76f9bc681efab1">getYPos</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">class </span><a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html">Listener</a></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel_1_1_listener.html">   84</a></span>&#160;    {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a650ecb01cfc904a7fd82e0f3db42e259">~Listener</a>() {}</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a650ecb01cfc904a7fd82e0f3db42e259">   88</a></span>&#160;        </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a2df86a467c7eca56da13a056a6f71e71">sourcePanelDragStarted</a> (<a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>* panel) {}</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a2df86a467c7eca56da13a056a6f71e71">   98</a></span>&#160;        </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a497305542d4033b1b96cda9307867f1d">sourcePanelValuesChanged</a> (<a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>* panel) = 0;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a87cb76c798f44648a84dae9c3ff1234e">sourcePanelDragEnded</a> (<a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>* panel) {}</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classwonderjuce_1_1_source_panel_1_1_listener.html#a87cb76c798f44648a84dae9c3ff1234e">  114</a></span>&#160;    };</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a989d0eb184ed53dc0f93e2b4a4e91ba0">addListener</a> (<a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html">Listener</a>* listener);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a9f97f76271a1017ba63995633b3fa01e">removeListener</a> (<a class="code" href="classwonderjuce_1_1_source_panel_1_1_listener.html">Listener</a>* listener);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a4578d585d287e2db2a80cbacd5b2e351">setSources</a>(std::shared_ptr&lt;const wonder::SourceCollection&gt; sources);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#ab12ca02ce9f1484076870e9fbbc55d7a">setSource</a>(<span class="keywordtype">int</span> sourceID);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a3be42036f529831c4836f4b105c93547">showsOtherSources</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#ab2f898093f688fd6eda3a2b91083c99f">setShowOtherSources</a>(<span class="keywordtype">bool</span> showOthers);</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#ac4d6fc3895492d1a8b0e7270e6209015">getFocusPointX</a>();</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#aef4946335d3a91188ca891f25a409234">getFocusPointY</a>();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    Point&lt;float&gt; <a class="code" href="classwonderjuce_1_1_source_panel.html#a3bc45c5ac34f5c8cafc829bdfabc77f9">getFocusPoint</a>();</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">float</span> x, y;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    std::shared_ptr&lt;const wonder::SourceCollection&gt; sources_;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">bool</span> showOthers_;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">int</span> sourceID_;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">bool</span> dotIsHit_;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    ListenerList &lt;Listener&gt; listeners;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (<a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;};</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#endif  // SOURCEPANEL_H_INCLUDED</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#a3be42036f529831c4836f4b105c93547">showsOtherSources</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#ac4d6fc3895492d1a8b0e7270e6209015">getFocusPointX</a>();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonderjuce_1_1_source_panel.html#aef4946335d3a91188ca891f25a409234">getFocusPointY</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    Point&lt;float&gt; <a class="code" href="classwonderjuce_1_1_source_panel.html#a3bc45c5ac34f5c8cafc829bdfabc77f9">getFocusPoint</a>();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">float</span> x, y;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    std::shared_ptr&lt;const wonder::SourceCollection&gt; sources_;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">bool</span> showOthers_;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">int</span> sourceID_;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">bool</span> dotIsHit_;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    ListenerList &lt;Listener&gt; listeners;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (<a class="code" href="classwonderjuce_1_1_source_panel.html">SourcePanel</a>)</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;};</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#endif  // SOURCEPANEL_H_INCLUDED</span></div>
 <div class="ttc" id="_source_display_8h_html"><div class="ttname"><a href="_source_display_8h.html">SourceDisplay.h</a></div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a6379fd2de27ddca7eb76f9bc681efab1"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a6379fd2de27ddca7eb76f9bc681efab1">wonderjuce::SourcePanel::getYPos</a></div><div class="ttdeci">float getYPos()</div><div class="ttdoc">Returns the y coordinate of the source controlled by this SourcePanel, normalized within [0...</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:134</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_panel_html_a523882a001d12398531b66bf2707906c"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a523882a001d12398531b66bf2707906c">wonderjuce::SourcePanel::~SourcePanel</a></div><div class="ttdeci">virtual ~SourcePanel()</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:37</div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_panel_html_a523882a001d12398531b66bf2707906c"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a523882a001d12398531b66bf2707906c">wonderjuce::SourcePanel::~SourcePanel</a></div><div class="ttdeci">virtual ~SourcePanel()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:37</div></div>
 <div class="ttc" id="_source_collection_8h_html"><div class="ttname"><a href="_source_collection_8h.html">SourceCollection.h</a></div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a3bc45c5ac34f5c8cafc829bdfabc77f9"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a3bc45c5ac34f5c8cafc829bdfabc77f9">wonderjuce::SourcePanel::getFocusPoint</a></div><div class="ttdeci">Point&lt; float &gt; getFocusPoint()</div><div class="ttdoc">Returns the &quot;focus point&quot;, the point where this component shall be auto-centered (for example...</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:191</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a21b96d387e9f0e7a973156d29511d4b8"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a21b96d387e9f0e7a973156d29511d4b8">wonderjuce::SourcePanel::mouseDrag</a></div><div class="ttdeci">void mouseDrag(const MouseEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:93</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_ac4d6fc3895492d1a8b0e7270e6209015"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#ac4d6fc3895492d1a8b0e7270e6209015">wonderjuce::SourcePanel::getFocusPointX</a></div><div class="ttdeci">float getFocusPointX()</div><div class="ttdoc">Returns the x-coordinate of the &quot;focus point&quot;. </div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:181</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html_a650ecb01cfc904a7fd82e0f3db42e259"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html#a650ecb01cfc904a7fd82e0f3db42e259">wonderjuce::SourcePanel::Listener::~Listener</a></div><div class="ttdeci">virtual ~Listener()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> SourcePanel.h:79</div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html_a650ecb01cfc904a7fd82e0f3db42e259"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html#a650ecb01cfc904a7fd82e0f3db42e259">wonderjuce::SourcePanel::Listener::~Listener</a></div><div class="ttdeci">virtual ~Listener()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> SourcePanel.h:88</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a58467fbd7cd65e33ff01126a14fb6f33"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a58467fbd7cd65e33ff01126a14fb6f33">wonderjuce::SourcePanel::mouseDown</a></div><div class="ttdeci">void mouseDown(const MouseEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:73</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_aa80a1c8ecee0d683a3521add15fd5cbe"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#aa80a1c8ecee0d683a3521add15fd5cbe">wonderjuce::SourcePanel::paint</a></div><div class="ttdeci">void paint(Graphics &amp;g)</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:41</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a44892392cb7a10a68c67abf3804fa0e6"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a44892392cb7a10a68c67abf3804fa0e6">wonderjuce::SourcePanel::mouseUp</a></div><div class="ttdeci">void mouseUp(const MouseEvent &amp;event) override</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:118</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html_a497305542d4033b1b96cda9307867f1d"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html#a497305542d4033b1b96cda9307867f1d">wonderjuce::SourcePanel::Listener::sourcePanelValuesChanged</a></div><div class="ttdeci">virtual void sourcePanelValuesChanged(SourcePanel *panel)=0</div><div class="ttdoc">Called when the SourcePanel&#39;s value is changed. </div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a37205238450ddb7efe86a1552e658a66"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a37205238450ddb7efe86a1552e658a66">wonderjuce::SourcePanel::SourcePanel</a></div><div class="ttdeci">SourcePanel(const String &amp;componentName=String::empty)</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:26</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_display_html"><div class="ttname"><a href="classwonderjuce_1_1_source_display.html">wonderjuce::SourceDisplay</a></div><div class="ttdoc">An abstract class for a GUI component that displays a two-dimensional view of WONDER sources and the ...</div><div class="ttdef"><b>Definition:</b> SourceDisplay.h:40</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_panel_html"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html">wonderjuce::SourcePanel</a></div><div class="ttdoc">A GUI component that displays a two-dimensional view of a source&#39;s position and allows the re-positio...</div><div class="ttdef"><b>Definition:</b> SourcePanel.h:39</div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_panel_html"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html">wonderjuce::SourcePanel</a></div><div class="ttdoc">A GUI component that displays a two-dimensional view of a source&#39;s position and allows the re-positio...</div><div class="ttdef"><b>Definition:</b> SourcePanel.h:41</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a9f97f76271a1017ba63995633b3fa01e"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a9f97f76271a1017ba63995633b3fa01e">wonderjuce::SourcePanel::removeListener</a></div><div class="ttdeci">void removeListener(Listener *listener)</div><div class="ttdoc">Removes a previously-registered listener. </div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:144</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a989d0eb184ed53dc0f93e2b4a4e91ba0"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a989d0eb184ed53dc0f93e2b4a4e91ba0">wonderjuce::SourcePanel::addListener</a></div><div class="ttdeci">void addListener(Listener *listener)</div><div class="ttdoc">Adds a listener to be called when this panel&#39;s values change. </div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:139</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html_a2df86a467c7eca56da13a056a6f71e71"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html#a2df86a467c7eca56da13a056a6f71e71">wonderjuce::SourcePanel::Listener::sourcePanelDragStarted</a></div><div class="ttdeci">virtual void sourcePanelDragStarted(SourcePanel *panel)</div><div class="ttdoc">Called when the position-dot is about to be dragged. </div><div class="ttdef"><b>Definition:</b> SourcePanel.h:89</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html">wonderjuce::SourcePanel::Listener</a></div><div class="ttdoc">A class for receiving callbacks from a SourcePanel. </div><div class="ttdef"><b>Definition:</b> SourcePanel.h:75</div></div>
-<div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html_a87cb76c798f44648a84dae9c3ff1234e"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html#a87cb76c798f44648a84dae9c3ff1234e">wonderjuce::SourcePanel::Listener::sourcePanelDragEnded</a></div><div class="ttdeci">virtual void sourcePanelDragEnded(SourcePanel *panel)</div><div class="ttdoc">Called after a drag operation has finished. </div><div class="ttdef"><b>Definition:</b> SourcePanel.h:105</div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html_a2df86a467c7eca56da13a056a6f71e71"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html#a2df86a467c7eca56da13a056a6f71e71">wonderjuce::SourcePanel::Listener::sourcePanelDragStarted</a></div><div class="ttdeci">virtual void sourcePanelDragStarted(SourcePanel *panel)</div><div class="ttdoc">Called when the position-dot is about to be dragged. </div><div class="ttdef"><b>Definition:</b> SourcePanel.h:98</div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html">wonderjuce::SourcePanel::Listener</a></div><div class="ttdoc">A class for receiving callbacks from a SourcePanel. </div><div class="ttdef"><b>Definition:</b> SourcePanel.h:84</div></div>
+<div class="ttc" id="classwonderjuce_1_1_source_panel_1_1_listener_html_a87cb76c798f44648a84dae9c3ff1234e"><div class="ttname"><a href="classwonderjuce_1_1_source_panel_1_1_listener.html#a87cb76c798f44648a84dae9c3ff1234e">wonderjuce::SourcePanel::Listener::sourcePanelDragEnded</a></div><div class="ttdeci">virtual void sourcePanelDragEnded(SourcePanel *panel)</div><div class="ttdoc">Called after a drag operation has finished. </div><div class="ttdef"><b>Definition:</b> SourcePanel.h:114</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_aef4946335d3a91188ca891f25a409234"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#aef4946335d3a91188ca891f25a409234">wonderjuce::SourcePanel::getFocusPointY</a></div><div class="ttdeci">float getFocusPointY()</div><div class="ttdoc">Returns the y-coordinate of the &quot;focus point&quot;. </div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:186</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_a4578d585d287e2db2a80cbacd5b2e351"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#a4578d585d287e2db2a80cbacd5b2e351">wonderjuce::SourcePanel::setSources</a></div><div class="ttdeci">bool setSources(std::shared_ptr&lt; const wonder::SourceCollection &gt; sources)</div><div class="ttdoc">Sets the SourceCollection object that holds the information about the sources to be displayed...</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:149</div></div>
 <div class="ttc" id="classwonderjuce_1_1_source_panel_html_ab12ca02ce9f1484076870e9fbbc55d7a"><div class="ttname"><a href="classwonderjuce_1_1_source_panel.html#ab12ca02ce9f1484076870e9fbbc55d7a">wonderjuce::SourcePanel::setSource</a></div><div class="ttdeci">bool setSource(int sourceID)</div><div class="ttdoc">Sets the ID of the source to be shown as the main source that can be controlled using this SourcePane...</div><div class="ttdef"><b>Definition:</b> SourcePanel.cpp:160</div></div>
@@ -217,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 25 2014 14:58:02 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

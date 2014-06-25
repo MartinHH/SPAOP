@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$class_spaop_audio_processor_editor.html" title="[Comments] The main GUI class for the SPAOP plugin. " alt="" coords="228,159,417,185"/>
+<area shape="rect" id="node2" href="$class_spaop_audio_processor_editor.html" title="[Comments] " alt="" coords="228,159,417,185"/>
 <area shape="rect" id="node5" href="$classwonder_1_1_connection_timer.html" title="An interface defining a cyclic timer (to be used as a watchdog for connection timeouts) along with li..." alt="" coords="5,363,179,389"/>
 <area shape="rect" id="node6" href="$classwonderjuce_1_1_juce_connection_timer.html" title="An implementation of wonder::ConnectionTimer using the Timer class of JUCE. " alt="" coords="226,331,419,370"/>
 <area shape="rect" id="node7" href="$classwonderjuce_1_1_source_panel_1_1_listener.html" title="A class for receiving callbacks from a SourcePanel. " alt="" coords="5,153,179,191"/>

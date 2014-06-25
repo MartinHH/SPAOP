@@ -1,9 +1,12 @@
+<!-- HTML header for doxygen 1.8.6-->
+<!-- Only difference to the default header is the description meta tag -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
+<meta name="description" content="Source code documentation for SPAOP, an audio plugin to control the WONDER wave field synthesis system.">
 <title>SPAOP: SpaopAudioProcessor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -113,8 +116,10 @@ Collaboration diagram for SpaopAudioProcessor:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aabdee9a69496317ddac46ca86ddb82cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#aabdee9a69496317ddac46ca86ddb82cb">SpaopAudioProcessor</a> ()</td></tr>
+<tr class="memdesc:aabdee9a69496317ddac46ca86ddb82cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aabdee9a69496317ddac46ca86ddb82cb">More...</a><br/></td></tr>
 <tr class="separator:aabdee9a69496317ddac46ca86ddb82cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65673f2edbe169c6f3b8de09bfcc5ae6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a65673f2edbe169c6f3b8de09bfcc5ae6">~SpaopAudioProcessor</a> ()</td></tr>
+<tr class="memdesc:a65673f2edbe169c6f3b8de09bfcc5ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a65673f2edbe169c6f3b8de09bfcc5ae6">More...</a><br/></td></tr>
 <tr class="separator:a65673f2edbe169c6f3b8de09bfcc5ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb8bea92b0a6b9d040e5a53f86dabda6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#abb8bea92b0a6b9d040e5a53f86dabda6">prepareToPlay</a> (double sampleRate, int samplesPerBlock)</td></tr>
 <tr class="separator:abb8bea92b0a6b9d040e5a53f86dabda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,22 +134,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa40e6326d5c556aac19c04383d51ab69"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#aa40e6326d5c556aac19c04383d51ab69">getName</a> () const </td></tr>
 <tr class="separator:aa40e6326d5c556aac19c04383d51ab69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bbbd2de86506891716e12d19ade4194"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a6bbbd2de86506891716e12d19ade4194">getNumParameters</a> ()</td></tr>
+<tr class="memdesc:a6bbbd2de86506891716e12d19ade4194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of automatable parameters of this plugin.  <a href="#a6bbbd2de86506891716e12d19ade4194">More...</a><br/></td></tr>
 <tr class="separator:a6bbbd2de86506891716e12d19ade4194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe8bc18c5074247b20abac4028eb91fd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#afe8bc18c5074247b20abac4028eb91fd">getParameter</a> (int index)</td></tr>
+<tr class="memdesc:afe8bc18c5074247b20abac4028eb91fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a25154baec1402f1ee4b5a97f768d56fc" title="Returns the normalized value of the parameter. ">wonder::Source::getParameter</a> method of the source controlled by this plugin.  <a href="#afe8bc18c5074247b20abac4028eb91fd">More...</a><br/></td></tr>
 <tr class="separator:afe8bc18c5074247b20abac4028eb91fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a317258d2e0a14bafda6625501e664d55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a317258d2e0a14bafda6625501e664d55">setParameter</a> (int index, float newValue)</td></tr>
+<tr class="memdesc:a317258d2e0a14bafda6625501e664d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards the call to the <a class="el" href="classwonder_1_1_source_controller.html#a85186467ebe276620c1923751d39b6f4" title="Sets a parameter of the source that is controlled by this SourceController and sends it to cWONDER (i...">wonder::SourceController::setParameterAndSendChange</a>.  <a href="#a317258d2e0a14bafda6625501e664d55">More...</a><br/></td></tr>
 <tr class="separator:a317258d2e0a14bafda6625501e664d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab883af81467051ceb4d120dbe9a74190"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#ab883af81467051ceb4d120dbe9a74190">getParameterByText</a> (int parameterIndex, const String &amp;parameterText)</td></tr>
+<tr class="memdesc:ab883af81467051ceb4d120dbe9a74190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a76f2af0269da057d479780bbd92d77ca" title="Returns the value a parameter would have if it was set to the value represented by the parameterText ...">wonder::Source::getParameterByText</a> method of the source controlled by this plugin.  <a href="#ab883af81467051ceb4d120dbe9a74190">More...</a><br/></td></tr>
 <tr class="separator:ab883af81467051ceb4d120dbe9a74190"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bf3aa557a475b845934ced399039564"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a5bf3aa557a475b845934ced399039564">getParameterName</a> (int index)</td></tr>
+<tr class="memdesc:a5bf3aa557a475b845934ced399039564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a68cf020397fdeeee76ca90ffd6965973" title="Returns the name of the parameter. ">wonder::Source::getParameterName</a> method of the source controlled by this plugin.  <a href="#a5bf3aa557a475b845934ced399039564">More...</a><br/></td></tr>
 <tr class="separator:a5bf3aa557a475b845934ced399039564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71192bb4d3a5b219ad7ebddad49e60be"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a71192bb4d3a5b219ad7ebddad49e60be">getParameterText</a> (int index)</td></tr>
+<tr class="memdesc:a71192bb4d3a5b219ad7ebddad49e60be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a8e55a28db7ae3233cf231845cd3a5e46" title="Returns the string representation of the parameter&#39;s current value. ">wonder::Source::getParameterText</a> method of the source controlled by this plugin.  <a href="#a71192bb4d3a5b219ad7ebddad49e60be">More...</a><br/></td></tr>
 <tr class="separator:a71192bb4d3a5b219ad7ebddad49e60be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa4953d4cddb0c34ad2d8d56468fa7ab"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#afa4953d4cddb0c34ad2d8d56468fa7ab">getParameterTextByValue</a> (int index, float value)</td></tr>
+<tr class="memdesc:afa4953d4cddb0c34ad2d8d56468fa7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a05fe2f91dba371504ac852b44dd1f412" title="Returns the parameter&#39;s (denormalized) string representation for a given (normalized) value...">wonder::Source::getParameterTextByValue</a> method of the source controlled by this plugin.  <a href="#afa4953d4cddb0c34ad2d8d56468fa7ab">More...</a><br/></td></tr>
 <tr class="separator:afa4953d4cddb0c34ad2d8d56468fa7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8de2b2aa6a9a24e9f31fe4463444ffe6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a8de2b2aa6a9a24e9f31fe4463444ffe6">getParameterNumSteps</a> (int index)</td></tr>
 <tr class="separator:a8de2b2aa6a9a24e9f31fe4463444ffe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a25170bdf93092c07b6db1aa5d3f61a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a1a25170bdf93092c07b6db1aa5d3f61a">getParameterDefaultValue</a> (int index)</td></tr>
+<tr class="memdesc:a1a25170bdf93092c07b6db1aa5d3f61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards the call to <a class="el" href="classwonder_1_1_source.html#a9d42defceac5ec1620c1cb8c95d681c8" title="Returns the default (=initial) value of the parameter. ">wonder::Source::getParameterDefaultValue</a>.  <a href="#a1a25170bdf93092c07b6db1aa5d3f61a">More...</a><br/></td></tr>
 <tr class="separator:a1a25170bdf93092c07b6db1aa5d3f61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2796eb89361f797269256320605ba6e4"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a2796eb89361f797269256320605ba6e4">getInputChannelName</a> (int channelIndex) const </td></tr>
 <tr class="separator:a2796eb89361f797269256320605ba6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,18 +176,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af34d5706294265b66bcb6484cc1a39fa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#af34d5706294265b66bcb6484cc1a39fa">getTailLengthSeconds</a> () const </td></tr>
 <tr class="separator:af34d5706294265b66bcb6484cc1a39fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a725048efc6ce1e6107a2f297b69a13e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a725048efc6ce1e6107a2f297b69a13e5">getNumPrograms</a> ()</td></tr>
+<tr class="memdesc:a725048efc6ce1e6107a2f297b69a13e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns 0.  <a href="#a725048efc6ce1e6107a2f297b69a13e5">More...</a><br/></td></tr>
 <tr class="separator:a725048efc6ce1e6107a2f297b69a13e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a687c96d6dc93433a6a9a6ecef6d5432d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a687c96d6dc93433a6a9a6ecef6d5432d">getCurrentProgram</a> ()</td></tr>
+<tr class="memdesc:a687c96d6dc93433a6a9a6ecef6d5432d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns 0.  <a href="#a687c96d6dc93433a6a9a6ecef6d5432d">More...</a><br/></td></tr>
 <tr class="separator:a687c96d6dc93433a6a9a6ecef6d5432d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf9dc20ea38463016e49de16e470695a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#adf9dc20ea38463016e49de16e470695a">setCurrentProgram</a> (int index)</td></tr>
+<tr class="memdesc:adf9dc20ea38463016e49de16e470695a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing.  <a href="#adf9dc20ea38463016e49de16e470695a">More...</a><br/></td></tr>
 <tr class="separator:adf9dc20ea38463016e49de16e470695a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a475b092603c1a1c41e447fea055e40c6"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a475b092603c1a1c41e447fea055e40c6">getProgramName</a> (int index)</td></tr>
+<tr class="memdesc:a475b092603c1a1c41e447fea055e40c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an empty juce::String.  <a href="#a475b092603c1a1c41e447fea055e40c6">More...</a><br/></td></tr>
 <tr class="separator:a475b092603c1a1c41e447fea055e40c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ea2b49eacdce7d32283828d8f6b066"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a10ea2b49eacdce7d32283828d8f6b066">changeProgramName</a> (int index, const String &amp;newName)</td></tr>
+<tr class="memdesc:a10ea2b49eacdce7d32283828d8f6b066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing.  <a href="#a10ea2b49eacdce7d32283828d8f6b066">More...</a><br/></td></tr>
 <tr class="separator:a10ea2b49eacdce7d32283828d8f6b066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca52eaaef6400a69d527cdf8b9c0d5fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#aca52eaaef6400a69d527cdf8b9c0d5fb">getStateInformation</a> (MemoryBlock &amp;destData)</td></tr>
+<tr class="memdesc:aca52eaaef6400a69d527cdf8b9c0d5fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the current state of the plugin (including the state of the source controlled by this plugin) into the MemoryBlock destData.  <a href="#aca52eaaef6400a69d527cdf8b9c0d5fb">More...</a><br/></td></tr>
 <tr class="separator:aca52eaaef6400a69d527cdf8b9c0d5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4a90e5b8b12aa9b1b1f5a441bcb71ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#ad4a90e5b8b12aa9b1b1f5a441bcb71ff">setStateInformation</a> (const void *data, int sizeInBytes)</td></tr>
+<tr class="memdesc:ad4a90e5b8b12aa9b1b1f5a441bcb71ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retores the a state of the plugin (including the state of the source controlled by this plugin) from a memory block (as stored with getStateInformation).  <a href="#ad4a90e5b8b12aa9b1b1f5a441bcb71ff">More...</a><br/></td></tr>
 <tr class="separator:ad4a90e5b8b12aa9b1b1f5a441bcb71ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ddcc005de6d362b92cd37228800b7c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spaop_audio_processor.html#a9ddcc005de6d362b92cd37228800b7c1">setCoordinates</a> (float normalizedX, float normalizedY)</td></tr>
 <tr class="memdesc:a9ddcc005de6d362b92cd37228800b7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the coordinates, sending the corresponding OSC-message.  <a href="#a9ddcc005de6d362b92cd37228800b7c1">More...</a><br/></td></tr>
@@ -209,7 +229,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The SPAOP-plugin's processor class. </p>
-<p>Initializes its <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">wonder::SourceController</a> instance and works as the interface to the host software. </p>
+<p>Initializes its <a class="el" href="classwonder_1_1_source_controller.html" title="The main communication node that keeps track of all virtual sources and enables the host DAW to contr...">wonder::SourceController</a> instance and works as the interface to the host software.</p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aabdee9a69496317ddac46ca86ddb82cb"></a>
 <div class="memitem">
@@ -223,6 +244,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructor. </p>
 
 </div>
 </div>
@@ -239,6 +262,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -254,6 +279,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -281,6 +307,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Does nothing. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="aa7e1aec5d87b118b9f81a2f09531e545"></a>
@@ -295,6 +324,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -311,6 +341,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns 0. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a2796eb89361f797269256320605ba6e4"></a>
@@ -326,6 +359,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -341,6 +375,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -357,6 +392,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of automatable parameters of this plugin. </p>
+<p>This equals the value of <a class="el" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eba6a1d24e1096cb81aaec5884931b25b9b" title="Total number of (automated) parameters. ">wonder::Source::totalNumParams</a>.</p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a725048efc6ce1e6107a2f297b69a13e5"></a>
@@ -371,6 +410,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns 0. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -387,6 +429,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -403,6 +446,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a25154baec1402f1ee4b5a97f768d56fc" title="Returns the normalized value of the parameter. ">wonder::Source::getParameter</a> method of the source controlled by this plugin. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a>, <a class="el" href="classwonder_1_1_source.html#a25154baec1402f1ee4b5a97f768d56fc" title="Returns the normalized value of the parameter. ">wonder::Source::getParameter</a> </dd></dl>
 
 </div>
 </div>
@@ -430,6 +476,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a76f2af0269da057d479780bbd92d77ca" title="Returns the value a parameter would have if it was set to the value represented by the parameterText ...">wonder::Source::getParameterByText</a> method of the source controlled by this plugin. </p>
+<p>This overrides a method of juce::AudioProcessor that is not contained in the official version of JUCE but only in the fork of JUCE that was created for SPAOP.</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classwonder_1_1_source.html#a76f2af0269da057d479780bbd92d77ca" title="Returns the value a parameter would have if it was set to the value represented by the parameterText ...">wonder::Source::getParameterByText</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a1a25170bdf93092c07b6db1aa5d3f61a"></a>
@@ -446,6 +496,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Forwards the call to <a class="el" href="classwonder_1_1_source.html#a9d42defceac5ec1620c1cb8c95d681c8" title="Returns the default (=initial) value of the parameter. ">wonder::Source::getParameterDefaultValue</a>. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a>, <a class="el" href="classwonder_1_1_source.html#a9d42defceac5ec1620c1cb8c95d681c8" title="Returns the default (=initial) value of the parameter. ">wonder::Source::getParameterDefaultValue</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a5bf3aa557a475b845934ced399039564"></a>
@@ -461,6 +514,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a68cf020397fdeeee76ca90ffd6965973" title="Returns the name of the parameter. ">wonder::Source::getParameterName</a> method of the source controlled by this plugin. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a>, <a class="el" href="classwonder_1_1_source.html#a68cf020397fdeeee76ca90ffd6965973" title="Returns the name of the parameter. ">wonder::Source::getParameterName</a> </dd></dl>
 
 </div>
 </div>
@@ -494,6 +550,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a8e55a28db7ae3233cf231845cd3a5e46" title="Returns the string representation of the parameter&#39;s current value. ">wonder::Source::getParameterText</a> method of the source controlled by this plugin. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a>, <a class="el" href="classwonder_1_1_source.html#a8e55a28db7ae3233cf231845cd3a5e46" title="Returns the string representation of the parameter&#39;s current value. ">wonder::Source::getParameterText</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="afa4953d4cddb0c34ad2d8d56468fa7ab"></a>
@@ -520,6 +579,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Forwards the call to the <a class="el" href="classwonder_1_1_source.html#a05fe2f91dba371504ac852b44dd1f412" title="Returns the parameter&#39;s (denormalized) string representation for a given (normalized) value...">wonder::Source::getParameterTextByValue</a> method of the source controlled by this plugin. </p>
+<p>This overrides a method of juce::AudioProcessor that is not contained in the official version of JUCE but only in the fork of JUCE that was created for SPAOP.</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classwonder_1_1_source.html#a05fe2f91dba371504ac852b44dd1f412" title="Returns the parameter&#39;s (denormalized) string representation for a given (normalized) value...">wonder::Source::getParameterTextByValue</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a475b092603c1a1c41e447fea055e40c6"></a>
@@ -535,6 +598,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns an empty juce::String. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -570,6 +636,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Stores the current state of the plugin (including the state of the source controlled by this plugin) into the MemoryBlock destData. </p>
+<p>All attributes are stored in XML format.</p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="af34d5706294265b66bcb6484cc1a39fa"></a>
@@ -584,6 +654,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -618,6 +689,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -634,6 +706,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -650,6 +723,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -676,6 +750,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -702,6 +777,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -717,6 +793,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -732,6 +809,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -768,7 +846,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_spaop_audio_processor.html#a317258d2e0a14bafda6625501e664d55">setParameter</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_spaop_audio_processor.html#a317258d2e0a14bafda6625501e664d55" title="Forwards the call to the wonder::SourceController::setParameterAndSendChange. ">setParameter</a> </dd></dl>
 
 </div>
 </div>
@@ -823,6 +901,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Does nothing. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a317258d2e0a14bafda6625501e664d55"></a>
@@ -848,6 +929,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Forwards the call to the <a class="el" href="classwonder_1_1_source_controller.html#a85186467ebe276620c1923751d39b6f4" title="Sets a parameter of the source that is controlled by this SourceController and sends it to cWONDER (i...">wonder::SourceController::setParameterAndSendChange</a>. </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a>, <a class="el" href="classwonder_1_1_source_controller.html#a85186467ebe276620c1923751d39b6f4" title="Sets a parameter of the source that is controlled by this SourceController and sends it to cWONDER (i...">wonder::SourceController::setParameterAndSendChange</a> </dd></dl>
 
 </div>
 </div>
@@ -922,6 +1006,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retores the a state of the plugin (including the state of the source controlled by this plugin) from a memory block (as stored with getStateInformation). </p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -1000,6 +1087,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a href="http://www.juce.com/api/classAudioProcessor.html">juce::AudioProcessor</a> </dd></dl>
 
 </div>
 </div>
@@ -1024,7 +1112,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 25 2014 14:58:03 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

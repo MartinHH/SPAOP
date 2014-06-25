@@ -1,10 +1,13 @@
+<!-- HTML header for doxygen 1.8.6-->
+<!-- Only difference to the default header is the description meta tag -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SPAOP: /Users/smart/Dropbox/Studium/Bachelor/SPAOP/src/wonderlo/WonderOscServerSenderThread.h Source File</title>
+<meta name="description" content="Source code documentation for SPAOP, an audio plugin to control the WONDER wave field synthesis system.">
+<title>SPAOP: WonderOscServerSenderThread.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -113,38 +116,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_wonder_osc_sender_thread_8h.html">WonderOscSenderThread.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="_wonder_osc_server_sender_thread_8h.html#ac0a4f7eb3410dece282f4a99da0fb599">   26</a></span>&#160;<span class="preprocessor">#define MSG_WAIT_INTERVAL 1 </span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">namespace wonderlo {</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span>    </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">class </span>WonderOscServerSenderThread   :   <span class="keyword">public</span> WonderOscSenderThread</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classwonderlo_1_1_wonder_osc_server_sender_thread.html">   36</a></span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classwonderlo_1_1_wonder_osc_server_sender_thread.html">WonderOscServerSenderThread</a>(<span class="keyword">const</span> std::string &amp;host, <span class="keyword">const</span> std::string &amp;port,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                <a class="code" href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a> &amp;server, <span class="keywordtype">int</span> proto = LO_UDP);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classwonderlo_1_1_wonder_osc_server_sender_thread.html">WonderOscServerSenderThread</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> sendMethod(<span class="keyword">const</span> <a class="code" href="classwonderlo_1_1_message_with_path.html">MessageWithPath</a>&amp; msg);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a>&amp; server_;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif  // WONDEROSCSERVERSENDERTHREAD_H_INCLUDED</span></div>
-<div class="ttc" id="classwonderlo_1_1_wonder_osc_server_sender_thread_html"><div class="ttname"><a href="classwonderlo_1_1_wonder_osc_server_sender_thread.html">wonderlo::WonderOscServerSenderThread</a></div><div class="ttdoc">A WonderOscSenderThread thread, sending its messages from a specified lowrappers::ServerThread&#39;s port...</div><div class="ttdef"><b>Definition:</b> WonderOscServerSenderThread.h:36</div></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>wonderlo {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classwonderlo_1_1_wonder_osc_server_sender_thread.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classwonderlo_1_1_wonder_osc_server_sender_thread.html">WonderOscServerSenderThread</a>   :   <span class="keyword">public</span> <a class="code" href="classwonderlo_1_1_wonder_osc_sender_thread.html">WonderOscSenderThread</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classwonderlo_1_1_wonder_osc_server_sender_thread.html#a564256c4074f594ae7d218a24f9963a2">WonderOscServerSenderThread</a>(<span class="keyword">const</span> std::string &amp;host, <span class="keyword">const</span> std::string &amp;<a class="code" href="classwonderlo_1_1_wonder_osc_sender.html#ac4de5a747093b45c6d5807d33c669a8e">port</a>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                <a class="code" href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a> &amp;server, <span class="keywordtype">int</span> proto = LO_UDP);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classwonderlo_1_1_wonder_osc_server_sender_thread.html#a19189ba0d553d2f00e67494c174c9ba8">~WonderOscServerSenderThread</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonderlo_1_1_wonder_osc_server_sender_thread.html#a43130c7d22113ff36272d502ae8deffd">sendMethod</a>(<span class="keyword">const</span> <a class="code" href="classwonderlo_1_1_message_with_path.html">MessageWithPath</a>&amp; msg);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a>&amp; server_;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif  // WONDEROSCSERVERSENDERTHREAD_H_INCLUDED</span></div>
+<div class="ttc" id="classwonderlo_1_1_wonder_osc_server_sender_thread_html_a19189ba0d553d2f00e67494c174c9ba8"><div class="ttname"><a href="classwonderlo_1_1_wonder_osc_server_sender_thread.html#a19189ba0d553d2f00e67494c174c9ba8">wonderlo::WonderOscServerSenderThread::~WonderOscServerSenderThread</a></div><div class="ttdeci">virtual ~WonderOscServerSenderThread()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> WonderOscServerSenderThread.cpp:33</div></div>
+<div class="ttc" id="classwonderlo_1_1_wonder_osc_server_sender_thread_html_a43130c7d22113ff36272d502ae8deffd"><div class="ttname"><a href="classwonderlo_1_1_wonder_osc_server_sender_thread.html#a43130c7d22113ff36272d502ae8deffd">wonderlo::WonderOscServerSenderThread::sendMethod</a></div><div class="ttdeci">void sendMethod(const MessageWithPath &amp;msg)</div><div class="ttdoc">Overriding WonderOscSenderThread::sendMethod, this changes the way how the sending thread sends out t...</div><div class="ttdef"><b>Definition:</b> WonderOscServerSenderThread.cpp:37</div></div>
+<div class="ttc" id="classwonderlo_1_1_wonder_osc_server_sender_thread_html"><div class="ttname"><a href="classwonderlo_1_1_wonder_osc_server_sender_thread.html">wonderlo::WonderOscServerSenderThread</a></div><div class="ttdoc">A WonderOscSenderThread thread, sending its messages from a specified lowrappers::ServerThread&#39;s port...</div><div class="ttdef"><b>Definition:</b> WonderOscServerSenderThread.h:31</div></div>
 <div class="ttc" id="_wonder_osc_sender_thread_8h_html"><div class="ttname"><a href="_wonder_osc_sender_thread_8h.html">WonderOscSenderThread.h</a></div></div>
+<div class="ttc" id="classwonderlo_1_1_wonder_osc_sender_thread_html"><div class="ttname"><a href="classwonderlo_1_1_wonder_osc_sender_thread.html">wonderlo::WonderOscSenderThread</a></div><div class="ttdoc">A thread implementing the wonder::OscSenderThread interface. </div><div class="ttdef"><b>Definition:</b> WonderOscSenderThread.h:51</div></div>
 <div class="ttc" id="classlowrappers_1_1_server_thread_html"><div class="ttname"><a href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a></div><div class="ttdoc">A server thread with Liblo-style callback capabilities. </div><div class="ttdef"><b>Definition:</b> ServerThread.h:52</div></div>
+<div class="ttc" id="classwonderlo_1_1_wonder_osc_sender_html_ac4de5a747093b45c6d5807d33c669a8e"><div class="ttname"><a href="classwonderlo_1_1_wonder_osc_sender.html#ac4de5a747093b45c6d5807d33c669a8e">wonderlo::WonderOscSender::port</a></div><div class="ttdeci">std::string port() const </div><div class="ttdoc">Returns the destination port (or service name) where this OscSender will send to. ...</div><div class="ttdef"><b>Definition:</b> WonderOscSender.cpp:59</div></div>
 <div class="ttc" id="classwonderlo_1_1_message_with_path_html"><div class="ttname"><a href="classwonderlo_1_1_message_with_path.html">wonderlo::MessageWithPath</a></div><div class="ttdoc">A lowrappers::Message object that holds additional information about its destination OSC path...</div><div class="ttdef"><b>Definition:</b> MessageWithPath.h:31</div></div>
+<div class="ttc" id="classwonderlo_1_1_wonder_osc_server_sender_thread_html_a564256c4074f594ae7d218a24f9963a2"><div class="ttname"><a href="classwonderlo_1_1_wonder_osc_server_sender_thread.html#a564256c4074f594ae7d218a24f9963a2">wonderlo::WonderOscServerSenderThread::WonderOscServerSenderThread</a></div><div class="ttdeci">WonderOscServerSenderThread(const std::string &amp;host, const std::string &amp;port, lowrappers::ServerThread &amp;server, int proto=LO_UDP)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> WonderOscServerSenderThread.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 25 2014 14:58:02 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

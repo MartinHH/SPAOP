@@ -14,7 +14,7 @@ var searchData=
   ['mousedown',['mouseDown',['../classwonderjuce_1_1_source_panel.html#a58467fbd7cd65e33ff01126a14fb6f33',1,'wonderjuce::SourcePanel']]],
   ['mousedrag',['mouseDrag',['../classwonderjuce_1_1_source_panel.html#a21b96d387e9f0e7a973156d29511d4b8',1,'wonderjuce::SourcePanel']]],
   ['mouseup',['mouseUp',['../classwonderjuce_1_1_source_panel.html#a44892392cb7a10a68c67abf3804fa0e6',1,'wonderjuce::SourcePanel']]],
-  ['msg_5fwait_5finterval',['MSG_WAIT_INTERVAL',['../_wonder_osc_sender_thread_8h.html#ac0a4f7eb3410dece282f4a99da0fb599',1,'MSG_WAIT_INTERVAL():&#160;WonderOscSenderThread.h'],['../_wonder_osc_server_sender_thread_8h.html#ac0a4f7eb3410dece282f4a99da0fb599',1,'MSG_WAIT_INTERVAL():&#160;WonderOscServerSenderThread.h']]],
+  ['msg_5fwait_5finterval',['MSG_WAIT_INTERVAL',['../_wonder_osc_sender_thread_8h.html#ac0a4f7eb3410dece282f4a99da0fb599',1,'WonderOscSenderThread.h']]],
   ['multicaster_5fport_5fstr',['MULTICASTER_PORT_STR',['../_wonder_header_8h.html#a53126870d01743b701fc8b9c67123d34',1,'WonderHeader.h']]],
   ['multicaster_5fstream_5fin_5fport_5fstr',['MULTICASTER_STREAM_IN_PORT_STR',['../_wonder_header_8h.html#a07e560528dfe35db6b01e0d8d6d222f9',1,'WonderHeader.h']]]
 ];

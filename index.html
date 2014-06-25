@@ -1,9 +1,12 @@
+<!-- HTML header for doxygen 1.8.6-->
+<!-- Only difference to the default header is the description meta tag -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
+<meta name="description" content="Source code documentation for SPAOP, an audio plugin to control the WONDER wave field synthesis system.">
 <title>SPAOP: SPAOP</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -80,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This is the documentation for <a href="https://github.com/MartinHH/SPAOP">SPAOP</a> (Spatial Audio Object Positioner), a VST/VST3/AU/RTAS plugin to control audio object's positions within the <a href="http://sourceforge.net/projects/swonder/">WONDER system for wave field synthesis</a>.</p>
-<p>It consists of a main VST/VST3/AU/RTAS plugin (built using the <a href="http://www.juce.com/">JUCE</a> framework) and a helper application named the StreamMulticaster.</p>
+<p>It consists of a main VST/VST3/AU/RTAS plugin (built using the <a href="http://www.juce.com/">JUCE</a> framework) and a helper application named the StreamMulticaster. The StreamMulticaster is needed because the plugin recieves incoming OSC messages via a multicast group and WONDER currently does not support sending OSC via multicast - hence, the StreamMulticaster forwards incoming OSC messages to the multicast group.</p>
 <p>For further information, have a look at the following pages:</p>
 <ul>
 <li><a class="el" href="requirements.html">Requirements</a> - what you need to get going.</li>
@@ -92,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 25 2014 14:58:03 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

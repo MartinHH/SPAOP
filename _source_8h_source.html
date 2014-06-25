@@ -1,10 +1,13 @@
+<!-- HTML header for doxygen 1.8.6-->
+<!-- Only difference to the default header is the description meta tag -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SPAOP: /Users/smart/Dropbox/Studium/Bachelor/SPAOP/src/wonder/Source.h Source File</title>
+<meta name="description" content="Source code documentation for SPAOP, an audio plugin to control the WONDER wave field synthesis system.">
+<title>SPAOP: Source.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -163,90 +166,90 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonder_1_1_source.html#a43019e6ae79dd5f2f17ca0a5e4a2cbb3">getNumParameters</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a25154baec1402f1ee4b5a97f768d56fc">getParameter</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a94921d06553043184b93f902ca18df65">setParameter</a> (<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> newValue);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a140ad80a9249a8421869a2be14ad69cb">setParameterUnnormalized</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> newUnnormalizedValue);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="classwonder_1_1_source.html#a68cf020397fdeeee76ca90ffd6965973">getParameterName</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="classwonder_1_1_source.html#a8e55a28db7ae3233cf231845cd3a5e46">getParameterText</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classwonder_1_1_source.html#a05fe2f91dba371504ac852b44dd1f412">getParameterTextByValue</a> (<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> value);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a76f2af0269da057d479780bbd92d77ca">getParameterByText</a>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> std::string&amp; parameterText) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a9d42defceac5ec1620c1cb8c95d681c8">getParameterDefaultValue</a> (<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a25154baec1402f1ee4b5a97f768d56fc">getParameter</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a94921d06553043184b93f902ca18df65">setParameter</a> (<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> newValue);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a140ad80a9249a8421869a2be14ad69cb">setParameterUnnormalized</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> newUnnormalizedValue);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="classwonder_1_1_source.html#a68cf020397fdeeee76ca90ffd6965973">getParameterName</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="classwonder_1_1_source.html#a8e55a28db7ae3233cf231845cd3a5e46">getParameterText</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classwonder_1_1_source.html#a05fe2f91dba371504ac852b44dd1f412">getParameterTextByValue</a> (<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> value);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a76f2af0269da057d479780bbd92d77ca">getParameterByText</a>(<span class="keywordtype">int</span> index, <span class="keyword">const</span> std::string&amp; parameterText) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a980d2493ce0a7cec29c8fb19a03d9c59">normalizeParameter</a> (<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> unnormalized);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#ad03a2ad735e9ec3c1bb752cac810ecef">denormalizeParameter</a> (<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> normalized);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a8281e029cd74315900c1ea64d79bd157">getDenormalizedParameter</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#a56d8eac87a1421b3e7f9ef964406ff4c">getBooleanizedParameter</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a9d42defceac5ec1620c1cb8c95d681c8">getParameterDefaultValue</a> (<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a980d2493ce0a7cec29c8fb19a03d9c59">normalizeParameter</a> (<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> unnormalized);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#ad03a2ad735e9ec3c1bb752cac810ecef">denormalizeParameter</a> (<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> normalized);</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment">// For convenience: getters on the same parameters by name (denormalized):</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonder_1_1_source.html#ab7c7e42aee795c9961a221a3f3953463">getType</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a8934a9ed6000bc591b756ef8bbb87bd1">getXPos</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a34c47db6e391b3ffbebf5e87ffd0e0fb">getYPos</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a2591c5f456130f55cc56e445b7f6cd57">getAngle</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#a23edc314a3279e038dcc6252be4bc549">dopplerIsEnabled</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="comment">// Methods for other parameters:</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a8281e029cd74315900c1ea64d79bd157">getDenormalizedParameter</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#a56d8eac87a1421b3e7f9ef964406ff4c">getBooleanizedParameter</a> (<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">// For convenience: getters on the same parameters by name (denormalized):</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonder_1_1_source.html#ab7c7e42aee795c9961a221a3f3953463">getType</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonder_1_1_source.html#a42a04aa39087c60055dc21172d9431fa">getID</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#a2d20c107173c1ac8aa2c56bd1fb92ea7">setID</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a8934a9ed6000bc591b756ef8bbb87bd1">getXPos</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a34c47db6e391b3ffbebf5e87ffd0e0fb">getYPos</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    std::string <a class="code" href="classwonder_1_1_source.html#aabbb5e71bbf2f6134a89caabfab1c88a">getName</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a2ed3a9352a59ec0afdbcb0b18d456eb2">setName</a>(<span class="keyword">const</span> std::string&amp; name);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">const</span> <a class="code" href="structwonder_1_1_colour.html">Colour</a> <a class="code" href="classwonder_1_1_source.html#abc45d3766e1a7c75f59ee92614e2f515">getCoulour</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classwonder_1_1_source.html#a2591c5f456130f55cc56e445b7f6cd57">getAngle</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#a23edc314a3279e038dcc6252be4bc549">dopplerIsEnabled</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">// Methods for other parameters:</span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a9061aa6ad51795d5faee9d1b0bfeb9ae">setColour</a>(uint8_t red, uint8_t green, uint8_t blue);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonder_1_1_source.html#a42a04aa39087c60055dc21172d9431fa">getID</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a9061aa6ad51795d5faee9d1b0bfeb9ae">setColour</a>(<a class="code" href="structwonder_1_1_colour.html">Colour</a> colour);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#a2d20c107173c1ac8aa2c56bd1fb92ea7">setID</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    uint8_t <a class="code" href="classwonder_1_1_source.html#a99e0e10fec217c773d5b09a0ede6823e">getRed</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#af29514c17c45266ef4e6c93e54cb0b36">setRed</a>(uint8_t red);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    std::string <a class="code" href="classwonder_1_1_source.html#aabbb5e71bbf2f6134a89caabfab1c88a">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a2ed3a9352a59ec0afdbcb0b18d456eb2">setName</a>(<span class="keyword">const</span> std::string&amp; name);</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    uint8_t <a class="code" href="classwonder_1_1_source.html#ab9e86ae9b1528b56c853b0f88dd5fd21">getGreen</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a63f4f537e7e5fbd86da532cb86b36a8c">setGreen</a>(uint8_t green);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">const</span> <a class="code" href="structwonder_1_1_colour.html">Colour</a> <a class="code" href="classwonder_1_1_source.html#abc45d3766e1a7c75f59ee92614e2f515">getCoulour</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    uint8_t <a class="code" href="classwonder_1_1_source.html#a6b2a693f35f73954147487a7cf90d423">getBlue</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a9061aa6ad51795d5faee9d1b0bfeb9ae">setColour</a>(uint8_t red, uint8_t green, uint8_t blue);</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a440aa411d2bc62cdafa4f773c307a112">setBlue</a>(uint8_t blue);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a9061aa6ad51795d5faee9d1b0bfeb9ae">setColour</a>(<a class="code" href="structwonder_1_1_colour.html">Colour</a> colour);</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#aefebe9219f24c9947fcac1285b91f6fd">isActive</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a2c3175a1167f7db6b492cb0b7bbae1c7">setIsActive</a>(<span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#aefebe9219f24c9947fcac1285b91f6fd">isActive</a>);</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordtype">float</span> params_[<a class="code" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eba6a1d24e1096cb81aaec5884931b25b9b">totalNumParams</a>];      <span class="comment">// the (normalized) parameters</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordtype">int</span> id_;                            <span class="comment">// the WONDER-specific source ID</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    std::string name_;                  <span class="comment">// the source&#39;s name in WONDER</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <a class="code" href="structwonder_1_1_colour.html">Colour</a> colour_;                     <span class="comment">// the colour the source is displayed in</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordtype">bool</span> active_;                       <span class="comment">// source has been activated</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    uint8_t <a class="code" href="classwonder_1_1_source.html#a99e0e10fec217c773d5b09a0ede6823e">getRed</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#af29514c17c45266ef4e6c93e54cb0b36">setRed</a>(uint8_t red);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    uint8_t <a class="code" href="classwonder_1_1_source.html#ab9e86ae9b1528b56c853b0f88dd5fd21">getGreen</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a63f4f537e7e5fbd86da532cb86b36a8c">setGreen</a>(uint8_t green);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    uint8_t <a class="code" href="classwonder_1_1_source.html#a6b2a693f35f73954147487a7cf90d423">getBlue</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">static</span> std::string floatString(<span class="keywordtype">float</span> f);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;};</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor">#endif  // SOURCE_H_INCLUDED</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a440aa411d2bc62cdafa4f773c307a112">setBlue</a>(uint8_t blue);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#aefebe9219f24c9947fcac1285b91f6fd">isActive</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source.html#a2c3175a1167f7db6b492cb0b7bbae1c7">setIsActive</a>(<span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source.html#aefebe9219f24c9947fcac1285b91f6fd">isActive</a>);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">float</span> params_[<a class="code" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eba6a1d24e1096cb81aaec5884931b25b9b">totalNumParams</a>];      <span class="comment">// the (normalized) parameters</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">int</span> id_;                            <span class="comment">// the WONDER-specific source ID</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    std::string name_;                  <span class="comment">// the source&#39;s name in WONDER</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <a class="code" href="structwonder_1_1_colour.html">Colour</a> colour_;                     <span class="comment">// the colour the source is displayed in</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordtype">bool</span> active_;                       <span class="comment">// source has been activated</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keyword">static</span> std::string floatString(<span class="keywordtype">float</span> f);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;};</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="preprocessor">#endif  // SOURCE_H_INCLUDED</span></div>
 <div class="ttc" id="classwonder_1_1_source_html_a26b9b6172dae8b9b930877e87ed647ebadd56358d13f5d768cc681a9c268ee096"><div class="ttname"><a href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647ebadd56358d13f5d768cc681a9c268ee096">wonder::Source::dopplParam</a></div><div class="ttdoc">Doppler effect (on/off). </div><div class="ttdef"><b>Definition:</b> Source.h:87</div></div>
 <div class="ttc" id="classwonder_1_1_source_html_a63f4f537e7e5fbd86da532cb86b36a8c"><div class="ttname"><a href="classwonder_1_1_source.html#a63f4f537e7e5fbd86da532cb86b36a8c">wonder::Source::setGreen</a></div><div class="ttdeci">void setGreen(uint8_t green)</div><div class="ttdoc">Sets the green value of this source&#39;s colour (as in RGB). </div><div class="ttdef"><b>Definition:</b> Source.cpp:295</div></div>
 <div class="ttc" id="classwonder_1_1_source_html_a05fe2f91dba371504ac852b44dd1f412"><div class="ttname"><a href="classwonder_1_1_source.html#a05fe2f91dba371504ac852b44dd1f412">wonder::Source::getParameterTextByValue</a></div><div class="ttdeci">static std::string getParameterTextByValue(int index, float value)</div><div class="ttdoc">Returns the parameter&#39;s (denormalized) string representation for a given (normalized) value...</div><div class="ttdef"><b>Definition:</b> Source.cpp:90</div></div>
@@ -298,7 +301,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 25 2014 14:58:02 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

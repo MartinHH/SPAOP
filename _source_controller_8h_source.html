@@ -1,10 +1,13 @@
+<!-- HTML header for doxygen 1.8.6-->
+<!-- Only difference to the default header is the description meta tag -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SPAOP: /Users/smart/Dropbox/Studium/Bachelor/SPAOP/src/wonder/SourceController.h Source File</title>
+<meta name="description" content="Source code documentation for SPAOP, an audio plugin to control the WONDER wave field synthesis system.">
+<title>SPAOP: SourceController.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -172,121 +175,123 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    </div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source_controller.html#aece55d9d388d1f750cd13db3c7f8b5fd">isLinkedToWonder</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source_controller.html#a0b0cd7ccab5f210c780a0dfc912bb41c">setIdIsLocked</a>(<span class="keywordtype">bool</span> isLocked);</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    </div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source_controller.html#a28b7c9caeb877fba9c6bd53f28f0ab3e">idIsLocked</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <a class="code" href="namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5">ConnectionStates</a> <a class="code" href="classwonder_1_1_source_controller.html#a118d0790fb3b0c8f3c7263c987dcc51c">connectionStatus</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    </div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    std::string <a class="code" href="classwonder_1_1_source_controller.html#a63e8a79693f3f7f5de790cfd836fbf3c">connectionStatusString</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonder_1_1_source_controller.html#a7b42b28f6f9c08ea0d95c8df52af321c">rcvPort</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    </div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="classwonder_1_1_source_controller.html#a894bc2eb16098c72755c9c54070fc95e">getDataDestHostAndPort</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    std::shared_ptr&lt;const Room&gt; <a class="code" href="classwonder_1_1_source_controller.html#ae30e73b7ef9dbb6ff18ad72897590a67">getRoom</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source_controller.html#a1a6b013bd82a3968571b059fd1c521e8">setRoom</a>(<span class="keyword">const</span> <a class="code" href="classwonder_1_1_room.html">Room</a>&amp; room);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <a class="code" href="classwonder_1_1_source_controller.html#a21a7ba15fd20c222a5f652abf821cc6a">SourceController</a>(<span class="keyword">const</span> <a class="code" href="classwonder_1_1_source_controller.html">SourceController</a>&amp; other);            <span class="comment">// copying not allowed</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <a class="code" href="classwonder_1_1_source_controller.html">SourceController</a> &amp;operator= (<span class="keyword">const</span> <a class="code" href="classwonder_1_1_source_controller.html">SourceController</a> other); <span class="comment">// assignment not allowed</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    std::unique_ptr&lt;VisualStreamReceiver&gt; server_;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    std::unique_ptr&lt;OscSenderThread&gt; cWonder_;      <span class="comment">// cWONDER</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    std::unique_ptr&lt;OscSenderThread&gt; mCaster_;      <span class="comment">// the StreamMulticaster</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    std::unique_ptr&lt;OscSenderThread&gt; peerGroup_;    <span class="comment">// the multicast group</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <a class="code" href="classwonder_1_1_xml_parser.html">XmlParser</a>* xmlParser_;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    std::shared_ptr&lt;SourceCollection&gt; sources_;     <span class="comment">// object might be share with a GUI</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                                                    <span class="comment">// that might be destructed after</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                                                    <span class="comment">// this object -&gt; shared_ptr</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordtype">int</span> sourceID_;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    std::shared_ptr&lt;Room&gt; room_;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    Listener* listener_;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a> pingControl_;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordtype">bool</span> linkedToWonder_;               <span class="comment">// is sending outgoing OSC messages to WONDER</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">bool</span> isLocked_;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <a class="code" href="namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5">ConnectionStates</a> cStatus_;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordtype">float</span> lastValues_[<a class="code" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eba6a1d24e1096cb81aaec5884931b25b9b">Source::totalNumParams</a>];  <span class="comment">// the last values of automated parameters</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                                                <span class="comment">// that were sent out (denormalized!)</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">void</span> setIncomingParameter (<span class="keywordtype">int</span> sourceID, <a class="code" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eb">Source::AutomatedParameters</a> index,</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                               <span class="keywordtype">float</span> unnormalizedValue);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordtype">bool</span> relevantChange(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <a class="code" href="classwonder_1_1_osc_sender_thread.html">OscSenderThread</a>&amp; dataDest() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <a class="code" href="classwonder_1_1_osc_sender_thread.html">OscSenderThread</a>&amp; streamSource() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    </div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">void</span> sendOwnState();</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    </div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="comment">//vvvvv  Implementing ConnectionTimer::Listener</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordtype">void</span> onTimeout();</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="comment">//vvvvv  Implementing PingControl::Listener</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source_controller.html#aede5b1ba4f612f6865638f8dc45be33f">setCWonderAddress</a>(<span class="keyword">const</span> std::string &amp;host, <span class="keyword">const</span> std::string &amp;port);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source_controller.html#a0b0cd7ccab5f210c780a0dfc912bb41c">setIdIsLocked</a>(<span class="keywordtype">bool</span> isLocked);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classwonder_1_1_source_controller.html#a28b7c9caeb877fba9c6bd53f28f0ab3e">idIsLocked</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <a class="code" href="namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5">ConnectionStates</a> <a class="code" href="classwonder_1_1_source_controller.html#a118d0790fb3b0c8f3c7263c987dcc51c">connectionStatus</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    std::string <a class="code" href="classwonder_1_1_source_controller.html#a63e8a79693f3f7f5de790cfd836fbf3c">connectionStatusString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonder_1_1_source_controller.html#a7b42b28f6f9c08ea0d95c8df52af321c">rcvPort</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="classwonder_1_1_source_controller.html#a894bc2eb16098c72755c9c54070fc95e">getDataDestHostAndPort</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    std::shared_ptr&lt;const Room&gt; <a class="code" href="classwonder_1_1_source_controller.html#ae30e73b7ef9dbb6ff18ad72897590a67">getRoom</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classwonder_1_1_source_controller.html#a1a6b013bd82a3968571b059fd1c521e8">setRoom</a>(<span class="keyword">const</span> <a class="code" href="classwonder_1_1_room.html">Room</a>&amp; room);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <a class="code" href="classwonder_1_1_source_controller.html#a21a7ba15fd20c222a5f652abf821cc6a">SourceController</a>(<span class="keyword">const</span> <a class="code" href="classwonder_1_1_source_controller.html">SourceController</a>&amp; other);            <span class="comment">// copying not allowed</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <a class="code" href="classwonder_1_1_source_controller.html">SourceController</a> &amp;operator= (<span class="keyword">const</span> <a class="code" href="classwonder_1_1_source_controller.html">SourceController</a> other); <span class="comment">// assignment not allowed</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    std::unique_ptr&lt;VisualStreamReceiver&gt; server_;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    std::unique_ptr&lt;OscSenderThread&gt; cWonder_;      <span class="comment">// cWONDER</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    std::unique_ptr&lt;OscSenderThread&gt; mCaster_;      <span class="comment">// the StreamMulticaster</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    std::unique_ptr&lt;OscSenderThread&gt; peerGroup_;    <span class="comment">// the multicast group</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <a class="code" href="classwonder_1_1_xml_parser.html">XmlParser</a>* xmlParser_;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    std::shared_ptr&lt;SourceCollection&gt; sources_;     <span class="comment">// object might be share with a GUI</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                                                    <span class="comment">// that might be destructed after</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                                                    <span class="comment">// this object -&gt; shared_ptr</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordtype">int</span> sourceID_;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    std::shared_ptr&lt;Room&gt; room_;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    Listener* listener_;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <a class="code" href="classwonder_1_1_ping_control.html">PingControl</a> pingControl_;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordtype">bool</span> linkedToWonder_;               <span class="comment">// is sending outgoing OSC messages to WONDER</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">bool</span> isLocked_;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <a class="code" href="namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5">ConnectionStates</a> cStatus_;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">float</span> lastValues_[<a class="code" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eba6a1d24e1096cb81aaec5884931b25b9b">Source::totalNumParams</a>];  <span class="comment">// the last values of automated parameters</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                                                <span class="comment">// that were sent out (denormalized!)</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">void</span> setIncomingParameter (<span class="keywordtype">int</span> sourceID, <a class="code" href="classwonder_1_1_source.html#a26b9b6172dae8b9b930877e87ed647eb">Source::AutomatedParameters</a> index,</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                               <span class="keywordtype">float</span> unnormalizedValue);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordtype">bool</span> relevantChange(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <a class="code" href="classwonder_1_1_osc_sender_thread.html">OscSenderThread</a>&amp; dataDest() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <a class="code" href="classwonder_1_1_osc_sender_thread.html">OscSenderThread</a>&amp; streamSource() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordtype">void</span> sendOwnState();</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordtype">void</span> connectionLost(<span class="keyword">const</span> <span class="keywordtype">int</span> connectionID);</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="comment">//vvvvv  OSC-message-handlers implementing wonder::VisualStreamReceiver::Listener</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="comment">//vvvvv  Implementing ConnectionTimer::Listener</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordtype">void</span> onTimeout();</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    </div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordtype">int</span> onSourceActivate(<span class="keywordtype">int</span> wondID);</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    </div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordtype">int</span> onSourceDeactivate(<span class="keywordtype">int</span> wondID);</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    </div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keywordtype">int</span> onSourcePosition(<span class="keywordtype">int</span> wondID, <span class="keywordtype">float</span> xPos, <span class="keywordtype">float</span> yPos);</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    </div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordtype">int</span> onSourceAngle(<span class="keywordtype">int</span> wondID, <span class="keywordtype">float</span> angle);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="comment">//vvvvv  Implementing PingControl::Listener</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordtype">void</span> connectionLost(<span class="keyword">const</span> <span class="keywordtype">int</span> connectionID);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="comment">//vvvvv  OSC-message-handlers implementing wonder::VisualStreamReceiver::Listener</span></div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordtype">int</span> onSourceType(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> type);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordtype">int</span> onSourceActivate(<span class="keywordtype">int</span> wondID);</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    </div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordtype">int</span> onSourceName(<span class="keywordtype">int</span> wondID, <span class="keyword">const</span> std::string&amp; sourceName);</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordtype">int</span> onSourceDeactivate(<span class="keywordtype">int</span> wondID);</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    </div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordtype">int</span> onSourceColor(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> g, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordtype">int</span> onSourcePosition(<span class="keywordtype">int</span> wondID, <span class="keywordtype">float</span> xPos, <span class="keywordtype">float</span> yPos);</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    </div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordtype">int</span> onSourceGroupId(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> groupID)</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    { <span class="keywordflow">return</span> 0; }</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    </div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keywordtype">int</span> onSourceRotatingDirection(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> rotDir)</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordtype">int</span> onSourceAngle(<span class="keywordtype">int</span> wondID, <span class="keywordtype">float</span> angle);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordtype">int</span> onSourceType(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> type);</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordtype">int</span> onSourceName(<span class="keywordtype">int</span> wondID, <span class="keyword">const</span> std::string&amp; sourceName);</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keywordtype">int</span> onSourceScalingDirection(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> scalDir)</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    { <span class="keywordflow">return</span> 0; }</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    </div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordtype">int</span> onSourceDopplerEffect(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> doppler);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keywordtype">int</span> onSourceColor(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> g, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordtype">int</span> onSourceGroupId(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> groupID)</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    { <span class="keywordflow">return</span> 0; }</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    </div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordtype">int</span> onListenerPosition(<span class="keywordtype">int</span> listenerID, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y)</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordtype">int</span> onSourceRotatingDirection(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> rotDir)</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    { <span class="keywordflow">return</span> 0; }</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordtype">int</span> onGlobalMaxNoSources(<span class="keywordtype">int</span> maxSources);</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    </div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordtype">int</span> onGlobalRenderpolygon(Room&amp; room);</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    </div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordtype">int</span> onProjectXmlDump(<span class="keywordtype">int</span> err, <span class="keyword">const</span> std::string&amp; xmlDump);</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    </div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordtype">int</span> onStreamVisualPing(<span class="keywordtype">int</span> pingCount, OscSender* replyTo);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordtype">int</span> onSourceScalingDirection(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> scalDir)</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordtype">int</span> onSourceDopplerEffect(<span class="keywordtype">int</span> wondID, <span class="keywordtype">int</span> doppler);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordtype">int</span> onListenerPosition(<span class="keywordtype">int</span> listenerID, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y)</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    { <span class="keywordflow">return</span> 0; }</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    </div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordtype">int</span> onStreamVisualPong(<span class="keywordtype">int</span> pingCount){ <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordtype">int</span> onGlobalMaxNoSources(<span class="keywordtype">int</span> maxSources);</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    </div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keywordtype">int</span> onStreamVisualConnect(OscSender* replyTo);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keywordtype">int</span> onGlobalRenderpolygon(Room&amp; room);</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordtype">int</span> onReply(std::string replyToMsg, <span class="keywordtype">int</span> state, std::string msg);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordtype">int</span> onProjectXmlDump(<span class="keywordtype">int</span> err, <span class="keyword">const</span> std::string&amp; xmlDump);</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    </div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordtype">int</span> onPluginStandalone(<span class="keywordtype">bool</span> standAloneOn);</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;};</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordtype">int</span> onStreamVisualPing(<span class="keywordtype">int</span> pingCount, OscSender* replyTo);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordtype">int</span> onStreamVisualPong(<span class="keywordtype">int</span> pingCount){ <span class="keywordflow">return</span> 0; }</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    </div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;}</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="preprocessor">#endif  // SOURCECONTROLLER_H_INCLUDED</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keywordtype">int</span> onStreamVisualConnect(OscSender* replyTo);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordtype">int</span> onReply(std::string replyToMsg, <span class="keywordtype">int</span> state, std::string msg);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keywordtype">int</span> onPluginStandalone(<span class="keywordtype">bool</span> standAloneOn);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;};</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    </div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;}</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="preprocessor">#endif  // SOURCECONTROLLER_H_INCLUDED</span></div>
 <div class="ttc" id="_visual_stream_receiver_8h_html"><div class="ttname"><a href="_visual_stream_receiver_8h.html">VisualStreamReceiver.h</a></div></div>
-<div class="ttc" id="classwonder_1_1_source_controller_html_a63e8a79693f3f7f5de790cfd836fbf3c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a63e8a79693f3f7f5de790cfd836fbf3c">wonder::SourceController::connectionStatusString</a></div><div class="ttdeci">std::string connectionStatusString() const </div><div class="ttdoc">Returns a string representation of the current status of the incoming &quot;Visual Stream&quot; connection...</div><div class="ttdef"><b>Definition:</b> SourceController.cpp:265</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_a63e8a79693f3f7f5de790cfd836fbf3c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a63e8a79693f3f7f5de790cfd836fbf3c">wonder::SourceController::connectionStatusString</a></div><div class="ttdeci">std::string connectionStatusString() const </div><div class="ttdoc">Returns a string representation of the current status of the incoming &quot;Visual Stream&quot; connection...</div><div class="ttdef"><b>Definition:</b> SourceController.cpp:270</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_ac3b55c73ae3dceda67f17d1c9b1065ab"><div class="ttname"><a href="classwonder_1_1_source_controller.html#ac3b55c73ae3dceda67f17d1c9b1065ab">wonder::SourceController::setCoordinatesAndSendChange</a></div><div class="ttdeci">void setCoordinatesAndSendChange(float normalizedX, float normalizedY)</div><div class="ttdoc">Sets the coordinates of the source that is controlled by this SourceController and sends them to cWON...</div><div class="ttdef"><b>Definition:</b> SourceController.cpp:159</div></div>
 <div class="ttc" id="_osc_sender_8h_html"><div class="ttname"><a href="_osc_sender_8h.html">OscSender.h</a></div></div>
 <div class="ttc" id="classwonder_1_1_visual_stream_receiver_1_1_ping_handler_html"><div class="ttname"><a href="classwonder_1_1_visual_stream_receiver_1_1_ping_handler.html">wonder::VisualStreamReceiver::PingHandler</a></div><div class="ttdoc">Another listener interface especially for incoming ping messages. </div><div class="ttdef"><b>Definition:</b> VisualStreamReceiver.h:258</div></div>
@@ -294,16 +299,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classwonder_1_1_visual_stream_receiver_1_1_listener_html"><div class="ttname"><a href="classwonder_1_1_visual_stream_receiver_1_1_listener.html">wonder::VisualStreamReceiver::Listener</a></div><div class="ttdoc">A listener interface that can be registered with the VisualStreamReceiver. </div><div class="ttdef"><b>Definition:</b> VisualStreamReceiver.h:64</div></div>
 <div class="ttc" id="_source_collection_8h_html"><div class="ttname"><a href="_source_collection_8h.html">SourceCollection.h</a></div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_1_1_listener_html_a58253e3e2f824a11391882b33ba02f2e"><div class="ttname"><a href="classwonder_1_1_source_controller_1_1_listener.html#a58253e3e2f824a11391882b33ba02f2e">wonder::SourceController::Listener::connectionLost</a></div><div class="ttdeci">virtual void connectionLost()</div><div class="ttdoc">Called when the (incoming data) connection is lost. </div><div class="ttdef"><b>Definition:</b> SourceController.h:74</div></div>
-<div class="ttc" id="classwonder_1_1_source_controller_html_a894bc2eb16098c72755c9c54070fc95e"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a894bc2eb16098c72755c9c54070fc95e">wonder::SourceController::getDataDestHostAndPort</a></div><div class="ttdeci">const std::string getDataDestHostAndPort() const </div><div class="ttdoc">Returns the Address where the WONDER control message are sent to. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:281</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_a894bc2eb16098c72755c9c54070fc95e"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a894bc2eb16098c72755c9c54070fc95e">wonder::SourceController::getDataDestHostAndPort</a></div><div class="ttdeci">const std::string getDataDestHostAndPort() const </div><div class="ttdoc">Returns the Address where the WONDER control message are sent to. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:286</div></div>
 <div class="ttc" id="namespacewonder_html_aaa2d41bc0c1a77e01d3824c5f7971cc5"><div class="ttname"><a href="namespacewonder.html#aaa2d41bc0c1a77e01d3824c5f7971cc5">wonder::ConnectionStates</a></div><div class="ttdeci">ConnectionStates</div><div class="ttdoc">An enum describing the differents states of an incoming connection. </div><div class="ttdef"><b>Definition:</b> WonderHeader.h:134</div></div>
 <div class="ttc" id="classwonder_1_1_ping_control_html"><div class="ttname"><a href="classwonder_1_1_ping_control.html">wonder::PingControl</a></div><div class="ttdoc">A class for connection timeout control. </div><div class="ttdef"><b>Definition:</b> PingControl.h:36</div></div>
-<div class="ttc" id="classwonder_1_1_source_controller_html_a118d0790fb3b0c8f3c7263c987dcc51c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a118d0790fb3b0c8f3c7263c987dcc51c">wonder::SourceController::connectionStatus</a></div><div class="ttdeci">ConnectionStates connectionStatus() const </div><div class="ttdoc">Returns the current status of the incoming connection. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:260</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_a118d0790fb3b0c8f3c7263c987dcc51c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a118d0790fb3b0c8f3c7263c987dcc51c">wonder::SourceController::connectionStatus</a></div><div class="ttdeci">ConnectionStates connectionStatus() const </div><div class="ttdoc">Returns the current status of the incoming connection. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:265</div></div>
 <div class="ttc" id="_xml_parser_8h_html"><div class="ttname"><a href="_xml_parser_8h.html">XmlParser.h</a></div></div>
-<div class="ttc" id="classwonder_1_1_source_controller_html_a28b7c9caeb877fba9c6bd53f28f0ab3e"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a28b7c9caeb877fba9c6bd53f28f0ab3e">wonder::SourceController::idIsLocked</a></div><div class="ttdeci">bool idIsLocked() const </div><div class="ttdoc">Returns true if the source ID is locked. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:255</div></div>
-<div class="ttc" id="classwonder_1_1_source_controller_html_a0b0cd7ccab5f210c780a0dfc912bb41c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a0b0cd7ccab5f210c780a0dfc912bb41c">wonder::SourceController::setIdIsLocked</a></div><div class="ttdeci">void setIdIsLocked(bool isLocked)</div><div class="ttdoc">Sets the ID locked status. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:239</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_a28b7c9caeb877fba9c6bd53f28f0ab3e"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a28b7c9caeb877fba9c6bd53f28f0ab3e">wonder::SourceController::idIsLocked</a></div><div class="ttdeci">bool idIsLocked() const </div><div class="ttdoc">Returns true if the source ID is locked. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:260</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_a0b0cd7ccab5f210c780a0dfc912bb41c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a0b0cd7ccab5f210c780a0dfc912bb41c">wonder::SourceController::setIdIsLocked</a></div><div class="ttdeci">void setIdIsLocked(bool isLocked)</div><div class="ttdoc">Sets the ID locked status. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:244</div></div>
 <div class="ttc" id="classwonder_1_1_osc_sender_thread_html"><div class="ttname"><a href="classwonder_1_1_osc_sender_thread.html">wonder::OscSenderThread</a></div><div class="ttdoc">An interface for a thread implementing the OscSender interface. </div><div class="ttdef"><b>Definition:</b> OscSenderThread.h:38</div></div>
 <div class="ttc" id="structwonder_1_1_colour_html"><div class="ttname"><a href="structwonder_1_1_colour.html">wonder::Colour</a></div><div class="ttdoc">A struct representing a (RGB) colour. </div><div class="ttdef"><b>Definition:</b> Colours.h:28</div></div>
-<div class="ttc" id="classwonder_1_1_source_controller_html_a7b42b28f6f9c08ea0d95c8df52af321c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a7b42b28f6f9c08ea0d95c8df52af321c">wonder::SourceController::rcvPort</a></div><div class="ttdeci">int rcvPort() const </div><div class="ttdoc">Returns the port this instance is listening on. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:276</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_a7b42b28f6f9c08ea0d95c8df52af321c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a7b42b28f6f9c08ea0d95c8df52af321c">wonder::SourceController::rcvPort</a></div><div class="ttdeci">int rcvPort() const </div><div class="ttdoc">Returns the port this instance is listening on. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:281</div></div>
 <div class="ttc" id="classwonder_1_1_connection_timer_1_1_factory_html"><div class="ttname"><a href="classwonder_1_1_connection_timer_1_1_factory.html">wonder::ConnectionTimer::Factory</a></div><div class="ttdoc">An interface for a factory class that creates ConnectionTimers. </div><div class="ttdef"><b>Definition:</b> ConnectionTimer.h:72</div></div>
 <div class="ttc" id="_ping_control_8h_html"><div class="ttname"><a href="_ping_control_8h.html">PingControl.h</a></div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_a26dde385e4eecf71f852a479196eae1f"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a26dde385e4eecf71f852a479196eae1f">wonder::SourceController::setID</a></div><div class="ttdeci">bool setID(int sourceID)</div><div class="ttdoc">Sets the ID of the source that is controlled by this SourceController. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:108</div></div>
@@ -318,14 +323,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classwonder_1_1_source_controller_1_1_listener_html"><div class="ttname"><a href="classwonder_1_1_source_controller_1_1_listener.html">wonder::SourceController::Listener</a></div><div class="ttdoc">An interface for a listener that listens to various callbacks triggered by incoming messages or conne...</div><div class="ttdef"><b>Definition:</b> SourceController.h:50</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_a69c54739f32c7b4e77c4cb80ee08baeb"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a69c54739f32c7b4e77c4cb80ee08baeb">wonder::SourceController::setSource</a></div><div class="ttdeci">bool setSource(const Source &amp;source)</div><div class="ttdoc">Copies the parameters of a given Source object to the internal SourceCollection (overwriting the Sour...</div><div class="ttdef"><b>Definition:</b> SourceController.cpp:96</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_aad66b2032286795d643f2e7d57c4bd0d"><div class="ttname"><a href="classwonder_1_1_source_controller.html#aad66b2032286795d643f2e7d57c4bd0d">wonder::SourceController::updateSourceColour</a></div><div class="ttdeci">void updateSourceColour(const Colour colour)</div><div class="ttdoc">Updates the colour of the source that is controlled by this SourceController and sends out the corres...</div><div class="ttdef"><b>Definition:</b> SourceController.cpp:185</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_aede5b1ba4f612f6865638f8dc45be33f"><div class="ttname"><a href="classwonder_1_1_source_controller.html#aede5b1ba4f612f6865638f8dc45be33f">wonder::SourceController::setCWonderAddress</a></div><div class="ttdeci">void setCWonderAddress(const std::string &amp;host, const std::string &amp;port)</div><div class="ttdoc">Sets the address where outgoing OSC messages will be sent in &quot;linked to WONDER&quot; mode will be sent (i...</div><div class="ttdef"><b>Definition:</b> SourceController.cpp:239</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_a85186467ebe276620c1923751d39b6f4"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a85186467ebe276620c1923751d39b6f4">wonder::SourceController::setParameterAndSendChange</a></div><div class="ttdeci">void setParameterAndSendChange(int paramIndex, float normalizedValue)</div><div class="ttdoc">Sets a parameter of the source that is controlled by this SourceController and sends it to cWONDER (i...</div><div class="ttdef"><b>Definition:</b> SourceController.cpp:118</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_a7bdf6f0004b1ea1f9ac5dbff2a35e69b"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a7bdf6f0004b1ea1f9ac5dbff2a35e69b">wonder::SourceController::~SourceController</a></div><div class="ttdeci">virtual ~SourceController()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:63</div></div>
-<div class="ttc" id="classwonder_1_1_source_controller_html_a1a6b013bd82a3968571b059fd1c521e8"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a1a6b013bd82a3968571b059fd1c521e8">wonder::SourceController::setRoom</a></div><div class="ttdeci">void setRoom(const Room &amp;room)</div><div class="ttdoc">Sets the internal Room object to the parameters of a given Room object. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:291</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_a1a6b013bd82a3968571b059fd1c521e8"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a1a6b013bd82a3968571b059fd1c521e8">wonder::SourceController::setRoom</a></div><div class="ttdeci">void setRoom(const Room &amp;room)</div><div class="ttdoc">Sets the internal Room object to the parameters of a given Room object. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:296</div></div>
 <div class="ttc" id="classwonder_1_1_source_html"><div class="ttname"><a href="classwonder_1_1_source.html">wonder::Source</a></div><div class="ttdoc">A class for objects representing a WONDER source with all its properties. </div><div class="ttdef"><b>Definition:</b> Source.h:60</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_1_1_listener_html_ad5038a8cf247df004074b51636f16f30"><div class="ttname"><a href="classwonder_1_1_source_controller_1_1_listener.html#ad5038a8cf247df004074b51636f16f30">wonder::SourceController::Listener::incomingParameterChange</a></div><div class="ttdeci">virtual void incomingParameterChange(Source::AutomatedParameters index, float newValue)=0</div><div class="ttdoc">Called when one of the sources automatable parameters is changed by an incoming message. </div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_aece55d9d388d1f750cd13db3c7f8b5fd"><div class="ttname"><a href="classwonder_1_1_source_controller.html#aece55d9d388d1f750cd13db3c7f8b5fd">wonder::SourceController::isLinkedToWonder</a></div><div class="ttdeci">bool isLinkedToWonder() const </div><div class="ttdoc">Returns the linkedToWonder status. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:234</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_abb4827d575d509ff578518260d553c4b"><div class="ttname"><a href="classwonder_1_1_source_controller.html#abb4827d575d509ff578518260d553c4b">wonder::SourceController::getSources</a></div><div class="ttdeci">std::shared_ptr&lt; const SourceCollection &gt; getSources() const </div><div class="ttdoc">Returns a (reference-counting) shared pointer to the SourceCollection object that is controlled by th...</div><div class="ttdef"><b>Definition:</b> SourceController.cpp:91</div></div>
-<div class="ttc" id="classwonder_1_1_source_controller_html_ae30e73b7ef9dbb6ff18ad72897590a67"><div class="ttname"><a href="classwonder_1_1_source_controller.html#ae30e73b7ef9dbb6ff18ad72897590a67">wonder::SourceController::getRoom</a></div><div class="ttdeci">std::shared_ptr&lt; const Room &gt; getRoom() const </div><div class="ttdoc">Returns a (reference-counting) shared pointer to the Room object stored internally. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:286</div></div>
+<div class="ttc" id="classwonder_1_1_source_controller_html_ae30e73b7ef9dbb6ff18ad72897590a67"><div class="ttname"><a href="classwonder_1_1_source_controller.html#ae30e73b7ef9dbb6ff18ad72897590a67">wonder::SourceController::getRoom</a></div><div class="ttdeci">std::shared_ptr&lt; const Room &gt; getRoom() const </div><div class="ttdoc">Returns a (reference-counting) shared pointer to the Room object stored internally. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:291</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html"><div class="ttname"><a href="classwonder_1_1_source_controller.html">wonder::SourceController</a></div><div class="ttdoc">The main communication node that keeps track of all virtual sources and enables the host DAW to contr...</div><div class="ttdef"><b>Definition:</b> SourceController.h:41</div></div>
 <div class="ttc" id="classwonder_1_1_ping_control_1_1_listener_html"><div class="ttname"><a href="classwonder_1_1_ping_control_1_1_listener.html">wonder::PingControl::Listener</a></div><div class="ttdoc">A listener class for callbacks in case loss of connection is detected. </div><div class="ttdef"><b>Definition:</b> PingControl.h:44</div></div>
 <div class="ttc" id="classwonder_1_1_source_controller_html_a6639ec023966c0546492d80850062e9c"><div class="ttname"><a href="classwonder_1_1_source_controller.html#a6639ec023966c0546492d80850062e9c">wonder::SourceController::getSource</a></div><div class="ttdeci">const Source &amp; getSource() const </div><div class="ttdoc">Returns the Source object that is controlled by this SourceController. </div><div class="ttdef"><b>Definition:</b> SourceController.cpp:86</div></div>
@@ -335,7 +341,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 24 2014 16:59:51 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 25 2014 14:58:02 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
