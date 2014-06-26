@@ -31,9 +31,11 @@ Generally, both OSX and Windows are supported - with the following limitations (
 
 These libraries are required:
 - [Liblo](http://Liblo.sourceforge.net/) - Liblo's threading capabilities are not needed, so if you're on Windows, feel free to use the `--without-threads` option (see [Building Liblo for other platforms](http://Liblo.sourceforge.net/README-platforms.html))
-- [JUCE](http://www.juce.com/) - it is recommended to use the fork of JUCE that is included as a submodule of the SPAOP repository
+- [JUCE](http://www.juce.com/) - it is recommended to use the [fork](https://github.com/MartinHH/JUCE/tree/developMH) of JUCE that is included as a submodule of the SPAOP repository
 
-The \ref installation "Installation section" will provide further hints on how to get them.
+(If you intend to commit changes to those submodules, keep in mind that after doing the above steps, those submodules are still in "detached HEAD" mode and you need to manually checkout a (new) branch.)
+
+The \ref installation "Installation section" provides further hints on how to get them.
 
 \section SDKs
 
@@ -41,7 +43,7 @@ Depending on what platform you want to build the plugin for, you will need the c
 
 \section IDEs
 
-You will need a C++11-capable IDE for the operating system you are bulding for - the code was written and tested using XCode 5.1 on OSX and Visual Studio 2013 on Windows.
+You will need a C++11-capable IDE for the operating system you are bulding for - the code was developed and tested using XCode 5.1 on OSX and Visual Studio 2013 on Windows.
 
 */
 
@@ -86,7 +88,7 @@ The Liblo library can be downloaded from [http://Liblo.sourceforge.net/](http://
 
 For OSX, the process to build and install is straightforward and well-documented. Just keep in mind that if you want to build for both 32 and 64 bit architectures, you'll need to build the universal binary version of Liblo.
 
-The most convenient way is to use [Homebrew](http://brew.sh/): if you have Homebrew installed, just type in `brew install Liblo --universal`. The library and header include paths in the OSX project files within the SPAOP repository all point to the paths where Homebrew will put them, so doing it the Homebrew way should be the easiest way by far.
+The most convenient way is to use [Homebrew](http://brew.sh/): if you have Homebrew installed, just type in `brew install Liblo --universal`. The library and header include path settings of the OSX project files within the SPAOP repository all point to the paths where Homebrew will put them, so doing it the Homebrew way should be the easiest way by far.
 
 \subsection windows Windows
 
@@ -145,9 +147,9 @@ The RTAS-version of SPAOP has never been tested yet. If you want to give it a tr
 
 \section buildspaop Building SPAOP
 
-Once you have all that installed, you can open the file `./SPAOP/SPAOP.jucer` with the \ref usingjuce "Introjucer". From there you can launch the project in the IDE of your choice and build it. If you have placed the VST SDK or Liblo in different locations to those recommended above, you might need to readjust these within the project's settings in the introjucer.
+Once you have all that installed, you can open the file `./SPAOP/SPAOP.jucer` with the \ref usingjuce "Introjucer". From there you can launch the project in the IDE of your choice and build it. If you have placed the VST SDK or Liblo in locations diffferent from those recommended above, you might need to readjust these within the project's settings in the introjucer.
 
-Have a look at the \ref defines page for options you can set at compile-time (most importantly, the IP and port of cWONDER are set via the defines CWONDER_DEFAULT_IP_STR and CWONDER_DEFAULT_PORT_STR).
+Have a look at the \ref defines "preprocessor defines" page for options you can set at compile-time (most importantly, the IP and port of cWONDER are set via the defines CWONDER_DEFAULT_IP_STR and CWONDER_DEFAULT_PORT_STR).
 
 
 
@@ -167,7 +169,7 @@ For building the StreamMulticaster, Xcode and VS 2013 projects can be found with
 /*! \page defines Preprocessor defines
 
 
-Several options (most importantly: the network addresses of the WONDER system) can be changed by setting preprocessor defines.
+Several options (most importantly: the network addresses of the WONDER system) can be changed by setting preprocessor defines. Note that the Introjucer allows to set those defines in a text field so they will be applied for both the Xcode and Visual Studio projects.
 
 \section parameter_defines Parameter-Defines in WonderHeader.h
 
@@ -187,7 +189,7 @@ So what is the use for that flag? After recording automation data, certain hosts
 
 /*! \page coding Coding recommendations
 
-Of course, you are free to modify the code as you like. However, this page is meant to explain a few desgin concepts behind the code, hoping whoever uses the code might find this useful.
+Of course, you are free to modify the code as you like. However, this page is meant to explain a few design concepts behind the code, hoping whoever uses the code might find this useful.
 
 \tableofcontents
 
