@@ -94,19 +94,20 @@ Libraries</h1>
 <p>These libraries are required:</p>
 <ul>
 <li><a href="http://Liblo.sourceforge.net/">Liblo</a> - Liblo's threading capabilities are not needed, so if you're on Windows, feel free to use the <code>--without-threads</code> option (see <a href="http://Liblo.sourceforge.net/README-platforms.html">Building Liblo for other platforms</a>)</li>
-<li><a href="http://www.juce.com/">JUCE</a> - it is recommended to use the fork of JUCE that is included as a submodule of the SPAOP repository</li>
+<li><a href="http://www.juce.com/">JUCE</a> - it is recommended to use the <a href="https://github.com/MartinHH/JUCE/tree/developMH">fork</a> of JUCE that is included as a submodule of the SPAOP repository</li>
 </ul>
-<p>The <a class="el" href="installation.html">Installation section</a> will provide further hints on how to get them.</p>
+<p>(If you intend to commit changes to those submodules, keep in mind that after doing the above steps, those submodules are still in "detached HEAD" mode and you need to manually checkout a (new) branch.)</p>
+<p>The <a class="el" href="installation.html">Installation section</a> provides further hints on how to get them.</p>
 <h1><a class="anchor" id="SDKs"></a>
 SDKs</h1>
 <p>Depending on what platform you want to build the plugin for, you will need the corresponding SDK(s) for VST, AU or RTAS.</p>
 <h1><a class="anchor" id="IDEs"></a>
 IDEs</h1>
-<p>You will need a C++11-capable IDE for the operating system you are bulding for - the code was written and tested using XCode 5.1 on OSX and Visual Studio 2013 on Windows. </p>
+<p>You will need a C++11-capable IDE for the operating system you are bulding for - the code was developed and tested using XCode 5.1 on OSX and Visual Studio 2013 on Windows. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 25 2014 14:58:02 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 26 2014 14:09:12 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

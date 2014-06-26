@@ -132,7 +132,7 @@ Liblo</h1>
 <h2><a class="anchor" id="osx"></a>
 OSX</h2>
 <p>For OSX, the process to build and install is straightforward and well-documented. Just keep in mind that if you want to build for both 32 and 64 bit architectures, you'll need to build the universal binary version of Liblo.</p>
-<p>The most convenient way is to use <a href="http://brew.sh/">Homebrew</a>: if you have Homebrew installed, just type in <code>brew install Liblo --universal</code>. The library and header include paths in the OSX project files within the SPAOP repository all point to the paths where Homebrew will put them, so doing it the Homebrew way should be the easiest way by far.</p>
+<p>The most convenient way is to use <a href="http://brew.sh/">Homebrew</a>: if you have Homebrew installed, just type in <code>brew install Liblo --universal</code>. The library and header include path settings of the OSX project files within the SPAOP repository all point to the paths where Homebrew will put them, so doing it the Homebrew way should be the easiest way by far.</p>
 <h2><a class="anchor" id="windows"></a>
 Windows</h2>
 <p>For Windows, it is a bit more complicated:</p>
@@ -173,15 +173,15 @@ RTAS</h2>
 <p>The RTAS-version of SPAOP has never been tested yet. If you want to give it a try, <a href="https://www.avid.com/us/partners/Developer-Program/AudioPlugin">this application form</a> should lead you to the RTAS SDK.</p>
 <h1><a class="anchor" id="buildspaop"></a>
 Building SPAOP</h1>
-<p>Once you have all that installed, you can open the file <code>./SPAOP/SPAOP.jucer</code> with the <a class="el" href="installation.html#usingjuce">Introjucer</a>. From there you can launch the project in the IDE of your choice and build it. If you have placed the VST SDK or Liblo in different locations to those recommended above, you might need to readjust these within the project's settings in the introjucer.</p>
-<p>Have a look at the <a class="el" href="defines.html">Preprocessor defines</a> page for options you can set at compile-time (most importantly, the IP and port of cWONDER are set via the defines CWONDER_DEFAULT_IP_STR and CWONDER_DEFAULT_PORT_STR).</p>
+<p>Once you have all that installed, you can open the file <code>./SPAOP/SPAOP.jucer</code> with the <a class="el" href="installation.html#usingjuce">Introjucer</a>. From there you can launch the project in the IDE of your choice and build it. If you have placed the VST SDK or Liblo in locations diffferent from those recommended above, you might need to readjust these within the project's settings in the introjucer.</p>
+<p>Have a look at the <a class="el" href="defines.html">preprocessor defines</a> page for options you can set at compile-time (most importantly, the IP and port of cWONDER are set via the defines CWONDER_DEFAULT_IP_STR and CWONDER_DEFAULT_PORT_STR).</p>
 <h1><a class="anchor" id="buildmulticaster"></a>
 Building the StreamMulticaster</h1>
 <p>For building the StreamMulticaster, Xcode and VS 2013 projects can be found within <code>./StreamMulticaster</code>. Once again, you might need to readjust the location of the Liblo files. For the connection settings, the <a class="el" href="defines.html">defines</a> from <a class="el" href="_wonder_header_8h.html">WonderHeader.h</a> are applied (so change them as needed). </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 25 2014 14:58:02 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 26 2014 14:09:12 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
