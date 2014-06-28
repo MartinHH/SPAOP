@@ -32,7 +32,11 @@
 #endif
 
 #define COLOUR_SELECTOR_SIZE 200    /**< Size of the colour selection popup. */
-#define INITIAL_ZOOM_FACTOR 10.0    /**< Initial zoom factor. */
+
+#ifndef INITIAL_ZOOM_FACTOR
+#define INITIAL_ZOOM_FACTOR ((COORD_MAX) > 10.0 ? (COORD_MAX) / 10.0 : 1.0)
+                                    /**< Initial zoom factor. */
+#endif
 //[/Headers]
 
 
