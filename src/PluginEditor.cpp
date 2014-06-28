@@ -200,6 +200,11 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
 
     nameEditor->addListener(this);
     nameIsBeingEdited_ = false;
+    
+    // Since the sliders were auto-generated with the Introjucer which does
+    // not allow using defines, we have to override the settings from above:
+    xSlider->setRange (COORD_MIN, COORD_MAX, COORD_PRECISION);
+    ySlider->setRange (COORD_MIN, COORD_MAX, COORD_PRECISION);
 
     //[/UserPreSize]
 

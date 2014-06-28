@@ -25,6 +25,7 @@
 #include "PluginProcessor.h"
 #include "SourceZoomPort.h"
 #include "Source.h"
+#include "WonderHeader.h"
 
 #ifndef GUI_REFRESH_TIME
 #define GUI_REFRESH_TIME 100    /**< How often the GUI updates itself (in ms). */
