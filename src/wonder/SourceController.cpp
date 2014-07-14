@@ -241,6 +241,16 @@ void SourceController::setCWonderAddress(const std::string &host, const std::str
     cWonder_->setAddress(host, port);
 }
     
+std::string SourceController::getCWonderHost() const
+{
+    return cWonder_->hostname();
+}
+    
+std::string SourceController::getCWonderPort() const
+{
+    return cWonder_->port();
+}
+    
 void SourceController::setIdIsLocked(bool isLocked)
 {
     if (isLocked && !isLocked_) {

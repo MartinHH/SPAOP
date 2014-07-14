@@ -222,6 +222,20 @@ public:
      */
     void setCWonderAddress(const std::string &host, const std::string &port);
     
+    /** Returns the IP or hostname that is set for cWONDER. This may be used
+     *  for storing the cWONDER address settings.
+     *
+     *  @return The IP or hostname that is set for cWONDER.
+     */
+    std::string getCWonderHost() const;
+    
+    /** Returns the port that is set for cWONDER. This may be used for storing
+     *  the cWONDER address settings.
+     *
+     *  @return The port that is set for cWONDER.
+     */
+    std::string getCWonderPort() const;
+    
     /** Sets the ID locked status. If the sourceID is locked, it cannot be changed,
      *  and listening to incoming messages is enabled. If it is not locked, the ID
      *  can be changed, but listening to incoming messages is disabled.

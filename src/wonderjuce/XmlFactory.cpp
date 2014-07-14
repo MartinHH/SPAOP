@@ -191,6 +191,10 @@ void XmlFactory::updateSourceControllerFromXml(const XmlElement *connectionEleme
         return;
     }
     
+    const String ip = connectionElement->getStringAttribute("cwonderip", controller->getCWonderHost());
+    const String port = connectionElement->getStringAttribute("cwonderport", controller->getCWonderPort());
+    controller->setCWonderAddress(ip.toStdString(), port.toStdString());
+    
     // The order of the following two calls is important: if both are true, sending out
     // first ensures that WONDER is set to the settings of the Plugin and not vice versa.
     controller->setLinkedToWonder(connectionElement->getBoolAttribute("linked", controller->isLinkedToWonder()));
@@ -202,6 +206,8 @@ XmlElement* XmlFactory::createConnectionXml(const wonder::SourceController *cont
     XmlElement* controllerXml = new XmlElement("connection");
     controllerXml->setAttribute("linked", controller->isLinkedToWonder());
     controllerXml->setAttribute("locked", controller->idIsLocked());
+    controllerXml->setAttribute("cwonderip", controller->getCWonderHost());
+    controllerXml->setAttribute("cwonderport", controller->getCWonderPort());
     return controllerXml;
 }
     
