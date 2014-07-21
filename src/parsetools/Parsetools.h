@@ -24,7 +24,7 @@
 #include <sstream>
 #include <vector>
 #include <iostream>
-#ifdef __WINDOWS__
+#ifdef _WIN32
 #include <Ws2tcpip.h>
 #else
 #include <arpa/inet.h>

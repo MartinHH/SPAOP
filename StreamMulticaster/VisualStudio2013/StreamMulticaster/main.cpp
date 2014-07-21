@@ -25,31 +25,11 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
-    const std::string streamType = "visual";
-
-    wonderlo::StreamMulticaster mc(CWONDER_DEFAULT_IP_STR, CWONDER_DEFAULT_PORT_STR,
-        VISUAL_MC_GROUP_STR, VISUAL_MC_PORT_STR,
-        VISUAL_MC_IFACE_IP_STR, MULTICASTER_PORT_STR,
-        MULTICASTER_STREAM_IN_PORT_STR, streamType);
-
-    std::cout << "This is a " << streamType << " stream multicaster:" << std::endl;
-    std::cout << std::endl;
-
-    std::cout << "Stream data from " << mc.getStreamSourceHost() << ":"
-        << mc.getStreamSourcePort();
-    std::cout << " is received on port " << mc.getStreamInPort() << std::endl;
-    std::cout << "and forwarded to multicast group " << mc.getMulticastGroup() << ":"
-        << mc.getMulticastPort() << " on interface " << mc.getMulticastIface() << std::endl;
-    std::cout << std::endl;
-
-    std::cout << "/WONDER/" << streamType << "/stream/connect messages are accepted on port "
-        << mc.getConnectPort() << std::endl;
-    std::cout << std::endl;
-
-    std::cout << "Press enter to stop" << std::endl;
-    std::cin.ignore();
-
-	return 0;
+    if (argc == 2){
+        return wonderlo::StreamMulticaster::main(argv[1]);
+    }
+    else {
+        return wonderlo::StreamMulticaster::main();
+    }
 }
 
