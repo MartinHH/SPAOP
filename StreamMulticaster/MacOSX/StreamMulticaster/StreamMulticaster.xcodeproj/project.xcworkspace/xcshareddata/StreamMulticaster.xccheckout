@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9F4AD7B7-4B02-47E0-9A51-C5DF01781E5A</string>
+	<string>8037754B-5BFA-4A69-B85F-424786F48D19</string>
 	<key>IDESourceControlProjectName</key>
 	<string>StreamMulticaster</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>AA7C8993-EDDE-478D-B79E-BCB421D7FE8C</key>
-		<string>ssh://bitbucket.org/martinh2/spaop.git</string>
+		<key>95B63DBD-9248-4A14-937B-A03E916E3532</key>
+		<string>ssh://github.com/MartinHH/SPAOP.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>StreamMulticaster/MacOSX/StreamMulticaster/StreamMulticaster.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AA7C8993-EDDE-478D-B79E-BCB421D7FE8C</key>
+		<key>95B63DBD-9248-4A14-937B-A03E916E3532</key>
 		<string>../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://bitbucket.org/martinh2/spaop.git</string>
+	<string>ssh://github.com/MartinHH/SPAOP.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AA7C8993-EDDE-478D-B79E-BCB421D7FE8C</string>
+	<string>95B63DBD-9248-4A14-937B-A03E916E3532</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AA7C8993-EDDE-478D-B79E-BCB421D7FE8C</string>
+			<string>95B63DBD-9248-4A14-937B-A03E916E3532</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SPAOP</string>
 		</dict>

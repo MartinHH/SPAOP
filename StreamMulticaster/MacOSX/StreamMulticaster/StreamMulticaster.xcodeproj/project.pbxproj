@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A9195B3197BCAA000D3AFDE /* Parsetools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9195B1197BCAA000D3AFDE /* Parsetools.cpp */; };
 		2AF822F519177A20004DBF59 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF822F419177A20004DBF59 /* main.cpp */; };
 		2AF822F719177A20004DBF59 /* StreamMulticaster.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AF822F619177A20004DBF59 /* StreamMulticaster.1 */; };
 		2AF822FE19177A3F004DBF59 /* liblo.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF822FD19177A3F004DBF59 /* liblo.7.dylib */; };
@@ -34,6 +35,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A9195B1197BCAA000D3AFDE /* Parsetools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Parsetools.cpp; sourceTree = "<group>"; };
+		2A9195B2197BCAA000D3AFDE /* Parsetools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parsetools.h; sourceTree = "<group>"; };
 		2AF822F119177A20004DBF59 /* StreamMulticaster */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StreamMulticaster; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF822F419177A20004DBF59 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2AF822F619177A20004DBF59 /* StreamMulticaster.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = StreamMulticaster.1; sourceTree = "<group>"; };
@@ -71,9 +74,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A9195B0197BCAA000D3AFDE /* parsetools */ = {
+			isa = PBXGroup;
+			children = (
+				2A9195B1197BCAA000D3AFDE /* Parsetools.cpp */,
+				2A9195B2197BCAA000D3AFDE /* Parsetools.h */,
+			);
+			name = parsetools;
+			path = ../../../src/parsetools;
+			sourceTree = "<group>";
+		};
 		2AF822E819177A20004DBF59 = {
 			isa = PBXGroup;
 			children = (
+				2A9195B0197BCAA000D3AFDE /* parsetools */,
 				2AF8230E19177A6F004DBF59 /* wonder */,
 				2AF8232119177A6F004DBF59 /* wonderlo */,
 				2AF8230A19177A5E004DBF59 /* thread */,
@@ -206,6 +220,7 @@
 				2AF8230919177A55004DBF59 /* ServerThread.cpp in Sources */,
 				2AF8233619177A6F004DBF59 /* MessageWithPath.cpp in Sources */,
 				2AF8230719177A55004DBF59 /* Address.cpp in Sources */,
+				2A9195B3197BCAA000D3AFDE /* Parsetools.cpp in Sources */,
 				2AF8233719177A6F004DBF59 /* StreamMulticaster.cpp in Sources */,
 				2AF822F519177A20004DBF59 /* main.cpp in Sources */,
 				2AF8230D19177A5E004DBF59 /* Thread.cpp in Sources */,
@@ -339,6 +354,7 @@
 				2AF822FC19177A20004DBF59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
