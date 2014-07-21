@@ -103,6 +103,59 @@ std::string StreamMulticaster::getMulticastIface() const
     return mcGroup_.getIface();
 }
     
+int StreamMulticaster::main(const std::string& cWonderAddr, const std::string& type)
+{
+    std::string cWip = CWONDER_DEFAULT_IP_STR;
+    std::string cWport = CWONDER_DEFAULT_PORT_STR;
+    
+    if(cWonderAddr.length() > 0) {
+        const std::vector<const std::string> cw =
+            parsetools::splitString(cWonderAddr, ':');
+        
+        if(cw.size() != 2) {
+            std::cerr << "cWONDER address format must be ip:port." << std::endl;
+            return -1;
+        }
+        
+        if(parsetools::isValidIP(cw[0])){
+            cWip = cw[0];
+        } else {
+            std::cerr << cw[0] << " is not a valid ip." << std::endl;
+            return -1;
+        }
+        
+        if(parsetools::isValidPort(cw[1])){
+            cWport = cw[1];
+        } else {
+            std::cerr << cw[1] << " is not a valid port." << std::endl;
+            return -1;
+        }
+    }
+    
+    StreamMulticaster mc(cWip, cWport, VISUAL_MC_GROUP_STR, VISUAL_MC_PORT_STR,
+                         VISUAL_MC_IFACE_IP_STR, MULTICASTER_PORT_STR,
+                         MULTICASTER_STREAM_IN_PORT_STR, type);
+    
+    std::cout << "This is a " << type << " stream multicaster:" << std::endl;
+    std::cout << std::endl;
+    
+    std::cout << "Stream data from " << mc.getStreamSourceHost() << ":"
+    << mc.getStreamSourcePort();
+    std::cout << " is received on port " << mc.getStreamInPort() << std::endl;
+    std::cout << "and forwarded to multicast group " << mc.getMulticastGroup() << ":"
+    << mc.getMulticastPort() << " on interface " << mc.getMulticastIface() << std::endl;
+    std::cout << std::endl;
+    
+    std::cout << "/WONDER/" << type << "/stream/connect messages are accepted on port "
+    << mc.getConnectPort() << std::endl;
+    std::cout << std::endl;
+    
+    std::cout << "Press enter to stop" << std::endl;
+    std::cin.ignore();
+    
+    return 0;
+}
+    
 //==============================================================================
 // vvvvv handlers for incoming OSC-messages:
     

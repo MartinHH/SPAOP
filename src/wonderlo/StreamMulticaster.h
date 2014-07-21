@@ -24,6 +24,7 @@
 #include <stdint.h>
 #include "WonderOscServerSender.h"
 #include "GenericServerThreadListener.h"
+#include "Parsetools.h"
 
 namespace wonderlo {
 
@@ -129,6 +130,23 @@ public:
      *      sending to the multicast group.
      */
     std::string getMulticastIface() const;
+    
+    /** A function that starts a StreamMulticaster-instance. Network-addresses
+     *  are used as defined in WonderHeader.h, the address of cWONDER can be
+     *  passed as parameter.
+     *  This is meant as an OS-independent main function (to be called from
+     *  the "real" main).
+     *
+     *  @param cWonderAddr A string of the format "ip:port" that will be used
+     *      as the address for cWONDER. If an empty string is passed, the default
+     *      address from WonderHeader.h will be used.
+     *  @param type The type of the stream to be forwarded ("visual" / "timer" /
+     *      "render" / "score")
+     *
+     *  @return 0 on success, -1 on failure.
+     */
+    static int main(const std::string& cWonderAddr="",
+                    const std::string& type="visual");
     
 private:
     lowrappers::ServerThread connectIn_;
