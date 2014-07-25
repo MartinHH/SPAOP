@@ -88,10 +88,6 @@
               file="../src/wonderlo/MessageWithPath.cpp"/>
         <FILE id="tpS0hU" name="MessageWithPath.h" compile="0" resource="0"
               file="../src/wonderlo/MessageWithPath.h"/>
-        <FILE id="ke3R6Z" name="StreamMulticaster.cpp" compile="1" resource="0"
-              file="../src/wonderlo/StreamMulticaster.cpp"/>
-        <FILE id="aIBw2z" name="StreamMulticaster.h" compile="0" resource="0"
-              file="../src/wonderlo/StreamMulticaster.h"/>
         <FILE id="CjzMwx" name="VSReceiver.cpp" compile="1" resource="0" file="../src/wonderlo/VSReceiver.cpp"/>
         <FILE id="oxjt9g" name="VSReceiver.h" compile="0" resource="0" file="../src/wonderlo/VSReceiver.h"/>
         <FILE id="PP6BJc" name="WonderOscSender.cpp" compile="1" resource="0"
