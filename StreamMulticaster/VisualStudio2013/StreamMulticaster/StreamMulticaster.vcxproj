@@ -20,14 +20,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -53,7 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\..\..\liblo-0.28;..\..\..\src\lowrappers;..\..\..\src\wonderlo;..\..\..\src\wonder;..\..\..\src\thread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\liblo-0.28;..\..\..\src\lowrappers;..\..\..\src\parsetools;..\..\..\src\wonderlo;..\..\..\src\wonder;..\..\..\src\thread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -72,7 +72,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\..\..\liblo-0.28;..\..\..\src\lowrappers;..\..\..\src\wonderlo;..\..\..\src\wonder;..\..\..\src\thread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\liblo-0.28;..\..\..\src\lowrappers;..\..\..\src\parsetools;..\..\..\src\wonderlo;..\..\..\src\wonder;..\..\..\src\thread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -91,6 +91,7 @@
     <ClInclude Include="..\..\..\src\lowrappers\GenericServerThreadListener.h" />
     <ClInclude Include="..\..\..\src\lowrappers\Message.h" />
     <ClInclude Include="..\..\..\src\lowrappers\ServerThread.h" />
+    <ClInclude Include="..\..\..\src\parsetools\Parsetools.h" />
     <ClInclude Include="..\..\..\src\thread\Thread.h" />
     <ClInclude Include="..\..\..\src\wonderlo\MessageWithPath.h" />
     <ClInclude Include="..\..\..\src\wonderlo\StreamMulticaster.h" />
@@ -105,6 +106,7 @@
     <ClCompile Include="..\..\..\src\lowrappers\Address.cpp" />
     <ClCompile Include="..\..\..\src\lowrappers\Message.cpp" />
     <ClCompile Include="..\..\..\src\lowrappers\ServerThread.cpp" />
+    <ClCompile Include="..\..\..\src\parsetools\Parsetools.cpp" />
     <ClCompile Include="..\..\..\src\thread\Thread.cpp" />
     <ClCompile Include="..\..\..\src\wonderlo\MessageWithPath.cpp" />
     <ClCompile Include="..\..\..\src\wonderlo\StreamMulticaster.cpp" />
