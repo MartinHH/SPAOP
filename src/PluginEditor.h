@@ -50,7 +50,7 @@
     This is generated using the WYSISWYG-Editor of the Introjucer app (which
     is why this text contains those comments tags...).
  
-    @see [juce::AudioProcessorEditor
+    @see [juce::AudioProcessorEditor]
         (http://www.juce.com/api/classAudioProcessorEditor.html)
  
                                                                     //[/Comments]
