@@ -13,6 +13,10 @@
               defines="" pluginVSTCategory="kPlugCategSpacializer">
   <MAINGROUP id="GQq14J" name="SPAOP">
     <GROUP id="{60DD65CF-8EAE-F081-1464-4251C8EC2E06}" name="src">
+      <FILE id="y2PfgM" name="ConnectionComponent.cpp" compile="1" resource="0"
+            file="../src/ConnectionComponent.cpp"/>
+      <FILE id="GUzOYH" name="ConnectionComponent.h" compile="0" resource="0"
+            file="../src/ConnectionComponent.h"/>
       <FILE id="RdwRNI" name="PluginEditor.cpp" compile="1" resource="0"
             file="../src/PluginEditor.cpp"/>
       <FILE id="s4WpRy" name="PluginEditor.h" compile="0" resource="0" file="../src/PluginEditor.h"/>
@@ -30,6 +34,10 @@
         <FILE id="eI7yT0" name="ServerThread.cpp" compile="1" resource="0"
               file="../src/lowrappers/ServerThread.cpp"/>
         <FILE id="GGelk7" name="ServerThread.h" compile="0" resource="0" file="../src/lowrappers/ServerThread.h"/>
+      </GROUP>
+      <GROUP id="{2065AAF9-65D5-AB92-0545-7013B1091443}" name="parsetools">
+        <FILE id="liEl6u" name="Parsetools.cpp" compile="1" resource="0" file="../src/parsetools/Parsetools.cpp"/>
+        <FILE id="R8tjl9" name="Parsetools.h" compile="0" resource="0" file="../src/parsetools/Parsetools.h"/>
       </GROUP>
       <GROUP id="{150641F9-FF89-6F14-D659-ABBAE5FE3EBF}" name="thread">
         <FILE id="SqYWHy" name="Thread.cpp" compile="1" resource="0" file="../src/thread/Thread.cpp"/>
@@ -63,6 +71,10 @@
         <FILE id="qbv3cZ" name="XmlParser.h" compile="0" resource="0" file="../src/wonder/XmlParser.h"/>
       </GROUP>
       <GROUP id="{5897BAEB-7896-6ED7-ADCF-614A00E382EE}" name="wonderjuce">
+        <FILE id="U0w9pD" name="SpaopEditorComponent.cpp" compile="1" resource="0"
+              file="../src/wonderjuce/SpaopEditorComponent.cpp"/>
+        <FILE id="lFppqP" name="SpaopEditorComponent.h" compile="0" resource="0"
+              file="../src/wonderjuce/SpaopEditorComponent.h"/>
         <FILE id="JXGcbl" name="SourceDisplay.cpp" compile="1" resource="0"
               file="../src/wonderjuce/SourceDisplay.cpp"/>
         <FILE id="fOcQxt" name="SourceDisplay.h" compile="0" resource="0" file="../src/wonderjuce/SourceDisplay.h"/>
