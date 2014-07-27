@@ -306,6 +306,18 @@ public:
      *  @param showNames true if the GUI shall show the sources' names.
      */
     void setShowNames(bool showNames);
+    
+    /** Sets the address where outgoing OSC messages will be sent in "linked to
+     *  WONDER" mode will be sent (i.e. the address of cWONDER). (Internally,
+     *  the call is passed to wonder::SourceController::setCWonderAddress.)
+     *
+     *  @param ip A valid (IPv4) ip string.
+     *  @param port A valid port number between 1024 and 65535.
+     *
+     *  @return true if the address has been set, false if the parameters were
+     *      invalid.
+     */
+    bool setCWonderAddress(const std::string &ip, const std::string &port);
 
 private:
     //==============================================================================

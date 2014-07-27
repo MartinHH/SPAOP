@@ -351,3 +351,8 @@ void SpaopAudioProcessor::setShowNames(bool showNames)
 {
     showNames_ = showNames;
 }
+
+bool SpaopAudioProcessor::setCWonderAddress(const std::string &ip, const std::string &port)
+{
+    return sourceController_->setCWonderAddress(ip, port);
+}
