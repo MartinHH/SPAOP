@@ -31,6 +31,15 @@ ConnectionComponent::ConnectionComponent (SpaopAudioProcessor* ownerFilter)
     : wonderjuce::SpaopEditorComponent(ownerFilter),
       cwAddressIsBeingEdited_(false)
 {
+    addAndMakeVisible (infoGroupComponent = new GroupComponent ("new group",
+                                                                TRANS("Connection info")));
+
+    addAndMakeVisible (modeGroupComponent = new GroupComponent ("mode group",
+                                                                TRANS("Communication mode")));
+
+    addAndMakeVisible (cwGroupComponent = new GroupComponent ("cwonder group",
+                                                              TRANS("cWONDER address")));
+
     addAndMakeVisible (cwIpEditor = new TextEditor ("cwonder ip editor"));
     cwIpEditor->setMultiLine (false);
     cwIpEditor->setReturnKeyStartsNewLine (false);
@@ -69,14 +78,6 @@ ConnectionComponent::ConnectionComponent (SpaopAudioProcessor* ownerFilter)
     confirmCwButton->setButtonText (TRANS("Confirm changes"));
     confirmCwButton->addListener (this);
 
-    addAndMakeVisible (cwHeaderLabel = new Label ("cwonder header label",
-                                                  TRANS("cWONDER address:")));
-    cwHeaderLabel->setFont (Font (15.00f, Font::plain));
-    cwHeaderLabel->setJustificationType (Justification::centredLeft);
-    cwHeaderLabel->setEditable (false, false, false);
-    cwHeaderLabel->setColour (TextEditor::textColourId, Colours::black);
-    cwHeaderLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
     addAndMakeVisible (linkWonderButton = new ToggleButton ("link wonder button"));
     linkWonderButton->setButtonText (TRANS("Link to WONDER"));
     linkWonderButton->addListener (this);
@@ -107,9 +108,11 @@ ConnectionComponent::ConnectionComponent (SpaopAudioProcessor* ownerFilter)
 
 
     //[UserPreSize]
+    cwIpEditor->addListener(this);
+    cwPortEditor->addListener(this);
     //[/UserPreSize]
 
-    setSize (240, 320);
+    setSize (256, 320);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -121,12 +124,14 @@ ConnectionComponent::~ConnectionComponent()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
+    infoGroupComponent = nullptr;
+    modeGroupComponent = nullptr;
+    cwGroupComponent = nullptr;
     cwIpEditor = nullptr;
     cwPortEditor = nullptr;
     ipLabel = nullptr;
     portLabel = nullptr;
     confirmCwButton = nullptr;
-    cwHeaderLabel = nullptr;
     linkWonderButton = nullptr;
     addrLabel = nullptr;
     urlLabel = nullptr;
@@ -149,16 +154,18 @@ void ConnectionComponent::paint (Graphics& g)
 
 void ConnectionComponent::resized()
 {
-    cwIpEditor->setBounds (96, 32, 128, 24);
-    cwPortEditor->setBounds (96, 64, 128, 24);
+    infoGroupComponent->setBounds (8, 200, 240, 112);
+    modeGroupComponent->setBounds (8, 144, 240, 48);
+    cwGroupComponent->setBounds (8, 8, 240, 128);
+    cwIpEditor->setBounds (112, 32, 120, 24);
+    cwPortEditor->setBounds (112, 64, 120, 24);
     ipLabel->setBounds (16, 32, 56, 24);
     portLabel->setBounds (16, 64, 56, 24);
-    confirmCwButton->setBounds (16, 96, 208, 24);
-    cwHeaderLabel->setBounds (16, 8, 150, 24);
-    linkWonderButton->setBounds (16, 144, 208, 24);
-    addrLabel->setBounds (16, 176, 200, 24);
-    urlLabel->setBounds (16, 200, 200, 24);
-    cStatusLabel->setBounds (16, 240, 200, 24);
+    confirmCwButton->setBounds (32, 96, 192, 24);
+    linkWonderButton->setBounds (16, 160, 208, 24);
+    addrLabel->setBounds (16, 216, 200, 24);
+    urlLabel->setBounds (16, 240, 200, 24);
+    cStatusLabel->setBounds (16, 272, 200, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -197,23 +204,35 @@ void ConnectionComponent::buttonClicked (Button* buttonThatWasClicked)
 void ConnectionComponent::update()
 {
     const wonder::SourceController* controller = getProcessor()->getSourceController();
-    
+
     if(!cwAddressIsBeingEdited_){
         cwIpEditor->setText(controller->getCWonderHost());
         cwPortEditor->setText(controller->getCWonderPort());
     }
-    
+
     linkWonderButton->setToggleState(controller->isLinkedToWonder(), dontSendNotification);
 
     urlLabel->setText(controller->getDataDestHostAndPort(), dontSendNotification);
-    
+
     cStatusLabel->setText(controller->connectionStatusString(), dontSendNotification);
     cStatusLabel->setColour(Label::textColourId, connectionColour(controller->connectionStatus()));
 }
 
 void ConnectionComponent::textEditorTextChanged(TextEditor& textEditor)
 {
-    cwAddressIsBeingEdited_ = true;
+    if (&textEditor == cwIpEditor || &textEditor == cwPortEditor)
+    {
+        cwAddressIsBeingEdited_ = true;
+    }
+}
+
+void ConnectionComponent::textEditorReturnKeyPressed(TextEditor &textEditor)
+{
+    if (&textEditor == cwIpEditor || &textEditor == cwPortEditor)
+    {
+        // behave as if confirm-button clicked:
+        buttonClicked(confirmCwButton);
+    }
 }
 
 Colour ConnectionComponent::connectionColour(wonder::ConnectionStates cStatus)
@@ -242,14 +261,20 @@ BEGIN_JUCER_METADATA
                  parentClasses="public wonderjuce::SpaopEditorComponent, public TextEditor::Listener"
                  constructorParams="SpaopAudioProcessor* ownerFilter" variableInitialisers="wonderjuce::SpaopEditorComponent(ownerFilter),&#10;cwAddressIsBeingEdited_(false)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="240" initialHeight="320">
+                 fixedSize="0" initialWidth="256" initialHeight="320">
   <BACKGROUND backgroundColour="ffff"/>
+  <GROUPCOMPONENT name="new group" id="e4a6c62de9f5a13b" memberName="infoGroupComponent"
+                  virtualName="" explicitFocusOrder="0" pos="8 200 240 112" title="Connection info"/>
+  <GROUPCOMPONENT name="mode group" id="1f4b55c329762c13" memberName="modeGroupComponent"
+                  virtualName="" explicitFocusOrder="0" pos="8 144 240 48" title="Communication mode"/>
+  <GROUPCOMPONENT name="cwonder group" id="cedf29bc24c6bcd2" memberName="cwGroupComponent"
+                  virtualName="" explicitFocusOrder="0" pos="8 8 240 128" title="cWONDER address"/>
   <TEXTEDITOR name="cwonder ip editor" id="3d9a2a0e21d3e69b" memberName="cwIpEditor"
-              virtualName="" explicitFocusOrder="0" pos="96 32 128 24" initialText="???.???.???.???"
+              virtualName="" explicitFocusOrder="0" pos="112 32 120 24" initialText="???.???.???.???"
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <TEXTEDITOR name="cwonder port editor" id="4b70502607b0245f" memberName="cwPortEditor"
-              virtualName="" explicitFocusOrder="0" pos="96 64 128 24" initialText="?????"
+              virtualName="" explicitFocusOrder="0" pos="112 64 120 24" initialText="?????"
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <LABEL name="ip label" id="3d57cecad65af09c" memberName="ipLabel" virtualName=""
@@ -263,28 +288,23 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="confirm cwonder button" id="656f04da7959cb83" memberName="confirmCwButton"
-              virtualName="" explicitFocusOrder="0" pos="16 96 208 24" buttonText="Confirm changes"
+              virtualName="" explicitFocusOrder="0" pos="32 96 192 24" buttonText="Confirm changes"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <LABEL name="cwonder header label" id="168bd85ca49f441" memberName="cwHeaderLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 8 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="cWONDER address:" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
   <TOGGLEBUTTON name="link wonder button" id="a50c2401bf941894" memberName="linkWonderButton"
-                virtualName="" explicitFocusOrder="0" pos="16 144 208 24" buttonText="Link to WONDER"
+                virtualName="" explicitFocusOrder="0" pos="16 160 208 24" buttonText="Link to WONDER"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <LABEL name="addr label" id="c9c821ac478f8e2f" memberName="addrLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 176 200 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="16 216 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="OSC destination address:" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>
   <LABEL name="url label" id="2ae8e48f7526ed29" memberName="urlLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 200 200 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="16 240 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="??????" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="c-status label" id="5f890d1c193d8cb5" memberName="cStatusLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 240 200 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="16 272 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Connection status" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>

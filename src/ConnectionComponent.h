@@ -56,8 +56,10 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
     void update() override;
 
-    void textEditorTextChanged (TextEditor& textEditor);
-    
+    void textEditorTextChanged(TextEditor& textEditor);
+
+    void textEditorReturnKeyPressed(TextEditor& textEditor);
+
     static Colour connectionColour(wonder::ConnectionStates cStatus);
     //[/UserMethods]
 
@@ -73,12 +75,14 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<GroupComponent> infoGroupComponent;
+    ScopedPointer<GroupComponent> modeGroupComponent;
+    ScopedPointer<GroupComponent> cwGroupComponent;
     ScopedPointer<TextEditor> cwIpEditor;
     ScopedPointer<TextEditor> cwPortEditor;
     ScopedPointer<Label> ipLabel;
     ScopedPointer<Label> portLabel;
     ScopedPointer<TextButton> confirmCwButton;
-    ScopedPointer<Label> cwHeaderLabel;
     ScopedPointer<ToggleButton> linkWonderButton;
     ScopedPointer<Label> addrLabel;
     ScopedPointer<Label> urlLabel;
