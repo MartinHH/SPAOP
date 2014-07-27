@@ -26,6 +26,7 @@
 #include "SourceZoomPort.h"
 #include "Source.h"
 #include "WonderHeader.h"
+#include "ConnectionComponent.h"
 
 #ifndef GUI_REFRESH_TIME
 #define GUI_REFRESH_TIME 100    /**< How often the GUI updates itself (in ms). */
@@ -44,15 +45,15 @@
 //==============================================================================
 /**
                                                                     //[Comments]
- 
+
     The main GUI class for the SPAOP plugin.
- 
+
     This is generated using the WYSISWYG-Editor of the Introjucer app (which
     is why this text contains those comments tags...).
- 
+
     @see [juce::AudioProcessorEditor]
         (http://www.juce.com/api/classAudioProcessorEditor.html)
- 
+
                                                                     //[/Comments]
 */
 class SpaopAudioProcessorEditor  : public AudioProcessorEditor,
@@ -93,23 +94,24 @@ private:
 
     /** Returns the Plugin's SourceController instance */
     wonder::SourceController* getSourceController() const;
-
+    
+    void showColourSelector();
+    
+public:
     /** Normalizes a slider's value to the range of [0.0 ; 1.0]. */
     static double normalizedValue(Slider* slider);
-
+    
     /** Converts a ToggleButton's state to the range of [0.0 ; 1.0]. */
     static double normalizedValue(Button* button);
-
+    
     static Colour connectionColour(wonder::ConnectionStates cStatus);
-
+    
     /** Converts a wonder::Colour to a juce::Colour. */
     static juce::Colour juceColour(wonder::Colour colour);
-
+    
     /** Converts a juce::Colour to a wonder::Colour. */
     static wonder::Colour wonderColour(juce::Colour colour);
-
-    void showColourSelector();
-public:
+    
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -152,6 +154,7 @@ private:
     ScopedPointer<wonderjuce::SourceZoomPort> sourceZoomPort;
     ScopedPointer<Slider> angleSlider;
     ScopedPointer<ToggleButton> showNamesButton;
+    ScopedPointer<TabbedComponent> tabbedComponent;
 
 
     //==============================================================================

@@ -191,6 +191,11 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
     showNamesButton->setButtonText (TRANS("Show source names"));
     showNamesButton->addListener (this);
 
+    addAndMakeVisible (tabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtTop));
+    tabbedComponent->setTabBarDepth (30);
+    tabbedComponent->addTab (TRANS("Connection"), Colour (0xff777777), new ConnectionComponent (ownerFilter), true);
+    tabbedComponent->setCurrentTabIndex (0);
+
 
     //[UserPreSize]
     wonderjuce::SourcePanel* sourcePanel = sourceZoomPort->getSourcePanel();
@@ -200,7 +205,7 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
 
     nameEditor->addListener(this);
     nameIsBeingEdited_ = false;
-    
+
     // Since the sliders were auto-generated with the Introjucer which does
     // not allow using defines, we have to override the settings from above:
     xSlider->setRange (COORD_MIN, COORD_MAX, COORD_PRECISION);
@@ -208,7 +213,7 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
 
     //[/UserPreSize]
 
-    setSize (720, 490);
+    setSize (976, 490);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -259,6 +264,7 @@ SpaopAudioProcessorEditor::~SpaopAudioProcessorEditor()
     sourceZoomPort = nullptr;
     angleSlider = nullptr;
     showNamesButton = nullptr;
+    tabbedComponent = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -306,6 +312,7 @@ void SpaopAudioProcessorEditor::resized()
     sourceZoomPort->setBounds (24, 16, 432, 432);
     angleSlider->setBounds (624, 176, 56, 72);
     showNamesButton->setBounds (480, 424, 208, 24);
+    tabbedComponent->setBounds (712, 16, 256, 352);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -474,6 +481,10 @@ void SpaopAudioProcessorEditor::timerCallback()
     cStatusLabel->setText(controller->connectionStatusString(), dontSendNotification);
     cStatusLabel->setColour(Label::textColourId, connectionColour(controller->connectionStatus()));
 
+    wonderjuce::SpaopEditorComponent* t0 =
+        static_cast<wonderjuce::SpaopEditorComponent*> (tabbedComponent->getTabContentComponent(0));
+    t0->update();
+
 }
 
 void SpaopAudioProcessorEditor::changeListenerCallback(ChangeBroadcaster *changeBroadcaster)
@@ -602,7 +613,7 @@ BEGIN_JUCER_METADATA
                  componentName="" parentClasses="public AudioProcessorEditor, public Timer, public wonderjuce::SourcePanel::Listener, public TextEditor::Listener, public ChangeListener"
                  constructorParams="SpaopAudioProcessor* ownerFilter" variableInitialisers="AudioProcessorEditor(ownerFilter)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="720" initialHeight="490">
+                 fixedSize="1" initialWidth="976" initialHeight="490">
   <BACKGROUND backgroundColour="ff787878"/>
   <GROUPCOMPONENT name="display group" id="e866147c42bab00a" memberName="displayGroup"
                   virtualName="" explicitFocusOrder="0" pos="464 384 240 96" title="Display"/>
@@ -710,6 +721,12 @@ BEGIN_JUCER_METADATA
   <TOGGLEBUTTON name="show names button" id="77a4541a43d0f171" memberName="showNamesButton"
                 virtualName="" explicitFocusOrder="0" pos="480 424 208 24" buttonText="Show source names"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
+  <TABBEDCOMPONENT name="new tabbed component" id="386f797096875f80" memberName="tabbedComponent"
+                   virtualName="" explicitFocusOrder="0" pos="712 16 256 352" orientation="top"
+                   tabBarDepth="30" initialTab="0">
+    <TAB name="Connection" colour="ff777777" useJucerComp="0" contentClassName="ConnectionComponent"
+         constructorParams="ownerFilter" jucerComponentFile=""/>
+  </TABBEDCOMPONENT>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
