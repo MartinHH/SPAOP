@@ -236,9 +236,14 @@ bool SourceController::isLinkedToWonder() const
     return linkedToWonder_;
 }
     
-void SourceController::setCWonderAddress(const std::string &host, const std::string &port)
+bool SourceController::setCWonderAddress(const std::string &ip, const std::string &port)
 {
-    cWonder_->setAddress(host, port);
+    if(parsetools::isValidIP(ip) && parsetools::isValidPort(port)){
+        cWonder_->setAddress(ip, port);
+        return true;
+    } else {
+        return false;
+    }
 }
     
 std::string SourceController::getCWonderHost() const

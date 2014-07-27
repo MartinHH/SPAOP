@@ -29,6 +29,7 @@
 #include "OscSender.h"
 #include "PingControl.h"
 #include "XmlParser.h"
+#include "Parsetools.h"
 
 #define ABS(x) ((x) > 0 ? (x) : -(x))
 
@@ -217,10 +218,13 @@ public:
     /** Sets the address where outgoing OSC messages will be sent in "linked to
      *  WONDER" mode will be sent (i.e. the address of cWONDER).
      *
-     *  @param host A valid hostname or ip string.
-     *  @param port A valid port number or service name.
+     *  @param ip A valid (IPv4) ip string.
+     *  @param port A valid port number between 1024 and 65535.
+     *
+     *  @return true if the address has been set, false if the parameters were
+     *      invalid.
      */
-    void setCWonderAddress(const std::string &host, const std::string &port);
+    bool setCWonderAddress(const std::string &ip, const std::string &port);
     
     /** Returns the IP or hostname that is set for cWONDER. This may be used
      *  for storing the cWONDER address settings.
