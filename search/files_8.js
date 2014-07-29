@@ -12,8 +12,12 @@ var searchData=
   ['sourcedisplay_2eh',['SourceDisplay.h',['../_source_display_8h.html',1,'']]],
   ['sourcepanel_2ecpp',['SourcePanel.cpp',['../_source_panel_8cpp.html',1,'']]],
   ['sourcepanel_2eh',['SourcePanel.h',['../_source_panel_8h.html',1,'']]],
+  ['sourceparamcomponent_2ecpp',['SourceParamComponent.cpp',['../_source_param_component_8cpp.html',1,'']]],
+  ['sourceparamcomponent_2eh',['SourceParamComponent.h',['../_source_param_component_8h.html',1,'']]],
   ['sourcezoomport_2ecpp',['SourceZoomPort.cpp',['../_source_zoom_port_8cpp.html',1,'']]],
   ['sourcezoomport_2eh',['SourceZoomPort.h',['../_source_zoom_port_8h.html',1,'']]],
+  ['spaopeditorcomponent_2ecpp',['SpaopEditorComponent.cpp',['../_spaop_editor_component_8cpp.html',1,'']]],
+  ['spaopeditorcomponent_2eh',['SpaopEditorComponent.h',['../_spaop_editor_component_8h.html',1,'']]],
   ['streammulticaster_2ecpp',['StreamMulticaster.cpp',['../_stream_multicaster_8cpp.html',1,'']]],
   ['streammulticaster_2eh',['StreamMulticaster.h',['../_stream_multicaster_8h.html',1,'']]]
 ];

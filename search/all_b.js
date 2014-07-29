@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['main',['main',['../classwonderlo_1_1_stream_multicaster.html#a26cf7bcd9d586dddad72c0a4bbdf6735',1,'wonderlo::StreamMulticaster']]],
   ['mainpage_2edox',['MainPage.dox',['../_main_page_8dox.html',1,'']]],
   ['max_5fpings_5flost',['MAX_PINGS_LOST',['../_ping_control_8h.html#aca0150838bf0dc26294f56c7b48fda30',1,'PingControl.h']]],
   ['max_5fwonder_5fsources',['MAX_WONDER_SOURCES',['../_wonder_header_8h.html#a72f3cabba603fb968b79b17772bb93f1',1,'WonderHeader.h']]],

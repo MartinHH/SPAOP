@@ -1,6 +1,7 @@
 var searchData=
 [
   ['wonder',['wonder',['../namespacewonder.html',1,'']]],
+  ['wondercolour',['wonderColour',['../class_spaop_audio_processor_editor.html#a65df33e5a6df138cecb638122f94dc99',1,'SpaopAudioProcessorEditor']]],
   ['wonderheader_2eh',['WonderHeader.h',['../_wonder_header_8h.html',1,'']]],
   ['wonderjuce',['wonderjuce',['../namespacewonderjuce.html',1,'']]],
   ['wonderlo',['wonderlo',['../namespacewonderlo.html',1,'']]],
@@ -8,8 +9,8 @@ var searchData=
   ['wonderoscsender',['WonderOscSender',['../classwonderlo_1_1_wonder_osc_sender.html#a76677c4d91cd89eb957f8cab076fea8b',1,'wonderlo::WonderOscSender::WonderOscSender(const std::string &amp;host, const std::string &amp;port, int proto=LO_UDP)'],['../classwonderlo_1_1_wonder_osc_sender.html#a813139c1abd8781527145f90048a18f9',1,'wonderlo::WonderOscSender::WonderOscSender(lo_address addr, bool isOwner=true)'],['../classwonderlo_1_1_wonder_osc_sender.html#ad9e3c0679c125a9d94ffc82f7bf04e18',1,'wonderlo::WonderOscSender::WonderOscSender(const WonderOscSender &amp;other)']]],
   ['wonderoscsender_2ecpp',['WonderOscSender.cpp',['../_wonder_osc_sender_8cpp.html',1,'']]],
   ['wonderoscsender_2eh',['WonderOscSender.h',['../_wonder_osc_sender_8h.html',1,'']]],
-  ['wonderoscsenderthread',['WonderOscSenderThread',['../classwonderlo_1_1_wonder_osc_sender_thread.html#a9814829c6f25d8747aa68d62cb2af4f0',1,'wonderlo::WonderOscSenderThread']]],
   ['wonderoscsenderthread',['WonderOscSenderThread',['../classwonderlo_1_1_wonder_osc_sender_thread.html',1,'wonderlo']]],
+  ['wonderoscsenderthread',['WonderOscSenderThread',['../classwonderlo_1_1_wonder_osc_sender_thread.html#a9814829c6f25d8747aa68d62cb2af4f0',1,'wonderlo::WonderOscSenderThread']]],
   ['wonderoscsenderthread_2ecpp',['WonderOscSenderThread.cpp',['../_wonder_osc_sender_thread_8cpp.html',1,'']]],
   ['wonderoscsenderthread_2eh',['WonderOscSenderThread.h',['../_wonder_osc_sender_thread_8h.html',1,'']]],
   ['wonderoscserversender',['WonderOscServerSender',['../classwonderlo_1_1_wonder_osc_server_sender.html',1,'wonderlo']]],

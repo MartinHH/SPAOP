@@ -92,6 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classwonderlo_1_1_stream_multicaster-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">wonderlo::StreamMulticaster Class Reference</div>  </div>
@@ -132,6 +133,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a5fcbc88b3cfde17240aa01a9be7530"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderlo_1_1_stream_multicaster.html#a5a5fcbc88b3cfde17240aa01a9be7530">getMulticastIface</a> () const </td></tr>
 <tr class="memdesc:a5a5fcbc88b3cfde17240aa01a9be7530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the interface identifier for the network interface used for sending to the multicast group.  <a href="#a5a5fcbc88b3cfde17240aa01a9be7530">More...</a><br/></td></tr>
 <tr class="separator:a5a5fcbc88b3cfde17240aa01a9be7530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a26cf7bcd9d586dddad72c0a4bbdf6735"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwonderlo_1_1_stream_multicaster.html#a26cf7bcd9d586dddad72c0a4bbdf6735">main</a> (const std::string &amp;cWonderAddr=&quot;&quot;, const std::string &amp;type=&quot;visual&quot;)</td></tr>
+<tr class="memdesc:a26cf7bcd9d586dddad72c0a4bbdf6735"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that starts a StreamMulticaster-instance.  <a href="#a26cf7bcd9d586dddad72c0a4bbdf6735">More...</a><br/></td></tr>
+<tr class="separator:a26cf7bcd9d586dddad72c0a4bbdf6735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="classwonderlo_1_1_stream_multicaster.html" title="A StreamMulticaster forwards any OSC messages that are sent to its StreamInPort to a multicast group...">StreamMulticaster</a> forwards any OSC messages that are sent to its StreamInPort to a multicast group. </p>
@@ -381,10 +388,55 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a26cf7bcd9d586dddad72c0a4bbdf6735"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int wonderlo::StreamMulticaster::main </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>cWonderAddr</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>type</em> = <code>&quot;visual&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function that starts a StreamMulticaster-instance. </p>
+<p>Network-addresses are used as defined in <a class="el" href="_wonder_header_8h.html">WonderHeader.h</a>, the address of cWONDER can be passed as parameter. This is meant as an OS-independent main function (to be called from the "real" main).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cWonderAddr</td><td>A string of the format "ip:port" that will be used as the address for cWONDER. If an empty string is passed, the default address from <a class="el" href="_wonder_header_8h.html">WonderHeader.h</a> will be used. </td></tr>
+    <tr><td class="paramname">type</td><td>The type of the stream to be forwarded ("visual" / "timer" / "render" / "score")</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 26 2014 14:09:13 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 29 2014 18:58:18 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

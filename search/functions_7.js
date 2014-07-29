@@ -8,5 +8,7 @@ var searchData=
   ['islinkedtowonder',['isLinkedToWonder',['../classwonder_1_1_source_controller.html#aece55d9d388d1f750cd13db3c7f8b5fd',1,'wonder::SourceController']]],
   ['isoutputchannelstereopair',['isOutputChannelStereoPair',['../class_spaop_audio_processor.html#ae4775da45ba836eccdf02bdd74f67d29',1,'SpaopAudioProcessor']]],
   ['isstopped',['isStopped',['../classthread_1_1_thread.html#a496079ce3d189540b3bcdd5a94739a85',1,'thread::Thread']]],
-  ['isvalid',['isValid',['../classlowrappers_1_1_server_thread.html#a5b25c4bdf4a012bf65662f20709f29c3',1,'lowrappers::ServerThread']]]
+  ['isvalid',['isValid',['../classlowrappers_1_1_server_thread.html#a5b25c4bdf4a012bf65662f20709f29c3',1,'lowrappers::ServerThread']]],
+  ['isvalidip',['isValidIP',['../namespaceparsetools.html#a36925851230762d69a1bc1b424961b26',1,'parsetools']]],
+  ['isvalidport',['isValidPort',['../namespaceparsetools.html#a92927bd04d0b428032c703621d0e9e1d',1,'parsetools']]]
 ];

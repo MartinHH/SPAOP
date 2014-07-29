@@ -118,65 +118,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_wonder_osc_server_sender_8h.html">WonderOscServerSender.h</a>&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_generic_server_thread_listener_8h.html">GenericServerThreadListener.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>wonderlo {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classwonderlo_1_1_stream_multicaster.html">   58</a></span>&#160;<span class="keyword">class </span><a class="code" href="classwonderlo_1_1_stream_multicaster.html">StreamMulticaster</a></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classwonderlo_1_1_stream_multicaster.html#aabcf9e495092c53799aa05b801ee0b61">StreamMulticaster</a>(<span class="keyword">const</span> std::string&amp; sourceHost, <span class="keyword">const</span> std::string&amp; sourcePort,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                      <span class="keyword">const</span> std::string&amp; mcGroup, <span class="keyword">const</span> std::string&amp; mcPort,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                      <span class="keyword">const</span> std::string&amp; mcIfaceIp, <span class="keyword">const</span> std::string&amp; connectPort,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                      <span class="keyword">const</span> std::string&amp; streamInPort, <span class="keyword">const</span> std::string&amp; streamName,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                      <span class="keyword">const</span> uint8_t ttl=<a class="code" href="_wonder_header_8h.html#a2efe271dfdf18eb4a66c1c8d1e0e0360">VISUAL_MC_TTL</a>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classwonderlo_1_1_stream_multicaster.html#aca091d7ed0a98d8325fbeab807cc54d2">~StreamMulticaster</a>();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a87068070da594b5a007dca1dd72de70c">getConnectPort</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a5325dd7b0b81445006079e9f079a560e">getStreamInPort</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a686793e2409cea58b949eb726ca2b4c6">getStreamSourceHost</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a632e8194947900a24031bf5d677f055d">getStreamSourcePort</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a3e6f97730ed679411ea60f4756551f12">getMulticastGroup</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#acdc9c18a90552299d0867d436ad76d73">getMulticastPort</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a5a5fcbc88b3cfde17240aa01a9be7530">getMulticastIface</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a> connectIn_;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a> streamIn_;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classlowrappers_1_1_address.html">lowrappers::Address</a> streamSource_;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="classlowrappers_1_1_address.html">lowrappers::Address</a> mcGroup_;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">const</span> std::string streamPath_;          <span class="comment">// &quot;/WONDER/stream/streamName/&quot;</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment">// vvvvv handlers for incoming OSC-messages:</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">int</span> forwardMessage(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types, lo_arg **argv,</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                       <span class="keywordtype">int</span> argc, lo_message msg);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">int</span> onStreamPingI(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types,lo_arg **argv,</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                            <span class="keywordtype">int</span> argc, lo_message msg);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">int</span> onStreamConnect(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types,lo_arg **argv,</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                            <span class="keywordtype">int</span> argc, lo_message msg);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">int</span> onUnknownConnectIn(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types, lo_arg **argv,</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                           <span class="keywordtype">int</span> argc, lo_message msg);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;};</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__stream_multicaster__StreamMulticaster__) */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_parsetools_8h.html">Parsetools.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>wonderlo {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classwonderlo_1_1_stream_multicaster.html">   59</a></span>&#160;<span class="keyword">class </span><a class="code" href="classwonderlo_1_1_stream_multicaster.html">StreamMulticaster</a></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classwonderlo_1_1_stream_multicaster.html#aabcf9e495092c53799aa05b801ee0b61">StreamMulticaster</a>(<span class="keyword">const</span> std::string&amp; sourceHost, <span class="keyword">const</span> std::string&amp; sourcePort,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                      <span class="keyword">const</span> std::string&amp; mcGroup, <span class="keyword">const</span> std::string&amp; mcPort,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                      <span class="keyword">const</span> std::string&amp; mcIfaceIp, <span class="keyword">const</span> std::string&amp; connectPort,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                      <span class="keyword">const</span> std::string&amp; streamInPort, <span class="keyword">const</span> std::string&amp; streamName,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                      <span class="keyword">const</span> uint8_t ttl=<a class="code" href="_wonder_header_8h.html#a2efe271dfdf18eb4a66c1c8d1e0e0360">VISUAL_MC_TTL</a>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classwonderlo_1_1_stream_multicaster.html#aca091d7ed0a98d8325fbeab807cc54d2">~StreamMulticaster</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a87068070da594b5a007dca1dd72de70c">getConnectPort</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a5325dd7b0b81445006079e9f079a560e">getStreamInPort</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a686793e2409cea58b949eb726ca2b4c6">getStreamSourceHost</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a632e8194947900a24031bf5d677f055d">getStreamSourcePort</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a3e6f97730ed679411ea60f4756551f12">getMulticastGroup</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#acdc9c18a90552299d0867d436ad76d73">getMulticastPort</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    std::string <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a5a5fcbc88b3cfde17240aa01a9be7530">getMulticastIface</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classwonderlo_1_1_stream_multicaster.html#a26cf7bcd9d586dddad72c0a4bbdf6735">main</a>(<span class="keyword">const</span> std::string&amp; cWonderAddr=<span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                    <span class="keyword">const</span> std::string&amp; type=<span class="stringliteral">&quot;visual&quot;</span>);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a> connectIn_;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a> streamIn_;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="classlowrappers_1_1_address.html">lowrappers::Address</a> streamSource_;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="classlowrappers_1_1_address.html">lowrappers::Address</a> mcGroup_;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">const</span> std::string streamPath_;          <span class="comment">// &quot;/WONDER/stream/streamName/&quot;</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">// vvvvv handlers for incoming OSC-messages:</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">int</span> forwardMessage(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types, lo_arg **argv,</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                       <span class="keywordtype">int</span> argc, lo_message msg);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">int</span> onStreamPingI(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types,lo_arg **argv,</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                            <span class="keywordtype">int</span> argc, lo_message msg);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">int</span> onStreamConnect(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types,lo_arg **argv,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                            <span class="keywordtype">int</span> argc, lo_message msg);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">int</span> onUnknownConnectIn(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keyword">const</span> <span class="keywordtype">char</span> *types, lo_arg **argv,</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                           <span class="keywordtype">int</span> argc, lo_message msg);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;};</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__stream_multicaster__StreamMulticaster__) */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_aca091d7ed0a98d8325fbeab807cc54d2"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#aca091d7ed0a98d8325fbeab807cc54d2">wonderlo::StreamMulticaster::~StreamMulticaster</a></div><div class="ttdeci">virtual ~StreamMulticaster()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:60</div></div>
 <div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_acdc9c18a90552299d0867d436ad76d73"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#acdc9c18a90552299d0867d436ad76d73">wonderlo::StreamMulticaster::getMulticastPort</a></div><div class="ttdeci">std::string getMulticastPort() const </div><div class="ttdoc">Returns the port of the multicast group. </div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:96</div></div>
 <div class="ttc" id="_generic_server_thread_listener_8h_html"><div class="ttname"><a href="_generic_server_thread_listener_8h.html">GenericServerThreadListener.h</a></div></div>
 <div class="ttc" id="_wonder_osc_server_sender_8h_html"><div class="ttname"><a href="_wonder_osc_server_sender_8h.html">WonderOscServerSender.h</a></div></div>
-<div class="ttc" id="classwonderlo_1_1_stream_multicaster_html"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html">wonderlo::StreamMulticaster</a></div><div class="ttdoc">A StreamMulticaster forwards any OSC messages that are sent to its StreamInPort to a multicast group...</div><div class="ttdef"><b>Definition:</b> StreamMulticaster.h:58</div></div>
+<div class="ttc" id="classwonderlo_1_1_stream_multicaster_html"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html">wonderlo::StreamMulticaster</a></div><div class="ttdoc">A StreamMulticaster forwards any OSC messages that are sent to its StreamInPort to a multicast group...</div><div class="ttdef"><b>Definition:</b> StreamMulticaster.h:59</div></div>
 <div class="ttc" id="classlowrappers_1_1_address_html"><div class="ttname"><a href="classlowrappers_1_1_address.html">lowrappers::Address</a></div><div class="ttdoc">A wrapper for Liblo&#39;s lo_address. </div><div class="ttdef"><b>Definition:</b> Address.h:35</div></div>
 <div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_a632e8194947900a24031bf5d677f055d"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#a632e8194947900a24031bf5d677f055d">wonderlo::StreamMulticaster::getStreamSourcePort</a></div><div class="ttdeci">std::string getStreamSourcePort() const </div><div class="ttdoc">Returns the port of the stream source (i.e. </div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:86</div></div>
 <div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_a3e6f97730ed679411ea60f4756551f12"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#a3e6f97730ed679411ea60f4756551f12">wonderlo::StreamMulticaster::getMulticastGroup</a></div><div class="ttdeci">std::string getMulticastGroup() const </div><div class="ttdoc">Returns the IP of the multicast group. </div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:91</div></div>
@@ -184,13 +188,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_a686793e2409cea58b949eb726ca2b4c6"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#a686793e2409cea58b949eb726ca2b4c6">wonderlo::StreamMulticaster::getStreamSourceHost</a></div><div class="ttdeci">std::string getStreamSourceHost() const </div><div class="ttdoc">Returns the hostname of the stream source (i.e. </div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:81</div></div>
 <div class="ttc" id="classlowrappers_1_1_server_thread_html"><div class="ttname"><a href="classlowrappers_1_1_server_thread.html">lowrappers::ServerThread</a></div><div class="ttdoc">A server thread with Liblo-style callback capabilities. </div><div class="ttdef"><b>Definition:</b> ServerThread.h:52</div></div>
 <div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_aabcf9e495092c53799aa05b801ee0b61"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#aabcf9e495092c53799aa05b801ee0b61">wonderlo::StreamMulticaster::StreamMulticaster</a></div><div class="ttdeci">StreamMulticaster(const std::string &amp;sourceHost, const std::string &amp;sourcePort, const std::string &amp;mcGroup, const std::string &amp;mcPort, const std::string &amp;mcIfaceIp, const std::string &amp;connectPort, const std::string &amp;streamInPort, const std::string &amp;streamName, const uint8_t ttl=VISUAL_MC_TTL)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:24</div></div>
+<div class="ttc" id="_parsetools_8h_html"><div class="ttname"><a href="_parsetools_8h.html">Parsetools.h</a></div></div>
 <div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_a5325dd7b0b81445006079e9f079a560e"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#a5325dd7b0b81445006079e9f079a560e">wonderlo::StreamMulticaster::getStreamInPort</a></div><div class="ttdeci">int getStreamInPort() const </div><div class="ttdoc">Returns the port where the incoming stream is recieved. </div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:76</div></div>
+<div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_a26cf7bcd9d586dddad72c0a4bbdf6735"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#a26cf7bcd9d586dddad72c0a4bbdf6735">wonderlo::StreamMulticaster::main</a></div><div class="ttdeci">static int main(const std::string &amp;cWonderAddr=&quot;&quot;, const std::string &amp;type=&quot;visual&quot;)</div><div class="ttdoc">A function that starts a StreamMulticaster-instance. </div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:106</div></div>
 <div class="ttc" id="classwonderlo_1_1_stream_multicaster_html_a5a5fcbc88b3cfde17240aa01a9be7530"><div class="ttname"><a href="classwonderlo_1_1_stream_multicaster.html#a5a5fcbc88b3cfde17240aa01a9be7530">wonderlo::StreamMulticaster::getMulticastIface</a></div><div class="ttdeci">std::string getMulticastIface() const </div><div class="ttdoc">Returns the interface identifier for the network interface used for sending to the multicast group...</div><div class="ttdef"><b>Definition:</b> StreamMulticaster.cpp:101</div></div>
 <div class="ttc" id="_wonder_header_8h_html_a2efe271dfdf18eb4a66c1c8d1e0e0360"><div class="ttname"><a href="_wonder_header_8h.html#a2efe271dfdf18eb4a66c1c8d1e0e0360">VISUAL_MC_TTL</a></div><div class="ttdeci">#define VISUAL_MC_TTL</div><div class="ttdoc">The time-to-live value for messages sent to the multicast group. </div><div class="ttdef"><b>Definition:</b> WonderHeader.h:101</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 26 2014 14:09:12 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 29 2014 18:58:17 for SPAOP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

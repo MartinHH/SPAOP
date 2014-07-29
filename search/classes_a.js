@@ -6,8 +6,10 @@ var searchData=
   ['sourcecontroller',['SourceController',['../classwonder_1_1_source_controller.html',1,'wonder']]],
   ['sourcedisplay',['SourceDisplay',['../classwonderjuce_1_1_source_display.html',1,'wonderjuce']]],
   ['sourcepanel',['SourcePanel',['../classwonderjuce_1_1_source_panel.html',1,'wonderjuce']]],
+  ['sourceparamcomponent',['SourceParamComponent',['../class_source_param_component.html',1,'']]],
   ['sourcezoomport',['SourceZoomPort',['../classwonderjuce_1_1_source_zoom_port.html',1,'wonderjuce']]],
   ['spaopaudioprocessor',['SpaopAudioProcessor',['../class_spaop_audio_processor.html',1,'']]],
   ['spaopaudioprocessoreditor',['SpaopAudioProcessorEditor',['../class_spaop_audio_processor_editor.html',1,'']]],
+  ['spaopeditorcomponent',['SpaopEditorComponent',['../classwonderjuce_1_1_spaop_editor_component.html',1,'wonderjuce']]],
   ['streammulticaster',['StreamMulticaster',['../classwonderlo_1_1_stream_multicaster.html',1,'wonderlo']]]
 ];

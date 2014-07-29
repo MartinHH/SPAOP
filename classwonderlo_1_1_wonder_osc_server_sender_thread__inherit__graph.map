@@ -1,8 +1,8 @@
 <map id="wonderlo::WonderOscServerSenderThread" name="wonderlo::WonderOscServerSenderThread">
-<area shape="rect" id="node2" href="$classwonderlo_1_1_wonder_osc_sender_thread.html" title="A thread implementing the wonder::OscSenderThread interface. " alt="" coords="130,155,325,194"/>
-<area shape="rect" id="node3" href="$classthread_1_1_thread.html" title="A wrapper for the std::thread wrapping it into a Java&#45;style thread object. " alt="" coords="4,81,112,106"/>
-<area shape="rect" id="node4" href="$classwonder_1_1_osc_sender_thread.html" title="An interface for a thread implementing the OscSender interface. " alt="" coords="137,81,319,106"/>
-<area shape="rect" id="node5" href="$classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER&#45;specific OSC&#45;message..." alt="" coords="182,6,321,31"/>
-<area shape="rect" id="node6" href="$classwonderlo_1_1_wonder_osc_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface. " alt="" coords="343,81,539,106"/>
-<area shape="rect" id="node7" href="$classlowrappers_1_1_address.html" title="A wrapper for Liblo&#39;s lo_address. " alt="" coords="370,6,512,31"/>
+<area shape="rect" id="node2" href="$classwonderlo_1_1_wonder_osc_sender_thread.html" title="A thread implementing the wonder::OscSenderThread interface. " alt="" coords="131,152,327,191"/>
+<area shape="rect" id="node3" href="$classthread_1_1_thread.html" title="A wrapper for the std::thread wrapping it into a Java&#45;style thread object. " alt="" coords="5,79,114,104"/>
+<area shape="rect" id="node4" href="$classwonder_1_1_osc_sender_thread.html" title="An interface for a thread implementing the OscSender interface. " alt="" coords="138,79,320,104"/>
+<area shape="rect" id="node5" href="$classwonder_1_1_osc_sender.html" title="An abstract class describing the interface for a class that sends out the WONDER&#45;specific OSC&#45;message..." alt="" coords="183,5,323,31"/>
+<area shape="rect" id="node6" href="$classwonderlo_1_1_wonder_osc_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface. " alt="" coords="344,79,540,104"/>
+<area shape="rect" id="node7" href="$classlowrappers_1_1_address.html" title="A wrapper for Liblo&#39;s lo_address. " alt="" coords="371,5,514,31"/>
 </map>

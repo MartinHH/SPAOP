@@ -4,6 +4,7 @@ var searchData=
   ['changeprogramname',['changeProgramName',['../class_spaop_audio_processor.html#a10ea2b49eacdce7d32283828d8f6b066',1,'SpaopAudioProcessor']]],
   ['colour',['Colour',['../structwonder_1_1_colour.html#a83885ee682bf18fb3a131795d7a79614',1,'wonder::Colour']]],
   ['componentwithfocuspoint',['ComponentWithFocusPoint',['../classwonderjuce_1_1_component_with_focus_point.html#af2742cc4d953b5fa35f5e7667dc17868',1,'wonderjuce::ComponentWithFocusPoint']]],
+  ['connectioncomponent',['ConnectionComponent',['../class_connection_component.html#a4652cf5dc552f47ea7a8ad301a758c0d',1,'ConnectionComponent']]],
   ['connectionlost',['connectionLost',['../classwonder_1_1_ping_control_1_1_listener.html#a1e0fe479fa721c56ceb6bd0af56e60fe',1,'wonder::PingControl::Listener::connectionLost()'],['../classwonder_1_1_source_controller_1_1_listener.html#a58253e3e2f824a11391882b33ba02f2e',1,'wonder::SourceController::Listener::connectionLost()']]],
   ['connectionstatus',['connectionStatus',['../classwonder_1_1_source_controller.html#a118d0790fb3b0c8f3c7263c987dcc51c',1,'wonder::SourceController']]],
   ['connectionstatusstring',['connectionStatusString',['../classwonder_1_1_source_controller.html#a63e8a79693f3f7f5de790cfd836fbf3c',1,'wonder::SourceController']]],

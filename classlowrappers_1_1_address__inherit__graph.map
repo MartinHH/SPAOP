@@ -1,6 +1,6 @@
 <map id="lowrappers::Address" name="lowrappers::Address">
-<area shape="rect" id="node2" href="$classwonderlo_1_1_wonder_osc_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface. " alt="" coords="114,81,309,106"/>
-<area shape="rect" id="node3" href="$classwonderlo_1_1_wonder_osc_sender_thread.html" title="A thread implementing the wonder::OscSenderThread interface. " alt="" coords="5,155,200,194"/>
-<area shape="rect" id="node5" href="$classwonderlo_1_1_wonder_osc_server_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface, sending its messages from a speci..." alt="" coords="225,155,417,194"/>
-<area shape="rect" id="node4" href="$classwonderlo_1_1_wonder_osc_server_sender_thread.html" title="A WonderOscSenderThread thread, sending its messages from a specified lowrappers::ServerThread&#39;s port..." alt="" coords="7,243,199,282"/>
+<area shape="rect" id="node2" href="$classwonderlo_1_1_wonder_osc_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface. " alt="" coords="115,79,311,104"/>
+<area shape="rect" id="node3" href="$classwonderlo_1_1_wonder_osc_sender_thread.html" title="A thread implementing the wonder::OscSenderThread interface. " alt="" coords="5,152,201,191"/>
+<area shape="rect" id="node5" href="$classwonderlo_1_1_wonder_osc_server_sender.html" title="A lowrappers::Address implementing the wonder::OscSender interface, sending its messages from a speci..." alt="" coords="226,152,418,191"/>
+<area shape="rect" id="node4" href="$classwonderlo_1_1_wonder_osc_server_sender_thread.html" title="A WonderOscSenderThread thread, sending its messages from a specified lowrappers::ServerThread&#39;s port..." alt="" coords="7,239,199,277"/>
 </map>

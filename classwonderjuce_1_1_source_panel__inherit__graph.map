@@ -1,4 +1,4 @@
 <map id="wonderjuce::SourcePanel" name="wonderjuce::SourcePanel">
-<area shape="rect" id="node2" href="$classwonderjuce_1_1_source_display.html" title="An abstract class for a GUI component that displays a two&#45;dimensional view of WONDER sources and the ..." alt="" coords="10,169,192,194"/>
-<area shape="rect" id="node3" href="$classwonderjuce_1_1_component_with_focus_point.html" title="An abstract class extending juce::Component, adding methods to query a &quot;focus point&quot;. " alt="" coords="5,81,197,119"/>
+<area shape="rect" id="node2" href="$classwonderjuce_1_1_source_display.html" title="An abstract class for a GUI component that displays a two&#45;dimensional view of WONDER sources and the ..." alt="" coords="10,165,193,191"/>
+<area shape="rect" id="node3" href="$classwonderjuce_1_1_component_with_focus_point.html" title="An abstract class extending juce::Component, adding methods to query a &quot;focus point&quot;. " alt="" coords="5,79,198,117"/>
 </map>

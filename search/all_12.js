@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['update',['update',['../class_connection_component.html#a2e221a5962e52bccafcecfdc986ae82c',1,'ConnectionComponent::update()'],['../classwonderjuce_1_1_spaop_editor_component.html#adc38ed58647b4dc31b6e29806a646d5f',1,'wonderjuce::SpaopEditorComponent::update()']]],
   ['updatesourcecollectionfromcwonderproject',['updateSourceCollectionFromCWonderProject',['../classwonder_1_1_xml_parser.html#aa51a278ba138abf65c03ba217ca4fda2',1,'wonder::XmlParser::updateSourceCollectionFromCWonderProject()'],['../classwonderjuce_1_1_xml_factory.html#ace4b98cb705f27366bbfefd56c681903',1,'wonderjuce::XmlFactory::updateSourceCollectionFromCWonderProject()']]],
   ['updatesourcecolour',['updateSourceColour',['../classwonder_1_1_source_controller.html#aad66b2032286795d643f2e7d57c4bd0d',1,'wonder::SourceController']]],
   ['updatesourcecontrollerfromxml',['updateSourceControllerFromXml',['../classwonderjuce_1_1_xml_factory.html#aa064bd87a49b941f09f248f5ec20592d',1,'wonderjuce::XmlFactory']]],
