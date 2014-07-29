@@ -313,17 +313,6 @@ double SpaopAudioProcessorEditor::normalizedValue(Button* button)
     return button->getToggleState() ? 1.0 : 0.0;
 }
 
-Colour SpaopAudioProcessorEditor::connectionColour(wonder::ConnectionStates cStatus)
-{
-    switch (cStatus)
-    {
-        case wonder::inactive:  return Colours::grey;
-        case wonder::active:    return Colours::green;
-        case wonder::error:     return Colours::red;
-    }
-    return Colours::red;
-}
-
 Colour SpaopAudioProcessorEditor::juceColour(wonder::Colour colour)
 {
     return Colour(colour.r, colour.g, colour.b);
