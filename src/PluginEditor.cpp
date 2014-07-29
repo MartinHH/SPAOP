@@ -33,15 +33,6 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
     addAndMakeVisible (displayGroup = new GroupComponent ("display group",
                                                           TRANS("Display")));
 
-    addAndMakeVisible (parametersGroup = new GroupComponent ("parameters group",
-                                                             TRANS("Source parameters")));
-
-    addAndMakeVisible (sourceGroup = new GroupComponent ("source group",
-                                                         TRANS("Source selection")));
-
-    addAndMakeVisible (connectionGroup = new GroupComponent ("connection group",
-                                                             TRANS("Connection")));
-
     addAndMakeVisible (xSlider = new Slider ("xCoord"));
     xSlider->setRange (-100, 100, 0.01);
     xSlider->setSliderStyle (Slider::LinearHorizontal);
@@ -53,40 +44,6 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
     ySlider->setSliderStyle (Slider::LinearHorizontal);
     ySlider->setTextBoxStyle (Slider::TextBoxBelow, false, 60, 20);
     ySlider->addListener (this);
-
-    addAndMakeVisible (idSlider = new Slider ("ID"));
-    idSlider->setRange (0, 63, 1);
-    idSlider->setSliderStyle (Slider::IncDecButtons);
-    idSlider->setTextBoxStyle (Slider::TextBoxRight, false, 40, 20);
-    idSlider->addListener (this);
-
-    addAndMakeVisible (idLabel = new Label ("id-Label",
-                                            TRANS("ID:")));
-    idLabel->setFont (Font (15.00f, Font::plain));
-    idLabel->setJustificationType (Justification::centred);
-    idLabel->setEditable (false, false, false);
-    idLabel->setColour (TextEditor::textColourId, Colours::black);
-    idLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (angleLabel = new Label ("angle label",
-                                               TRANS("Angle:")));
-    angleLabel->setFont (Font (15.00f, Font::plain));
-    angleLabel->setJustificationType (Justification::centredLeft);
-    angleLabel->setEditable (false, false, false);
-    angleLabel->setColour (TextEditor::textColourId, Colours::black);
-    angleLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (dopplerButton = new ToggleButton ("dopler button"));
-    dopplerButton->setButtonText (TRANS("Doppler effect"));
-    dopplerButton->addListener (this);
-
-    addAndMakeVisible (lockIDButton = new ToggleButton ("lock id button"));
-    lockIDButton->setButtonText (TRANS("Lock"));
-    lockIDButton->addListener (this);
-
-    addAndMakeVisible (linkWonderButton = new ToggleButton ("link wonder button"));
-    linkWonderButton->setButtonText (TRANS("Link to WONDER"));
-    linkWonderButton->addListener (this);
 
     addAndMakeVisible (zoomSlider = new Slider ("zoom slider"));
     zoomSlider->setRange (1, 50, 0.1);
@@ -118,57 +75,6 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
     zoomLabel->setColour (TextEditor::textColourId, Colours::black);
     zoomLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (addrLabel = new Label ("addr label",
-                                              TRANS("Address:")));
-    addrLabel->setFont (Font (15.00f, Font::plain));
-    addrLabel->setJustificationType (Justification::centredLeft);
-    addrLabel->setEditable (false, false, false);
-    addrLabel->setColour (TextEditor::textColourId, Colours::black);
-    addrLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (urlLabel = new Label ("url label",
-                                             TRANS("??????")));
-    urlLabel->setFont (Font (15.00f, Font::plain));
-    urlLabel->setJustificationType (Justification::centredLeft);
-    urlLabel->setEditable (false, false, false);
-    urlLabel->setColour (TextEditor::textColourId, Colours::black);
-    urlLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (cStatusLabel = new Label ("c-status label",
-                                                 TRANS("Connection status")));
-    cStatusLabel->setFont (Font (15.00f, Font::plain));
-    cStatusLabel->setJustificationType (Justification::centredLeft);
-    cStatusLabel->setEditable (false, false, false);
-    cStatusLabel->setColour (TextEditor::textColourId, Colours::black);
-    cStatusLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (nameEditor = new TextEditor ("name editor"));
-    nameEditor->setMultiLine (false);
-    nameEditor->setReturnKeyStartsNewLine (false);
-    nameEditor->setReadOnly (false);
-    nameEditor->setScrollbarsShown (true);
-    nameEditor->setCaretVisible (true);
-    nameEditor->setPopupMenuEnabled (true);
-    nameEditor->setText (String::empty);
-
-    addAndMakeVisible (nameLabel = new Label ("name label",
-                                              TRANS("Name:")));
-    nameLabel->setFont (Font (15.00f, Font::plain));
-    nameLabel->setJustificationType (Justification::centredLeft);
-    nameLabel->setEditable (false, false, false);
-    nameLabel->setColour (TextEditor::textColourId, Colours::black);
-    nameLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (typeButton = new ToggleButton ("type button"));
-    typeButton->setButtonText (TRANS("Type is point"));
-    typeButton->addListener (this);
-    typeButton->setToggleState (true, dontSendNotification);
-
-    addAndMakeVisible (colourButton = new TextButton ("colour button"));
-    colourButton->setButtonText (TRANS("Colour"));
-    colourButton->addListener (this);
-    colourButton->setColour (TextButton::buttonColourId, Colours::red);
-
     addAndMakeVisible (showOthersButton = new ToggleButton ("show others button"));
     showOthersButton->setButtonText (TRANS("Show other sources"));
     showOthersButton->addListener (this);
@@ -176,23 +82,13 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
 
     addAndMakeVisible (sourceZoomPort = new wonderjuce::SourceZoomPort ("source zoomport"));
 
-    addAndMakeVisible (angleSlider = new Slider ("angle slider"));
-    angleSlider->setRange (0, 360, 0.1);
-    angleSlider->setSliderStyle (Slider::Rotary);
-    angleSlider->setTextBoxStyle (Slider::TextBoxAbove, false, 60, 20);
-    angleSlider->setColour (Slider::backgroundColourId, Colour (0x00000000));
-    angleSlider->setColour (Slider::thumbColourId, Colour (0x00bbbbff));
-    angleSlider->setColour (Slider::trackColourId, Colour (0x00ffffff));
-    angleSlider->setColour (Slider::rotarySliderFillColourId, Colour (0x00ffffff));
-    angleSlider->setColour (Slider::rotarySliderOutlineColourId, Colours::black);
-    angleSlider->addListener (this);
-
     addAndMakeVisible (showNamesButton = new ToggleButton ("show names button"));
     showNamesButton->setButtonText (TRANS("Show source names"));
     showNamesButton->addListener (this);
 
     addAndMakeVisible (tabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtTop));
     tabbedComponent->setTabBarDepth (30);
+    tabbedComponent->addTab (TRANS("WFS Source"), Colour (0xff777777), new SourceParamComponent (ownerFilter), true);
     tabbedComponent->addTab (TRANS("Connection"), Colour (0xff777777), new ConnectionComponent (ownerFilter), true);
     tabbedComponent->setCurrentTabIndex (0);
 
@@ -203,9 +99,6 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
     sourcePanel->setSources(ownerFilter->getSourceController()->getSources());
     sourcePanel->setRoom(ownerFilter->getSourceController()->getRoom());
 
-    nameEditor->addListener(this);
-    nameIsBeingEdited_ = false;
-
     // Since the sliders were auto-generated with the Introjucer which does
     // not allow using defines, we have to override the settings from above:
     xSlider->setRange (COORD_MIN, COORD_MAX, COORD_PRECISION);
@@ -213,18 +106,10 @@ SpaopAudioProcessorEditor::SpaopAudioProcessorEditor (SpaopAudioProcessor* owner
 
     //[/UserPreSize]
 
-    setSize (976, 490);
+    setSize (728, 490);
 
 
     //[Constructor] You can add your own custom stuff here..
-
-    // Within WONDER, 0.0 degree angle is 3 o'clock, while for the slider,
-    // 0.0 is 12 o'clock. So the rotary slider's start and end need to be
-    // adjusted. Also, we don't want it to stop at end:
-    angleSlider->setRotaryParameters(float_Pi * 0.5, float_Pi * 2.5, false);
-
-    idSlider->setRange(0, MAX_WONDER_SOURCES-1, 1);
-
     zoomSlider->setValue(ownerFilter->getZoomFactor());
     sourceZoomPort->setZoomFactor(ownerFilter->getZoomFactor());
 
@@ -238,31 +123,14 @@ SpaopAudioProcessorEditor::~SpaopAudioProcessorEditor()
     //[/Destructor_pre]
 
     displayGroup = nullptr;
-    parametersGroup = nullptr;
-    sourceGroup = nullptr;
-    connectionGroup = nullptr;
     xSlider = nullptr;
     ySlider = nullptr;
-    idSlider = nullptr;
-    idLabel = nullptr;
-    angleLabel = nullptr;
-    dopplerButton = nullptr;
-    lockIDButton = nullptr;
-    linkWonderButton = nullptr;
     zoomSlider = nullptr;
     yPosLabel = nullptr;
     xPosLabel = nullptr;
     zoomLabel = nullptr;
-    addrLabel = nullptr;
-    urlLabel = nullptr;
-    cStatusLabel = nullptr;
-    nameEditor = nullptr;
-    nameLabel = nullptr;
-    typeButton = nullptr;
-    colourButton = nullptr;
     showOthersButton = nullptr;
     sourceZoomPort = nullptr;
-    angleSlider = nullptr;
     showNamesButton = nullptr;
     tabbedComponent = nullptr;
 
@@ -285,34 +153,17 @@ void SpaopAudioProcessorEditor::paint (Graphics& g)
 
 void SpaopAudioProcessorEditor::resized()
 {
-    displayGroup->setBounds (464, 384, 240, 96);
-    parametersGroup->setBounds (464, 88, 240, 168);
-    sourceGroup->setBounds (464, 8, 240, 64);
-    connectionGroup->setBounds (464, 272, 240, 96);
+    displayGroup->setBounds (472, 384, 240, 96);
     xSlider->setBounds (112, 408, 100, 71);
     ySlider->setBounds (280, 408, 100, 71);
-    idSlider->setBounds (520, 32, 96, 24);
-    idLabel->setBounds (480, 32, 32, 24);
-    angleLabel->setBounds (624, 144, 56, 24);
-    dopplerButton->setBounds (480, 144, 112, 24);
-    lockIDButton->setBounds (632, 32, 56, 24);
-    linkWonderButton->setBounds (480, 288, 208, 24);
-    zoomSlider->setBounds (552, 448, 136, 24);
+    zoomSlider->setBounds (560, 448, 136, 24);
     yPosLabel->setBounds (256, 456, 48, 24);
     xPosLabel->setBounds (88, 456, 48, 24);
     zoomLabel->setBounds (480, 448, 48, 24);
-    addrLabel->setBounds (480, 312, 64, 24);
-    urlLabel->setBounds (552, 312, 136, 24);
-    cStatusLabel->setBounds (480, 336, 200, 24);
-    nameEditor->setBounds (552, 112, 136, 24);
-    nameLabel->setBounds (480, 112, 56, 24);
-    typeButton->setBounds (480, 176, 112, 24);
-    colourButton->setBounds (480, 216, 104, 24);
-    showOthersButton->setBounds (480, 400, 208, 24);
+    showOthersButton->setBounds (488, 400, 208, 24);
     sourceZoomPort->setBounds (24, 16, 432, 432);
-    angleSlider->setBounds (624, 176, 56, 72);
-    showNamesButton->setBounds (480, 424, 208, 24);
-    tabbedComponent->setBounds (712, 16, 256, 352);
+    showNamesButton->setBounds (488, 424, 208, 24);
+    tabbedComponent->setBounds (464, 16, 256, 352);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -336,24 +187,11 @@ void SpaopAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved)
                                 (float) normalizedValue(sliderThatWasMoved) );
         //[/UserSliderCode_ySlider]
     }
-    else if (sliderThatWasMoved == idSlider)
-    {
-        //[UserSliderCode_idSlider] -- add your slider handling code here..
-        getProcessor()->getSourceController()->setID( (int) sliderThatWasMoved->getValue() );
-        //[/UserSliderCode_idSlider]
-    }
     else if (sliderThatWasMoved == zoomSlider)
     {
         //[UserSliderCode_zoomSlider] -- add your slider handling code here..
         getProcessor()->setZoomFactor(zoomSlider->getValue());
         //[/UserSliderCode_zoomSlider]
-    }
-    else if (sliderThatWasMoved == angleSlider)
-    {
-        //[UserSliderCode_angleSlider] -- add your slider handling code here..
-        getProcessor()->setParameterNotifyingHost (wonder::Source::angleParam,
-                                (float) normalizedValue(sliderThatWasMoved) );
-        //[/UserSliderCode_angleSlider]
     }
 
     //[UsersliderValueChanged_Post]
@@ -365,39 +203,7 @@ void SpaopAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     //[UserbuttonClicked_Pre]
     //[/UserbuttonClicked_Pre]
 
-    if (buttonThatWasClicked == dopplerButton)
-    {
-        //[UserButtonCode_dopplerButton] -- add your button handler code here..
-        getProcessor()->setParameterNotifyingHost (wonder::Source::dopplParam,
-                                (float) normalizedValue(buttonThatWasClicked) );
-        //[/UserButtonCode_dopplerButton]
-    }
-    else if (buttonThatWasClicked == lockIDButton)
-    {
-        //[UserButtonCode_lockIDButton] -- add your button handler code here..
-        getSourceController()->setIdIsLocked(lockIDButton->getToggleState());
-        //[/UserButtonCode_lockIDButton]
-    }
-    else if (buttonThatWasClicked == linkWonderButton)
-    {
-        //[UserButtonCode_linkWonderButton] -- add your button handler code here..
-        getSourceController()->setLinkedToWonder(linkWonderButton->getToggleState());
-        //[/UserButtonCode_linkWonderButton]
-    }
-    else if (buttonThatWasClicked == typeButton)
-    {
-        //[UserButtonCode_typeButton] -- add your button handler code here..
-        getProcessor()->setParameterNotifyingHost (wonder::Source::typeParam,
-                                                   (float) normalizedValue(buttonThatWasClicked) );
-        //[/UserButtonCode_typeButton]
-    }
-    else if (buttonThatWasClicked == colourButton)
-    {
-        //[UserButtonCode_colourButton] -- add your button handler code here..
-        showColourSelector();
-        //[/UserButtonCode_colourButton]
-    }
-    else if (buttonThatWasClicked == showOthersButton)
+    if (buttonThatWasClicked == showOthersButton)
     {
         //[UserButtonCode_showOthersButton] -- add your button handler code here..
         getProcessor()->setShowOtherSources(showOthersButton->getToggleState());
@@ -433,41 +239,15 @@ void SpaopAudioProcessorEditor::timerCallback()
     wonder::SourceController* controller = getSourceController();
     const wonder::Source& source = controller->getSource();
 
-    // Buttons:
-    colourButton->setColour(TextButton::buttonColourId, Colour(source.getRed(),
-                                                               source.getGreen(),
-                                                               source.getBlue()));
-
     // Sliders:
-
-    idSlider->setRange(0, MAX_WONDER_SOURCES, 1);
-    // TODO: what happens if current value is out of range?
-    idSlider->setValue(source.getID());
-    idSlider->setEnabled(!controller->idIsLocked());
-
     xSlider->setValue(source.getXPos());
     ySlider->setValue(source.getYPos());
-    angleSlider->setValue(source.getAngle());
     zoomSlider->setValue(getProcessor()->getZoomFactor());
 
     // ToggleButtons:
-    dopplerButton->setToggleState(source.dopplerIsEnabled(), dontSendNotification);
-    linkWonderButton->setToggleState(controller->isLinkedToWonder(), dontSendNotification);
-    lockIDButton->setToggleState(controller->idIsLocked(), dontSendNotification);
-    typeButton->setToggleState(source.getType() == wonder::Source::point,
-                                 dontSendNotification);
     showOthersButton->setToggleState(getProcessor()->showOtherSources(),
                                      dontSendNotification);
     showNamesButton->setToggleState(getProcessor()->showNames(), dontSendNotification);
-
-    const bool isPlaneSource = source.getType() == wonder::Source::plane;
-    angleLabel->setEnabled(isPlaneSource);
-    angleSlider->setEnabled(isPlaneSource);
-
-    if(!nameIsBeingEdited_){
-        nameEditor->setText(source.getName());
-        nameIsBeingEdited_ = false;
-    }
 
     sourceZoomPort->setZoomFactor(getProcessor()->getZoomFactor());
 
@@ -476,21 +256,13 @@ void SpaopAudioProcessorEditor::timerCallback()
     sourcePanel->setShowOtherSources(getProcessor()->showOtherSources());
     sourcePanel->setShowNames(getProcessor()->showNames());
 
-    urlLabel->setText(controller->getDataDestHostAndPort(), dontSendNotification);
+    // update the tabbed subcomponents:
+    for (int i = 0; i < tabbedComponent->getNumTabs(); i++){
+        wonderjuce::SpaopEditorComponent* c =
+            static_cast<wonderjuce::SpaopEditorComponent*> (tabbedComponent->getTabContentComponent(i));
+        c->update();
+    }
 
-    cStatusLabel->setText(controller->connectionStatusString(), dontSendNotification);
-    cStatusLabel->setColour(Label::textColourId, connectionColour(controller->connectionStatus()));
-
-    wonderjuce::SpaopEditorComponent* t0 =
-        static_cast<wonderjuce::SpaopEditorComponent*> (tabbedComponent->getTabContentComponent(0));
-    t0->update();
-
-}
-
-void SpaopAudioProcessorEditor::changeListenerCallback(ChangeBroadcaster *changeBroadcaster)
-{
-    ColourSelector* colourSelector = dynamic_cast <ColourSelector*> (changeBroadcaster);
-    getSourceController()->updateSourceColour(wonderColour(colourSelector->getCurrentColour()));
 }
 
 void SpaopAudioProcessorEditor::sourcePanelDragStarted(wonderjuce::SourcePanel *panel)
@@ -531,28 +303,6 @@ void SpaopAudioProcessorEditor::sourcePanelDragEnded(wonderjuce::SourcePanel *pa
     }
 }
 
-
-void SpaopAudioProcessorEditor::textEditorTextChanged(juce::TextEditor &textEditor)
-{
-    nameIsBeingEdited_ = true;
-}
-
-void SpaopAudioProcessorEditor::textEditorReturnKeyPressed(TextEditor &textEditor)
-{
-    if (&textEditor == nameEditor && nameIsBeingEdited_) {
-        getProcessor()->getSourceController()->updateSourceName(textEditor.getText().toStdString());
-        nameIsBeingEdited_ = false;
-    }
-}
-
-void SpaopAudioProcessorEditor::textEditorFocusLost(TextEditor &textEditor)
-{
-    if (&textEditor == nameEditor && nameIsBeingEdited_) {
-        getProcessor()->getSourceController()->updateSourceName(textEditor.getText().toStdString());
-        nameIsBeingEdited_ = false;
-    }
-}
-
 double SpaopAudioProcessorEditor::normalizedValue(Slider* slider)
 {
     return NORMALIZE(slider->getMinimum(), slider->getMaximum(), slider->getValue());
@@ -584,18 +334,6 @@ wonder::Colour SpaopAudioProcessorEditor::wonderColour(Colour colour)
     return wonder::Colour(colour.getRed(), colour.getGreen(), colour.getBlue());
 }
 
-void SpaopAudioProcessorEditor::showColourSelector()
-{
-    ColourSelector* colourSelector = new ColourSelector(ColourSelector::showColourAtTop
-                                                      | ColourSelector::showColourspace);
-    colourSelector->addChangeListener(this);
-    colourSelector->setCurrentColour(juceColour(getProcessor()->getSourceController()
-                                                ->getSource().getCoulour()));
-    colourSelector->setSize(COLOUR_SELECTOR_SIZE, COLOUR_SELECTOR_SIZE);
-
-    CallOutBox::launchAsynchronously(colourSelector, colourButton->getScreenBounds(),
-                                     this);
-}
 
 //[/MiscUserCode]
 
@@ -610,19 +348,13 @@ void SpaopAudioProcessorEditor::showColourSelector()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="SpaopAudioProcessorEditor"
-                 componentName="" parentClasses="public AudioProcessorEditor, public Timer, public wonderjuce::SourcePanel::Listener, public TextEditor::Listener, public ChangeListener"
+                 componentName="" parentClasses="public AudioProcessorEditor, public Timer, public wonderjuce::SourcePanel::Listener"
                  constructorParams="SpaopAudioProcessor* ownerFilter" variableInitialisers="AudioProcessorEditor(ownerFilter)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="976" initialHeight="490">
+                 fixedSize="1" initialWidth="728" initialHeight="490">
   <BACKGROUND backgroundColour="ff787878"/>
   <GROUPCOMPONENT name="display group" id="e866147c42bab00a" memberName="displayGroup"
-                  virtualName="" explicitFocusOrder="0" pos="464 384 240 96" title="Display"/>
-  <GROUPCOMPONENT name="parameters group" id="c7f1afc9060fd53a" memberName="parametersGroup"
-                  virtualName="" explicitFocusOrder="0" pos="464 88 240 168" title="Source parameters"/>
-  <GROUPCOMPONENT name="source group" id="3afb455592111222" memberName="sourceGroup"
-                  virtualName="" explicitFocusOrder="0" pos="464 8 240 64" title="Source selection"/>
-  <GROUPCOMPONENT name="connection group" id="75c4d4aef7a76922" memberName="connectionGroup"
-                  virtualName="" explicitFocusOrder="0" pos="464 272 240 96" title="Connection"/>
+                  virtualName="" explicitFocusOrder="0" pos="472 384 240 96" title="Display"/>
   <SLIDER name="xCoord" id="a58b89fa9741293f" memberName="xSlider" virtualName=""
           explicitFocusOrder="0" pos="112 408 100 71" min="-100" max="100"
           int="0.010000000000000000208" style="LinearHorizontal" textBoxPos="TextBoxBelow"
@@ -631,31 +363,8 @@ BEGIN_JUCER_METADATA
           explicitFocusOrder="0" pos="280 408 100 71" min="-100" max="100"
           int="0.010000000000000000208" style="LinearHorizontal" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="60" textBoxHeight="20" skewFactor="1"/>
-  <SLIDER name="ID" id="f54640cb2a0de1c" memberName="idSlider" virtualName=""
-          explicitFocusOrder="0" pos="520 32 96 24" min="0" max="63" int="1"
-          style="IncDecButtons" textBoxPos="TextBoxRight" textBoxEditable="1"
-          textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
-  <LABEL name="id-Label" id="afff56522e02a6b2" memberName="idLabel" virtualName=""
-         explicitFocusOrder="0" pos="480 32 32 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="ID:" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="36"/>
-  <LABEL name="angle label" id="8a9f126e40ff7f4a" memberName="angleLabel"
-         virtualName="" explicitFocusOrder="0" pos="624 144 56 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Angle:" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="33"/>
-  <TOGGLEBUTTON name="dopler button" id="9e0fbaca7f4346bc" memberName="dopplerButton"
-                virtualName="" explicitFocusOrder="0" pos="480 144 112 24" buttonText="Doppler effect"
-                connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="lock id button" id="535f93f6213af54c" memberName="lockIDButton"
-                virtualName="" explicitFocusOrder="0" pos="632 32 56 24" buttonText="Lock"
-                connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="link wonder button" id="a50c2401bf941894" memberName="linkWonderButton"
-                virtualName="" explicitFocusOrder="0" pos="480 288 208 24" buttonText="Link to WONDER"
-                connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <SLIDER name="zoom slider" id="2e49c59dd84b651a" memberName="zoomSlider"
-          virtualName="" explicitFocusOrder="0" pos="552 448 136 24" min="1"
+          virtualName="" explicitFocusOrder="0" pos="560 448 136 24" min="1"
           max="50" int="0.10000000000000000555" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
@@ -674,56 +383,22 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Zoom:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
-  <LABEL name="addr label" id="c9c821ac478f8e2f" memberName="addrLabel"
-         virtualName="" explicitFocusOrder="0" pos="480 312 64 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Address:" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="33"/>
-  <LABEL name="url label" id="2ae8e48f7526ed29" memberName="urlLabel"
-         virtualName="" explicitFocusOrder="0" pos="552 312 136 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="??????" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="33"/>
-  <LABEL name="c-status label" id="5f890d1c193d8cb5" memberName="cStatusLabel"
-         virtualName="" explicitFocusOrder="0" pos="480 336 200 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Connection status" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
-  <TEXTEDITOR name="name editor" id="6e4508e19b9ddb85" memberName="nameEditor"
-              virtualName="" explicitFocusOrder="0" pos="552 112 136 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
-  <LABEL name="name label" id="33500429033ecfa7" memberName="nameLabel"
-         virtualName="" explicitFocusOrder="0" pos="480 112 56 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Name:" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="33"/>
-  <TOGGLEBUTTON name="type button" id="b02d6765cac6f73e" memberName="typeButton"
-                virtualName="" explicitFocusOrder="0" pos="480 176 112 24" buttonText="Type is point"
-                connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
-  <TEXTBUTTON name="colour button" id="9494ad3896b90b69" memberName="colourButton"
-              virtualName="" explicitFocusOrder="0" pos="480 216 104 24" bgColOff="ffff0000"
-              buttonText="Colour" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TOGGLEBUTTON name="show others button" id="33f3e82300ebf110" memberName="showOthersButton"
-                virtualName="" explicitFocusOrder="0" pos="480 400 208 24" buttonText="Show other sources"
+                virtualName="" explicitFocusOrder="0" pos="488 400 208 24" buttonText="Show other sources"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
   <VIEWPORT name="source zoomport" id="addc41de081c2973" memberName="sourceZoomPort"
             virtualName="wonderjuce::SourceZoomPort" explicitFocusOrder="0"
             pos="24 16 432 432" vscroll="1" hscroll="1" scrollbarThickness="18"
             contentType="0" jucerFile="" contentClass="wonderjuce::SourcePanel"
             constructorParams=""/>
-  <SLIDER name="angle slider" id="611360eafe6fd8e7" memberName="angleSlider"
-          virtualName="" explicitFocusOrder="0" pos="624 176 56 72" bkgcol="0"
-          thumbcol="bbbbff" trackcol="ffffff" rotarysliderfill="ffffff"
-          rotaryslideroutline="ff000000" min="0" max="360" int="0.10000000000000000555"
-          style="Rotary" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="60" textBoxHeight="20" skewFactor="1"/>
   <TOGGLEBUTTON name="show names button" id="77a4541a43d0f171" memberName="showNamesButton"
-                virtualName="" explicitFocusOrder="0" pos="480 424 208 24" buttonText="Show source names"
+                virtualName="" explicitFocusOrder="0" pos="488 424 208 24" buttonText="Show source names"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <TABBEDCOMPONENT name="new tabbed component" id="386f797096875f80" memberName="tabbedComponent"
-                   virtualName="" explicitFocusOrder="0" pos="712 16 256 352" orientation="top"
+                   virtualName="" explicitFocusOrder="0" pos="464 16 256 352" orientation="top"
                    tabBarDepth="30" initialTab="0">
+    <TAB name="WFS Source" colour="ff777777" useJucerComp="0" contentClassName="SourceParamComponent"
+         constructorParams="ownerFilter" jucerComponentFile=""/>
     <TAB name="Connection" colour="ff777777" useJucerComp="0" contentClassName="ConnectionComponent"
          constructorParams="ownerFilter" jucerComponentFile=""/>
   </TABBEDCOMPONENT>

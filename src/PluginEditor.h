@@ -27,6 +27,7 @@
 #include "Source.h"
 #include "WonderHeader.h"
 #include "ConnectionComponent.h"
+#include "SourceParamComponent.h"
 
 #ifndef GUI_REFRESH_TIME
 #define GUI_REFRESH_TIME 100    /**< How often the GUI updates itself (in ms). */
@@ -59,8 +60,6 @@
 class SpaopAudioProcessorEditor  : public AudioProcessorEditor,
                                    public Timer,
                                    public wonderjuce::SourcePanel::Listener,
-                                   public TextEditor::Listener,
-                                   public ChangeListener,
                                    public SliderListener,
                                    public ButtonListener
 {
@@ -75,43 +74,33 @@ public:
 private:
     void timerCallback();
 
-    void changeListenerCallback (ChangeBroadcaster* changeBroadcaster);
-
     void sourcePanelDragStarted (wonderjuce::SourcePanel*);
 
     void sourcePanelValuesChanged (wonderjuce::SourcePanel* panel);
 
     void sourcePanelDragEnded (wonderjuce::SourcePanel*);
 
-    void textEditorTextChanged (TextEditor& textEditor);
-
-    void textEditorReturnKeyPressed (TextEditor& textEditor);
-
-    void textEditorFocusLost (TextEditor& textEditor);
-
     /** Returns the Processor. */
     SpaopAudioProcessor* getProcessor() const;
 
     /** Returns the Plugin's SourceController instance */
     wonder::SourceController* getSourceController() const;
-    
-    void showColourSelector();
-    
+
 public:
     /** Normalizes a slider's value to the range of [0.0 ; 1.0]. */
     static double normalizedValue(Slider* slider);
-    
+
     /** Converts a ToggleButton's state to the range of [0.0 ; 1.0]. */
     static double normalizedValue(Button* button);
-    
+
     static Colour connectionColour(wonder::ConnectionStates cStatus);
-    
+
     /** Converts a wonder::Colour to a juce::Colour. */
     static juce::Colour juceColour(wonder::Colour colour);
-    
+
     /** Converts a juce::Colour to a wonder::Colour. */
     static wonder::Colour wonderColour(juce::Colour colour);
-    
+
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -123,36 +112,18 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    bool nameIsBeingEdited_;
     //[/UserVariables]
 
     //==============================================================================
     ScopedPointer<GroupComponent> displayGroup;
-    ScopedPointer<GroupComponent> parametersGroup;
-    ScopedPointer<GroupComponent> sourceGroup;
-    ScopedPointer<GroupComponent> connectionGroup;
     ScopedPointer<Slider> xSlider;
     ScopedPointer<Slider> ySlider;
-    ScopedPointer<Slider> idSlider;
-    ScopedPointer<Label> idLabel;
-    ScopedPointer<Label> angleLabel;
-    ScopedPointer<ToggleButton> dopplerButton;
-    ScopedPointer<ToggleButton> lockIDButton;
-    ScopedPointer<ToggleButton> linkWonderButton;
     ScopedPointer<Slider> zoomSlider;
     ScopedPointer<Label> yPosLabel;
     ScopedPointer<Label> xPosLabel;
     ScopedPointer<Label> zoomLabel;
-    ScopedPointer<Label> addrLabel;
-    ScopedPointer<Label> urlLabel;
-    ScopedPointer<Label> cStatusLabel;
-    ScopedPointer<TextEditor> nameEditor;
-    ScopedPointer<Label> nameLabel;
-    ScopedPointer<ToggleButton> typeButton;
-    ScopedPointer<TextButton> colourButton;
     ScopedPointer<ToggleButton> showOthersButton;
     ScopedPointer<wonderjuce::SourceZoomPort> sourceZoomPort;
-    ScopedPointer<Slider> angleSlider;
     ScopedPointer<ToggleButton> showNamesButton;
     ScopedPointer<TabbedComponent> tabbedComponent;
 

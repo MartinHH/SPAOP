@@ -13,6 +13,10 @@
               defines="" pluginVSTCategory="kPlugCategSpacializer">
   <MAINGROUP id="GQq14J" name="SPAOP">
     <GROUP id="{60DD65CF-8EAE-F081-1464-4251C8EC2E06}" name="src">
+      <FILE id="e9wrVV" name="SourceParamComponent.cpp" compile="1" resource="0"
+            file="../src/SourceParamComponent.cpp"/>
+      <FILE id="MmAtm8" name="SourceParamComponent.h" compile="0" resource="0"
+            file="../src/SourceParamComponent.h"/>
       <FILE id="y2PfgM" name="ConnectionComponent.cpp" compile="1" resource="0"
             file="../src/ConnectionComponent.cpp"/>
       <FILE id="GUzOYH" name="ConnectionComponent.h" compile="0" resource="0"
