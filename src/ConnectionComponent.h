@@ -56,11 +56,15 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
     void update() override;
 
+private:
     void textEditorTextChanged(TextEditor& textEditor);
 
     void textEditorReturnKeyPressed(TextEditor& textEditor);
 
+    /** Returns a colour indicating the status of a connection. */
     static Colour connectionColour(wonder::ConnectionStates cStatus);
+    
+public:
     //[/UserMethods]
 
     void paint (Graphics& g);
