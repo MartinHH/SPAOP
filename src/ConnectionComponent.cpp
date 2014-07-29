@@ -206,8 +206,8 @@ void ConnectionComponent::update()
     const wonder::SourceController* controller = getProcessor()->getSourceController();
 
     if(!cwAddressIsBeingEdited_){
-        cwIpEditor->setText(controller->getCWonderHost());
-        cwPortEditor->setText(controller->getCWonderPort());
+        cwIpEditor->setText(controller->getCWonderHost(), false);
+        cwPortEditor->setText(controller->getCWonderPort(), false);
     }
 
     linkWonderButton->setToggleState(controller->isLinkedToWonder(), dontSendNotification);
