@@ -252,6 +252,8 @@ Standalone mode allows you to edit your project (parameter automations) etc even
 
 \section gui The Plugin
 
+<em>Please note that the following explanations were written for the v0.8 release of SPAOP. If you built SPAOP from the latest version of the source code, you might notice a few changes in the GUI design - but apart from a few buttons being moved, the folowing still applies.</em>
+
 Let's have a quick look at the GUI of the Plugin:
 
 \image html GUI.png "The SPAOP plugin"
