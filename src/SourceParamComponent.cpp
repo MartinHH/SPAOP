@@ -107,7 +107,10 @@ SourceParamComponent::SourceParamComponent (SpaopAudioProcessor* ownerFilter)
 
 
     //[UserPreSize]
-    // set angle slider to full rotation:
+    
+    // Within WONDER, 0.0 degree angle is 3 o'clock, while for the slider,
+    // 0.0 is 12 o'clock. So the rotary slider's start and end need to be
+    // adjusted. Also, we don't want it to stop at end:
     angleSlider->setRotaryParameters(float_Pi * 0.5, float_Pi * 2.5, false);
 
     // set idSlider range
