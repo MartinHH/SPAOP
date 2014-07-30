@@ -63,7 +63,7 @@ private:
 
     /** Returns a colour indicating the status of a connection. */
     static Colour connectionColour(wonder::ConnectionStates cStatus);
-    
+
 public:
     //[/UserMethods]
 

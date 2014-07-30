@@ -154,18 +154,18 @@ void ConnectionComponent::paint (Graphics& g)
 
 void ConnectionComponent::resized()
 {
-    infoGroupComponent->setBounds (8, 200, 240, 112);
-    modeGroupComponent->setBounds (8, 144, 240, 48);
-    cwGroupComponent->setBounds (8, 8, 240, 128);
-    cwIpEditor->setBounds (112, 32, 120, 24);
-    cwPortEditor->setBounds (112, 64, 120, 24);
-    ipLabel->setBounds (16, 32, 56, 24);
-    portLabel->setBounds (16, 64, 56, 24);
-    confirmCwButton->setBounds (32, 96, 192, 24);
-    linkWonderButton->setBounds (16, 160, 208, 24);
-    addrLabel->setBounds (16, 216, 200, 24);
-    urlLabel->setBounds (16, 240, 200, 24);
-    cStatusLabel->setBounds (16, 272, 200, 24);
+    infoGroupComponent->setBounds (0, 200, 240, 112);
+    modeGroupComponent->setBounds (0, 144, 240, 48);
+    cwGroupComponent->setBounds (0, 8, 240, 128);
+    cwIpEditor->setBounds (104, 32, 120, 24);
+    cwPortEditor->setBounds (104, 64, 120, 24);
+    ipLabel->setBounds (8, 32, 56, 24);
+    portLabel->setBounds (8, 64, 56, 24);
+    confirmCwButton->setBounds (24, 96, 192, 24);
+    linkWonderButton->setBounds (8, 160, 208, 24);
+    addrLabel->setBounds (8, 216, 200, 24);
+    urlLabel->setBounds (8, 240, 200, 24);
+    cStatusLabel->setBounds (8, 272, 200, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -264,47 +264,47 @@ BEGIN_JUCER_METADATA
                  fixedSize="0" initialWidth="256" initialHeight="320">
   <BACKGROUND backgroundColour="ffff"/>
   <GROUPCOMPONENT name="new group" id="e4a6c62de9f5a13b" memberName="infoGroupComponent"
-                  virtualName="" explicitFocusOrder="0" pos="8 200 240 112" title="Connection info"/>
+                  virtualName="" explicitFocusOrder="0" pos="0 200 240 112" title="Connection info"/>
   <GROUPCOMPONENT name="mode group" id="1f4b55c329762c13" memberName="modeGroupComponent"
-                  virtualName="" explicitFocusOrder="0" pos="8 144 240 48" title="Communication mode"/>
+                  virtualName="" explicitFocusOrder="0" pos="0 144 240 48" title="Communication mode"/>
   <GROUPCOMPONENT name="cwonder group" id="cedf29bc24c6bcd2" memberName="cwGroupComponent"
-                  virtualName="" explicitFocusOrder="0" pos="8 8 240 128" title="cWONDER address"/>
+                  virtualName="" explicitFocusOrder="0" pos="0 8 240 128" title="cWONDER address"/>
   <TEXTEDITOR name="cwonder ip editor" id="3d9a2a0e21d3e69b" memberName="cwIpEditor"
-              virtualName="" explicitFocusOrder="0" pos="112 32 120 24" initialText="???.???.???.???"
+              virtualName="" explicitFocusOrder="0" pos="104 32 120 24" initialText="???.???.???.???"
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <TEXTEDITOR name="cwonder port editor" id="4b70502607b0245f" memberName="cwPortEditor"
-              virtualName="" explicitFocusOrder="0" pos="112 64 120 24" initialText="?????"
+              virtualName="" explicitFocusOrder="0" pos="104 64 120 24" initialText="?????"
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <LABEL name="ip label" id="3d57cecad65af09c" memberName="ipLabel" virtualName=""
-         explicitFocusOrder="0" pos="16 32 56 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="8 32 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="IP:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="port label" id="384f7a92c5143010" memberName="portLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 64 56 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="8 64 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Port:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="confirm cwonder button" id="656f04da7959cb83" memberName="confirmCwButton"
-              virtualName="" explicitFocusOrder="0" pos="32 96 192 24" buttonText="Confirm changes"
+              virtualName="" explicitFocusOrder="0" pos="24 96 192 24" buttonText="Confirm changes"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TOGGLEBUTTON name="link wonder button" id="a50c2401bf941894" memberName="linkWonderButton"
-                virtualName="" explicitFocusOrder="0" pos="16 160 208 24" buttonText="Link to WONDER"
+                virtualName="" explicitFocusOrder="0" pos="8 160 208 24" buttonText="Link to WONDER"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <LABEL name="addr label" id="c9c821ac478f8e2f" memberName="addrLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 216 200 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="8 216 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="OSC destination address:" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>
   <LABEL name="url label" id="2ae8e48f7526ed29" memberName="urlLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 240 200 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="8 240 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="??????" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="c-status label" id="5f890d1c193d8cb5" memberName="cStatusLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 272 200 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="8 272 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Connection status" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>

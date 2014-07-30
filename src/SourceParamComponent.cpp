@@ -161,18 +161,18 @@ void SourceParamComponent::paint (Graphics& g)
 
 void SourceParamComponent::resized()
 {
-    parametersGroup->setBounds (8, 88, 240, 224);
-    sourceGroup->setBounds (8, 8, 240, 64);
-    idSlider->setBounds (64, 32, 96, 24);
-    idLabel->setBounds (24, 32, 32, 24);
-    angleLabel->setBounds (24, 224, 56, 24);
-    dopplerButton->setBounds (24, 144, 112, 24);
-    lockIDButton->setBounds (176, 32, 56, 24);
-    nameEditor->setBounds (96, 112, 136, 24);
-    nameLabel->setBounds (24, 112, 56, 24);
-    typeButton->setBounds (24, 176, 112, 24);
-    colourButton->setBounds (32, 272, 192, 24);
-    angleSlider->setBounds (96, 208, 152, 56);
+    parametersGroup->setBounds (0, 88, 240, 224);
+    sourceGroup->setBounds (0, 8, 240, 64);
+    idSlider->setBounds (56, 32, 96, 24);
+    idLabel->setBounds (16, 32, 32, 24);
+    angleLabel->setBounds (16, 224, 56, 24);
+    dopplerButton->setBounds (16, 144, 112, 24);
+    lockIDButton->setBounds (168, 32, 56, 24);
+    nameEditor->setBounds (88, 112, 136, 24);
+    nameLabel->setBounds (16, 112, 56, 24);
+    typeButton->setBounds (16, 176, 112, 24);
+    colourButton->setBounds (24, 272, 192, 24);
+    angleSlider->setBounds (88, 208, 152, 56);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -333,46 +333,46 @@ BEGIN_JUCER_METADATA
                  fixedSize="0" initialWidth="256" initialHeight="400">
   <BACKGROUND backgroundColour="ffff"/>
   <GROUPCOMPONENT name="parameters group" id="c7f1afc9060fd53a" memberName="parametersGroup"
-                  virtualName="" explicitFocusOrder="0" pos="8 88 240 224" title="Source parameters"/>
+                  virtualName="" explicitFocusOrder="0" pos="0 88 240 224" title="Source parameters"/>
   <GROUPCOMPONENT name="source group" id="3afb455592111222" memberName="sourceGroup"
-                  virtualName="" explicitFocusOrder="0" pos="8 8 240 64" title="Source selection"/>
+                  virtualName="" explicitFocusOrder="0" pos="0 8 240 64" title="Source selection"/>
   <SLIDER name="ID" id="f54640cb2a0de1c" memberName="idSlider" virtualName=""
-          explicitFocusOrder="0" pos="64 32 96 24" min="0" max="63" int="1"
+          explicitFocusOrder="0" pos="56 32 96 24" min="0" max="63" int="1"
           style="IncDecButtons" textBoxPos="TextBoxRight" textBoxEditable="1"
           textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="id-Label" id="afff56522e02a6b2" memberName="idLabel" virtualName=""
-         explicitFocusOrder="0" pos="24 32 32 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="16 32 32 24" edTextCol="ff000000"
          edBkgCol="0" labelText="ID:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <LABEL name="angle label" id="8a9f126e40ff7f4a" memberName="angleLabel"
-         virtualName="" explicitFocusOrder="0" pos="24 224 56 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="16 224 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Angle:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TOGGLEBUTTON name="dopler button" id="9e0fbaca7f4346bc" memberName="dopplerButton"
-                virtualName="" explicitFocusOrder="0" pos="24 144 112 24" buttonText="Doppler effect"
+                virtualName="" explicitFocusOrder="0" pos="16 144 112 24" buttonText="Doppler effect"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="lock id button" id="535f93f6213af54c" memberName="lockIDButton"
-                virtualName="" explicitFocusOrder="0" pos="176 32 56 24" buttonText="Lock"
+                virtualName="" explicitFocusOrder="0" pos="168 32 56 24" buttonText="Lock"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <TEXTEDITOR name="name editor" id="6e4508e19b9ddb85" memberName="nameEditor"
-              virtualName="" explicitFocusOrder="0" pos="96 112 136 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="88 112 136 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <LABEL name="name label" id="33500429033ecfa7" memberName="nameLabel"
-         virtualName="" explicitFocusOrder="0" pos="24 112 56 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="16 112 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Name:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TOGGLEBUTTON name="type button" id="b02d6765cac6f73e" memberName="typeButton"
-                virtualName="" explicitFocusOrder="0" pos="24 176 112 24" buttonText="Type is point"
+                virtualName="" explicitFocusOrder="0" pos="16 176 112 24" buttonText="Type is point"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
   <TEXTBUTTON name="colour button" id="9494ad3896b90b69" memberName="colourButton"
-              virtualName="" explicitFocusOrder="0" pos="32 272 192 24" bgColOff="ffff0000"
+              virtualName="" explicitFocusOrder="0" pos="24 272 192 24" bgColOff="ffff0000"
               buttonText="Colour" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="angle slider" id="611360eafe6fd8e7" memberName="angleSlider"
-          virtualName="" explicitFocusOrder="0" pos="96 208 152 56" bkgcol="0"
+          virtualName="" explicitFocusOrder="0" pos="88 208 152 56" bkgcol="0"
           thumbcol="bbbbff" trackcol="ffffff" rotarysliderfill="ffffff"
           rotaryslideroutline="ff000000" min="0" max="360" int="0.10000000000000000555"
           style="Rotary" textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="60"
