@@ -32,14 +32,14 @@
 //==============================================================================
 /**
                                                                     //[Comments]
- 
+
     A component containing buttons, labels and textboxes to display and control
     the paramters of a WONDER source (apart from its position). This is to be
     used as a subcomponent of the main SpaopAudioProcessorEditor.
- 
+
     This is generated using the WYSISWYG-Editor of the Introjucer app (which
     is why this text contains those comments tags...).
- 
+
                                                                     //[/Comments]
 */
 class SourceParamComponent  : public wonderjuce::SpaopEditorComponent,

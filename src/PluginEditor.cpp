@@ -153,16 +153,16 @@ void SpaopAudioProcessorEditor::paint (Graphics& g)
 
 void SpaopAudioProcessorEditor::resized()
 {
-    displayGroup->setBounds (472, 384, 240, 96);
+    displayGroup->setBounds (472, 376, 240, 96);
     xSlider->setBounds (112, 408, 100, 71);
     ySlider->setBounds (280, 408, 100, 71);
-    zoomSlider->setBounds (560, 448, 136, 24);
+    zoomSlider->setBounds (560, 440, 136, 24);
     yPosLabel->setBounds (256, 456, 48, 24);
     xPosLabel->setBounds (88, 456, 48, 24);
-    zoomLabel->setBounds (480, 448, 48, 24);
-    showOthersButton->setBounds (488, 400, 208, 24);
+    zoomLabel->setBounds (480, 440, 48, 24);
+    showOthersButton->setBounds (488, 392, 208, 24);
     sourceZoomPort->setBounds (24, 16, 432, 432);
-    showNamesButton->setBounds (488, 424, 208, 24);
+    showNamesButton->setBounds (488, 416, 208, 24);
     tabbedComponent->setBounds (464, 16, 256, 352);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
@@ -343,7 +343,7 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="728" initialHeight="490">
   <BACKGROUND backgroundColour="ff787878"/>
   <GROUPCOMPONENT name="display group" id="e866147c42bab00a" memberName="displayGroup"
-                  virtualName="" explicitFocusOrder="0" pos="472 384 240 96" title="Display"/>
+                  virtualName="" explicitFocusOrder="0" pos="472 376 240 96" title="Display"/>
   <SLIDER name="xCoord" id="a58b89fa9741293f" memberName="xSlider" virtualName=""
           explicitFocusOrder="0" pos="112 408 100 71" min="-100" max="100"
           int="0.010000000000000000208" style="LinearHorizontal" textBoxPos="TextBoxBelow"
@@ -353,7 +353,7 @@ BEGIN_JUCER_METADATA
           int="0.010000000000000000208" style="LinearHorizontal" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="60" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="zoom slider" id="2e49c59dd84b651a" memberName="zoomSlider"
-          virtualName="" explicitFocusOrder="0" pos="560 448 136 24" min="1"
+          virtualName="" explicitFocusOrder="0" pos="560 440 136 24" min="1"
           max="50" int="0.10000000000000000555" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
@@ -368,12 +368,12 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="zoom label" id="4e82c19758586a72" memberName="zoomLabel"
-         virtualName="" explicitFocusOrder="0" pos="480 448 48 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="480 440 48 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Zoom:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TOGGLEBUTTON name="show others button" id="33f3e82300ebf110" memberName="showOthersButton"
-                virtualName="" explicitFocusOrder="0" pos="488 400 208 24" buttonText="Show other sources"
+                virtualName="" explicitFocusOrder="0" pos="488 392 208 24" buttonText="Show other sources"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
   <VIEWPORT name="source zoomport" id="addc41de081c2973" memberName="sourceZoomPort"
             virtualName="wonderjuce::SourceZoomPort" explicitFocusOrder="0"
@@ -381,7 +381,7 @@ BEGIN_JUCER_METADATA
             contentType="0" jucerFile="" contentClass="wonderjuce::SourcePanel"
             constructorParams=""/>
   <TOGGLEBUTTON name="show names button" id="77a4541a43d0f171" memberName="showNamesButton"
-                virtualName="" explicitFocusOrder="0" pos="488 424 208 24" buttonText="Show source names"
+                virtualName="" explicitFocusOrder="0" pos="488 416 208 24" buttonText="Show source names"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
   <TABBEDCOMPONENT name="new tabbed component" id="386f797096875f80" memberName="tabbedComponent"
                    virtualName="" explicitFocusOrder="0" pos="464 16 256 352" orientation="top"

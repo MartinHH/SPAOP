@@ -97,7 +97,7 @@ SourceParamComponent::SourceParamComponent (SpaopAudioProcessor* ownerFilter)
     addAndMakeVisible (angleSlider = new Slider ("angle slider"));
     angleSlider->setRange (0, 360, 0.1);
     angleSlider->setSliderStyle (Slider::Rotary);
-    angleSlider->setTextBoxStyle (Slider::TextBoxAbove, false, 60, 20);
+    angleSlider->setTextBoxStyle (Slider::TextBoxLeft, false, 60, 20);
     angleSlider->setColour (Slider::backgroundColourId, Colour (0x00000000));
     angleSlider->setColour (Slider::thumbColourId, Colour (0x00bbbbff));
     angleSlider->setColour (Slider::trackColourId, Colour (0x00ffffff));
@@ -107,7 +107,7 @@ SourceParamComponent::SourceParamComponent (SpaopAudioProcessor* ownerFilter)
 
 
     //[UserPreSize]
-    
+
     // Within WONDER, 0.0 degree angle is 3 o'clock, while for the slider,
     // 0.0 is 12 o'clock. So the rotary slider's start and end need to be
     // adjusted. Also, we don't want it to stop at end:
@@ -115,7 +115,7 @@ SourceParamComponent::SourceParamComponent (SpaopAudioProcessor* ownerFilter)
 
     // set idSlider range
     idSlider->setRange(0, MAX_WONDER_SOURCES-1, 1);
-    
+
     nameEditor->addListener(this);
     //[/UserPreSize]
 
@@ -161,18 +161,18 @@ void SourceParamComponent::paint (Graphics& g)
 
 void SourceParamComponent::resized()
 {
-    parametersGroup->setBounds (8, 88, 240, 168);
+    parametersGroup->setBounds (8, 88, 240, 224);
     sourceGroup->setBounds (8, 8, 240, 64);
     idSlider->setBounds (64, 32, 96, 24);
     idLabel->setBounds (24, 32, 32, 24);
-    angleLabel->setBounds (168, 144, 56, 24);
+    angleLabel->setBounds (24, 224, 56, 24);
     dopplerButton->setBounds (24, 144, 112, 24);
     lockIDButton->setBounds (176, 32, 56, 24);
     nameEditor->setBounds (96, 112, 136, 24);
     nameLabel->setBounds (24, 112, 56, 24);
     typeButton->setBounds (24, 176, 112, 24);
-    colourButton->setBounds (24, 216, 104, 24);
-    angleSlider->setBounds (168, 176, 56, 72);
+    colourButton->setBounds (32, 272, 192, 24);
+    angleSlider->setBounds (96, 208, 152, 56);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -333,7 +333,7 @@ BEGIN_JUCER_METADATA
                  fixedSize="0" initialWidth="256" initialHeight="400">
   <BACKGROUND backgroundColour="ffff"/>
   <GROUPCOMPONENT name="parameters group" id="c7f1afc9060fd53a" memberName="parametersGroup"
-                  virtualName="" explicitFocusOrder="0" pos="8 88 240 168" title="Source parameters"/>
+                  virtualName="" explicitFocusOrder="0" pos="8 88 240 224" title="Source parameters"/>
   <GROUPCOMPONENT name="source group" id="3afb455592111222" memberName="sourceGroup"
                   virtualName="" explicitFocusOrder="0" pos="8 8 240 64" title="Source selection"/>
   <SLIDER name="ID" id="f54640cb2a0de1c" memberName="idSlider" virtualName=""
@@ -346,7 +346,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <LABEL name="angle label" id="8a9f126e40ff7f4a" memberName="angleLabel"
-         virtualName="" explicitFocusOrder="0" pos="168 144 56 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="24 224 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Angle:" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
@@ -369,14 +369,14 @@ BEGIN_JUCER_METADATA
                 virtualName="" explicitFocusOrder="0" pos="24 176 112 24" buttonText="Type is point"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
   <TEXTBUTTON name="colour button" id="9494ad3896b90b69" memberName="colourButton"
-              virtualName="" explicitFocusOrder="0" pos="24 216 104 24" bgColOff="ffff0000"
+              virtualName="" explicitFocusOrder="0" pos="32 272 192 24" bgColOff="ffff0000"
               buttonText="Colour" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="angle slider" id="611360eafe6fd8e7" memberName="angleSlider"
-          virtualName="" explicitFocusOrder="0" pos="168 176 56 72" bkgcol="0"
+          virtualName="" explicitFocusOrder="0" pos="96 208 152 56" bkgcol="0"
           thumbcol="bbbbff" trackcol="ffffff" rotarysliderfill="ffffff"
           rotaryslideroutline="ff000000" min="0" max="360" int="0.10000000000000000555"
-          style="Rotary" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="60" textBoxHeight="20" skewFactor="1"/>
+          style="Rotary" textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="60"
+          textBoxHeight="20" skewFactor="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
