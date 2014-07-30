@@ -158,11 +158,11 @@
             vst3Folder="..\..\VST3 SDK" externalLibraries="liblo.lib&#10;IPHLPAPI.lib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="SPAOP" headerPath="..\..\..\src\lowrappers&#10;..\..\..\src\wonder&#10;..\..\..\src\thread&#10;..\..\..\src\wonderlo&#10;..\..\..\src\wonderjuce&#10;..\..\..\..\liblo-0.28"
+                       isDebug="1" optimisation="1" targetName="SPAOP" headerPath="..\..\..\src\lowrappers&#10;..\..\..\src\wonder&#10;..\..\..\src\thread&#10;..\..\..\src\wonderlo&#10;..\..\..\src\wonderjuce&#10;..\..\..\src\parsetools&#10;..\..\..\src&#10;..\..\..\..\liblo-0.28"
                        libraryPath="..\..\..\..\liblo-0.28\lib\ReleaseLib&#10;..\..\..\..\liblo-0.28\lib\ReleaseDLL"
                        useRuntimeLibDLL="1" binaryPath="C:\Program Files (x86)\Common Files\VST3"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="2" targetName="SPAOP" headerPath="..\..\..\src\lowrappers&#10;..\..\..\src\wonder&#10;..\..\..\src\thread&#10;..\..\..\src\wonderlo&#10;..\..\..\src\wonderjuce&#10;..\..\..\..\liblo-0.28"
+                       isDebug="0" optimisation="2" targetName="SPAOP" headerPath="..\..\..\src\lowrappers&#10;..\..\..\src\wonder&#10;..\..\..\src\thread&#10;..\..\..\src\wonderlo&#10;..\..\..\src\wonderjuce&#10;..\..\..\src\parsetools&#10;..\..\..\src&#10;..\..\..\..\liblo-0.28"
                        libraryPath="..\..\..\..\liblo-0.28\lib\ReleaseLib&#10;..\..\..\..\liblo-0.28\lib\ReleaseDLL"
                        useRuntimeLibDLL="1" binaryPath="C:\Program Files (x86)\Common Files\VST3"/>
       </CONFIGURATIONS>
