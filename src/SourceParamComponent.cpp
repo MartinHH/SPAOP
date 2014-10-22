@@ -247,6 +247,8 @@ void SourceParamComponent::buttonClicked (Button* buttonThatWasClicked)
 void SourceParamComponent::update()
 {
     const wonder::Source& source = getProcessor()->getSource();
+    const bool idIsLocked = getProcessor()->idIsLocked();
+    const int id = getProcessor()->getSourceID();
 
     // Buttons:
     colourButton->setColour(TextButton::buttonColourId, Colour(source.getRed(),
@@ -255,15 +257,21 @@ void SourceParamComponent::update()
     // Sliders:
     idSlider->setRange(0, MAX_WONDER_SOURCES, 1);
     // TODO: what happens if current value is out of range?
-    idSlider->setValue(source.getID());
-    idSlider->setEnabled(!getProcessor()->idIsLocked());
+    idSlider->setValue(id);
+    idSlider->setEnabled(!idIsLocked );
     angleSlider->setValue(source.getAngle());
 
     // ToggleButtons:
     dopplerButton->setToggleState(source.dopplerIsEnabled(), dontSendNotification);
-    lockIDButton->setToggleState(getProcessor()->idIsLocked(), dontSendNotification);
     typeButton->setToggleState(source.getType() == wonder::Source::point,
                                dontSendNotification);
+    lockIDButton->setToggleState(idIsLocked , dontSendNotification);
+
+    // this makes sure that you can only lock an id if it is not locked by another
+    // instance already:
+    const bool idIsTaken = getProcessor()->getSourceController()->hasListenerForID(id);
+    lockIDButton->setEnabled(idIsLocked || !idIsTaken);
+
 
     // plane source only elements:
     const bool isPlaneSource = source.getType() == wonder::Source::plane;
