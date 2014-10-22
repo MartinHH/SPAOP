@@ -188,8 +188,8 @@ void ConnectionComponent::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == linkWonderButton)
     {
         //[UserButtonCode_linkWonderButton] -- add your button handler code here..
-        getProcessor()->getSourceController()
-            ->setLinkedToWonder(linkWonderButton->getToggleState());
+//        getProcessor()->getSourceController()
+//            ->setLinkedToWonder(linkWonderButton->getToggleState());
         //[/UserButtonCode_linkWonderButton]
     }
 
@@ -210,7 +210,7 @@ void ConnectionComponent::update()
         cwPortEditor->setText(controller->getCWonderPort(), false);
     }
 
-    linkWonderButton->setToggleState(controller->isLinkedToWonder(), dontSendNotification);
+//    linkWonderButton->setToggleState(controller->isLinkedToWonder(), dontSendNotification);
 
     urlLabel->setText(controller->getDataDestHostAndPort(), dontSendNotification);
 

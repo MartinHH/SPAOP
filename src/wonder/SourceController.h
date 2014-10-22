@@ -21,6 +21,7 @@
 #define SOURCECONTROLLER_H_INCLUDED
 
 #include <memory>
+#include <mutex>
 
 #include "SourceCollection.h"
 #include "WonderHeader.h"
@@ -84,9 +85,6 @@ public:
      *  @param vsFactory A VisualStreamReceiver::Factory that will be used to
      *      create the VisualStreamReceiver that this SourceController will
      *      use to receive OSC messages.
-     *  @param listener A listener listening to incoming parameter changes
-     *      and connection timeouts. This will usually be a
-     *      SpaopAudioProcessor.
      *  @param timerFactory A ConnectionTimer::Factory that will be used to
      *      create the ConnectionTimer that this SourceController will
      *      use to keep track of ping timeouts.
@@ -96,7 +94,6 @@ public:
      *      system.
      */
     SourceController(VisualStreamReceiver::Factory* vsFactory,
-                     Listener* listener,
                      ConnectionTimer::Factory* timerFactory,
                      XmlParser* xmlParser,
                      int maxSources);
@@ -104,11 +101,16 @@ public:
     /** Destructor. */
     virtual ~SourceController();
     
-    /** Returns the Source object that is controlled by this SourceController.
-     *
-     *  @return The Source object that is controlled by this SourceController.
+    void setListener(int sourceID, Listener* listener);
+    
+    void removeListener(int sourceID);
+    
+    /**
+     *  @warning This is obviously not thread-safe.
      */
-    const Source& getSource() const;
+    bool hasListenerForID(int sourceID) const;
+    
+    const Source& getSource(int sourceID) const;
     
     /** Returns a (reference-counting) shared pointer to the SourceCollection
      *  object that is controlled by this SourceController.
@@ -117,6 +119,10 @@ public:
      *      object that is controlled by this SourceController.
      */
     const SourceCollection* getSources() const;
+    
+    void activateSource(int sourceID);
+    
+    void deactivateSource(int sourceID);
     
     /** Copies the parameters of a given Source object to the internal
      *  SourceCollection (overwriting the Source with the same ID) and
@@ -136,17 +142,6 @@ public:
      */
     bool setSource(const Source &source);
     
-    /** Sets the ID of the source that is controlled by this SourceController.
-     *  Changing the ID is only allowed while the ID is not locked.
-     *
-     *  @see setIdIsLocked, idIsLocked
-     *
-     *  @param sourceID The new ID of the controlled source.
-     *  @return true, if the ID was set succesfully; false, if setting the ID
-     *      was impossible (due to an active connection).
-     */
-    bool setID(int sourceID);
-    
     /** Sets a parameter of the source that is controlled by this
      *  SourceController and sends it to cWONDER (if its value's difference from
      *  the value that was sent last is relevant). Depending on the parameter,
@@ -159,7 +154,7 @@ public:
      *
      *  @see COORD_PRECISION, ANGLE_PRECISION
      */
-    void setParameterAndSendChange (int paramIndex, float normalizedValue);
+    void setParameterAndSendChange (int sourceID, int paramIndex, float normalizedValue);
     
     /** Sets the coordinates of the source that is controlled by this
      *  SourceController and sends them to cWONDER (if the values' difference
@@ -175,7 +170,7 @@ public:
      *
      *  @see COORD_PRECISION
      */
-    void setCoordinatesAndSendChange (float normalizedX, float normalizedY);
+    void setCoordinatesAndSendChange (int sourceID, float normalizedX, float normalizedY);
     
     /** Updates the name of the source that is controlled by this
      *  SourceController and sends out the corresponding OSC message
@@ -183,7 +178,7 @@ public:
      *
      *  @param newSourceName The new name of the source.
      */
-    void updateSourceName(const std::string& newSourceName);
+    void updateSourceName(int sourceID, const std::string& newSourceName);
     
     /** Updates the colour of the source that is controlled by this
      *  SourceController and sends out the corresponding OSC message
@@ -191,29 +186,7 @@ public:
      *
      *  @param colour The new colour of the source.
      */
-    void updateSourceColour(const Colour colour);
-    
-    /** Sets whether this SourceController shall communicate with WONDER
-     *  ("linked to wonder") or not. If it is linked to WONDER, source control
-     *  messages (position, angle, etc) are sent to WONDER, visual stream connect
-     *  message is sent to the multicaster. Otherwise (stand-alone-mode), all
-     *  messages are sent to the plugin's peers via the multicast group.
-     *
-     *  @param linked true, if this plugin shall communicate to WONDER, false for
-     *      stand-alone-mode.
-     *  @param notifyPeers true if a /WONDER/plugin/standalone message shall be
-     *      sent to the multicast group to notify the peer plugins about the
-     *      change.
-     */
-    void setLinkedToWonder(bool linked, bool notifyPeers = true);
-    
-    /** Returns the linkedToWonder status.
-     *
-     *  @return true, if this SourceController is set to communicate with WONDER.
-     *
-     *  @see setLinkedToWonder
-     */
-    bool isLinkedToWonder() const;
+    void updateSourceColour(int sourceID, const Colour colour);
     
     /** Sets the address where outgoing OSC messages will be sent in "linked to
      *  WONDER" mode will be sent (i.e. the address of cWONDER).
@@ -239,21 +212,6 @@ public:
      *  @return The port that is set for cWONDER.
      */
     std::string getCWonderPort() const;
-    
-    /** Sets the ID locked status. If the sourceID is locked, it cannot be changed,
-     *  and listening to incoming messages is enabled. If it is not locked, the ID
-     *  can be changed, but listening to incoming messages is disabled.
-     *  On switching from !isLocked to isLocked, a /WONDER/source/activate message
-     *  will be sent, on switching from isLocked to !isLocked, a /WONDER/source/deactivate
-     *  message will be sent.
-     *
-     *  @param isLocked true if changing the ID shall be disabled and listening
-     *      to incoming messages enabled.
-     */
-    void setIdIsLocked(bool isLocked);
-    
-    /** Returns true if the source ID is locked. */
-    bool idIsLocked() const;
 
     /** Returns the current status of the incoming connection. This is only
      *  significant if the SourceController is linked to WONDER. If it is not
@@ -309,21 +267,21 @@ private:
     
     std::unique_ptr<VisualStreamReceiver> server_;
     std::unique_ptr<OscSenderThread> cWonder_;      // cWONDER
-    std::unique_ptr<OscSenderThread> mCaster_;      // the StreamMulticaster
-    std::unique_ptr<OscSenderThread> peerGroup_;    // the multicast group
     
     XmlParser* xmlParser_;
     SourceCollection* sources_;
     
-    int sourceID_;
     std::shared_ptr<Room> room_;
-    Listener* listener_;
+    
+    std::vector<Listener*> listeners_;
+    std::mutex listenersMutex_;
+    
     PingControl pingControl_;
-    bool linkedToWonder_;               // is sending outgoing OSC messages to WONDER
-    bool isLocked_;
     ConnectionStates cStatus_;
-    float lastValues_[Source::totalNumParams];  // the last values of automated parameters
+    std::vector<std::vector<float>> lastValues_;  // the last values of automated parameters
                                                 // that were sent out (denormalized!)
+    
+    void connect() const;
     
     /** Sets an automated parameter from an unnormalized value,
         notifying the listener.
@@ -339,25 +297,13 @@ private:
      *
      *  @param index the parameter-index of the parameter to check.
      */
-    bool relevantChange(int index);
-    
-    /** Returns the OscSenderThread to send the source control messages to. Depending
-     *  on the communication mode (linked or standalone), this is either cWonder_ or
-     *  peerGroup_.
-     */
-    OscSenderThread& dataDest() const;
-    
-    /** Returns the OscSenderThread to send the /stream/visual/connect messages to.
-     *  Depending on the communication mode (linked or standalone), this is either
-     *  mCaster_ or peerGroup_.
-     */
-    OscSenderThread& streamSource() const;
+    bool relevantChange(int sourceID, int index);
     
     /**
      *  Sends /WONDER/source/activate and the full source info for the source
      *  controlled by this SourceController.
      */
-    void sendOwnState();
+    void sendSourceState(int sourceID);
     
     //==============================================================================
     //vvvvv  Implementing ConnectionTimer::Listener
@@ -414,7 +360,9 @@ private:
     
     int onReply(std::string replyToMsg, int state, std::string msg);
     
-    int onPluginStandalone(bool standAloneOn);
+    int onPluginStandalone(bool standAloneOn)
+    { return 0; /* not implemented anymore...
+                 (TODO: remove from interface so this can be removed here)*/}
 
 };
     

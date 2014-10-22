@@ -259,6 +259,18 @@ public:
      */
     wonder::SourceController* getSourceController() const;
     
+    const wonder::Source& getSource() const;
+    
+    void lockID();
+    
+    void unlockID();
+    
+    bool idIsLocked() const { return idIsLocked_; }
+    
+    void setSourceID(int sourceID);
+    
+    int getSourceID() const { return sourceID_; }
+    
     /** Returns the zoom factor for the GUI. (As this parameters shall be restorable
      *  via getStateInformation and setStateInformation, it needs to be stored
      *  within this class.(
@@ -321,7 +333,12 @@ public:
 
 private:
     //==============================================================================
-    ScopedPointer<wonder::SourceController> sourceController_;
+    static wonder::SourceController* getControllerSingleton();
+    
+    wonder::SourceController* sourceController_;
+    
+    int sourceID_;
+    bool idIsLocked_;
     
     // GUI parameters that need to be stored:
     float zoomFactor_;

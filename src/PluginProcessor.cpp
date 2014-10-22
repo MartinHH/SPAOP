@@ -23,11 +23,9 @@
 
 //==============================================================================
 SpaopAudioProcessor::SpaopAudioProcessor():
-    sourceController_(new wonder::SourceController(wonderlo::VSReceiver::getFactory(),
-                                      this,
-                                      wonderjuce::JuceConnectionTimer::getFactory(),
-                                      wonderjuce::XmlFactory::getParser(),
-                                      MAX_WONDER_SOURCES)),
+    sourceController_(getControllerSingleton()),
+    sourceID_(0),
+    idIsLocked_(false),
     zoomFactor_(INITIAL_ZOOM_FACTOR),
     showOtherSources_(true)
 {
@@ -35,6 +33,7 @@ SpaopAudioProcessor::SpaopAudioProcessor():
 
 SpaopAudioProcessor::~SpaopAudioProcessor()
 {
+    unlockID();
 }
 
 //==============================================================================
@@ -50,29 +49,31 @@ int SpaopAudioProcessor::getNumParameters()
 
 float SpaopAudioProcessor::getParameter (int index)
 {
-    return sourceController_->getSource().getParameter(index);
+    return sourceController_->getSource(sourceID_).getParameter(index);
 }
 
 void SpaopAudioProcessor::setParameter (int index, float newValue)
 {
-    sourceController_->setParameterAndSendChange(index, newValue);
-}
+    if(idIsLocked_){
+        sourceController_->setParameterAndSendChange(sourceID_, index, newValue);
+    }
+}    
 
 float SpaopAudioProcessor::getParameterByText(int parameterIndex,
                                     const juce::String &parameterText)
 {
-    return sourceController_->getSource().getParameterByText(parameterIndex,
+    return sourceController_->getSource(sourceID_).getParameterByText(parameterIndex,
                                                              parameterText.toStdString());
 }
 
 const String SpaopAudioProcessor::getParameterName (int index)
 {
-    return sourceController_->getSource().getParameterName(index);
+    return sourceController_->getSource(sourceID_).getParameterName(index);
 }
 
 const String SpaopAudioProcessor::getParameterText (int index)
 {
-    return sourceController_->getSource().getParameterText(index);
+    return sourceController_->getSource(sourceID_).getParameterText(index);
 }
 
 const String SpaopAudioProcessor::getParameterTextByValue (int index, float value)
@@ -228,7 +229,7 @@ void SpaopAudioProcessor::getStateInformation (MemoryBlock& destData)
     XmlElement xml ("SPAOPSETTINGS");
     
     // add source data to it:
-    xml.addChildElement(XmlFactory::createSourceXml(sourceController_->getSource()));
+    xml.addChildElement(XmlFactory::createSourceXml(sourceController_->getSource(sourceID_)));
     
     // add Room data:
     xml.addChildElement(XmlFactory::createRoomXml(*(sourceController_->getRoom())));
@@ -264,7 +265,7 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             // set source:
             wonder::Source source;
             XmlFactory::updateSourceFromXml(xmlState->getChildByName("source"), &source);
-            sourceController_->setIdIsLocked(false);
+//            sourceController_->setIdIsLocked(false);
             sourceController_->setSource(source);
             
             // set room:
@@ -301,7 +302,9 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 
 void SpaopAudioProcessor::setCoordinates(float normalizedX, float normalizedY)
 {
-    sourceController_->setCoordinatesAndSendChange(normalizedX, normalizedY);
+    if (idIsLocked_) {
+        sourceController_->setCoordinatesAndSendChange(sourceID_, normalizedX, normalizedY);
+    }
 }
 
 void SpaopAudioProcessor::setCoordinatesNotifyingHost(float normalizedX, float normalizedY)
@@ -314,6 +317,34 @@ void SpaopAudioProcessor::setCoordinatesNotifyingHost(float normalizedX, float n
 wonder::SourceController* SpaopAudioProcessor::getSourceController() const
 {
     return sourceController_;
+}
+
+const wonder::Source& SpaopAudioProcessor::getSource() const
+{
+    return sourceController_->getSource(sourceID_);
+}
+
+void SpaopAudioProcessor::lockID()
+{
+    sourceController_->setListener(sourceID_, this);
+    sourceController_->activateSource(sourceID_);
+    idIsLocked_ = true;
+}
+
+void SpaopAudioProcessor::unlockID()
+{
+    if(idIsLocked_){
+        sourceController_->removeListener(sourceID_);
+        sourceController_->deactivateSource(sourceID_);
+        idIsLocked_ = false;
+    }
+}
+
+void SpaopAudioProcessor::setSourceID(int sourceID)
+{
+    if(!idIsLocked_){
+        sourceID_ = sourceID;
+    }
 }
 
 void SpaopAudioProcessor::incomingParameterChange(
@@ -355,4 +386,14 @@ void SpaopAudioProcessor::setShowNames(bool showNames)
 bool SpaopAudioProcessor::setCWonderAddress(const std::string &ip, const std::string &port)
 {
     return sourceController_->setCWonderAddress(ip, port);
+}
+
+wonder::SourceController* SpaopAudioProcessor::getControllerSingleton()
+{
+
+    static wonder::SourceController instance(wonderlo::VSReceiver::getFactory(),
+                                             wonderjuce::JuceConnectionTimer::getFactory(),
+                                             wonderjuce::XmlFactory::getParser(),
+                                             MAX_WONDER_SOURCES); // thread-safe in C++11
+    return &instance;
 }

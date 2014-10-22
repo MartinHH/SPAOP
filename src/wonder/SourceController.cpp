@@ -22,70 +22,81 @@
 namespace wonder {
 
 SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
-                                   Listener* listener,
                                    ConnectionTimer::Factory* timerFactory,
                                    XmlParser* xmlParser,
                                    int maxSources):
-    server_(vsFactory->createVisualStreamMulticastReceiver(VISUAL_MC_GROUP_STR,
-                                                           VISUAL_MC_PORT_STR,
-                                                           VISUAL_MC_IFACE_IP_STR)),
+    server_(vsFactory->createVisualStreamReceiver()), // TODO: fixed port?
     cWonder_(server_->createSenderThread(CWONDER_DEFAULT_IP_STR, CWONDER_DEFAULT_PORT_STR)),
-    mCaster_(server_->createSenderThread("localhost", MULTICASTER_PORT_STR)),
-    peerGroup_(server_->createSenderThread(VISUAL_MC_GROUP_STR, VISUAL_MC_PORT_STR)),
     xmlParser_(xmlParser),
-    sources_(new SourceCollection(maxSources)), // TODO: maxSources
-    sourceID_(0),
+    sources_(new SourceCollection(maxSources)),
     room_(new Room()),
-    listener_(listener),
+    listeners_(maxSources, nullptr),
     pingControl_(timerFactory, this, 0),
-    linkedToWonder_(false),
-    isLocked_(false),
-    cStatus_(inactive)
+    cStatus_(inactive),
+    lastValues_(maxSources, std::vector<float>(Source::totalNumParams))
 {
-    // initialize the lastValues-array:
-    for(int i=0; i<Source::totalNumParams; i++){
-        lastValues_[i] = Source::denormalizeParameter(i, Source::getParameterDefaultValue(i));
+    // initialize the lastValues 2d vector:
+    for(int i=0; i<lastValues_.size(); i++){
+        for (int j=0; j<lastValues_[i].size(); j++) {
+            lastValues_[i][j] = Source::denormalizeParameter(j, Source::getParameterDefaultValue(j));
+        }
     }
-    
-    // set multicast parameters:
-    peerGroup_->setTtl(VISUAL_MC_TTL);
-    peerGroup_->setIfaceByIp(VISUAL_MC_IFACE_IP_STR);
     
     // initialize and start communication threads:
     server_->setListener(this);
     server_->setPingHandler(this);
     server_->start();
-    mCaster_->start();
     cWonder_->start();
-    peerGroup_->start();
+    
+    connect();
 }
     
 SourceController::~SourceController()
 {
-    // notify the rest of the system by deactivating the source
-    // controlled by this instance:
-    if(isLocked_){
-        dataDest().sendSourceDeactivate(sourceID_);
+    // in case any listeners are still registered (should not be the case),
+    // a deactivation message is sent:
+    for(int i = 0; i < listeners_.size(); i++){
+        std::lock_guard<std::mutex> lock(listenersMutex_);
+        if (listeners_[i] != nullptr) {
+            cWonder_->sendSourceDeactivate(i);
+        }
     }
     
     // not supported by cWONDER at the moment, but worth a try anyway:
-    streamSource().sendStreamVisualDisconnect();
+    cWonder_->sendStreamVisualDisconnect();
     
     // stop and join communication threads:
-    mCaster_->stop();
     cWonder_->stop();
     server_->stop();
-    peerGroup_->stop();
     
-    mCaster_->join();
     cWonder_->join();
     server_->join();
-    peerGroup_->join();
 }
     
-const Source& SourceController::getSource() const
+void SourceController::setListener(int sourceID, Listener *listener)
 {
-    return sources_->getSource(sourceID_);
+    if(sourceID >= 0 && sourceID < listeners_.size()){
+        std::lock_guard<std::mutex> lock(listenersMutex_);
+        listeners_[sourceID] = listener;
+    }
+}
+    
+void SourceController::removeListener(int sourceID)
+{
+    if(sourceID >= 0 && sourceID < listeners_.size()){
+        std::lock_guard<std::mutex> lock(listenersMutex_);
+        listeners_[sourceID] = nullptr;
+    }
+}
+    
+bool SourceController::hasListenerForID(int sourceID) const
+{
+    return sourceID >= 0 && sourceID < listeners_.size() && listeners_[sourceID] != nullptr;
+}
+    
+const Source& SourceController::getSource(int sourceID) const
+{
+    return sources_->getSource(sourceID);
 }
     
 const SourceCollection* SourceController::getSources() const
@@ -93,61 +104,56 @@ const SourceCollection* SourceController::getSources() const
     return sources_;
 }
     
+void SourceController::activateSource(int sourceID)
+{
+    sources_->activate(sourceID);
+    cWonder_->sendSourceActivate(sourceID);
+}
+    
+void SourceController::deactivateSource(int sourceID)
+{
+    sources_->deactivate(sourceID);
+    cWonder_->sendSourceActivate(sourceID);
+}
+    
 bool SourceController::setSource(const wonder::Source &source)
 {
-    if(isLocked_){
-        return false;
-    } else if (sources_->setSource(source)){
-        sourceID_ = source.getID();
-        return true;
-    } else {
-        return false;
-    }
-}
-    
-bool SourceController::setID(int sourceID)
-{
-    if(isLocked_){
-        return false;
-    } else {
-        sourceID_ = sourceID;
-        return true;
-    }
+    return sources_->setSource(source);
 }
 
-void SourceController::setParameterAndSendChange(int paramIndex, float normalizedValue)
+void SourceController::setParameterAndSendChange(int sourceID, int paramIndex, float normalizedValue)
 {
     // set parameter
-    sources_->setParameterNormalized(sourceID_, paramIndex, normalizedValue);
+    sources_->setParameterNormalized(sourceID, paramIndex, normalizedValue);
     
-    // send only if isLocked_ and the value's change is relevant:
-    if(isLocked_ && relevantChange(paramIndex)){
+    // send only if the value's change is relevant:
+    if(relevantChange(sourceID, paramIndex)){
         
-        const Source& source_ = sources_->getSource(sourceID_);
+        const Source& source_ = sources_->getSource(sourceID);
         
         // store the new value as last sent value before sending:
-        lastValues_[paramIndex] = source_.getDenormalizedParameter(paramIndex);
+        lastValues_[sourceID][paramIndex] = source_.getDenormalizedParameter(paramIndex);
         
         switch (paramIndex) // chose the right send-method for the parameter:
         {
             case Source::typeParam:
-                dataDest().sendSourceType(source_.getID(), source_.getType());
+                cWonder_->sendSourceType(source_.getID(), source_.getType());
                 break;
             case Source::xPosParam:
             case Source::yPosParam:
             {
                 // since we send out both x and y, both must be stored as last sent:
-                lastValues_[Source::xPosParam] = source_.getXPos();
-                lastValues_[Source::yPosParam] = source_.getYPos();
-                dataDest().sendSourcePosition(source_.getID(), lastValues_[Source::xPosParam],
-                                              lastValues_[Source::yPosParam]);
+                lastValues_[sourceID][Source::xPosParam] = source_.getXPos();
+                lastValues_[sourceID][Source::yPosParam] = source_.getYPos();
+                cWonder_->sendSourcePosition(source_.getID(), lastValues_[sourceID][Source::xPosParam],
+                                              lastValues_[sourceID][Source::yPosParam]);
                 break;
             }
             case Source::angleParam:
-                dataDest().sendSourceAngle(source_.getID(), lastValues_[Source::angleParam]);
+                cWonder_->sendSourceAngle(source_.getID(), lastValues_[sourceID][Source::angleParam]);
                 break;
             case Source::dopplParam:
-                dataDest().sendSourceDopplerEffect(source_.getID(),
+                cWonder_->sendSourceDopplerEffect(source_.getID(),
                                                      (int) source_.dopplerIsEnabled());
                 break;
             default:
@@ -156,84 +162,34 @@ void SourceController::setParameterAndSendChange(int paramIndex, float normalize
     }
 }
     
-void SourceController::setCoordinatesAndSendChange(float normalizedX, float normalizedY)
+void SourceController::setCoordinatesAndSendChange(int sourceID, float normalizedX, float normalizedY)
 {
     // set parameters
-    sources_->setParameterNormalized(sourceID_, Source::xPosParam, normalizedX);
-    sources_->setParameterNormalized(sourceID_, Source::yPosParam, normalizedY);
+    sources_->setParameterNormalized(sourceID, Source::xPosParam, normalizedX);
+    sources_->setParameterNormalized(sourceID, Source::yPosParam, normalizedY);
     
-    // send only if isLocked_ and the value's change is relevant:
-    if(isLocked_ && (relevantChange(Source::xPosParam) || relevantChange(Source::yPosParam))){
+    // send only if the value's change is relevant:
+    if(relevantChange(sourceID, Source::xPosParam) || relevantChange(sourceID, Source::yPosParam)){
         
-        const Source& source_ = sources_->getSource(sourceID_);
+        const Source& source_ = sources_->getSource(sourceID);
         
-        lastValues_[Source::xPosParam] = source_.getXPos();
-        lastValues_[Source::yPosParam] = source_.getYPos();
-        dataDest().sendSourcePosition(source_.getID(), lastValues_[Source::xPosParam],
-                                      lastValues_[Source::yPosParam]);
+        lastValues_[sourceID][Source::xPosParam] = source_.getXPos();
+        lastValues_[sourceID][Source::yPosParam] = source_.getYPos();
+        cWonder_->sendSourcePosition(source_.getID(), lastValues_[sourceID][Source::xPosParam],
+                                      lastValues_[sourceID][Source::yPosParam]);
     }
 }
     
-void SourceController::updateSourceName(const std::string& newSourceName)
+void SourceController::updateSourceName(int sourceID, const std::string& newSourceName)
 {
-    sources_->setName(sourceID_, newSourceName);
-    if(isLocked_){
-        dataDest().sendSourceName(sourceID_, newSourceName);
-    }
+    sources_->setName(sourceID, newSourceName);
+    cWonder_->sendSourceName(sourceID, newSourceName);
 }
     
-void SourceController::updateSourceColour(const Colour colour)
+void SourceController::updateSourceColour(int sourceID, const Colour colour)
 {
-    sources_->setColour(sourceID_, colour);
-    if(isLocked_){
-        dataDest().sendSourceColor(sourceID_, colour);
-    }
-}
-    
-void SourceController::setLinkedToWonder(bool linked, bool notifyPeers)
-{
-    if (linked && !linkedToWonder_) {
-        
-        // switching from "standalone" to "linked":
-        linkedToWonder_ = true;
-        
-    } else if(!linked && linkedToWonder_) {
-        
-        // switching from "linked" to "standalone":
-        linkedToWonder_ = false;
-        
-        // no ping control in standalone mode:
-        pingControl_.stop();
-        cStatus_ = inactive;
-    } else {
-        // nothing changed, so nothing to be done:
-        return;
-    }
-    
-    // If we end up here, the communication mode has been changed.
-    
-    // make sure the rest of the system is up-to-date about "our" source:
-    if(isLocked_){
-        sendOwnState();
-    }
-    
-    if(notifyPeers){
-        // make the other plugins switch their mode as well:
-        peerGroup_->sendPluginStandalone(!linked);
-    }
-    
-    if(notifyPeers && linked){
-        // this plugin initiated a switch from standalone to "linked"
-        // -> send a connect message to the multicaster so it connects
-        // to the "visual stream" of cWONDER:
-        mCaster_->sendStreamVisualConnect("SPAOP");
-    }
-
-}
-    
-bool SourceController::isLinkedToWonder() const
-{
-    return linkedToWonder_;
+    sources_->setColour(sourceID, colour);
+    cWonder_->sendSourceColor(sourceID, colour);
 }
     
 bool SourceController::setCWonderAddress(const std::string &ip, const std::string &port)
@@ -254,27 +210,6 @@ std::string SourceController::getCWonderHost() const
 std::string SourceController::getCWonderPort() const
 {
     return cWonder_->port();
-}
-    
-void SourceController::setIdIsLocked(bool isLocked)
-{
-    if (isLocked && !isLocked_) {
-        // id was locked -> activate source:
-        isLocked_ = true;
-        sendOwnState(); // includes sendSourceActivate
-        streamSource().sendStreamVisualConnect("SPAOP");
-    } else if(!isLocked && isLocked_){
-        // id was unlocked -> deactivate source:
-        dataDest().sendSourceDeactivate(sourceID_);
-        isLocked_ = false;
-        pingControl_.stop();
-        cStatus_ = inactive;
-    }
-}
-    
-bool SourceController::idIsLocked() const
-{
-    return isLocked_;
 }
    
 ConnectionStates SourceController::connectionStatus() const
@@ -300,7 +235,7 @@ int SourceController::rcvPort() const
     
 const std::string SourceController::getDataDestHostAndPort() const
 {
-    return dataDest().hostname() + ":" + dataDest().port();
+    return cWonder_->hostname() + ":" + cWonder_->port();
 }
     
 std::shared_ptr<const Room> SourceController::getRoom() const
@@ -313,68 +248,66 @@ void SourceController::setRoom(const wonder::Room &room)
     *room_ = room;
 }
     
+void SourceController::connect() const
+{
+    cWonder_->sendStreamVisualConnect("SPAOP");
+}
+    
 void SourceController::setIncomingParameter(int sourceID,
                                             Source::AutomatedParameters index,
                                             float unnormalizedValue)
 {
     const float newValue = Source::normalizeParameter(index, unnormalizedValue);
     
-    if(isLocked_ && sourceID == sourceID_){
-        // only for messages about "our" source, the listener_ gets notified:
-        listener_->incomingParameterChange(index, newValue);
+    sources_->setParameterNormalized(sourceID, index, newValue);
+
+    // notify Listener (if one is registered for the sourceID):
+    std::lock_guard<std::mutex> lock(listenersMutex_);
+    if(listeners_[sourceID] != nullptr){
+        listeners_[sourceID]->incomingParameterChange(index, newValue);
     }
     
-    sources_->setParameterNormalized(sourceID, index, newValue);
+    
 }
 
-bool SourceController::relevantChange(int index)
+bool SourceController::relevantChange(int sourceID, int index)
 {
-    const Source& source_ = sources_->getSource(sourceID_);
+    const Source& source_ = sources_->getSource(sourceID);
 
     switch (index)
     {
         // for those parameters that have a precision defined, the precision defines if
         // a relevant change has happened:
         case Source::xPosParam:
-            return ABS(source_.getXPos() - lastValues_[Source::xPosParam]) > COORD_PRECISION;
+            return ABS(source_.getXPos() - lastValues_[sourceID][Source::xPosParam]) > COORD_PRECISION;
         case Source::yPosParam:
-            return ABS(source_.getYPos() - lastValues_[Source::yPosParam]) > COORD_PRECISION;
+            return ABS(source_.getYPos() - lastValues_[sourceID][Source::yPosParam]) > COORD_PRECISION;
         case Source::angleParam:
-            return ABS(source_.getAngle() - lastValues_[Source::angleParam]) > ANGLE_PRECISION;
+            return ABS(source_.getAngle() - lastValues_[sourceID][Source::angleParam]) > ANGLE_PRECISION;
         
         // for the rest, any change is relevant:
         default:
             if (index >= 0 && index < Source::totalNumParams) {
-                return source_.getDenormalizedParameter(index) != lastValues_[index];
+                return source_.getDenormalizedParameter(index) != lastValues_[sourceID][index];
             } else {
                 return false; // index out of bounds
             }
     }
 }
     
-OscSenderThread& SourceController::dataDest() const
+void SourceController::sendSourceState(int sourceID)
 {
-    return linkedToWonder_ ? *cWonder_ : *peerGroup_;
-}
-
-OscSenderThread& SourceController::streamSource() const
-{
-    return linkedToWonder_ ? *mCaster_ : *peerGroup_;
-}
+    cWonder_->sendSourceActivate(sourceID);
     
-void SourceController::sendOwnState()
-{
-    dataDest().sendSourceActivate(sourceID_);
-    
-    const wonder::Source& src = sources_->getSource(sourceID_);
-    dataDest().sendFullSourceInfo(src);
+    const wonder::Source& src = sources_->getSource(sourceID);
+    cWonder_->sendFullSourceInfo(src);
     
     // update lastValues_:
     for(int i=0; i<Source::totalNumParams; i++){
-        lastValues_[i] = src.getDenormalizedParameter(i);
+        lastValues_[sourceID][i] = src.getDenormalizedParameter(i);
     }
     
-    dataDest().sendSourceActivate(sourceID_); // twice in case one gets lost...
+    cWonder_->sendSourceActivate(sourceID); // twice in case one gets lost...
 }
     
 //==============================================================================
@@ -383,7 +316,12 @@ void SourceController::sendOwnState()
 void SourceController::connectionLost(const int connectionID)
 {
     cStatus_ = error;
-    listener_->connectionLost();
+    for(int i = 0; i < listeners_.size(); i++){
+        std::lock_guard<std::mutex> lock(listenersMutex_);
+        if (listeners_[i] != nullptr) {
+            listeners_[i]->connectionLost();
+        }
+    }
 }
     
 //==============================================================================
@@ -397,12 +335,8 @@ int SourceController::onSourceActivate(int sourceID)
     
 int SourceController::onSourceDeactivate(int sourceID)
 {
-    if (sourceID == sourceID_ && isLocked_) {
-        // someone else has deactivated "our" source -> reactivate
-        dataDest().sendSourceActivate(sourceID_);
-    } else {
-        sources_->deactivate(sourceID);
-    }
+    // TODO: check if still active on this side,
+    // cWonder_->sendSourceActivate(sourceID_);
     return 0;
 }
     
@@ -465,30 +399,18 @@ int SourceController::onStreamVisualPing(int pingCount, OscSender* replyTo)
 {
     replyTo->sendStreamVisualPong(pingCount);
     
-    if(linkedToWonder_){ // connection control is only active in linked mode...
-        // update status:
-        cStatus_ = active;
+    // update status:
+    cStatus_ = active;
         
-        // notify PingControl (on the first Ping, this will also start PingControl):
-        pingControl_.onPing();
-    }
+    // notify PingControl (on the first Ping, this will also start PingControl):
+    pingControl_.onPing();
     
     return 0;
 }
     
 int SourceController::onStreamVisualConnect(wonder::OscSender *replyTo)
 {
-    // when /WONDER/stream/visual/connect is received, the sender hopes
-    // to get all informtion about the current state of the system.
-    // We send back the part we are responsible for. (Since all plugins
-    // are sending from the same port and listening to the multicast group
-    // only, we cannot use the replyTo address here.)
-    
-    if(isLocked_){
-        peerGroup_->sendSourceActivate(sourceID_);
-        peerGroup_->sendFullSourceInfo(sources_->getSource(sourceID_));
-        peerGroup_->sendSourceActivate(sourceID_);
-    }
+    // not implemented (yet?)
     return 0;
 }
     
@@ -497,13 +419,5 @@ int SourceController::onReply(std::string replyToMsg, int state, std::string msg
     // not implemented (yet?)
     return 0;
 }
-    
-int SourceController::onPluginStandalone(bool standAloneOn)
-{
-    // when this is received, the group has been notified already,
-    // so the notifyPeers parameter is set to false:
-    setLinkedToWonder(!standAloneOn, false);
-    return 0;
-}
-    
+
 }

@@ -185,7 +185,7 @@ void SourceParamComponent::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == idSlider)
     {
         //[UserSliderCode_idSlider] -- add your slider handling code here..
-        getProcessor()->getSourceController()->setID((int) sliderThatWasMoved->getValue());
+        getProcessor()->setSourceID((int) sliderThatWasMoved->getValue());
         //[/UserSliderCode_idSlider]
     }
     else if (sliderThatWasMoved == angleSlider)
@@ -215,7 +215,11 @@ void SourceParamComponent::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == lockIDButton)
     {
         //[UserButtonCode_lockIDButton] -- add your button handler code here..
-        getProcessor()->getSourceController()->setIdIsLocked(lockIDButton->getToggleState());
+        if (lockIDButton->getToggleState()) {
+            getProcessor()->lockID();
+        } else {
+            getProcessor()->unlockID();
+        }
         //[/UserButtonCode_lockIDButton]
     }
     else if (buttonThatWasClicked == typeButton)
@@ -242,8 +246,7 @@ void SourceParamComponent::buttonClicked (Button* buttonThatWasClicked)
 
 void SourceParamComponent::update()
 {
-    wonder::SourceController* controller = getProcessor()->getSourceController();
-    const wonder::Source& source = controller->getSource();
+    const wonder::Source& source = getProcessor()->getSource();
 
     // Buttons:
     colourButton->setColour(TextButton::buttonColourId, Colour(source.getRed(),
@@ -253,12 +256,12 @@ void SourceParamComponent::update()
     idSlider->setRange(0, MAX_WONDER_SOURCES, 1);
     // TODO: what happens if current value is out of range?
     idSlider->setValue(source.getID());
-    idSlider->setEnabled(!controller->idIsLocked());
+    idSlider->setEnabled(!getProcessor()->idIsLocked());
     angleSlider->setValue(source.getAngle());
 
     // ToggleButtons:
     dopplerButton->setToggleState(source.dopplerIsEnabled(), dontSendNotification);
-    lockIDButton->setToggleState(controller->idIsLocked(), dontSendNotification);
+    lockIDButton->setToggleState(getProcessor()->idIsLocked(), dontSendNotification);
     typeButton->setToggleState(source.getType() == wonder::Source::point,
                                dontSendNotification);
 
@@ -279,7 +282,7 @@ void SourceParamComponent::showColourSelector()
                                                         | ColourSelector::showColourspace);
     colourSelector->addChangeListener(this);
 
-    const wonder::Colour c = getProcessor()->getSourceController()->getSource().getCoulour();
+    const wonder::Colour c = getProcessor()->getSource().getCoulour();
     colourSelector->setCurrentColour(SpaopAudioProcessorEditor::juceColour(c));
     colourSelector->setSize(COLOUR_SELECTOR_SIZE, COLOUR_SELECTOR_SIZE);
 
@@ -291,7 +294,7 @@ void SourceParamComponent::changeListenerCallback(ChangeBroadcaster *changeBroad
 {
     ColourSelector* colourSelector = dynamic_cast <ColourSelector*> (changeBroadcaster);
     const wonder::Colour c = SpaopAudioProcessorEditor::wonderColour(colourSelector->getCurrentColour());
-    getProcessor()->getSourceController()->updateSourceColour(c);
+    getProcessor()->getSourceController()->updateSourceColour(getProcessor()->getSourceID(), c);
 }
 
 void SourceParamComponent::textEditorTextChanged(TextEditor &textEditor)
@@ -302,7 +305,8 @@ void SourceParamComponent::textEditorTextChanged(TextEditor &textEditor)
 void SourceParamComponent::textEditorReturnKeyPressed(TextEditor &textEditor)
 {
     if (&textEditor == nameEditor && nameIsBeingEdited_) {
-        getProcessor()->getSourceController()->updateSourceName(textEditor.getText().toStdString());
+        getProcessor()->getSourceController()->updateSourceName(getProcessor()->getSourceID(),
+                                                                textEditor.getText().toStdString());
         nameIsBeingEdited_ = false;
     }
 }
@@ -310,7 +314,8 @@ void SourceParamComponent::textEditorReturnKeyPressed(TextEditor &textEditor)
 void SourceParamComponent::textEditorFocusLost(TextEditor &textEditor)
 {
     if (&textEditor == nameEditor && nameIsBeingEdited_) {
-        getProcessor()->getSourceController()->updateSourceName(textEditor.getText().toStdString());
+        getProcessor()->getSourceController()->updateSourceName(getProcessor()->getSourceID(),
+                                                                textEditor.getText().toStdString());
         nameIsBeingEdited_ = false;
     }
 }

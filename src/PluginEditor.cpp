@@ -236,8 +236,7 @@ wonder::SourceController* SpaopAudioProcessorEditor::getSourceController() const
 
 void SpaopAudioProcessorEditor::timerCallback()
 {
-    wonder::SourceController* controller = getSourceController();
-    const wonder::Source& source = controller->getSource();
+    const wonder::Source& source = getProcessor()->getSource();
 
     // Sliders:
     xSlider->setValue(source.getXPos());
