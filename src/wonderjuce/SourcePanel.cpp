@@ -146,7 +146,7 @@ void SourcePanel::removeListener(SourcePanel::Listener *listener)
     listeners.remove(listener);
 }
     
-bool SourcePanel::setSources(std::shared_ptr<const wonder::SourceCollection> sources)
+bool SourcePanel::setSources(const wonder::SourceCollection* sources)
 {
     if (sources_ == nullptr) {
         sources_ = sources;

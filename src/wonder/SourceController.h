@@ -116,7 +116,7 @@ public:
      *  @return A (reference-counting) shared pointer to the SourceCollection
      *      object that is controlled by this SourceController.
      */
-    std::shared_ptr<const SourceCollection> getSources() const;
+    const SourceCollection* getSources() const;
     
     /** Copies the parameters of a given Source object to the internal
      *  SourceCollection (overwriting the Source with the same ID) and
@@ -313,9 +313,8 @@ private:
     std::unique_ptr<OscSenderThread> peerGroup_;    // the multicast group
     
     XmlParser* xmlParser_;
-    std::shared_ptr<SourceCollection> sources_;     // object might be share with a GUI
-                                                    // that might be destructed after
-                                                    // this object -> shared_ptr
+    SourceCollection* sources_;
+    
     int sourceID_;
     std::shared_ptr<Room> room_;
     Listener* listener_;

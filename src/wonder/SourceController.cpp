@@ -33,7 +33,7 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     mCaster_(server_->createSenderThread("localhost", MULTICASTER_PORT_STR)),
     peerGroup_(server_->createSenderThread(VISUAL_MC_GROUP_STR, VISUAL_MC_PORT_STR)),
     xmlParser_(xmlParser),
-    sources_(new SourceCollection(maxSources)),
+    sources_(new SourceCollection(maxSources)), // TODO: maxSources
     sourceID_(0),
     room_(new Room()),
     listener_(listener),
@@ -88,7 +88,7 @@ const Source& SourceController::getSource() const
     return sources_->getSource(sourceID_);
 }
     
-std::shared_ptr<const SourceCollection> SourceController::getSources() const
+const SourceCollection* SourceController::getSources() const
 {
     return sources_;
 }
@@ -457,7 +457,7 @@ int SourceController::onGlobalRenderpolygon(Room& room)
     
 int SourceController::onProjectXmlDump(int err, const std::string& xmlDump)
 {
-    xmlParser_->updateSourceCollectionFromCWonderProject(xmlDump, *(sources_.get()));
+    xmlParser_->updateSourceCollectionFromCWonderProject(xmlDump, *sources_);
     return 0;
 }
     

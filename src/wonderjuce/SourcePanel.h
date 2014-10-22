@@ -126,7 +126,7 @@ public:
      *      SourceCollection object.
      *  @return true on success, false otherwise.
      */
-    bool setSources(std::shared_ptr<const wonder::SourceCollection> sources);
+    bool setSources(const wonder::SourceCollection* sources);
     
     /** Sets the ID of the source to be shown as the main source that can be
      *  controlled using this SourcePanel.
@@ -161,7 +161,7 @@ public:
     
 private:
     float x, y;
-    std::shared_ptr<const wonder::SourceCollection> sources_;
+    const wonder::SourceCollection* sources_;
     bool showOthers_;
     int sourceID_;
     bool dotIsHit_;
