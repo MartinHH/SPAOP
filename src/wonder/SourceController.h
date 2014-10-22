@@ -364,10 +364,6 @@ private:
     int onStreamVisualConnect(OscSender* replyTo);
     
     int onReply(std::string replyToMsg, int state, std::string msg);
-    
-    int onPluginStandalone(bool standAloneOn)
-    { return 0; /* not implemented anymore...
-                 (TODO: remove from interface so this can be removed here)*/}
 
 };
     

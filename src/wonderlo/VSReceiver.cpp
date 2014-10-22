@@ -159,8 +159,6 @@ void VSReceiver::addMethods()
                  lowrappers::ListenerMaker(*this, &VSReceiver::onStreamVisualConnect));
     addListenerAndStoreFunctor("/WONDER/stream/visual/disconnect", NULL,
                  lowrappers::ListenerMaker(*this, &VSReceiver::onStreamVisualDisconnect));
-    addListenerAndStoreFunctor("/WONDER/plugin/standalone", "i",
-                lowrappers::ListenerMaker(*this, &VSReceiver::onPluginStandaloneI));
     addListenerAndStoreFunctor("/WONDER/reply", "sis",
                  lowrappers::ListenerMaker(*this, &VSReceiver::onReplySis));
 }
@@ -386,17 +384,7 @@ int VSReceiver::onReplySis(const char *path, const char *types,lo_arg **argv,
                                      std::string(&(argv[2]->s)));
     }
 }
-    
-int VSReceiver::onPluginStandaloneI(const char *path, const char *types, lo_arg **argv,
-                                    int argc, lo_message msg)
 
-{
-    if(listener_ == nullptr){
-        return 0;
-    } else {
-        return listener_->onPluginStandalone(argv[0]->i);
-    }
-}
     
 //==============================================================================
 // Wrapper-Methods for wonder::VisualStreamReceiver::PingHandler:

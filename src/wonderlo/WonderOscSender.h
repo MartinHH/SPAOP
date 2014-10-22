@@ -144,8 +144,6 @@ public:
     
     void sendProjectSave(const std::string& projectName);
     
-    void sendPluginStandalone(const bool standAlone);
-    
 protected:
     
     /** This method is used to send OSC messages from the various

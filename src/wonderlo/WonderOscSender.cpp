@@ -221,12 +221,6 @@ void WonderOscSender::sendProjectSave()
 void WonderOscSender::sendProjectSave(const std::string& projectName)
 {
     wonderSend("/WONDER/project/save", "s", projectName.c_str());
-    
-}
-    
-void WonderOscSender::sendPluginStandalone(const bool standAlone)
-{
-    wonderSend("/WONDER/plugin/standalone", "i", standAlone);
 }
 
 void WonderOscSender::wonderSend(const std::string &path, const std::string types, ...)

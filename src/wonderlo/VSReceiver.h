@@ -214,9 +214,6 @@ private:
     int onReplySis(const char *path, const char *types,lo_arg **argv,
                            int argc, lo_message msg);
     
-    int onPluginStandaloneI(const char *path, const char *types,lo_arg **argv,
-                            int argc, lo_message msg);
-    
     //==============================================================================
     // Wrapper-Methods for wonder::VisualStreamReceiver::PingHandler:
     

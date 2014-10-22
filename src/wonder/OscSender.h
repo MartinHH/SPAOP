@@ -433,18 +433,6 @@ public:
      */
     virtual void sendProjectSave(const std::string& projectName) = 0;
     
-    /** Sends the /WONDER/plugin/standalone message. This is used to change the
-     *  communication mode of the SourceController class:
-     *  In "standalone" mode, the SourceController sends the source controlling
-     *  messages to its peers (via multicast) only.
-     *  If standalone is off ("linked to wonder" mode), the SourceController sends
-     *  those messages to cWONDER.
-     *
-     *  @param standAlone true for "standalone" mode, false for "linked to wonder"
-     *      mode.
-     */
-    virtual void sendPluginStandalone(const bool standAlone) = 0;
-    
     /** Sends out all source-related information for one Source object (type,
      *  position, angle, colour, doppler effect setting and name).
      *
