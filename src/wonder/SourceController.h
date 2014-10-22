@@ -105,9 +105,6 @@ public:
     
     void removeListener(int sourceID);
     
-    /**
-     *  @warning This is obviously not thread-safe.
-     */
     bool hasListenerForID(int sourceID) const;
     
     const Source& getSource(int sourceID) const;
@@ -187,6 +184,10 @@ public:
      *  @param colour The new colour of the source.
      */
     void updateSourceColour(int sourceID, const Colour colour);
+    
+    void syncAsMaster();
+    
+    void syncAsSlave() const;
     
     /** Sets the address where outgoing OSC messages will be sent in "linked to
      *  WONDER" mode will be sent (i.e. the address of cWONDER).
@@ -278,8 +279,9 @@ private:
     
     PingControl pingControl_;
     ConnectionStates cStatus_;
-    std::vector<std::vector<float>> lastValues_;  // the last values of automated parameters
-                                                // that were sent out (denormalized!)
+    std::vector<std::vector<float>> lastValues_;    // the last values of automated parameters
+                                                    // that were sent out (denormalized!)
+                                                    // 1st dim: sourceIDs; 2nd dim: parameters
     
     void connect() const;
     
@@ -300,10 +302,13 @@ private:
     bool relevantChange(int sourceID, int index);
     
     /**
-     *  Sends /WONDER/source/activate and the full source info for the source
-     *  controlled by this SourceController.
+     *  Sends /WONDER/source/activate and the full source info if the specified
+     *  source is active.
      */
     void sendSourceState(int sourceID);
+    
+    void sendActiveSourcesStates();
+    
     
     //==============================================================================
     //vvvvv  Implementing ConnectionTimer::Listener

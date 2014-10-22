@@ -80,17 +80,16 @@ private:
 
     //==============================================================================
     ScopedPointer<GroupComponent> infoGroupComponent;
-    ScopedPointer<GroupComponent> modeGroupComponent;
+    ScopedPointer<GroupComponent> syncGroupComponent;
     ScopedPointer<GroupComponent> cwGroupComponent;
     ScopedPointer<TextEditor> cwIpEditor;
     ScopedPointer<TextEditor> cwPortEditor;
     ScopedPointer<Label> ipLabel;
     ScopedPointer<Label> portLabel;
     ScopedPointer<TextButton> confirmCwButton;
-    ScopedPointer<ToggleButton> linkWonderButton;
-    ScopedPointer<Label> addrLabel;
-    ScopedPointer<Label> urlLabel;
     ScopedPointer<Label> cStatusLabel;
+    ScopedPointer<TextButton> syncMasterButton;
+    ScopedPointer<TextButton> syncSlaveButton;
 
 
     //==============================================================================

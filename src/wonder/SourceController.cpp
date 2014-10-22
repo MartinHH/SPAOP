@@ -48,7 +48,7 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     server_->start();
     cWonder_->start();
     
-    connect();
+    cWonder_->sendStreamVisualConnect("SPAOP");
 }
     
 SourceController::~SourceController()
@@ -192,6 +192,25 @@ void SourceController::updateSourceColour(int sourceID, const Colour colour)
     cWonder_->sendSourceColor(sourceID, colour);
 }
     
+void SourceController::syncAsMaster()
+{
+    // Step 1: send settings of all active sources to cWONDER:
+    sendActiveSourcesStates();
+    
+    // Step 2: request cWONDER to send its state (which will be in sync
+    // with what was sent in step 2 (provided the messages sent to cWONDER
+    // arrive in order (which is very likely, but not guarenteed):
+    cWonder_->sendStreamVisualConnect("SPAOP");
+}
+    
+void SourceController::syncAsSlave() const
+{
+    // this will cause cWONDER to reply with the /WONDER/project/xmlDump message
+    // which will make this SourceController adopt the current state of the wonder
+    // system:
+    cWonder_->sendStreamVisualConnect("SPAOP");
+}
+    
 bool SourceController::setCWonderAddress(const std::string &ip, const std::string &port)
 {
     if(parsetools::isValidIP(ip) && parsetools::isValidPort(port)){
@@ -248,11 +267,6 @@ void SourceController::setRoom(const wonder::Room &room)
     *room_ = room;
 }
     
-void SourceController::connect() const
-{
-    cWonder_->sendStreamVisualConnect("SPAOP");
-}
-    
 void SourceController::setIncomingParameter(int sourceID,
                                             Source::AutomatedParameters index,
                                             float unnormalizedValue)
@@ -297,17 +311,24 @@ bool SourceController::relevantChange(int sourceID, int index)
     
 void SourceController::sendSourceState(int sourceID)
 {
-    cWonder_->sendSourceActivate(sourceID);
-    
-    const wonder::Source& src = sources_->getSource(sourceID);
-    cWonder_->sendFullSourceInfo(src);
-    
-    // update lastValues_:
-    for(int i=0; i<Source::totalNumParams; i++){
-        lastValues_[sourceID][i] = src.getDenormalizedParameter(i);
+    if(sources_->getSource(sourceID).isActive()){
+        cWonder_->sendSourceActivate(sourceID);
+        
+        const wonder::Source& src = sources_->getSource(sourceID);
+        cWonder_->sendFullSourceInfo(src);
+        
+        // update lastValues_:
+        for(int i=0; i<Source::totalNumParams; i++){
+            lastValues_[sourceID][i] = src.getDenormalizedParameter(i);
+        }
     }
+}
     
-    cWonder_->sendSourceActivate(sourceID); // twice in case one gets lost...
+void SourceController::sendActiveSourcesStates()
+{
+    for(int i=0; i<sources_->getMaxSources(); i++){
+        sendSourceState(i);
+    }
 }
     
 //==============================================================================
