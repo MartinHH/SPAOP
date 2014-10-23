@@ -256,11 +256,6 @@ int SourceController::rcvPort() const
     return server_->port();
 }
     
-const std::string SourceController::getDataDestHostAndPort() const
-{
-    return cWonder_->hostname() + ":" + cWonder_->port();
-}
-    
 std::shared_ptr<const Room> SourceController::getRoom() const
 {
     return room_;

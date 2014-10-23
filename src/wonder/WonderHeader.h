@@ -69,39 +69,6 @@
 #define CWONDER_DEFAULT_PORT_STR "58100"    /**< cWONDER's port. */
 #endif
 
-// Multicast group:
-#ifndef VISUAL_MC_GROUP_STR
-#define VISUAL_MC_GROUP_STR "239.0.111.111" /**< The multicast group's IP. */
-
-#endif
-
-#ifndef VISUAL_MC_PORT_STR
-#define VISUAL_MC_PORT_STR "11111"          /**< The group's port. */
-#endif
-
-#ifndef VISUAL_MC_IFACE_IP_STR
-#define VISUAL_MC_IFACE_IP_STR "127.0.0.1"  /**< The IP of the interface where
-                                                 the mutlicast messages are
-                                                 sent from. */
-#endif
-
-#ifndef VISUAL_MC_TTL
-#define VISUAL_MC_TTL 0  /**< The time-to-live value for messages sent
-                              to the multicast group. */
-#endif
-
-// the stream-multicaster for the visual stream:
-#ifndef MULTICASTER_PORT_STR
-#define MULTICASTER_PORT_STR "58800"    /**< The multicaster's port for receiving
-                                            /WONDER/stream/<streamname>/connect
-                                            messages. */
-#endif
-
-#ifndef MULTICASTER_STREAM_IN_PORT_STR
-#define MULTICASTER_STREAM_IN_PORT_STR "58801"  /**< The multicaster's port for receiving
-                                                    the incoming stream from cWONDER. */
-#endif
-
 
 #ifndef PING_TIMEOUT_INTERVAL
 #define PING_TIMEOUT_INTERVAL 3000  /**< The maximum allowed interval between two

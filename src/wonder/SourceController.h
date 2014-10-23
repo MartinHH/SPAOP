@@ -285,15 +285,6 @@ public:
      */
     int rcvPort() const;
     
-    /** Returns the Address where the WONDER control message are sent to.
-     *  In standalone mode, this is the address of the multicast group,
-     *  in linked to WONDER mode, this is the address of cWONDER.
-     *
-     *  @return A String containing hostname/ip and port of the Address
-     *      where the WONDER control message are sent to.
-     */
-    const std::string getDataDestHostAndPort() const;
-    
     /** Returns a (reference-counting) shared pointer to the Room object
      *  stored internally.
      *
@@ -329,7 +320,6 @@ private:
                                                     // that were sent out (denormalized!)
                                                     // 1st dim: sourceIDs; 2nd dim: parameters
     
-    void connect() const;
     
     /** Sets an automated parameter from an unnormalized value,
         notifying the listener.
@@ -347,12 +337,12 @@ private:
      */
     bool relevantChange(int sourceID, int index);
     
-    /**
-     *  Sends /WONDER/source/activate and the full source info if the specified
+    /** Sends /WONDER/source/activate and the full source info if the specified
      *  source is active.
      */
     void sendSourceState(int sourceID);
     
+    /** Sends the states of all active sources. */
     void sendActiveSourcesStates();
     
     
