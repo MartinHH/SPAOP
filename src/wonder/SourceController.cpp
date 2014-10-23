@@ -28,7 +28,7 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     server_(vsFactory->createVisualStreamReceiver()), // TODO: fixed port?
     cWonder_(server_->createSenderThread(CWONDER_DEFAULT_IP_STR, CWONDER_DEFAULT_PORT_STR)),
     xmlParser_(xmlParser),
-    sources_(new SourceCollection(maxSources)),
+    sources_(maxSources),
     room_(new Room()),
     listeners_(maxSources, nullptr),
     pingControl_(timerFactory, this, 0),
@@ -100,40 +100,40 @@ bool SourceController::hasListenerForID(int sourceID) const
     
 const Source& SourceController::getSource(int sourceID) const
 {
-    return sources_->getSource(sourceID);
+    return sources_.getSource(sourceID);
 }
     
 const SourceCollection* SourceController::getSources() const
 {
-    return sources_;
+    return &sources_;
 }
     
 void SourceController::activateSource(int sourceID)
 {
-    sources_->activate(sourceID);
+    sources_.activate(sourceID);
     cWonder_->sendSourceActivate(sourceID);
 }
     
 void SourceController::deactivateSource(int sourceID)
 {
-    sources_->deactivate(sourceID);
+    sources_.deactivate(sourceID);
     cWonder_->sendSourceActivate(sourceID);
 }
     
 bool SourceController::setSource(const wonder::Source &source)
 {
-    return sources_->setSource(source);
+    return sources_.setSource(source);
 }
 
 void SourceController::setParameterAndSendChange(int sourceID, int paramIndex, float normalizedValue)
 {
     // set parameter
-    sources_->setParameterNormalized(sourceID, paramIndex, normalizedValue);
+    sources_.setParameterNormalized(sourceID, paramIndex, normalizedValue);
     
     // send only if the value's change is relevant:
     if(relevantChange(sourceID, paramIndex)){
         
-        const Source& source_ = sources_->getSource(sourceID);
+        const Source& source_ = sources_.getSource(sourceID);
         
         // store the new value as last sent value before sending:
         lastValues_[sourceID][paramIndex] = source_.getDenormalizedParameter(paramIndex);
@@ -169,13 +169,13 @@ void SourceController::setParameterAndSendChange(int sourceID, int paramIndex, f
 void SourceController::setCoordinatesAndSendChange(int sourceID, float normalizedX, float normalizedY)
 {
     // set parameters
-    sources_->setParameterNormalized(sourceID, Source::xPosParam, normalizedX);
-    sources_->setParameterNormalized(sourceID, Source::yPosParam, normalizedY);
+    sources_.setParameterNormalized(sourceID, Source::xPosParam, normalizedX);
+    sources_.setParameterNormalized(sourceID, Source::yPosParam, normalizedY);
     
     // send only if the value's change is relevant:
     if(relevantChange(sourceID, Source::xPosParam) || relevantChange(sourceID, Source::yPosParam)){
         
-        const Source& source_ = sources_->getSource(sourceID);
+        const Source& source_ = sources_.getSource(sourceID);
         
         lastValues_[sourceID][Source::xPosParam] = source_.getXPos();
         lastValues_[sourceID][Source::yPosParam] = source_.getYPos();
@@ -186,13 +186,13 @@ void SourceController::setCoordinatesAndSendChange(int sourceID, float normalize
     
 void SourceController::updateSourceName(int sourceID, const std::string& newSourceName)
 {
-    sources_->setName(sourceID, newSourceName);
+    sources_.setName(sourceID, newSourceName);
     cWonder_->sendSourceName(sourceID, newSourceName);
 }
     
 void SourceController::updateSourceColour(int sourceID, const Colour colour)
 {
-    sources_->setColour(sourceID, colour);
+    sources_.setColour(sourceID, colour);
     cWonder_->sendSourceColor(sourceID, colour);
 }
     
@@ -272,7 +272,7 @@ void SourceController::setIncomingParameter(int sourceID,
 {
     const float newValue = Source::normalizeParameter(index, unnormalizedValue);
     
-    sources_->setParameterNormalized(sourceID, index, newValue);
+    sources_.setParameterNormalized(sourceID, index, newValue);
 
     // notify Listener (if one is registered for the sourceID):
     std::lock_guard<std::mutex> lock(listenersMutex_);
@@ -285,7 +285,7 @@ void SourceController::setIncomingParameter(int sourceID,
 
 bool SourceController::relevantChange(int sourceID, int index)
 {
-    const Source& source_ = sources_->getSource(sourceID);
+    const Source& source_ = sources_.getSource(sourceID);
 
     switch (index)
     {
@@ -310,10 +310,10 @@ bool SourceController::relevantChange(int sourceID, int index)
     
 void SourceController::sendSourceState(int sourceID)
 {
-    if(sources_->getSource(sourceID).isActive()){
+    if(sources_.getSource(sourceID).isActive()){
         cWonder_->sendSourceActivate(sourceID);
         
-        const wonder::Source& src = sources_->getSource(sourceID);
+        const wonder::Source& src = sources_.getSource(sourceID);
         cWonder_->sendFullSourceInfo(src);
         
         // update lastValues_:
@@ -325,7 +325,7 @@ void SourceController::sendSourceState(int sourceID)
     
 void SourceController::sendActiveSourcesStates()
 {
-    for(int i=0; i<sources_->getMaxSources(); i++){
+    for(int i=0; i<sources_.getMaxSources(); i++){
         sendSourceState(i);
     }
 }
@@ -349,7 +349,7 @@ void SourceController::connectionLost(const int connectionID)
     
 int SourceController::onSourceActivate(int sourceID)
 {
-    sources_->activate(sourceID);
+    sources_.activate(sourceID);
     return 0;
 }
     
@@ -365,7 +365,7 @@ int SourceController::onSourceDeactivate(int sourceID)
         cWonder_->sendSourceActivate(sourceID);
     } else {
         // no plugin exists for source -> update SourceCollection:
-        sources_->deactivate(sourceID);
+        sources_.deactivate(sourceID);
     }
 
     return 0;
@@ -392,13 +392,13 @@ int SourceController::onSourceType(int sourceID, int type)
     
 int SourceController::onSourceName(int sourceID, const std::string& sourceName)
 {
-    sources_->setName(sourceID, sourceName);
+    sources_.setName(sourceID, sourceName);
     return 0;
 }
     
 int SourceController::onSourceColor(int sourceID, int r, int g, int b)
 {
-    sources_->setColour(sourceID, Colour(r, g, b));
+    sources_.setColour(sourceID, Colour(r, g, b));
     return 0;
 }
     
@@ -416,7 +416,7 @@ int SourceController::onGlobalRenderpolygon(Room& room)
     
 int SourceController::onProjectXmlDump(int err, const std::string& xmlDump)
 {
-    xmlParser_->updateSourceCollectionFromCWonderProject(xmlDump, *sources_);
+    xmlParser_->updateSourceCollectionFromCWonderProject(xmlDump, sources_);
     return 0;
 }
     

@@ -307,7 +307,7 @@ private:
     std::unique_ptr<OscSenderThread> cWonder_;      // cWONDER
     
     XmlParser* xmlParser_;
-    SourceCollection* sources_;
+    SourceCollection sources_;
     
     std::shared_ptr<Room> room_;
     
