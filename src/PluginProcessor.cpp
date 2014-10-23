@@ -336,8 +336,7 @@ const wonder::Source& SpaopAudioProcessor::getSource() const
 
 void SpaopAudioProcessor::lockID()
 {
-    if(!sourceController_->hasListenerForID(sourceID_)){
-        sourceController_->setListener(sourceID_, this);
+    if(sourceController_->setListener(sourceID_, this)){
         sourceController_->activateSource(sourceID_);
         idIsLocked_ = true;
     }

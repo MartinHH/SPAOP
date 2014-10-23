@@ -73,12 +73,16 @@ SourceController::~SourceController()
     server_->join();
 }
     
-void SourceController::setListener(int sourceID, Listener *listener)
+bool SourceController::setListener(int sourceID, Listener *listener)
 {
     if(sourceID >= 0 && sourceID < listeners_.size()){
         std::lock_guard<std::mutex> lock(listenersMutex_);
-        listeners_[sourceID] = listener;
+        if(listeners_[sourceID] == nullptr){
+            listeners_[sourceID] = listener;
+            return true;
+        }
     }
+    return false;
 }
     
 void SourceController::removeListener(int sourceID)

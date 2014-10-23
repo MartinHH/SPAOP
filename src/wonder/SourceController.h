@@ -101,7 +101,7 @@ public:
     /** Destructor. */
     virtual ~SourceController();
     
-    void setListener(int sourceID, Listener* listener);
+    bool setListener(int sourceID, Listener* listener);
     
     void removeListener(int sourceID);
     
