@@ -274,8 +274,7 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             sourceID_ = source.getID();
             
             // set room:
-            wonder::Room newRoom =
-            XmlFactory::createRoomFromXml(xmlState->getChildByName("room"));
+            wonder::Room newRoom = XmlFactory::createRoomFromXml(xmlState->getChildByName("room"));
             sourceController_->setRoom(newRoom);
             
             // set connection:

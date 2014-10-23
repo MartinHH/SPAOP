@@ -259,16 +259,60 @@ public:
      */
     wonder::SourceController* getSourceController() const;
     
+    /** Returns the wonder::Source object corresponding to the ID assigned to this
+     *  instance of the plugin.
+     *
+     *  @return The wonder::Source object corresponding to the ID assigned to this
+     *      instance of the plugin.
+     */
     const wonder::Source& getSource() const;
     
+    /** Tries to "lock" the currently assigned ID. This will register this plugin
+     *  for callbacks from incoming OSC messages from the WONDER system and will
+     *  enable the forwarding of automation data from the host DAW to the WONDER
+     *  system.
+     *  To sum it up: this must be called to make the plugin work.
+     *  Once the ID is locked, it cannot be changed (until unlockID() is called).
+     *
+     *  @see unlockID(), idIsLocked().
+     */
     void lockID();
     
+    /** "Unlocks" the currently assigned ID. This will unregister this plugin
+     *  for callbacks from incoming OSC messages from the WONDER system and will
+     *  disable the forwarding of automation data from the host DAW to the WONDER
+     *  system.
+     *  This must be called if you want to change the ID of a plugin and its ID
+     *  is currently locked.
+     *
+     *  @see lockID(), idIsLocked().
+     */
     void unlockID();
     
+    /** Returns true if the SourceID of this plugin is currently locked.
+     *
+     *  @return true if the SourceID of this plugin is currently locked.
+     *
+     *  @see lockID(), unlockID().
+     */
     bool idIsLocked() const { return idIsLocked_; }
     
+    /** Tries to set the (WONDER-specific) ID of the source controlled by this
+     *  plugin. This will only work if the ID currently is not locked.
+     *
+     *  @param sourceID the ID of the source to be controlled by this plugin.
+     *      Must be >= 0 and < the maximum number of sources (default: 64).
+     *
+     *  @see idIsLocked(), lockID(), unlockID().
+     */
     void setSourceID(int sourceID);
     
+    /** Returns the (WONDER-specific) ID of the source controlled by this
+     *  plugin.
+     *
+     *  @return The (WONDER-specific) ID of the source controlled by this
+     *      plugin.
+     */
     int getSourceID() const { return sourceID_; }
     
     /** Returns the zoom factor for the GUI. (As this parameters shall be restorable

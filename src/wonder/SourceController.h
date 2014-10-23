@@ -47,7 +47,10 @@ class SourceController 	:   VisualStreamReceiver::Listener,
 public:
     
     /** An interface for a listener that listens to various callbacks triggered
-     *  by incoming messages or connection timeout alerts.
+     *  by incoming messages or connection timeout alerts. For each source, one
+     *  Listener can be registered.
+     *
+     *  @see setListener, removeListener.
      */
     class Listener
     {
@@ -55,7 +58,7 @@ public:
         /** Destructor. */
         virtual ~Listener() {}
         
-        /** Called when one of the sources automatable parameters is changed by
+        /** Called when one of the source's automatable parameters is changed by
          *  an incoming message.
          */
         virtual void incomingParameterChange (Source::AutomatedParameters index,
@@ -83,8 +86,7 @@ public:
      *      are defined within the file WonderHeader.h.
      *
      *  @param vsFactory A VisualStreamReceiver::Factory that will be used to
-     *      create the VisualStreamReceiver that this SourceController will
-     *      use to receive OSC messages.
+     *      create the OSC messaging threads used by this SourceController.
      *  @param timerFactory A ConnectionTimer::Factory that will be used to
      *      create the ConnectionTimer that this SourceController will
      *      use to keep track of ping timeouts.
@@ -101,49 +103,83 @@ public:
     /** Destructor. */
     virtual ~SourceController();
     
+    /** Tries to sets the Listener that will receive callbacks on incoming OSC
+     *  messages referring to a specified sourceID. This will fail if another
+     *  Listener is already registered for that ID
+     *
+     *  @param sourceID The ID the Listener shall be reigstered for.
+     *  @param listener The Listener to be registered.
+     *
+     *  @param true on success, false otherwise (if another listener is registered
+     *      for the ID or the ID is out of range).
+     */
     bool setListener(int sourceID, Listener* listener);
     
+    /** Removes the Listener registered for the specifed ID.
+     *
+     *  @param sourceID The ID for which the Listener shall be unregistered.
+     */
     void removeListener(int sourceID);
     
+    /** Returns true if a Listener is currently registered for the specified ID.
+     *  
+     *  @param sourceID The ID for which the "a Listener is registered"-status
+     *      shall be checked.
+     *
+     *  @return true if a Listener is currently registered for the specified ID.
+     */
     bool hasListenerForID(int sourceID) const;
     
+    /** Returns the Source object corresponding to the specified ID. (Same as:
+     *  getSources()->getSource(sourceID).)
+     *
+     *  @param sourceID The ID of the Source object that is to be returned.
+     *
+     *  @return The Source object corresponding to the specified ID.
+     */
     const Source& getSource(int sourceID) const;
     
-    /** Returns a (reference-counting) shared pointer to the SourceCollection
-     *  object that is controlled by this SourceController.
+    /** Returns a pointer to the SourceCollection object that is controlled by
+     *  this SourceController.
      *
-     *  @return A (reference-counting) shared pointer to the SourceCollection
-     *      object that is controlled by this SourceController.
+     *  @return A pointer to the SourceCollection object that is controlled by
+     *      this SourceController.
      */
     const SourceCollection* getSources() const;
     
+    /** Activates the specified source (both locally and remotely by sending the
+     *  corresponding OSC messages).
+     *
+     *  @param sourceID The ID of the source to be activated.
+     */
     void activateSource(int sourceID);
     
+    /** Deactivates the specified source (both locally and remotely by sending the
+     *  corresponding OSC messages).
+     *
+     *  @param sourceID The ID of the source to be deactivated.
+     */
     void deactivateSource(int sourceID);
     
     /** Copies the parameters of a given Source object to the internal
      *  SourceCollection (overwriting the Source with the same ID) and
      *  sets the source's ID as the one controlled by this SourceController.
      *  This is meant to be used for restoring states from saved files
-     *  (e.g. the audio-plugin's presets) and is only allowed while the
-     *  the ID is not locked.
-     *
-     *  @see setIdIsLocked, idIsLocked
+     *  (e.g. the audio-plugin's presets).
      *
      *  @return true on success - false if the Source object's parameters
-     *      could not be copied because the source's ID was out of range or
-     *      beauce the SourceController's was communicating.
+     *      could not be copied because the source's ID was out of range.
      *
      *  @warning Take extra care that you really want to copy all of
-     *      a Source's paramters (e.g. including isActive()).
+     *      a Source's parameters (e.g. including isActive()).
      */
     bool setSource(const Source &source);
     
-    /** Sets a parameter of the source that is controlled by this
-     *  SourceController and sends it to cWONDER (if its value's difference from
-     *  the value that was sent last is relevant). Depending on the parameter,
+    /** Sets a parameter of a source and sends it to cWONDER (if its value's difference
+     *  from the value that was sent last is relevant). Depending on the parameter,
      *  the right message format is chosen.
      *  
+     *  @param sourceID The ID of the source whose parameter shall be changed.
      *  @param paramIndex A parameter index value as defined in the enum
      *      Source::AutomatedParameters.
      *  @param normalizedValue The new value for that parameter, normalized within
@@ -153,13 +189,13 @@ public:
      */
     void setParameterAndSendChange (int sourceID, int paramIndex, float normalizedValue);
     
-    /** Sets the coordinates of the source that is controlled by this
-     *  SourceController and sends them to cWONDER (if the values' difference
-     *  from the values that were sent last is relevant).
+    /** Sets the coordinates of a source and sends them to cWONDER (if the values'
+     *  difference from the values that were sent last is relevant).
      *  For coordinate changes, this is to be prefered since it will only send
      *  one OSC message while two separate calls to setParameterAndSendChange
      *  might result in two messages.
      *
+     *  @param sourceID The ID of the source whose coordinates shall be changed.
      *  @param normalizedX The new value for the x-coordinate, normalized within
      *      [0.0 , 1.0].
      *  @param normalizedY The new value for the y-coordinate, normalized within
@@ -169,24 +205,34 @@ public:
      */
     void setCoordinatesAndSendChange (int sourceID, float normalizedX, float normalizedY);
     
-    /** Updates the name of the source that is controlled by this
-     *  SourceController and sends out the corresponding OSC message
-     *  (if the ID is locked).
+    /** Updates the name a source and sends out the corresponding OSC message.
      *
+     *  @param sourceID The ID of the source whose name shall be changed.
      *  @param newSourceName The new name of the source.
      */
     void updateSourceName(int sourceID, const std::string& newSourceName);
     
-    /** Updates the colour of the source that is controlled by this
-     *  SourceController and sends out the corresponding OSC message
-     *  (if the ID is locked).
+    /** Updates the colour of a source and sends out the corresponding OSC message.
      *
+     *  @param sourceID The ID of the source whose colour shall be changed.
      *  @param colour The new colour of the source.
      */
     void updateSourceColour(int sourceID, const Colour colour);
     
+    /** Tries to sync the WONDER system to the state of this SourceController.
+     *  This sends out the state of all currently active sources BEFORE sending
+     *  a /WONDER/stream/visual/connect messages which will cause the WONDER
+     *  system to reply with its state.
+     *  Provided the messages sent to cWONDER arrive in order (which is very likely,
+     *  but not guarenteed), the state received from WONDER will be in sync with the
+     *  local state that was sent out before.
+     */
     void syncAsMaster();
     
+    /** Tries to sync this SourceController to the state of the WONDER system.
+     *  This sends a /WONDER/stream/visual/connect messages which will cause the WONDER
+     *  system to reply with its state.
+     */
     void syncAsSlave() const;
     
     /** Sets the address where outgoing OSC messages will be sent in "linked to
@@ -215,8 +261,8 @@ public:
     std::string getCWonderPort() const;
 
     /** Returns the current status of the incoming connection. This is only
-     *  significant if the SourceController is linked to WONDER. If it is not
-     *  linked to WONDER, the returned status is always inactive.
+     *  significant if the plugin is connected to a WONDER system and the WONDER
+     *  system sends out ping messages.
      *
      *  @return the current status of the incoming connection.
      *
@@ -338,21 +384,21 @@ private:
     int onSourceColor(int wondID, int r, int g, int b);
     
     int onSourceGroupId(int wondID, int groupID)
-    { return 0; /** Not supported (yet?). */}
+        { return 0; /** Not supported (yet?). */}
     
     int onSourceRotatingDirection(int wondID, int rotDir)
-    { return 0; /** Not supported (yet?). */}
+        { return 0; /** Not supported (yet?). */}
     
     int onSourceScalingDirection(int wondID, int scalDir)
-    { return 0; /** Not supported (yet?). */}
+        { return 0; /** Not supported (yet?). */}
     
     int onSourceDopplerEffect(int wondID, int doppler);
     
     int onListenerPosition(int listenerID, float x, float y)
-    { return 0; /** Not supported (yet?). */}
+        { return 0; /** Not supported (yet?). */}
     
     int onGlobalMaxNoSources(int maxSources)
-    { return 0; /** Not used. */}
+        { return 0; /** Not used. */}
     
     int onGlobalRenderpolygon(Room& room);
     
@@ -363,7 +409,7 @@ private:
     int onStreamVisualPong(int pingCount){ return 0; }
     
     int onStreamVisualConnect(OscSender* replyTo)
-    { return 0; /** Not supported (yet?). */}
+        { return 0; /** Not supported (yet?). */}
     
     int onReply(std::string replyToMsg, int state, std::string msg);
 

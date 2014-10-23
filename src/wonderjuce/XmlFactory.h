@@ -108,8 +108,8 @@ public:
     
     /** Sets the properties of a wonder::SourceController to the values given in
      *  an XmlElement that was created using the createConnectionXml method.
-     *  cWONDER project XML string. The properties that are set are the isSending
-     *  and isListening states.
+     *  cWONDER project XML string. The properties that are set the ip and port
+     *  where outgoing OSC messages are sent.
      *
      *  @param connectionElement An XmlElement created createConnectionXml.
      *  @param controller The SourceController that shall be updated.
@@ -118,12 +118,11 @@ public:
                                               wonder::SourceController* controller);
     
     /** Creates an XmlElement representing a wonder::SourceController's
-     *  connection state. Stored are the current values of
-     *  wonder::SourceController::isListening and
-     *  wonder::SourceController::isSending.
+     *  connection state. Stored are the current ip and port where outgoing
+     *  OSC messages are sent.
      *
      *  @param controller The SourceController that shall be stored to XML.
-     *  @return an XmlElement containing the room info.
+     *  @return an XmlElement containing the connection info.
      */
     static XmlElement* createConnectionXml(const wonder::SourceController* controller);
     
