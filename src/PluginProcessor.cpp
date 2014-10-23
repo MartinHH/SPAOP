@@ -235,6 +235,8 @@ void SpaopAudioProcessor::getStateInformation (MemoryBlock& destData)
     xml.addChildElement(XmlFactory::createRoomXml(*(sourceController_->getRoom())));
     
     // add connection settings:
+    XmlElement* connection = XmlFactory::createConnectionXml(sourceController_);
+    connection->setAttribute("locked", idIsLocked_); // part of connection settings for legacy reasons
     xml.addChildElement(XmlFactory::createConnectionXml(sourceController_));
     
     // add gui settings:
@@ -262,11 +264,14 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
         // make sure that it's actually our type of XML object..
         if (xmlState->hasTagName ("SPAOPSETTINGS")){
             
+            // unregister from SourceCollection (callbacks etc):
+            unlockID();
+            
             // set source:
             wonder::Source source;
             XmlFactory::updateSourceFromXml(xmlState->getChildByName("source"), &source);
-//            sourceController_->setIdIsLocked(false);
             sourceController_->setSource(source);
+            sourceID_ = source.getID();
             
             // set room:
             wonder::Room newRoom =
@@ -274,8 +279,13 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             sourceController_->setRoom(newRoom);
             
             // set connection:
-            XmlFactory::updateSourceControllerFromXml(xmlState->getChildByName("connection"),
-                                                       sourceController_);
+            XmlElement* connection = xmlState->getChildByName("connection");
+            const bool idToBeLocked = connection->getBoolAttribute("locked", idIsLocked_);
+            XmlFactory::updateSourceControllerFromXml(connection, sourceController_);
+            
+            if(idToBeLocked){
+                lockID();
+            }
             
             // set gui:
             XmlElement* guiElement = xmlState->getChildByName("gui");
