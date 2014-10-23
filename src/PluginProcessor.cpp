@@ -237,7 +237,7 @@ void SpaopAudioProcessor::getStateInformation (MemoryBlock& destData)
     // add connection settings:
     XmlElement* connection = XmlFactory::createConnectionXml(sourceController_);
     connection->setAttribute("locked", idIsLocked_); // part of connection settings for legacy reasons
-    xml.addChildElement(XmlFactory::createConnectionXml(sourceController_));
+    xml.addChildElement(connection);
     
     // add gui settings:
     xml.addChildElement(XmlFactory::createGuiXml(zoomFactor_, showOtherSources_, showNames_));
