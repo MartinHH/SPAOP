@@ -1,1 +1,0 @@
-This directory contains ready-made projects for Xcode 5 and Visual Studio 2013 to build the StreamMulticaster application.
