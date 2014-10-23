@@ -353,7 +353,7 @@ void SpaopAudioProcessor::unlockID()
 
 void SpaopAudioProcessor::setSourceID(int sourceID)
 {
-    if(!idIsLocked_){
+    if(!idIsLocked_ && sourceID >= 0 && sourceID < sourceController_->getSources()->getMaxSources()){
         sourceID_ = sourceID;
     }
 }
