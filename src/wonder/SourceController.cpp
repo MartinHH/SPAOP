@@ -55,8 +55,8 @@ SourceController::~SourceController()
 {
     // in case any listeners are still registered (should not be the case),
     // a deactivation message is sent:
+    std::lock_guard<std::mutex> lock(listenersMutex_);
     for(int i = 0; i < listeners_.size(); i++){
-        std::lock_guard<std::mutex> lock(listenersMutex_);
         if (listeners_[i] != nullptr) {
             cWonder_->sendSourceDeactivate(i);
         }
@@ -337,8 +337,8 @@ void SourceController::sendActiveSourcesStates()
 void SourceController::connectionLost(const int connectionID)
 {
     cStatus_ = error;
+    std::lock_guard<std::mutex> lock(listenersMutex_);
     for(int i = 0; i < listeners_.size(); i++){
-        std::lock_guard<std::mutex> lock(listenersMutex_);
         if (listeners_[i] != nullptr) {
             listeners_[i]->connectionLost();
         }
