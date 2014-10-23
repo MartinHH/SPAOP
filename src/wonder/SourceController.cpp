@@ -356,8 +356,19 @@ int SourceController::onSourceActivate(int sourceID)
     
 int SourceController::onSourceDeactivate(int sourceID)
 {
-    // TODO: check if still active on this side,
-    // cWonder_->sendSourceActivate(sourceID_);
+    listenersMutex_.lock();
+    bool isActive = hasListenerForID(sourceID);
+    listenersMutex_.unlock();
+    
+    if(isActive){
+        // source was deactivated from outside but a corresponding plugin is
+        // active -> reactivate:
+        cWonder_->sendSourceActivate(sourceID);
+    } else {
+        // no plugin exists for source -> update SourceCollection:
+        sources_->deactivate(sourceID);
+    }
+
     return 0;
 }
     
