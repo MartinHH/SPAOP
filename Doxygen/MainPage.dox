@@ -2,7 +2,7 @@
 
 This is the documentation for [SPAOP](https://github.com/MartinHH/SPAOP) (Spatial Audio Object Positioner), a VST/VST3/AU/RTAS plugin to control audio object's positions within the [WONDER system for wave field synthesis](http://sourceforge.net/projects/swonder/).
 
-It consists of a main VST/VST3/AU/RTAS plugin (built using the [JUCE](http://www.juce.com/) framework) and a helper application named the StreamMulticaster. The StreamMulticaster is needed because the plugin recieves incoming OSC messages via a multicast group and WONDER currently does not support sending OSC via multicast - hence, the StreamMulticaster forwards incoming OSC messages to the multicast group.
+It supports the VST/VST3/AU/RTAS standards and is built using the [JUCE](http://www.juce.com/) framework.
 
 For further information, have a look at the following pages:
 
@@ -10,7 +10,7 @@ For further information, have a look at the following pages:
 - \ref installation - how to compile and install things.
 - \ref defines - an overview of options you can set at compile-time.
 - \ref coding - some recommendations for those who want to change the code or reuse it for other projects.
-- \ref usage - how to use SPAOP and the StreamMulticaster
+- \ref usage - how to use SPAOP
 
 */
 
@@ -18,7 +18,7 @@ For further information, have a look at the following pages:
 
 /*! \page requirements Requirements
 
-To build and use the SPAOP plugin and the StreamMulticaster application, you will need the following:
+To build and use the SPAOP plugin, you will need the following:
 
 
 \section os Operating System(s)
@@ -57,11 +57,11 @@ You will need a C++11-capable IDE for the operating system you are bulding for -
 
 \tableofcontents
 
-This page provides hints for building and installing SPAOP, the StreamMulticaster and the required libraries. Please note that those libraries have their own installation documentations and the information here is just a collection of hints on how to get it right. 
+This page provides hints for building and installing SPAOP and the required libraries. Please note that those libraries have their own installation documentations and the information here is just a collection of hints on how to get it right. 
 
 \section quickguide A quick guide
 
-Before going into the details, here is a brief overview of the steps needed to get running versions of SPAOP and the StreamMulticaster:
+Before going into the details, here is a brief overview of the steps needed to get (a) running version(s) of SPAOP:
 
 -# Clone the [SPAOP repository](https://github.com/MartinHH/SPAOP)
 -# Fetch the \ref submodules "submodules"
@@ -69,7 +69,6 @@ Before going into the details, here is a brief overview of the steps needed to g
 -# Build the \ref usingjuce "Introjucer"
 -# Obtain the \ref sdks you need
 -# \ref buildspaop "Build SPAOP" from its .jucer file
--# \ref buildmulticaster "Build the StreamMulticaster" from one of its IDE projects
 
 \section submodules Submodules
 
@@ -152,12 +151,6 @@ Once you have all that installed, you can open the file `./SPAOP/SPAOP.jucer` wi
 Have a look at the \ref defines "preprocessor defines" page for options you can set at compile-time (most importantly, the IP and port of cWONDER are set via the defines CWONDER_DEFAULT_IP_STR and CWONDER_DEFAULT_PORT_STR).
 
 
-
-\section buildmulticaster Building the StreamMulticaster
-
-For building the StreamMulticaster, Xcode and VS 2013 projects can be found within `./StreamMulticaster`. Once again, you might need to readjust the location of the Liblo files. For the connection settings, the \ref defines "defines" from WonderHeader.h are applied (so change them as needed).
-
-
 */
 
 
@@ -173,7 +166,7 @@ Several options (most importantly: the network addresses of the WONDER system) c
 
 \section parameter_defines Parameter-Defines in WonderHeader.h
 
-There are a few parameters for both the plugin and the StreamMulticaster (network addresses, parameter ranges, ...) that are defined in the file WonderHeader.h - so have a look at the file's documentation page for details on those parameters.
+There are a few parameters for the plugin (network addresses, parameter ranges, ...) that are defined in the file WonderHeader.h - so have a look at the file's documentation page for details on those parameters.
 
 \section spaop_discrete SPAOP_DISCRETE
 
@@ -221,31 +214,27 @@ These interfaces also define factory interfaces (as internal classes). If you in
 
 \tableofcontents
 
-Although (hopefully) most things should be self-explanatory if you're used to working with both the WONDER system and audio-plugins, here are a few words on how to use SPAOP and the StreamMulticaster.
+Although (hopefully) most things should be self-explanatory if you're used to working with both the WONDER system and audio-plugins in general, here are a few words on how to use SPAOP.
 
-\section modes The two communication modes
+\section modes Usage with and without a WONDER system
 
-There are two different contexts in which the SPAOP plugin may be used: either connected to a WONDER system ("Linked to WONDER" mode) or on its own, without being connected to WONDER ("Standalone" mode).
+There are two different contexts in which the SPAOP plugin may be used: either connected to a WONDER system or on its own, without being connected to WONDER. The latter allows to prepare a DAW project for use with WONDER even when you do not have a WONDER system available.
 
-\subsection linked Linked to WONDER
+\subsection connected Connected to WONDER
 
-When operating SPAOP in connection with WONDER, you need to do the following steps:
+When using SPAOP in connection with WONDER, you need to do the following steps:
 
 -# Make sure the machine you are using is connected to the WONDER OSC network
 -# Start the WONDER system
 -# Load or create an empty WONDER project (e.g. using xWONDER)
--# Start an instance of the StreamMulticaster from the command line
 -# Load SPAOP within your DAW (one instance per WONDER source)
 -# \ref sourceselection "Set a source-ID for each SPAOP instance and lock it"
--# \ref connection "Activate the Link to WONDER setting"
 
-Note that currently, all network settings are fixed at compiletime, so your SPAOP-plugin must be compiled for the WONDER setup you want to use.
-
-Also, there is a known bug that will make xWONDER act weird when it is started after SPAOP and the StreamMulticaster, so try to avoid that (and don't be surprised in case that happens).
+Please note: there is a known bug that will make xWONDER act weird when it is started after SPAOP, so try to avoid that by starting xWONDER before loading the plugin (and remember this warning in case you run into this problem).
 
 \subsection standalone Standalone
 
-Standalone mode allows you to edit your project (parameter automations) etc even when you're not connected to WONDER. Of course, no wave field synthesis will happen in that case, but you can prepare your project for subsequent use with WONDER. All you need to do for that is:
+SPAOP allows you to edit your project (parameter automations) etc even when you're not connected to WONDER. Of course, no wave field synthesis will happen in that case, but you can prepare your project for subsequent use with WONDER. All you need to do for that is:
 
 -# Load SPAOP within your DAW (one instance per WONDER source)
 -# ref sourceselection "Set a source-ID for each SPAOP instance and lock it"
@@ -270,13 +259,10 @@ This is where you set all parameters of the source (besides its position).
 
 \subsection connection Connection
 
-Here you can toggle between \ref linked and \ref standalone modes. Also, the destination address where the outgoing OSC-messages are sent is displayed. When connected to WONDER, you will also see information on the connection status.
+Here you can set the IP and port of cWONDER. Furthermore, you get two buttons to sync the local state of the plugin to the state of the WONDER system (or vice versa). When connected to WONDER, you will also see information on the connection status (provided that the WONDER system sends out periodic ping messages).
 
-\subsection dsiplay Display
+\subsection display Display
 
 The display settings allow you to control what is being displayed in the panel on the left side. You can control whether the other sources (not controlled by the current SPAOP instance) shall be displayed and whether the names of the sources shall be shown. Also, you can use a slider to zoom in or out.
 
-\section multicaster The StreamMulticaster
-
-There's not much to explain about the StreamMulticaster. Just start it from the command line. To stop it, press enter.
 */
