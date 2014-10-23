@@ -351,7 +351,8 @@ private:
     int onListenerPosition(int listenerID, float x, float y)
     { return 0; /** Not supported (yet?). */}
     
-    int onGlobalMaxNoSources(int maxSources);
+    int onGlobalMaxNoSources(int maxSources)
+    { return 0; /** Not used. */}
     
     int onGlobalRenderpolygon(Room& room);
     
@@ -361,7 +362,8 @@ private:
     
     int onStreamVisualPong(int pingCount){ return 0; }
     
-    int onStreamVisualConnect(OscSender* replyTo);
+    int onStreamVisualConnect(OscSender* replyTo)
+    { return 0; /** Not supported (yet?). */}
     
     int onReply(std::string replyToMsg, int state, std::string msg);
 

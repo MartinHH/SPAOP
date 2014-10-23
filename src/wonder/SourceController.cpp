@@ -398,12 +398,6 @@ int SourceController::onSourceDopplerEffect(int sourceID, int doppler)
     return 0;
 }
     
-int SourceController::onGlobalMaxNoSources(int maxSources)
-{
-    // Not used
-    return 0;
-}
-    
 int SourceController::onGlobalRenderpolygon(Room& room)
 {
     *room_ = room;
@@ -426,12 +420,6 @@ int SourceController::onStreamVisualPing(int pingCount, OscSender* replyTo)
     // notify PingControl (on the first Ping, this will also start PingControl):
     pingControl_.onPing();
     
-    return 0;
-}
-    
-int SourceController::onStreamVisualConnect(wonder::OscSender *replyTo)
-{
-    // not implemented (yet?)
     return 0;
 }
     
