@@ -30,13 +30,13 @@
 //       plugin:
 
 #ifdef SPAOP_10m
-#define COORD_MIN 10
+#define COORD_MAX 10
 #define PLUGIN_RCV_PORT_STR "58051"
 #define STREAM_CLIENT_NAME "SPAOP_10m"
 #endif
 
 #ifdef SPAOP_25m
-#define COORD_MIN 25
+#define COORD_MAX 25
 #define PLUGIN_RCV_PORT_STR "58052"
 #define STREAM_CLIENT_NAME "SPAOP_25m"
 #endif
