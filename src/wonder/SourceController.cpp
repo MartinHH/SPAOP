@@ -117,7 +117,7 @@ void SourceController::activateSource(int sourceID)
 void SourceController::deactivateSource(int sourceID)
 {
     sources_.deactivate(sourceID);
-    cWonder_->sendSourceActivate(sourceID);
+    cWonder_->sendSourceDeactivate(sourceID);
 }
     
 bool SourceController::setSource(const wonder::Source &source)
