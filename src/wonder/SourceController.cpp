@@ -48,7 +48,7 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
     server_->start();
     cWonder_->start();
     
-    cWonder_->sendStreamVisualConnect("SPAOP");
+    cWonder_->sendStreamVisualConnect(STREAM_CLIENT_NAME);
 }
     
 SourceController::~SourceController()
@@ -204,7 +204,7 @@ void SourceController::syncAsMaster()
     // Step 2: request cWONDER to send its state (which will be in sync
     // with what was sent in step 2 (provided the messages sent to cWONDER
     // arrive in order (which is very likely, but not guarenteed):
-    cWonder_->sendStreamVisualConnect("SPAOP");
+    cWonder_->sendStreamVisualConnect(STREAM_CLIENT_NAME);
 }
     
 void SourceController::syncAsSlave() const
@@ -212,7 +212,7 @@ void SourceController::syncAsSlave() const
     // this will cause cWONDER to reply with the /WONDER/project/xmlDump message
     // which will make this SourceController adopt the current state of the wonder
     // system:
-    cWonder_->sendStreamVisualConnect("SPAOP");
+    cWonder_->sendStreamVisualConnect(STREAM_CLIENT_NAME);
 }
     
 bool SourceController::setCWonderAddress(const std::string &ip, const std::string &port)

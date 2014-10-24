@@ -79,6 +79,11 @@
                                         the ping is considered lost. */
 #endif
 
+#ifndef STREAM_CLIENT_NAME
+#define STREAM_CLIENT_NAME "SPAOP" /**< The name the SourceController uses to when
+                                        communicating with cWONDER */
+#endif
+
 
 namespace wonder {
 
