@@ -59,6 +59,9 @@
 //==============================================================================
 // vvvvv communication-related defines:
 
+#ifndef PLUGIN_RCV_PORT_STR
+#define PLUGIN_RCV_PORT_STR "58050" /**< The port the plugin is listening on. */
+#endif
 
 // cWONDER_
 #ifndef CWONDER_DEFAULT_IP_STR

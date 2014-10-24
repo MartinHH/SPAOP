@@ -25,7 +25,7 @@ SourceController::SourceController(VisualStreamReceiver::Factory* vsFactory,
                                    ConnectionTimer::Factory* timerFactory,
                                    XmlParser* xmlParser,
                                    int maxSources):
-    server_(vsFactory->createVisualStreamReceiver()), // TODO: fixed port?
+    server_(vsFactory->createVisualStreamReceiver(PLUGIN_RCV_PORT_STR)),
     cWonder_(server_->createSenderThread(CWONDER_DEFAULT_IP_STR, CWONDER_DEFAULT_PORT_STR)),
     xmlParser_(xmlParser),
     sources_(maxSources),
