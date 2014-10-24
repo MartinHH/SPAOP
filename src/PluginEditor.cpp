@@ -229,7 +229,7 @@ SpaopAudioProcessor* SpaopAudioProcessorEditor::getProcessor() const
     return static_cast <SpaopAudioProcessor*>(getAudioProcessor());
 }
 
-wonder::SourceController* SpaopAudioProcessorEditor::getSourceController() const
+std::shared_ptr<wonder::SourceController> SpaopAudioProcessorEditor::getSourceController() const
 {
     return getProcessor()->getSourceController();
 }

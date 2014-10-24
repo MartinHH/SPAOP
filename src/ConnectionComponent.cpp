@@ -194,7 +194,7 @@ void ConnectionComponent::buttonClicked (Button* buttonThatWasClicked)
 
 void ConnectionComponent::update()
 {
-    const wonder::SourceController* controller = getProcessor()->getSourceController();
+    std::shared_ptr<wonder::SourceController> controller = getProcessor()->getSourceController();
 
     if(!cwAddressIsBeingEdited_){
         cwIpEditor->setText(controller->getCWonderHost(), false);

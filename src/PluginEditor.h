@@ -84,7 +84,7 @@ private:
     SpaopAudioProcessor* getProcessor() const;
 
     /** Returns the Plugin's SourceController instance */
-    wonder::SourceController* getSourceController() const;
+    std::shared_ptr<wonder::SourceController> getSourceController() const;
 
 public:
     /** Normalizes a slider's value to the range of [0.0 ; 1.0]. */

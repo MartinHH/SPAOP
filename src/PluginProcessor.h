@@ -20,6 +20,8 @@
 #ifndef PLUGINPROCESSOR_H_INCLUDED
 #define PLUGINPROCESSOR_H_INCLUDED
 
+#include <memory>
+
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Source.h"
 #include "JuceConnectionTimer.h"
@@ -257,7 +259,7 @@ public:
      *
      *  @return A pointer to the wonder::SourceController object.
      */
-    wonder::SourceController* getSourceController() const;
+    std::shared_ptr<wonder::SourceController> getSourceController() const;
     
     /** Returns the wonder::Source object corresponding to the ID assigned to this
      *  instance of the plugin.
@@ -377,9 +379,13 @@ public:
 
 private:
     //==============================================================================
-    static wonder::SourceController* getControllerSingleton();
     
-    wonder::SourceController* sourceController_;
+    // the SourceController is created as a reference-counted singleton:
+    static std::mutex singletonMutex_;
+    static std::shared_ptr<wonder::SourceController> instance_;
+    static std::shared_ptr<wonder::SourceController> getControllerSingleton();
+    
+    std::shared_ptr<wonder::SourceController> sourceController_;
     
     int sourceID_;
     bool idIsLocked_;

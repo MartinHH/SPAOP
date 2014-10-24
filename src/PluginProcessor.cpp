@@ -235,7 +235,7 @@ void SpaopAudioProcessor::getStateInformation (MemoryBlock& destData)
     xml.addChildElement(XmlFactory::createRoomXml(*(sourceController_->getRoom())));
     
     // add connection settings:
-    XmlElement* connection = XmlFactory::createConnectionXml(sourceController_);
+    XmlElement* connection = XmlFactory::createConnectionXml(sourceController_.get());
     connection->setAttribute("locked", idIsLocked_); // part of connection settings for legacy reasons
     xml.addChildElement(connection);
     
@@ -280,7 +280,7 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             // set connection:
             XmlElement* connection = xmlState->getChildByName("connection");
             const bool idToBeLocked = connection->getBoolAttribute("locked", idIsLocked_);
-            XmlFactory::updateSourceControllerFromXml(connection, sourceController_);
+            XmlFactory::updateSourceControllerFromXml(connection, sourceController_.get());
             
             if(idToBeLocked){
                 lockID();
@@ -323,7 +323,7 @@ void SpaopAudioProcessor::setCoordinatesNotifyingHost(float normalizedX, float n
     sendParamChangeMessageToListeners (wonder::Source::yPosParam, normalizedY);
 }
 
-wonder::SourceController* SpaopAudioProcessor::getSourceController() const
+std::shared_ptr<wonder::SourceController> SpaopAudioProcessor::getSourceController() const
 {
     return sourceController_;
 }
@@ -398,12 +398,25 @@ bool SpaopAudioProcessor::setCWonderAddress(const std::string &ip, const std::st
     return sourceController_->setCWonderAddress(ip, port);
 }
 
-wonder::SourceController* SpaopAudioProcessor::getControllerSingleton()
-{
+std::mutex SpaopAudioProcessor::singletonMutex_;
 
-    static wonder::SourceController instance(wonderlo::VSReceiver::getFactory(),
-                                             wonderjuce::JuceConnectionTimer::getFactory(),
-                                             wonderjuce::XmlFactory::getParser(),
-                                             MAX_WONDER_SOURCES); // thread-safe in C++11
-    return &instance;
+std::shared_ptr<wonder::SourceController> SpaopAudioProcessor::instance_;
+
+std::shared_ptr<wonder::SourceController> SpaopAudioProcessor::getControllerSingleton()
+{
+    // This method ensures two things:
+    // 1. there's always just one single instance of the SourceController
+    // 2. when the last plugin instance is destroyed, the SourceController gets destroyed by
+    //    the shared_ptr and a new instance is created in case new plugins are created again.
+    
+    std::lock_guard<std::mutex> lock(singletonMutex_);
+    
+    if (!instance_) {
+        instance_ = std::make_shared<wonder::SourceController>(wonderlo::VSReceiver::getFactory(),
+                                                               wonderjuce::JuceConnectionTimer::getFactory(),
+                                                               wonderjuce::XmlFactory::getParser(),
+                                                               MAX_WONDER_SOURCES);
+    }
+    
+    return instance_;
 }
