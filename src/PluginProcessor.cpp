@@ -228,16 +228,16 @@ void SpaopAudioProcessor::getStateInformation (MemoryBlock& destData)
     // Create an outer XML element:
     XmlElement xml ("SPAOPSETTINGS");
     
-    // add source data to it:
-    xml.addChildElement(XmlFactory::createSourceXml(sourceController_->getSource(sourceID_)));
-    
-    // add Room data:
-    xml.addChildElement(XmlFactory::createRoomXml(*(sourceController_->getRoom())));
-    
     // add connection settings:
     XmlElement* connection = XmlFactory::createConnectionXml(sourceController_.get());
     connection->setAttribute("locked", idIsLocked_); // part of connection settings for legacy reasons
     xml.addChildElement(connection);
+    
+    // add Room data:
+    xml.addChildElement(XmlFactory::createRoomXml(*(sourceController_->getRoom())));
+    
+    // add source data to it:
+    xml.addChildElement(XmlFactory::createSourceXml(sourceController_->getSource(sourceID_)));
     
     // add gui settings:
     xml.addChildElement(XmlFactory::createGuiXml(zoomFactor_, showOtherSources_, showNames_));
@@ -267,23 +267,25 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             // unregister from SourceCollection (callbacks etc):
             unlockID();
             
-            // set source:
-            wonder::Source source;
-            XmlFactory::updateSourceFromXml(xmlState->getChildByName("source"), &source);
-            sourceController_->setSource(source);
-            sourceID_ = source.getID();
+            // set connection:
+            XmlElement* connection = xmlState->getChildByName("connection");
+            const bool idToBeLocked = connection->getBoolAttribute("locked", false);
+            XmlFactory::updateSourceControllerFromXml(connection, sourceController_.get());
             
             // set room:
             wonder::Room newRoom = XmlFactory::createRoomFromXml(xmlState->getChildByName("room"));
             sourceController_->setRoom(newRoom);
             
-            // set connection:
-            XmlElement* connection = xmlState->getChildByName("connection");
-            const bool idToBeLocked = connection->getBoolAttribute("locked", idIsLocked_);
-            XmlFactory::updateSourceControllerFromXml(connection, sourceController_.get());
+            // set source:
+            wonder::Source source;
+            XmlFactory::updateSourceFromXml(xmlState->getChildByName("source"), &source);
+            sourceID_ = source.getID();
             
-            if(idToBeLocked){
-                lockID();
+            if(idToBeLocked && lockID()){
+                // we only update the source if we successfully "locked" that source (otherwise,
+                // another plugin instance is responsible for that source already):
+                source.setIsActive(true);
+                sourceController_->setSource(source);
             }
             
             // set gui:
@@ -333,12 +335,13 @@ const wonder::Source& SpaopAudioProcessor::getSource() const
     return sourceController_->getSource(sourceID_);
 }
 
-void SpaopAudioProcessor::lockID()
+bool SpaopAudioProcessor::lockID()
 {
     if(sourceController_->setListener(sourceID_, this)){
         sourceController_->activateSource(sourceID_);
         idIsLocked_ = true;
     }
+    return idIsLocked_;
 }
 
 void SpaopAudioProcessor::unlockID()
@@ -406,8 +409,8 @@ std::shared_ptr<wonder::SourceController> SpaopAudioProcessor::getControllerSing
 {
     // This method ensures two things:
     // 1. there's always just one single instance of the SourceController
-    // 2. when the last plugin instance is destroyed, the SourceController gets destroyed by
-    //    the shared_ptr and a new instance is created in case new plugins are created again.
+    // 2. when the last plugin instance is destroyed, the SourceController gets destroyed by the
+    //    shared_ptr (and a new SourceController) is created in case new plugins are created again.
     
     std::lock_guard<std::mutex> lock(singletonMutex_);
     

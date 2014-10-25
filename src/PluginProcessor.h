@@ -276,9 +276,11 @@ public:
      *  To sum it up: this must be called to make the plugin work.
      *  Once the ID is locked, it cannot be changed (until unlockID() is called).
      *
+     *  @return true if the ID was succesfully "locked".
+     *
      *  @see unlockID(), idIsLocked().
      */
-    void lockID();
+    bool lockID();
     
     /** "Unlocks" the currently assigned ID. This will unregister this plugin
      *  for callbacks from incoming OSC messages from the WONDER system and will
