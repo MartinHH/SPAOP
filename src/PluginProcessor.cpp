@@ -284,8 +284,8 @@ void SpaopAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             if(idToBeLocked && lockID()){
                 // we only update the source if we successfully "locked" that source (otherwise,
                 // another plugin instance is responsible for that source already):
-                source.setIsActive(true);
                 sourceController_->setSource(source);
+                source.setIsActive(true);
             }
             
             // set gui:

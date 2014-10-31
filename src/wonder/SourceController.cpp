@@ -111,7 +111,7 @@ const SourceCollection* SourceController::getSources() const
 void SourceController::activateSource(int sourceID)
 {
     sources_.activate(sourceID);
-    cWonder_->sendSourceActivate(sourceID);
+    sendSourceState(sourceID);
 }
     
 void SourceController::deactivateSource(int sourceID)
